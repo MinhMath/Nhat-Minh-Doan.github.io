@@ -1,6 +1,13 @@
 name: Daily citation audit
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'citation_agent.py'
+      - 'docs/papers.json'
+      - 'requirements.txt'
+      - '.github/workflows/citations.yml'
   schedule:
     # Daily at 08:23 Vietnam time (01:23 UTC).
     - cron: "23 1 * * *"
