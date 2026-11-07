@@ -1,10 +1,11 @@
 # Nhat Minh Doan — automatic citation evidence audit
 
-This repository contains a [citation dashboard](docs/index.html) and a daily GitHub Actions collector for the mathematical publications of Nhat Minh Doan. This is an evidence-backed **lower bound**, not a claim to know an exact worldwide citation total.
+This repository contains an immediately accessible [citation report](CITATIONS.md), an interactive [citation dashboard](docs/index.html), and a daily GitHub Actions collector for the mathematical publications of Nhat Minh Doan. This is an evidence-backed **lower bound**, not a claim to know an exact worldwide citation total.
 
 ## What is monitored
 
 - Canonical publications and aliases: [docs/papers.json](docs/papers.json)
+- Human-readable GitHub report: [CITATIONS.md](CITATIONS.md)
 - Verified citation relationships with source links: [docs/verified.json](docs/verified.json)
 - Indexed-only discoveries and errors: [docs/discovered.json](docs/discovered.json)
 - Collector: [citation_agent.py](citation_agent.py)
@@ -25,7 +26,7 @@ There are **13 provisional canonical works** and **7 manually verified citation 
 
 A verified citation relationship is a distinct citing work mentioning a given target paper in its bibliography. If a citing paper references two of your papers, it contributes **two relationships**, not one. References in different versions of the same citing paper should count once. The dashboard shows independent verified citations separately from papers authored by Doan.
 
-The HexagonMath scan records successfully checked versions in `docs/scan_state.json` so later runs concentrate on newly added versions. The automated collector is a **best-effort supplementary discovery system**: APIs can rate-limit, HTML layouts can change, and full-text coverage is incomplete. Inspect any unexpected discoveries before treating the counts as definitive.
+A plain-text citation report is also generated after each scan and remains accessible in GitHub even before Pages is enabled. The HexagonMath scan records successfully checked versions in `docs/scan_state.json` so later runs concentrate on newly added versions. The automated collector is a **best-effort supplementary discovery system**: APIs can rate-limit, HTML layouts can change, and full-text coverage is incomplete. Inspect any unexpected discoveries before treating the counts as definitive.
 
 ## Manual correction
 
