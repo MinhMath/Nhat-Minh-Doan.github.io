@@ -37,3 +37,5 @@ python -m http.server 8000 --directory docs
 Self citations count citing works that include Nhat Minh Doan. Citations by collaborators without him count as non-self. Each distinct citing work counts once per target paper, including across Zenodo versions.
 
 The title column takes most of the page width. Authors, publication details, and abstracts open under a “more details” control for each paper and each citing work. Citing lists open across the table width and follow the same newest-first order by first online appearance. External abstracts are concise summaries labelled accordingly; original abstracts are retained for Doan’s papers. Mathematical formulas are typeset when their details panel opens.
+
+For published papers, the abstract comes from the version of record, including publisher-deposited Crossref metadata. Unpublished papers use the latest public arXiv or HexagonMath version. Abstract source, version, and check date are recorded separately from the first-online date; updating an abstract must not change that date. A failed publisher fetch must not replace a published abstract with an older preprint abstract.

@@ -103,7 +103,12 @@
   {
     "doi": "10.1016/j.aim.2025.110162",
     "venue": "Advances in Mathematics 466 (2025), 110162.",
-    "metadata_source": "https://api.crossref.org/works/10.1016/j.aim.2025.110162"
+    "metadata_source": "https://api.crossref.org/works/10.1016/j.aim.2025.110162",
+    "abstract": "This paper introduces a natural combinatorial structure of orthogeodesics on hyperbolic surfaces and presents Ptolemy relations among them. As a primary application, we propose a recursive method for computing the trace (the hyperbolic cosine of the length) of orthogeodesics and establish the existence of surfaces where the trace of each orthogeodesic is an integer. These surfaces and their orthogeodesics are closely related to integral Apollonian circle packings. Notably, we found a new type of root-flipping that transitions between roots in different quadratic equations of a certain type, with Vieta root-flipping as a special case. Finally, we provide a combinatorial proof of Basmajian's identity for hyperbolic surfaces, akin to Bowditch's combinatorial proof of the McShane identity.",
+    "abstract_kind": "original",
+    "abstract_source": "https://doi.org/10.1016/j.aim.2025.110162",
+    "abstract_version": "published version",
+    "abstract_checked_utc": "2026-11-07"
   },
   {
     "doi": "10.1017/fms.2023.85",
@@ -113,7 +118,12 @@
   {
     "doi": "10.1090/tran/9657",
     "venue": "Transactions of the American Mathematical Society 379 (9) (2026), 6365-6392.",
-    "metadata_source": "https://api.crossref.org/works/10.1090/tran/9657"
+    "metadata_source": "https://api.crossref.org/works/10.1090/tran/9657",
+    "abstract": "We investigate ortho-integral (OI) hyperbolic surfaces with totally geodesic boundaries, defined by the property that every orthogeodesic (i.e., a geodesic arc meeting the boundary perpendicularly at both endpoints) has an integer cosh-length. We prove that while only finitely many OI surfaces exist for any fixed topology, infinitely many commensurability classes arise as the topology varies. Moreover, we completely classify OI pairs of pants and OI one-holed tori, and show that their doubles are arithmetic surfaces of genus two derived from quaternion algebras over $\\mathbb {Q}$ .",
+    "abstract_kind": "original",
+    "abstract_source": "https://doi.org/10.1090/tran/9657",
+    "abstract_version": "published version",
+    "abstract_checked_utc": "2026-11-07"
   },
   {
     "doi": "10.1112/blms.13080",
@@ -123,7 +133,12 @@
   {
     "doi": "10.1112/blms.70088",
     "venue": "Bulletin of the London Mathematical Society 57 (7) (2025), 2190-2209.",
-    "metadata_source": "https://api.crossref.org/works/10.1112/blms.70088"
+    "metadata_source": "https://api.crossref.org/works/10.1112/blms.70088",
+    "abstract": "We investigate arcs on a pair of pants and present an algorithm to compute the self‐intersection number of an arc. Additionally, we establish bounds for the self‐intersection number in terms of the word length. We also prove that the spectrum of self‐intersection numbers of 2‐low‐lying arcs covers all natural numbers.",
+    "abstract_kind": "original",
+    "abstract_source": "https://doi.org/10.1112/blms.70088",
+    "abstract_version": "published version",
+    "abstract_checked_utc": "2026-11-07"
   },
   {
     "doi": "10.4171/cmh/621",
@@ -141,7 +156,12 @@
     "id": "2610.00298",
     "authors": "Nhat Minh Doan",
     "venue": "HexagonMath, hexagon:2610.00298.",
-    "metadata_source": "https://hexagonmath.org/2610.00298v1"
+    "metadata_source": "https://hexagonmath.org/2610.00298v1",
+    "abstract": "For every fixed hyperbolic torus with one cusp or one geodesic\nboundary, we prove that, among simple curves of length at most $L$,\nthe number of isometry orbits and the number of distinct lengths\ndiffer by $o(L^2)$. Thus almost every complete length level is a single isometry orbit\nof at most six curves, and multiplicity converges in mean to the\ngeneric orbit size. The modular specialization is exactly Chen's\ndensity theorem for Markoff uniqueness. We also prove the full Schmutz--Schaller bound for every punctured\ntorus having a simple trace that is not an algebraic integer,\nincluding any transcendental trace, and for dense families with\nintegral traces. More strongly, every rational length class on\nthese surfaces contains at most two curves. Transcendental twists\ngive multiplicity one, while symmetric families with geodesic\nboundary attain the sharp bounds four and six.\nThe density proof extends\nChen's method using the stable-norm estimates of Doan-Li-Nguyen.",
+    "abstract_kind": "original",
+    "abstract_source": "https://hexagonmath.org/2610.00298v1",
+    "abstract_version": "HexagonMath v1",
+    "abstract_checked_utc": "2026-11-07"
   },
   {
     "title": "The torus with asymptotically the fewest simple closed geodesics",
@@ -149,7 +169,12 @@
     "id": "2610.00159",
     "authors": "Phuc Thinh Dang; Trong Toan Dao; Nhat Minh Doan",
     "venue": "HexagonMath, hexagon:2610.00159.",
-    "metadata_source": "https://hexagonmath.org/2610.00159v1"
+    "metadata_source": "https://hexagonmath.org/2610.00159v1",
+    "abstract": "We prove that the modular torus uniquely minimizes the area of the stable-norm unit ball among complete finite-area hyperbolic once-punctured tori, resolving the McShane--Rivin area conjecture. It therefore has fewer simple closed geodesics of length at most $L$ than any fixed nonmodular torus for all sufficiently large $L$. We also bound the area increase away from the modular torus and determine its leading growth and first correction term as the systole tends to zero, with error bounds independent of the twist.",
+    "abstract_kind": "original",
+    "abstract_source": "https://hexagonmath.org/2610.00159v1",
+    "abstract_version": "HexagonMath v1",
+    "abstract_checked_utc": "2026-11-07"
   },
   {
     "title": "Almost all Markoff numbers are unique.",
@@ -165,7 +190,12 @@
     "id": "2610.00298",
     "authors": "Nhat Minh Doan",
     "venue": "HexagonMath, hexagon:2610.00298.",
-    "metadata_source": "https://hexagonmath.org/2610.00298v1"
+    "metadata_source": "https://hexagonmath.org/2610.00298v1",
+    "abstract": "For every fixed hyperbolic torus with one cusp or one geodesic\nboundary, we prove that, among simple curves of length at most $L$,\nthe number of isometry orbits and the number of distinct lengths\ndiffer by $o(L^2)$. Thus almost every complete length level is a single isometry orbit\nof at most six curves, and multiplicity converges in mean to the\ngeneric orbit size. The modular specialization is exactly Chen's\ndensity theorem for Markoff uniqueness. We also prove the full Schmutz--Schaller bound for every punctured\ntorus having a simple trace that is not an algebraic integer,\nincluding any transcendental trace, and for dense families with\nintegral traces. More strongly, every rational length class on\nthese surfaces contains at most two curves. Transcendental twists\ngive multiplicity one, while symmetric families with geodesic\nboundary attain the sharp bounds four and six.\nThe density proof extends\nChen's method using the stable-norm estimates of Doan-Li-Nguyen.",
+    "abstract_kind": "original",
+    "abstract_source": "https://hexagonmath.org/2610.00298v1",
+    "abstract_version": "HexagonMath v1",
+    "abstract_checked_utc": "2026-11-07"
   },
   {
     "title": "PARAMETER MONOTONICITY FOR GENERALIZED k-MARKOV NUMBERS",
