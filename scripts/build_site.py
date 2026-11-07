@@ -29,6 +29,7 @@ def header(active, prefix=''):
   <a href="{prefix or './'}" {'aria-current="page"' if active=='home' else ''}>Homepage</a>
   <a href="{prefix}papers/" {'aria-current="page"' if active=='papers' else ''}>Papers</a>
   <a href="{prefix}cv/" {'aria-current="page"' if active=='cv' else ''}>CV</a>
+  <a href="{prefix}seminars/" {'aria-current="page"' if active=='seminars' else ''}>Online Seminars</a>
   <button class="search-open" type="button" aria-label="Search this site"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
  </nav>
 </header>
@@ -65,10 +66,9 @@ def main():
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
   <p>Hello! I am Minh, a researcher at the {external('https://vast.gov.vn/web/vietnam-academy-of-science-and-technology/institutes1','Institute of Mathematics, VAST')}. I was a {external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} at the {external('https://www.math.nus.edu.sg/','National University of Singapore')} under Prof. {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}. My {external('https://orbilu.uni.lu/handle/10993/50710','PhD thesis')} was completed at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')} under Prof. {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} in 2022.</p>
   <p>My research focuses on hyperbolic surfaces, length spectra, and related topics. I was introduced to hyperbolic geometry during my Master’s (M2) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')} in 2017, where Prof. {external('https://flab.perso.math.cnrs.fr/','François Labourie')} supervised my master’s thesis.</p>
-  <p>Here is my <a href="cv/">CV</a> and my email address: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
+  <p>Here is my <a href="papers/">papers</a>, <a href="cv/">CV</a>, and my email address: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
  </section>
 </main>
-<footer class="content-width"><a href="https://sites.google.com/view/nhatminhdoan" target="_blank" rel="noopener noreferrer">Online Seminar</a></footer>
 </body>
 </html>
 '''
@@ -110,6 +110,26 @@ def main():
 {''.join(sheets)}</main></body></html>'''
  (DOCS/'cv').mkdir(exist_ok=True)
  (DOCS/'cv/index.html').write_text(cv,encoding='utf-8')
+ seminars=f'''<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online Seminars — Nhat Minh Doan</title>
+<meta name="description" content="The Hyperbolic Geometry and Related Topics Online Seminar: a forum for researchers and graduate students, organised by Nhat Minh Doan.">
+<link rel="canonical" href="{BASE}seminars/"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css?v={asset_revision('site.css')}">
+<script defer src="../assets/site.js" data-catalogue="../papers.json" data-papers="../papers/"></script>
+</head><body>{header('seminars','../')}
+<main id="main">
+ <div class="section-heading"><div class="content-width"><h1 class="seminars-title">Online Seminars</h1></div></div>
+ <section class="seminar-copy content-width" aria-labelledby="seminar-name">
+  <h2 id="seminar-name">Hyperbolic Geometry &amp; Related Topics Online Seminar</h2>
+  <p>I organize this online seminar for researchers and graduate students to share current work, discuss new ideas, and build connections across institutions. Topics include hyperbolic geometry, Teichmüller theory, low-dimensional topology, geometric group theory, and dynamics.</p>
+  <p>If you would like to give a talk, please email me a title, a short abstract, and your availability, including your time zone.</p>
+  <p>Contact: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
+  <div class="seminar-links">{external('https://sites.google.com/view/nhatminhdoan/upcoming-talks','Talk announcements')}{external('https://sites.google.com/view/nhatminhdoan','Seminar website')}</div>
+ </section>
+</main></body></html>'''
+ (DOCS/'seminars').mkdir(exist_ok=True)
+ (DOCS/'seminars/index.html').write_text(seminars,encoding='utf-8')
  print('Built personal homepage:',len(primary),'papers and',len(other),'other writings')
 
 if __name__=='__main__':main()
