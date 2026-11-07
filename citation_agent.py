@@ -20,6 +20,7 @@ DIR=Path(__file__).resolve().parent/"docs"
 PAPERS=json.loads((DIR/"papers.json").read_text(encoding="utf-8"))
 SEEDS=json.loads((DIR/"verified.json").read_text(encoding="utf-8"))
 DEST=DIR/"discovered.json"
+STATE=DIR/"scan_state.json"
 session=requests.Session()
 session.headers["User-Agent"]="NhatMinhDoanCitationAudit/1.0 (noncommercial citation metadata)"
 errors=[]
@@ -185,7 +186,13 @@ def hexagon_scan(papers):
     new=[]
     url="https://hexagonmath.org/search?per_page=100"
     seen=set()
-    visited=set()
+    try:
+        state=json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
+    except ValueError:
+        state={}
+    completed=set(state.get("hexagon_pages_checked",[]))
+    visited=set(completed)
+    successes=set(completed)
     from urllib.parse import urljoin
     for page in range(20):
         if url in seen:break
@@ -205,6 +212,7 @@ def hexagon_scan(papers):
                 page_resp=session.get(urljoin(url,href),timeout=25)
                 if page_resp.status_code!=200:continue
                 doc=BeautifulSoup(page_resp.text,"html.parser")
+                successes.add(href)
                 headings=[h for h in doc.find_all(["h2","h3"]) if clean(h.get_text(" ",strip=True))=="references"]
                 if not headings:continue
                 h=headings[-1];refitems=[]
@@ -230,6 +238,7 @@ def hexagon_scan(papers):
         nxt=next((a for a in soup.select("a[href]") if "next 100 works" in clean(a.get_text(" ",strip=True))),None)
         if nxt is None:break
         url=urljoin(url,nxt.get("href",""))
+    STATE.write_text(json.dumps({"hexagon_pages_checked":sorted(successes),"last_checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")},indent=2)+"\n",encoding="utf-8")
     return new
 
 
