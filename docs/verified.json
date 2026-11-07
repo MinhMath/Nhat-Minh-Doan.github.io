@@ -32,36 +32,6 @@
   },
   {
     "target": "DLN",
-    "title": "Patterns in the Markov Numbers and Their Generalizations",
-    "id": "2609.14149",
-    "platform": "arxiv",
-    "authors": "Cormac O'Sullivan",
-    "verified": true,
-    "source": "Verified in arXiv PDF bibliography",
-    "work_id": "arxiv:2609.14149",
-    "identifiers": [
-      "arxiv:2609.14149"
-    ],
-    "evidence": [
-      {
-        "source": "Manually inspected bibliography (2026-11-07)"
-      },
-      {
-        "source": "Verified in arXiv PDF bibliography",
-        "url": "https://arxiv.org/abs/2609.14149",
-        "evidence_url": "https://arxiv.org/pdf/2609.14149",
-        "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.",
-        "checked_utc": "2026-11-07T02:47:20+00:00"
-      }
-    ],
-    "arxiv": "2609.14149",
-    "url": "https://arxiv.org/abs/2609.14149",
-    "evidence_url": "https://arxiv.org/pdf/2609.14149",
-    "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.",
-    "checked_utc": "2026-11-07T02:47:20+00:00"
-  },
-  {
-    "target": "DLN",
     "title": "Counting Markov Triples and Simple Geodesics",
     "id": "2610.36069",
     "platform": "arxiv",
@@ -89,6 +59,43 @@
     "evidence_url": "https://arxiv.org/pdf/2610.36069",
     "evidence_excerpt": "5. Harvey Cohn,Approach to Markoff’s Minimal Forms Through Modular Functions, Annals of Mathe- matics61(1955), no. 1, 1–12. MR0067935 6. Charles de la Vall´ ee Poussin,Sur la fonctionζ(s)de Riemann et le nombre des nombres premiers inf´ erieurs ` a une limite donn´ ee, M´ emoires de l’Acad´ emie royale de Belgique59(1899), no. 1, 1–74. 7. Nhat Minh Doan, Xiaobin Li, and Van Nguyen,Stable-norm boundary geometry on once-punctured tori, October 2026, arXiv:2605.14574v3.",
     "checked_utc": "2026-11-07T02:47:21+00:00"
+  },
+  {
+    "target": "DLN",
+    "title": "Patterns in the Markov Numbers and Their Generalizations",
+    "id": "2609.14149",
+    "platform": "arxiv",
+    "authors": "Cormac O'Sullivan",
+    "verified": true,
+    "source": "Verified in arXiv PDF bibliography",
+    "work_id": "doi:10.48550/arxiv.2609.14149",
+    "identifiers": [
+      "arxiv:2609.14149",
+      "doi:10.48550/arxiv.2609.14149",
+      "openalex:W7213290105"
+    ],
+    "evidence": [
+      {
+        "source": "Manually inspected bibliography (2026-11-07)"
+      },
+      {
+        "source": "Verified in arXiv PDF bibliography",
+        "url": "https://arxiv.org/abs/2609.14149",
+        "evidence_url": "https://arxiv.org/pdf/2609.14149",
+        "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.",
+        "checked_utc": "2026-11-07T02:47:20+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.48550/arxiv.2609.14149"
+      }
+    ],
+    "arxiv": "2609.14149",
+    "url": "https://arxiv.org/abs/2609.14149",
+    "evidence_url": "https://arxiv.org/pdf/2609.14149",
+    "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.",
+    "checked_utc": "2026-11-07T02:47:20+00:00",
+    "doi": "10.48550/arxiv.2609.14149"
   },
   {
     "title": "The torus with asymptotically the fewest simple closed geodesics",
@@ -250,7 +257,7 @@
     "evidence_locator": "10.1016/j.aim.2025.110162_br0200",
     "evidence_excerpt": "N.M. Doan, K. Le, Some arithmetic aspects of ortho-integral surfaces, in preparation.",
     "evidence_sha256": "0781b8626febb7af4a0f2c451ac29367f4710f982c7911cc94c2b1470c86d976",
-    "checked_utc": "2026-11-07T03:31:07+00:00",
+    "checked_utc": "2026-11-07T03:40:06+00:00",
     "work_id": "doi:10.1016/j.aim.2025.110162",
     "identifiers": [
       "arxiv:2112.10694",
@@ -262,26 +269,40 @@
         "url": "https://doi.org/10.1016/j.aim.2025.110162",
         "evidence_url": "https://api.crossref.org/works/10.1016/j.aim.2025.110162",
         "evidence_excerpt": "N.M. Doan, K. Le, Some arithmetic aspects of ortho-integral surfaces, in preparation.",
+        "checked_utc": "2026-11-07T03:40:06+00:00"
+      },
+      {
+        "source": "Verified in publisher-deposited Crossref bibliography",
+        "url": "https://doi.org/10.1016/j.aim.2025.110162",
+        "evidence_url": "https://api.crossref.org/works/10.1016/j.aim.2025.110162",
+        "evidence_excerpt": "N.M. Doan, K. Le, Some arithmetic aspects of ortho-integral surfaces, in preparation.",
         "checked_utc": "2026-11-07T03:31:07+00:00"
       }
     ]
   },
   {
+    "id": "2407.17750",
     "title": "Self-intersections of arcs on a pair of pants",
     "arxiv": "2407.17750",
     "doi": "10.1112/blms.70088",
-    "year": 2025,
-    "target": "filling",
     "authors": "Nhat Minh Doan; Hanh Vo",
+    "year": 2025,
+    "aliases": [
+      "Self-intersection of arcs on a pair of pants"
+    ],
+    "section": "papers",
+    "display_number": 5,
+    "venue": "Bulletin of the London Mathematical Society 57 (2025), 2190–2209.",
+    "platform": "arxiv",
+    "target": "filling",
     "verified": true,
-    "source": "Manually checked primary-source bibliography",
-    "evidence_excerpt": "20 N. M. Doan, Geometric filling curves on punctured surfaces, Glasg. Math. J. 65 (2023), no. 2, 383–400.",
-    "evidence_locator": "Publisher bibliography, reference 20",
-    "checked_utc": "2026-11-07T03:04:49+00:00",
-    "platform": "doi",
-    "id": "10.1112/blms.70088",
     "url": "https://doi.org/10.1112/blms.70088",
-    "evidence_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/pdf/10.1112/blms.70088",
+    "source": "Verified in publisher-deposited Crossref bibliography",
+    "evidence_url": "https://api.crossref.org/works/10.1112/blms.70088",
+    "evidence_locator": "e_1_2_7_21_1",
+    "evidence_excerpt": "10.1017/S0017089522000404",
+    "evidence_sha256": "68f310d0832001e6a0b5f384d4a2356aae3a4d83918ae39db108490a8774664f",
+    "checked_utc": "2026-11-07T03:40:06+00:00",
     "work_id": "doi:10.1112/blms.70088",
     "identifiers": [
       "arxiv:2407.17750",
@@ -289,6 +310,13 @@
       "openalex:W4410122476"
     ],
     "evidence": [
+      {
+        "source": "Verified in publisher-deposited Crossref bibliography",
+        "url": "https://doi.org/10.1112/blms.70088",
+        "evidence_url": "https://api.crossref.org/works/10.1112/blms.70088",
+        "evidence_excerpt": "10.1017/S0017089522000404",
+        "checked_utc": "2026-11-07T03:40:06+00:00"
+      },
       {
         "source": "Manually checked primary-source bibliography",
         "url": "https://doi.org/10.1112/blms.70088",
@@ -303,46 +331,10 @@
       {
         "source": "OpenCitations reference edge (Crossref metadata)",
         "url": "https://doi.org/10.1112/blms.70088"
-      }
-    ]
-  },
-  {
-    "id": "2601.03876",
-    "title": "Graded Bridgeman dilogarithm identities on hyperbolic surfaces",
-    "arxiv": "2601.03876",
-    "authors": "Ara Basmajian; Nhat Minh Doan; Hugo Parlier; Ser Peow Tan",
-    "year": 2026,
-    "section": "papers",
-    "display_number": 9,
-    "venue": "Preprint, 2026. Submitted.",
-    "platform": "arxiv",
-    "target": "ortho",
-    "verified": true,
-    "source": "Verified by direct bibliography inspection",
-    "url": "https://arxiv.org/abs/2601.03876",
-    "evidence_url": "https://arxiv.org/pdf/2601.03876",
-    "evidence_sha256": "97a560257b196174edfe58f5031fce8372514410564ca98813081b4e9789e818",
-    "evidence_version": "2601.03876v1",
-    "checked_utc": "2026-11-07T03:06:58+00:00",
-    "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces.Advances in Mathematics, 466:110162, 2025.",
-    "work_id": "arxiv:2601.03876",
-    "identifiers": [
-      "arxiv:2601.03876"
-    ],
-    "evidence": [
-      {
-        "source": "Verified by direct bibliography inspection",
-        "url": "https://arxiv.org/abs/2601.03876",
-        "evidence_url": "https://arxiv.org/pdf/2601.03876",
-        "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces.Advances in Mathematics, 466:110162, 2025.",
-        "checked_utc": "2026-11-07T03:06:58+00:00"
       },
       {
-        "source": "Manually checked primary-source bibliography",
-        "url": "https://arxiv.org/abs/2601.03876",
-        "evidence_url": "https://arxiv.org/pdf/2601.03876v1",
-        "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces. Advances in Mathematics, 466:110162, 2025.",
-        "checked_utc": "2026-11-07T03:04:49+00:00"
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.1112/blms.70088"
       }
     ]
   },
@@ -364,14 +356,29 @@
     "evidence_url": "https://arxiv.org/pdf/2504.09403",
     "evidence_sha256": "51f824eaaf272fd3fd734bcea5d97d8f32f6bb34de73fff9d391d6a3fbcd5f23",
     "evidence_version": "2504.09403v2",
-    "checked_utc": "2026-11-07T03:07:00+00:00",
+    "checked_utc": "2026-11-07T03:40:09+00:00",
     "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces.Advances in Mathematics, 466:110162, 2025.",
     "work_id": "doi:10.1090/tran/9657",
     "identifiers": [
       "arxiv:2504.09403",
-      "doi:10.1090/tran/9657"
+      "doi:10.1090/tran/9657",
+      "openalex:W4415157389"
     ],
     "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2504.09403",
+        "evidence_url": "https://arxiv.org/pdf/2504.09403",
+        "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces.Advances in Mathematics, 466:110162, 2025.",
+        "checked_utc": "2026-11-07T03:40:09+00:00"
+      },
+      {
+        "source": "Verified in publisher-deposited Crossref bibliography",
+        "url": "https://doi.org/10.1090/tran/9657",
+        "evidence_url": "https://api.crossref.org/works/10.1090/tran/9657",
+        "evidence_excerpt": "Doan, Nhat Minh; Ortho-integral surfaces; Adv. Math.; 2025; 466; Paper No. 110162, 43; 10.1016/j.aim.2025.110162",
+        "checked_utc": "2026-11-07T03:40:05+00:00"
+      },
       {
         "source": "Verified by direct bibliography inspection",
         "url": "https://arxiv.org/abs/2504.09403",
@@ -385,6 +392,10 @@
         "evidence_url": "https://arxiv.org/pdf/2504.09403v2",
         "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces. Advances in Mathematics, 466:110162, 2025.",
         "checked_utc": "2026-11-07T03:04:49+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.1090/tran/9657"
       }
     ]
   },
@@ -409,7 +420,7 @@
     "evidence_url": "https://arxiv.org/pdf/2407.17750",
     "evidence_sha256": "86914a823699992656203279c0c69fc3f9e923017c6f4d4de06ebf243a9c22ba",
     "evidence_version": "2407.17750v1",
-    "checked_utc": "2026-11-07T03:07:00+00:00",
+    "checked_utc": "2026-11-07T03:40:10+00:00",
     "evidence_excerpt": "[20] Nhat Minh Doan. Ortho-integral surfaces.arXiv preprint arXiv:2112.10694, 2021. 16 NHAT MINH DOAN, HANH VO",
     "work_id": "doi:10.1112/blms.70088",
     "identifiers": [
@@ -418,6 +429,20 @@
       "openalex:W4410122476"
     ],
     "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2407.17750",
+        "evidence_url": "https://arxiv.org/pdf/2407.17750",
+        "evidence_excerpt": "[20] Nhat Minh Doan. Ortho-integral surfaces.arXiv preprint arXiv:2112.10694, 2021. 16 NHAT MINH DOAN, HANH VO",
+        "checked_utc": "2026-11-07T03:40:10+00:00"
+      },
+      {
+        "source": "Verified in publisher-deposited Crossref bibliography",
+        "url": "https://doi.org/10.1112/blms.70088",
+        "evidence_url": "https://api.crossref.org/works/10.1112/blms.70088",
+        "evidence_excerpt": "10.1016/j.aim.2025.110162",
+        "checked_utc": "2026-11-07T03:40:06+00:00"
+      },
       {
         "source": "Verified by direct bibliography inspection",
         "url": "https://arxiv.org/abs/2407.17750",
@@ -439,6 +464,125 @@
         "evidence_url": "https://arxiv.org/pdf/2407.17750",
         "evidence_excerpt": "[20] Nhat Minh Doan. Ortho-integral surfaces.arXiv preprint arXiv:2112.10694, 2021. 16 NHAT MINH DOAN, HANH VO",
         "checked_utc": "2026-11-07T02:35:27+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.1112/blms.70088"
+      }
+    ]
+  },
+  {
+    "id": "2601.03876",
+    "title": "Graded Bridgeman dilogarithm identities on hyperbolic surfaces",
+    "arxiv": "2601.03876",
+    "authors": "Ara Basmajian; Nhat Minh Doan; Hugo Parlier; Ser Peow Tan",
+    "year": 2026,
+    "section": "papers",
+    "display_number": 9,
+    "venue": "Preprint, 2026. Submitted.",
+    "platform": "arxiv",
+    "target": "ortho",
+    "verified": true,
+    "source": "Verified by direct bibliography inspection",
+    "url": "https://arxiv.org/abs/2601.03876",
+    "evidence_url": "https://arxiv.org/pdf/2601.03876",
+    "evidence_sha256": "97a560257b196174edfe58f5031fce8372514410564ca98813081b4e9789e818",
+    "evidence_version": "2601.03876v1",
+    "checked_utc": "2026-11-07T03:40:08+00:00",
+    "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces.Advances in Mathematics, 466:110162, 2025.",
+    "work_id": "doi:10.48550/arxiv.2601.03876",
+    "identifiers": [
+      "arxiv:2601.03876",
+      "doi:10.48550/arxiv.2601.03876",
+      "openalex:W7119502087"
+    ],
+    "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2601.03876",
+        "evidence_url": "https://arxiv.org/pdf/2601.03876",
+        "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces.Advances in Mathematics, 466:110162, 2025.",
+        "checked_utc": "2026-11-07T03:40:08+00:00"
+      },
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2601.03876",
+        "evidence_url": "https://arxiv.org/pdf/2601.03876",
+        "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces.Advances in Mathematics, 466:110162, 2025.",
+        "checked_utc": "2026-11-07T03:06:58+00:00"
+      },
+      {
+        "source": "Manually checked primary-source bibliography",
+        "url": "https://arxiv.org/abs/2601.03876",
+        "evidence_url": "https://arxiv.org/pdf/2601.03876v1",
+        "evidence_excerpt": "[Doa25] Nhat Minh Doan. Ortho-integral surfaces. Advances in Mathematics, 466:110162, 2025.",
+        "checked_utc": "2026-11-07T03:04:49+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.48550/arxiv.2601.03876"
+      }
+    ],
+    "doi": "10.48550/arxiv.2601.03876"
+  },
+  {
+    "id": "2504.09403",
+    "title": "Some arithmetic aspects of ortho-integral surfaces",
+    "arxiv": "2504.09403",
+    "doi": "10.1090/tran/9657",
+    "authors": "Nhat Minh Doan; Khanh Le",
+    "year": 2026,
+    "section": "papers",
+    "display_number": 7,
+    "venue": "Transactions of the American Mathematical Society 379 (2026), 6365–6392.",
+    "platform": "arxiv",
+    "target": "pants",
+    "verified": true,
+    "source": "Verified by direct bibliography inspection",
+    "url": "https://arxiv.org/abs/2504.09403",
+    "evidence_url": "https://arxiv.org/pdf/2504.09403",
+    "evidence_sha256": "51f824eaaf272fd3fd734bcea5d97d8f32f6bb34de73fff9d391d6a3fbcd5f23",
+    "evidence_version": "2504.09403v2",
+    "checked_utc": "2026-11-07T03:40:09+00:00",
+    "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Math- ematical Society, 376(08):5281–5306, 2023.",
+    "work_id": "doi:10.1090/tran/9657",
+    "identifiers": [
+      "arxiv:2504.09403",
+      "doi:10.1090/tran/9657",
+      "openalex:W4415157389"
+    ],
+    "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2504.09403",
+        "evidence_url": "https://arxiv.org/pdf/2504.09403",
+        "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Math- ematical Society, 376(08):5281–5306, 2023.",
+        "checked_utc": "2026-11-07T03:40:09+00:00"
+      },
+      {
+        "source": "Verified in publisher-deposited Crossref bibliography",
+        "url": "https://doi.org/10.1090/tran/9657",
+        "evidence_url": "https://api.crossref.org/works/10.1090/tran/9657",
+        "evidence_excerpt": "Doan, Nhat Minh; Measuring pants; Trans. Amer. Math. Soc.; 2023; 376; 5281; 10.1090/tran/8893",
+        "checked_utc": "2026-11-07T03:40:05+00:00"
+      },
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2504.09403",
+        "evidence_url": "https://arxiv.org/pdf/2504.09403",
+        "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Math- ematical Society, 376(08):5281–5306, 2023.",
+        "checked_utc": "2026-11-07T03:07:00+00:00"
+      },
+      {
+        "source": "Manually checked primary-source bibliography",
+        "url": "https://arxiv.org/abs/2504.09403",
+        "evidence_url": "https://arxiv.org/pdf/2504.09403v2",
+        "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants. Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.",
+        "checked_utc": "2026-11-07T03:04:49+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.1090/tran/9657"
       }
     ]
   },
@@ -459,13 +603,22 @@
     "evidence_url": "https://arxiv.org/pdf/2601.03876",
     "evidence_sha256": "97a560257b196174edfe58f5031fce8372514410564ca98813081b4e9789e818",
     "evidence_version": "2601.03876v1",
-    "checked_utc": "2026-11-07T03:06:58+00:00",
+    "checked_utc": "2026-11-07T03:40:08+00:00",
     "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.",
-    "work_id": "arxiv:2601.03876",
+    "work_id": "doi:10.48550/arxiv.2601.03876",
     "identifiers": [
-      "arxiv:2601.03876"
+      "arxiv:2601.03876",
+      "doi:10.48550/arxiv.2601.03876",
+      "openalex:W7119502087"
     ],
     "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2601.03876",
+        "evidence_url": "https://arxiv.org/pdf/2601.03876",
+        "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.",
+        "checked_utc": "2026-11-07T03:40:08+00:00"
+      },
       {
         "source": "Verified by direct bibliography inspection",
         "url": "https://arxiv.org/abs/2601.03876",
@@ -479,103 +632,89 @@
         "evidence_url": "https://arxiv.org/pdf/2601.03876v1",
         "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants. Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.",
         "checked_utc": "2026-11-07T03:04:49+00:00"
-      }
-    ]
-  },
-  {
-    "id": "2504.09403",
-    "title": "Some arithmetic aspects of ortho-integral surfaces",
-    "arxiv": "2504.09403",
-    "doi": "10.1090/tran/9657",
-    "authors": "Nhat Minh Doan; Khanh Le",
-    "year": 2026,
-    "section": "papers",
-    "display_number": 7,
-    "venue": "Transactions of the American Mathematical Society 379 (2026), 6365–6392.",
-    "platform": "arxiv",
-    "target": "pants",
-    "verified": true,
-    "source": "Verified by direct bibliography inspection",
-    "url": "https://arxiv.org/abs/2504.09403",
-    "evidence_url": "https://arxiv.org/pdf/2504.09403",
-    "evidence_sha256": "51f824eaaf272fd3fd734bcea5d97d8f32f6bb34de73fff9d391d6a3fbcd5f23",
-    "evidence_version": "2504.09403v2",
-    "checked_utc": "2026-11-07T03:07:00+00:00",
-    "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Math- ematical Society, 376(08):5281–5306, 2023.",
-    "work_id": "doi:10.1090/tran/9657",
-    "identifiers": [
-      "arxiv:2504.09403",
-      "doi:10.1090/tran/9657"
-    ],
-    "evidence": [
-      {
-        "source": "Verified by direct bibliography inspection",
-        "url": "https://arxiv.org/abs/2504.09403",
-        "evidence_url": "https://arxiv.org/pdf/2504.09403",
-        "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Math- ematical Society, 376(08):5281–5306, 2023.",
-        "checked_utc": "2026-11-07T03:07:00+00:00"
       },
       {
-        "source": "Manually checked primary-source bibliography",
-        "url": "https://arxiv.org/abs/2504.09403",
-        "evidence_url": "https://arxiv.org/pdf/2504.09403v2",
-        "evidence_excerpt": "[DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants. Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.",
-        "checked_utc": "2026-11-07T03:04:49+00:00"
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.48550/arxiv.2601.03876"
       }
-    ]
+    ],
+    "doi": "10.48550/arxiv.2601.03876"
   },
   {
     "title": "The entropy spectrum of hyperbolic surfaces",
     "authors": "Ara Basmajian; Hugo Parlier",
-    "doi": "10.48550/arxiv.2608.20143",
     "arxiv": "2608.20143",
+    "doi": "10.48550/arxiv.2608.20143",
     "platform": "arxiv",
     "id": "2608.20143",
     "url": "https://arxiv.org/abs/2608.20143",
     "target": "pants",
     "verified": true,
-    "source": "Verified in arXiv PDF bibliography",
+    "source": "Verified by direct bibliography inspection",
     "evidence_url": "https://arxiv.org/pdf/2608.20143",
-    "evidence_version": "2608.20143v1",
     "evidence_sha256": "5bb0532a7436837d888ac68a412dc546117e0b4957f2cde8da769a7f06dc436f",
+    "evidence_version": "2608.20143v1",
+    "checked_utc": "2026-11-07T03:40:16+00:00",
     "evidence_excerpt": "[14] N. M. Doan, H. Parlier and S. P . Tan,Measuring pants, Trans. Amer. Math. Soc. 376(2023), no. 8, 5281–5306.",
-    "checked_utc": "2026-11-07T03:20:05+00:00",
     "work_id": "doi:10.48550/arxiv.2608.20143",
     "identifiers": [
       "arxiv:2608.20143",
-      "doi:10.48550/arxiv.2608.20143"
+      "doi:10.48550/arxiv.2608.20143",
+      "openalex:W7203875419"
     ],
     "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2608.20143",
+        "evidence_url": "https://arxiv.org/pdf/2608.20143",
+        "evidence_excerpt": "[14] N. M. Doan, H. Parlier and S. P . Tan,Measuring pants, Trans. Amer. Math. Soc. 376(2023), no. 8, 5281–5306.",
+        "checked_utc": "2026-11-07T03:40:16+00:00"
+      },
       {
         "source": "Verified in arXiv PDF bibliography",
         "url": "https://arxiv.org/abs/2608.20143",
         "evidence_url": "https://arxiv.org/pdf/2608.20143",
         "evidence_excerpt": "[14] N. M. Doan, H. Parlier and S. P . Tan,Measuring pants, Trans. Amer. Math. Soc. 376(2023), no. 8, 5281–5306.",
         "checked_utc": "2026-11-07T03:20:05+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.48550/arxiv.2608.20143"
       }
     ]
   },
   {
+    "id": "2601.01324",
     "title": "Optimal Farey sequence for the congruence subgroup Gamma_0(2^n)",
     "arxiv": "2601.01324",
-    "year": 2026,
-    "target": "polygons",
     "authors": "Nhat Minh Doan; Sang-hyun Kim; Mong Lung Lang; Ser Peow Tan",
-    "verified": true,
-    "source": "Manually checked primary-source bibliography",
-    "evidence_excerpt": "[DKLT] N.M. Doan, S. Kim, M.L. Lang and S.P. Tan, Optimal special polygons for the congruence subgroups Γ0(p) and Γ0(pq), The Journal of Geometric Analysis 35, Article 216 (2025).",
-    "evidence_locator": "Reference [DKLT], page 14",
-    "checked_utc": "2026-11-07T03:04:49+00:00",
+    "year": 2026,
+    "section": "papers",
+    "display_number": 8,
+    "venue": "Preprint, 2026. Submitted.",
+    "display_title": "Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)",
     "platform": "arxiv",
-    "id": "2601.01324",
+    "target": "polygons",
+    "verified": true,
+    "source": "Verified by direct bibliography inspection",
     "url": "https://arxiv.org/abs/2601.01324",
-    "evidence_url": "https://arxiv.org/pdf/2601.01324v1",
+    "evidence_url": "https://arxiv.org/pdf/2601.01324",
+    "evidence_sha256": "878684a2b1dc059584cd62a7fd0c289bbb4907122384f3414f166afc747f8ffa",
     "evidence_version": "2601.01324v1",
+    "checked_utc": "2026-11-07T03:40:08+00:00",
+    "evidence_excerpt": "[DKLT] N.M. Doan, S. Kim, M.L. Lang and S.P. Tan,Optimal special polygons for the congruence subgroupsΓ 0(p) andΓ 0(pq), The Journal of Geometric Analysis 35, Article 216 (2025).",
     "work_id": "arxiv:2601.01324",
     "identifiers": [
       "arxiv:2601.01324"
     ],
     "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2601.01324",
+        "evidence_url": "https://arxiv.org/pdf/2601.01324",
+        "evidence_excerpt": "[DKLT] N.M. Doan, S. Kim, M.L. Lang and S.P. Tan,Optimal special polygons for the congruence subgroupsΓ 0(p) andΓ 0(pq), The Journal of Geometric Analysis 35, Article 216 (2025).",
+        "checked_utc": "2026-11-07T03:40:08+00:00"
+      },
       {
         "source": "Manually checked primary-source bibliography",
         "url": "https://arxiv.org/abs/2601.01324",
@@ -620,6 +759,10 @@
         "evidence_url": "https://arxiv.org/pdf/2203.06446",
         "evidence_excerpt": "[DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and S er Peow Tan. Optimal independent gener- ating system for the congruence subgroups Γ 0(p). arXiv e-prints , page arXiv:2209.13937, September 2022.",
         "checked_utc": "2026-11-07T02:47:22+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.1017/fms.2023.85"
       }
     ],
     "evidence_url": "https://arxiv.org/pdf/2203.06446",
@@ -629,94 +772,130 @@
   {
     "title": "Equidistribution of $q$-orbits of closed geodesics",
     "authors": "Asbjørn Christian Nordentoft",
-    "doi": "10.4171/cmh/621",
     "arxiv": "2305.18625",
+    "doi": "10.4171/cmh/621",
     "platform": "arxiv",
     "id": "2305.18625",
     "url": "https://arxiv.org/abs/2305.18625",
     "target": "polygons",
     "verified": true,
-    "source": "Verified in arXiv PDF bibliography",
+    "source": "Verified by direct bibliography inspection",
     "evidence_url": "https://arxiv.org/pdf/2305.18625",
-    "evidence_version": "2305.18625v3",
     "evidence_sha256": "25556fdcd5bd23755f66ec76fee6e5c2960a1bef31dfb90181d9468fe27d72b0",
+    "evidence_version": "2305.18625v3",
+    "checked_utc": "2026-11-07T03:40:16+00:00",
     "evidence_excerpt": "[DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and Ser Peow Tan. Optimal independent gener- ating system for the congruence subgroupsΓ0(p).arXiv e-prints, page arXiv:2209.13937, September 2022.",
-    "checked_utc": "2026-11-07T03:19:56+00:00",
     "work_id": "doi:10.4171/cmh/621",
     "identifiers": [
       "arxiv:2305.18625",
-      "doi:10.4171/cmh/621"
+      "doi:10.4171/cmh/621",
+      "openalex:W4378942639"
     ],
     "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2305.18625",
+        "evidence_url": "https://arxiv.org/pdf/2305.18625",
+        "evidence_excerpt": "[DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and Ser Peow Tan. Optimal independent gener- ating system for the congruence subgroupsΓ0(p).arXiv e-prints, page arXiv:2209.13937, September 2022.",
+        "checked_utc": "2026-11-07T03:40:16+00:00"
+      },
       {
         "source": "Verified in arXiv PDF bibliography",
         "url": "https://arxiv.org/abs/2305.18625",
         "evidence_url": "https://arxiv.org/pdf/2305.18625",
         "evidence_excerpt": "[DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and Ser Peow Tan. Optimal independent gener- ating system for the congruence subgroupsΓ0(p).arXiv e-prints, page arXiv:2209.13937, September 2022.",
         "checked_utc": "2026-11-07T03:19:56+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.4171/cmh/621"
       }
     ]
   },
   {
     "title": "Sparse equidistribution of geometric invariants of real quadratic fields",
     "authors": "Peter Humphries; Asbjørn Christian Nordentoft",
-    "doi": "10.4171/jems/1691",
     "arxiv": "2211.05890",
+    "doi": "10.4171/jems/1691",
     "platform": "doi",
     "id": "10.4171/jems/1691",
     "url": "https://doi.org/10.4171/jems/1691",
     "pdf_url": "https://ems.press/content/serial-article-files/54050",
     "target": "polygons",
     "verified": true,
-    "source": "Verified in publisher PDF bibliography",
+    "source": "Verified by direct bibliography inspection",
     "evidence_url": "https://ems.press/content/serial-article-files/54050",
     "evidence_sha256": "ff0cf441872fc7c7edbbbd3533194fb2c7e1d8fcaf34ed4cc0a40965be26d86f",
+    "evidence_version": "",
+    "checked_utc": "2026-11-07T03:40:18+00:00",
     "evidence_excerpt": "[15] Doan, N. M., Kim, S.-h., Lang, M. L., Tan, S. P.: Optimal special polygons for the congruence subgroups0.p/and 0.pq/. J. Geom. Anal.35, article no. 216 (2025) MR 4917150 P. Humphries, A. C. Nordentoft 5190",
-    "evidence_locator": "Reference [15], PDF page 77",
-    "checked_utc": "2026-11-07T03:25:27+00:00",
     "work_id": "doi:10.4171/jems/1691",
     "identifiers": [
       "arxiv:2211.05890",
-      "doi:10.4171/jems/1691"
+      "doi:10.4171/jems/1691",
+      "openalex:W4413608351"
     ],
     "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://doi.org/10.4171/jems/1691",
+        "evidence_url": "https://ems.press/content/serial-article-files/54050",
+        "evidence_excerpt": "[15] Doan, N. M., Kim, S.-h., Lang, M. L., Tan, S. P.: Optimal special polygons for the congruence subgroups0.p/and 0.pq/. J. Geom. Anal.35, article no. 216 (2025) MR 4917150 P. Humphries, A. C. Nordentoft 5190",
+        "checked_utc": "2026-11-07T03:40:18+00:00"
+      },
       {
         "source": "Verified in publisher PDF bibliography",
         "url": "https://doi.org/10.4171/jems/1691",
         "evidence_url": "https://ems.press/content/serial-article-files/54050",
         "evidence_excerpt": "[15] Doan, N. M., Kim, S.-h., Lang, M. L., Tan, S. P.: Optimal special polygons for the congruence subgroups0.p/and 0.pq/. J. Geom. Anal.35, article no. 216 (2025) MR 4917150 P. Humphries, A. C. Nordentoft 5190",
         "checked_utc": "2026-11-07T03:25:27+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.4171/jems/1691"
       }
     ]
   },
   {
     "title": "On the Burau representation of $B_3$ modulo $p$",
     "authors": "Donsung Lee",
-    "doi": "10.48550/arxiv.2406.14538",
     "arxiv": "2406.14538",
+    "doi": "10.48550/arxiv.2406.14538",
     "platform": "arxiv",
     "id": "2406.14538",
     "url": "https://arxiv.org/abs/2406.14538",
     "target": "polygons",
     "verified": true,
-    "source": "Verified in arXiv PDF bibliography",
+    "source": "Verified by direct bibliography inspection",
     "evidence_url": "https://arxiv.org/pdf/2406.14538",
-    "evidence_version": "2406.14538v1",
     "evidence_sha256": "043a9003ad52d07099a2f7c5cbd22437a6390431029a223f1f8de37eadaeb1b1",
+    "evidence_version": "2406.14538v1",
+    "checked_utc": "2026-11-07T03:40:17+00:00",
     "evidence_excerpt": "[6] Nhat Minh Doan, Sang hyun Kim, Mong Lung Lang, and Ser Peow Tan, Optimal in- dependent generating system for the congruence subgroups γ0(p) and γ0(p2), 2023. arXiv:2209.13937.",
-    "checked_utc": "2026-11-07T03:20:05+00:00",
     "work_id": "doi:10.48550/arxiv.2406.14538",
     "identifiers": [
       "arxiv:2406.14538",
-      "doi:10.48550/arxiv.2406.14538"
+      "doi:10.48550/arxiv.2406.14538",
+      "openalex:W4399912720"
     ],
     "evidence": [
+      {
+        "source": "Verified by direct bibliography inspection",
+        "url": "https://arxiv.org/abs/2406.14538",
+        "evidence_url": "https://arxiv.org/pdf/2406.14538",
+        "evidence_excerpt": "[6] Nhat Minh Doan, Sang hyun Kim, Mong Lung Lang, and Ser Peow Tan, Optimal in- dependent generating system for the congruence subgroups γ0(p) and γ0(p2), 2023. arXiv:2209.13937.",
+        "checked_utc": "2026-11-07T03:40:17+00:00"
+      },
       {
         "source": "Verified in arXiv PDF bibliography",
         "url": "https://arxiv.org/abs/2406.14538",
         "evidence_url": "https://arxiv.org/pdf/2406.14538",
         "evidence_excerpt": "[6] Nhat Minh Doan, Sang hyun Kim, Mong Lung Lang, and Ser Peow Tan, Optimal in- dependent generating system for the congruence subgroups γ0(p) and γ0(p2), 2023. arXiv:2209.13937.",
         "checked_utc": "2026-11-07T03:20:05+00:00"
+      },
+      {
+        "source": "OpenAlex full-text search match; bibliography not yet checked",
+        "url": "https://doi.org/10.48550/arxiv.2406.14538"
       }
     ]
   }

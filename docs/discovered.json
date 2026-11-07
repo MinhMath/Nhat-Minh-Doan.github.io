@@ -1,15 +1,25 @@
 {
-  "generated_utc": "2026-11-07T03:39:23+00:00",
+  "generated_utc": "2026-11-07T03:40:54+00:00",
   "collection_status": "partial",
   "sources": {
+    "publisher_bibliographies": {
+      "status": "completed_requests",
+      "papers_checked": 8,
+      "verified_records": 5
+    },
     "known_bibliographies": {
       "status": "completed_requests",
-      "papers_checked": 15,
-      "verified_records": 5
+      "papers_checked": 19,
+      "verified_records": 10
     },
     "openalex": {
       "papers_attempted": 13,
       "new_records": 3,
+      "status": "completed_requests"
+    },
+    "openalex_fulltext": {
+      "papers_attempted": 13,
+      "new_records": 13,
       "status": "completed_requests"
     },
     "semantic": {
@@ -29,40 +39,38 @@
     "zenodo": {
       "status": "completed_requests",
       "verified_records": 0
-    },
-    "manual_reference_audit": {
-      "status": "completed_targeted_search",
-      "new_verified_records": 5,
-      "checked_utc": "2026-11-07T03:39:23+00:00",
-      "platforms": [
-        "arXiv",
-        "HexagonMath",
-        "Zenodo",
-        "ResearchGate",
-        "publisher PDFs",
-        "publisher-deposited Crossref references"
-      ],
-      "note": "Five additional bibliography relationships verified. Two Measuring pants references and one Geometric filling curves reference visible in the supplied Scholar totals remain unresolved."
-    },
-    "hexagon_catalogue_audit": {
-      "status": "partial_pdf_parsing",
-      "catalogue_works": 751,
-      "html_pages_checked": 751,
-      "pdfs_checked": 25,
-      "pdf_bibliographies_parsed": 22,
-      "pending_pdf_parsing": 3,
-      "checked_utc": "2026-11-07T03:39:23+00:00"
-    },
-    "manual_zenodo_search": {
-      "status": "completed_targeted_search",
-      "queries": 5,
-      "new_verified_records": 0,
-      "note": "The sole text-search hit was an unrelated gait paper and was excluded."
     }
   },
-  "citations": [],
-  "errors": [
-    "api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run"
+  "citations": [
+    {
+      "target": "arcs",
+      "title": "Issue Information",
+      "authors": "",
+      "doi": "10.1112/blms.13080",
+      "arxiv": "",
+      "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1112/blms.13080",
+      "platform": "openalex",
+      "id": "W4412590793",
+      "url": "https://doi.org/10.1112/blms.13080",
+      "source": "OpenAlex full-text search match; bibliography not yet checked",
+      "candidate_type": "fulltext_search",
+      "verified": false,
+      "work_id": "doi:10.1112/blms.13080",
+      "identifiers": [
+        "doi:10.1112/blms.13080",
+        "openalex:W4412590793"
+      ],
+      "evidence": [
+        {
+          "source": "OpenAlex full-text search match; bibliography not yet checked",
+          "url": "https://doi.org/10.1112/blms.13080"
+        }
+      ]
+    }
   ],
-  "warning": "Verified references are lower bounds. Search matches and platform totals are not accepted as bibliography evidence."
+  "errors": [
+    "api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run",
+    "PDF HTTP 403: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1112/blms.13080"
+  ],
+  "warning": "Search matches and indexed edges remain candidates until a bibliography is checked. Partial or failed coverage is not evidence of zero citations."
 }

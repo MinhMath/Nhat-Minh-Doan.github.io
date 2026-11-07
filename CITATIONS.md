@@ -2,9 +2,9 @@
 
 > **Verified lower bound, not an exact worldwide total.** Verified references and unverified discoveries are recorded separately. A missing or failed source is not evidence of zero citations.
 
-**Verified relationships:** 20 | **Independent verified:** 8 | **Distinct verified citing works:** 16 | **Unverified candidates:** 0 | **Papers tracked:** 13
+**Verified relationships:** 20 | **Independent verified:** 8 | **Distinct verified citing works:** 16 | **Unverified candidates:** 1 | **Papers tracked:** 13
 
-Collection status: **partial**. Last saved discovery: 2026-11-07T03:39:23+00:00.
+Collection status: **partial**. Last saved discovery: 2026-11-07T03:40:54+00:00.
 
 | Canonical paper | Verified citations | Unverified candidates |
 |---|---:|---:|
@@ -20,7 +20,7 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T03:39:23+00:00.
 | [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) | 0 | 0 |
 | [Optimal Farey sequence for the congruence subgroup Gamma_0(2^n)](https://arxiv.org/abs/2601.01324) | 0 | 0 |
 | [Some remarks on subgroups of free-by-cyclic groups](https://doi.org/10.1007/s10013-025-00762-x) | 0 | 0 |
-| [Self-intersections of arcs on a pair of pants](https://doi.org/10.1112/blms.70088) | 0 | 0 |
+| [Self-intersections of arcs on a pair of pants](https://doi.org/10.1112/blms.70088) | 0 | 1 |
 
 ## Verified bibliography references
 
@@ -53,13 +53,13 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T03:39:23+00:00.
 
 - [Concentration of closed geodesics in the homology of modular curves](https://arxiv.org/abs/2203.06446) — Asbjørn Christian Nordentoft; independent. Verified in arXiv PDF bibliography.
   Reference excerpt: [DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and S er Peow Tan. Optimal independent gener- ating system for the congruence subgroups Γ 0(p). arXiv e-prints , page arXiv:2209.13937, September 2022.
-- [Equidistribution of $q$-orbits of closed geodesics](https://arxiv.org/abs/2305.18625) — Asbjørn Christian Nordentoft; independent. Verified in arXiv PDF bibliography.
+- [Equidistribution of $q$-orbits of closed geodesics](https://arxiv.org/abs/2305.18625) — Asbjørn Christian Nordentoft; independent. Verified by direct bibliography inspection.
   Reference excerpt: [DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and Ser Peow Tan. Optimal independent gener- ating system for the congruence subgroupsΓ0(p).arXiv e-prints, page arXiv:2209.13937, September 2022.
-- [On the Burau representation of $B_3$ modulo $p$](https://arxiv.org/abs/2406.14538) — Donsung Lee; independent. Verified in arXiv PDF bibliography.
+- [On the Burau representation of $B_3$ modulo $p$](https://arxiv.org/abs/2406.14538) — Donsung Lee; independent. Verified by direct bibliography inspection.
   Reference excerpt: [6] Nhat Minh Doan, Sang hyun Kim, Mong Lung Lang, and Ser Peow Tan, Optimal in- dependent generating system for the congruence subgroups γ0(p) and γ0(p2), 2023. arXiv:2209.13937.
-- [Optimal Farey sequence for the congruence subgroup Gamma_0(2^n)](https://arxiv.org/abs/2601.01324) — Nhat Minh Doan; Sang-hyun Kim; Mong Lung Lang; Ser Peow Tan; shared author. Manually checked primary-source bibliography.
-  Reference excerpt: [DKLT] N.M. Doan, S. Kim, M.L. Lang and S.P. Tan, Optimal special polygons for the congruence subgroups Γ0(p) and Γ0(pq), The Journal of Geometric Analysis 35, Article 216 (2025).
-- [Sparse equidistribution of geometric invariants of real quadratic fields](https://doi.org/10.4171/jems/1691) — Peter Humphries; Asbjørn Christian Nordentoft; independent. Verified in publisher PDF bibliography.
+- [Optimal Farey sequence for the congruence subgroup Gamma_0(2^n)](https://arxiv.org/abs/2601.01324) — Nhat Minh Doan; Sang-hyun Kim; Mong Lung Lang; Ser Peow Tan; shared author. Verified by direct bibliography inspection.
+  Reference excerpt: [DKLT] N.M. Doan, S. Kim, M.L. Lang and S.P. Tan,Optimal special polygons for the congruence subgroupsΓ 0(p) andΓ 0(pq), The Journal of Geometric Analysis 35, Article 216 (2025).
+- [Sparse equidistribution of geometric invariants of real quadratic fields](https://doi.org/10.4171/jems/1691) — Peter Humphries; Asbjørn Christian Nordentoft; independent. Verified by direct bibliography inspection.
   Reference excerpt: [15] Doan, N. M., Kim, S.-h., Lang, M. L., Tan, S. P.: Optimal special polygons for the congruence subgroups0.p/and 0.pq/. J. Geom. Anal.35, article no. 216 (2025) MR 4917150 P. Humphries, A. C. Nordentoft 5190
 
 ### Ortho-integral surfaces
@@ -73,8 +73,8 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T03:39:23+00:00.
 
 ### Geometric filling curves on punctured surfaces
 
-- [Self-intersections of arcs on a pair of pants](https://doi.org/10.1112/blms.70088) — Nhat Minh Doan; Hanh Vo; shared author. Manually checked primary-source bibliography.
-  Reference excerpt: 20 N. M. Doan, Geometric filling curves on punctured surfaces, Glasg. Math. J. 65 (2023), no. 2, 383–400.
+- [Self-intersections of arcs on a pair of pants](https://doi.org/10.1112/blms.70088) — Nhat Minh Doan; Hanh Vo; shared author. Verified in publisher-deposited Crossref bibliography.
+  Reference excerpt: 10.1017/S0017089522000404
 
 ### Measuring pants
 
@@ -82,26 +82,26 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T03:39:23+00:00.
   Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.
 - [Some arithmetic aspects of ortho-integral surfaces](https://arxiv.org/abs/2504.09403) — Nhat Minh Doan; Khanh Le; shared author. Verified by direct bibliography inspection.
   Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Math- ematical Society, 376(08):5281–5306, 2023.
-- [The entropy spectrum of hyperbolic surfaces](https://arxiv.org/abs/2608.20143) — Ara Basmajian; Hugo Parlier; shared author. Verified in arXiv PDF bibliography.
+- [The entropy spectrum of hyperbolic surfaces](https://arxiv.org/abs/2608.20143) — Ara Basmajian; Hugo Parlier; shared author. Verified by direct bibliography inspection.
   Reference excerpt: [14] N. M. Doan, H. Parlier and S. P . Tan,Measuring pants, Trans. Amer. Math. Soc. 376(2023), no. 8, 5281–5306.
 
 ## Collection status
 
 | Source | Status |
 |---|---|
+| publisher_bibliographies | completed_requests |
 | known_bibliographies | completed_requests |
 | openalex | completed_requests |
+| openalex_fulltext | completed_requests |
 | semantic | deferred_after_error |
 | opencitations | completed_requests |
 | hexagon | completed_requests |
 | zenodo | completed_requests |
-| manual_reference_audit | completed_targeted_search |
-| hexagon_catalogue_audit | partial_pdf_parsing |
-| manual_zenodo_search | completed_targeted_search |
 
 Collection limitations:
 
 - api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run
+- PDF HTTP 403: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1112/blms.13080
 
 The dashboard and this report use [the same normalized ledger](docs/ledger.json).
 Independent citations exclude identified shared authors; incomplete or ambiguous author names are recorded separately.

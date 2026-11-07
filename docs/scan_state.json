@@ -1,4 +1,6 @@
 {
+  "hexagon_html_schema": 2,
+  "hexagon_catalog_next": "https://hexagonmath.org/search?cursor=eyJ2IjoxLCJzb3J0RGF0ZSI6IjIwMjYtMTAtMjZUMjE6Mjc6MDMuNjAxWiIsImlkZW50aWZpZXIiOiIyNjEwLjAwNTQ3In0&per_page=100&direction=next&page=4",
   "hexagon_pages_checked": [
     "/2609.00001v1",
     "/2609.00102v1",
@@ -757,6 +759,7 @@
     "/2609.00132v1",
     "/2609.00133v1",
     "/2609.00142v1",
+    "/2610.00261v1",
     "/2610.00265v1",
     "/2610.00281v2",
     "/2610.00286v1",
@@ -770,34 +773,15 @@
     "/2610.00358v1",
     "/2610.00442v1",
     "/2610.00503v1",
+    "/2610.00504v1",
+    "/2610.00522v1",
     "/2610.00523v1",
     "/2610.00658v3",
     "/2610.00680v2",
     "/2611.00068v1",
     "/2611.00130v1"
   ],
-  "hexagon_pdf_pending": [
-    {
-      "href": "/2610.00522v1",
-      "pdf_url": "https://hexagonmath.org/pdf/2610.00522v1",
-      "title": "Bayesian Weak Commutativity Does Not Guarantee Attainability of the Nagaoka–Hayashi Bound",
-      "authors": "Qihang Wang"
-    },
-    {
-      "href": "/2610.00504v1",
-      "pdf_url": "https://hexagonmath.org/pdf/2610.00504v1",
-      "title": "Minimum Prime Bound in Square Intervals",
-      "authors": "Min Min Oo Oo"
-    },
-    {
-      "href": "/2610.00261v1",
-      "pdf_url": "https://hexagonmath.org/pdf/2610.00261v1",
-      "title": "Subset Sum in time O(2^{0.4877n})",
-      "authors": "Annanay Kapila"
-    }
-  ],
-  "last_checked_utc": "2026-11-07T03:39:23+00:00",
-  "paper_offset": 0,
-  "hexagon_html_schema": 2,
-  "hexagon_catalog_next": null
+  "hexagon_pdf_pending": [],
+  "last_checked_utc": "2026-11-07T03:40:41+00:00",
+  "paper_offset": 0
 }
