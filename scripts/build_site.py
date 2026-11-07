@@ -67,14 +67,6 @@ def main():
   <p>My research focuses on hyperbolic surfaces, length spectra, and related topics. I was introduced to hyperbolic geometry during my Master’s (M2) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')} in 2017, where Prof. {external('https://flab.perso.math.cnrs.fr/','François Labourie')} supervised my master’s thesis.</p>
   <p>Here is my <a href="cv/">CV</a> and my email address: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
  </section>
- <section aria-labelledby="papers-heading">
-  <div class="section-heading"><div class="content-width"><h2 id="papers-heading">Papers</h2></div></div>
-  <div class="content-width publications"><ol reversed start="{len(primary)}">{''.join(publication(p) for p in primary)}</ol></div>
- </section>
- <section aria-labelledby="other-heading">
-  <div class="section-heading"><div class="content-width"><h2 id="other-heading">Other writings</h2></div></div>
-  <div class="content-width publications"><ol>{''.join(publication(p) for p in other)}</ol></div>
- </section>
 </main>
 <footer class="content-width"><a href="https://sites.google.com/view/nhatminhdoan" target="_blank" rel="noopener noreferrer">Online Seminar</a></footer>
 </body>

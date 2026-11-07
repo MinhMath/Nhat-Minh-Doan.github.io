@@ -62,7 +62,7 @@
   "talks": [
     {
       "number": 28,
-      "text": "Conference on Hyperbolic Geometry, Hebei Normal University, China",
+      "text": "McShane birthday conference, Hebei Normal University, China",
       "date": "Aug-Sep 2026",
       "url": "https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract",
       "date_note": "The public programme is labelled tentative and places the talk on 31 August. The CV gives the conference month range, not an unconfirmed exact delivery date."
@@ -223,7 +223,9 @@
     {
       "number": 1,
       "text": "Co-writing a short comic story: Maths, Magic and Maryam",
-      "date": "2020"
+      "date": "2020",
+      "url": "https://sciencecomics.uni.lu/math-magic-and-maryam/",
+      "link_text": "Maths, Magic and Maryam"
     }
   ],
   "advising": [
@@ -277,14 +279,18 @@
     {
       "number": 1,
       "text": "Excellent Doctoral Thesis Award, University of Luxembourg",
-      "date": "2022"
+      "date": "2022",
+      "url": "https://www.uni.lu/fstm-fr/news/excellent-doctoral-thesis-awards-2022-in-science/",
+      "link_text": "Excellent Doctoral Thesis Award"
     }
   ],
   "grants": [
     {
       "number": 5,
       "text": "Singapore Academies South-East Asia Fellowship, hosted at the National University of Singapore",
-      "date": "2024 - 2026"
+      "date": "2024 - 2026",
+      "url": "https://snas.org.sg/saseaffellows",
+      "link_text": "Singapore Academies South-East Asia Fellowship"
     },
     {
       "number": 4,

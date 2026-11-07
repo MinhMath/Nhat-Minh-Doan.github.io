@@ -41,6 +41,14 @@ def paper_url(p):
   if p.get(field):return base+p[field]
  return ''
 
+def entry_text(item):
+ text=item['text']
+ if not item.get('url'):return e(text)
+ linked=item.get('link_text',text)
+ if linked not in text:raise ValueError('Linked text is absent from the CV entry')
+ before,_,after=text.partition(linked)
+ return e(before)+a(item['url'],linked)+e(after)
+
 def footer(canvas,doc):
  canvas.saveState();canvas.setFont('CV',8);canvas.setFillColor(colors.HexColor('#666666'))
  canvas.drawString(42,24,'Nhat Minh Doan | Updated '+DETAILS['updated'])
@@ -64,7 +72,7 @@ def entries(label,items):
   if 'title' in item:
    lead+='<b>'+e(item['title'])+'</b>'
    if item.get('institution'):lead+=', '+e(item['institution'])
-  else:lead+=a(item['url'],item['text']) if item.get('url') else e(item['text'])
+  else:lead+=entry_text(item)
   details=item.get('detail',[])
   if isinstance(details,str):details=[details]
   text=lead+''.join('<br/>'+e(d) for d in details)
