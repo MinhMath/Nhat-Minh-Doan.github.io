@@ -1,0 +1,78 @@
+[
+  {
+    "id": "DLN",
+    "title": "Stable-norm boundary geometry on once-punctured tori",
+    "arxiv": "2605.14574",
+    "aliases": [
+      "McShane-Rivin norm balls and simple-length multiplicities"
+    ]
+  },
+  {
+    "id": "DDD",
+    "title": "The torus with asymptotically the fewest simple closed geodesics",
+    "hexagon": "2610.00159"
+  },
+  {
+    "id": "SSC",
+    "title": "Almost all simple lengths are unique up to isometry",
+    "hexagon": "2610.00298"
+  },
+  {
+    "id": "density",
+    "title": "Density of length ratios on Teichmüller space",
+    "arxiv": "2610.24700"
+  },
+  {
+    "id": "graded",
+    "title": "Graded Bridgeman dilogarithm identities on hyperbolic surfaces",
+    "arxiv": "2601.03876"
+  },
+  {
+    "id": "farey",
+    "title": "Optimal Farey sequence for the congruence subgroup Gamma_0(2^n)",
+    "arxiv": "2601.01324"
+  },
+  {
+    "id": "arithmetic",
+    "title": "Some arithmetic aspects of ortho-integral surfaces",
+    "arxiv": "2504.09403",
+    "doi": "10.1090/tran/9657"
+  },
+  {
+    "id": "free",
+    "title": "Some remarks on subgroups of free-by-cyclic groups",
+    "doi": "10.1007/s10013-025-00762-x"
+  },
+  {
+    "id": "arcs",
+    "title": "Self-intersections of arcs on a pair of pants",
+    "arxiv": "2407.17750",
+    "doi": "10.1112/blms.70088"
+  },
+  {
+    "id": "polygons",
+    "title": "Optimal special polygons for the congruence subgroups Gamma_0(p) and Gamma_0(pq)",
+    "doi": "10.1007/s12220-025-02051-y"
+  },
+  {
+    "id": "ortho",
+    "title": "Ortho-integral surfaces",
+    "arxiv": "2112.10694",
+    "doi": "10.1016/j.aim.2025.110162",
+    "aliases": [
+      "Orthotree, orthoshapes and ortho-integral surfaces"
+    ]
+  },
+  {
+    "id": "filling",
+    "title": "Geometric filling curves on punctured surfaces",
+    "arxiv": "2012.02461",
+    "doi": "10.1017/S0017089522000404"
+  },
+  {
+    "id": "pants",
+    "title": "Measuring pants",
+    "arxiv": "2002.02738",
+    "doi": "10.1090/tran/8893"
+  }
+]
