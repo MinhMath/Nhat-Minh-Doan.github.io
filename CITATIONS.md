@@ -4,7 +4,7 @@
 
 **Total citation records:** 25 | **Bibliography verified:** 23 | **Scholar-listed, full text pending:** 2 | **Self citations:** 13 | **Non-self citations:** 12
 
-Collection status: **partial**. Last saved discovery: 2026-11-07T04:46:35+00:00.
+Collection status: **partial**. Last saved discovery: 2026-11-07T04:21:51+00:00.
 
 | Canonical paper | Verified citations | Scholar-listed | Unverified candidates |
 |---|---:|---:|---:|
@@ -30,13 +30,13 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T04:46:35+00:00.
   Reference excerpt: [DLN26] Nhat Minh Doan, Xiaobin Li, and Van Nguyen,Stable-norm boundary geometry on once-punctured tori (2026). arXiv:2605.14574v3.
 - [Almost all simple lengths are unique up to isometry](https://hexagonmath.org/2610.00298v1) — Nhat Minh Doan; shared author. Verified in HexagonMath HTML bibliography.
   Reference excerpt: N. M. Doan, X. Li and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv
-- [Counting Markov Triples and Simple Geodesics](https://arxiv.org/abs/2610.36069) — Risager, Morten S.; independent. Verified in arXiv PDF bibliography.
+- [Counting Markov Triples and Simple Geodesics](https://arxiv.org/abs/2610.36069) — Morten S. Risager; independent. Verified in arXiv PDF bibliography.
   Reference excerpt: 5. Harvey Cohn,Approach to Markoff’s Minimal Forms Through Modular Functions, Annals of Mathe- matics61(1955), no. 1, 1–12. MR0067935 6. Charles de la Vall´ ee Poussin,Sur la fonctionζ(s)de Riemann et le nombre des nombres premiers inf´ erieurs ` a une limite donn´ ee, M´ emoires de l’Acad´ emie royale de Belgique59(1899), no. 1, 1–74. 7. Nhat Minh Doan, Xiaobin Li, and Van Nguyen,Stable-norm boundary geometry on once-punctured tori, October 2026, arXiv:2605.14574v3.
 - [Density of Triple Coincidences in the Simple Length Spectrum of One-holed Tori](https://zenodo.org/records/22998822) — Hu Tan; Ying Zhang; independent. Verified in Zenodo PDF bibliography.
   Reference excerpt: [3] N. M. Doan, X. Li, and V . Nguyen, McShane–Rivin norm balls and simple-length multi- plicities. 2026, arXiv:2605.14574
 - [PARAMETER MONOTONICITY FOR GENERALIZED k-MARKOV NUMBERS](https://hexagonmath.org/2611.00023v1) — Qiyue Tang; independent. Verified in HexagonMath HTML bibliography.
   Reference excerpt: N. M. Doan, X. Li, and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv
-- [Patterns in the Markov Numbers and Their Generalizations](https://arxiv.org/abs/2609.14149) — O'Sullivan, Cormac; independent. Verified in arXiv PDF bibliography.
+- [Patterns in the Markov Numbers and Their Generalizations](https://arxiv.org/abs/2609.14149) — Cormac O'Sullivan; independent. Verified in arXiv PDF bibliography.
   Reference excerpt: [DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.
 - [The torus with asymptotically the fewest simple closed geodesics](https://hexagonmath.org/2610.00159v1) — Phuc Thinh Dang; Trong Toan Dao; Nhat Minh Doan; shared author. Verified in HexagonMath HTML bibliography.
   Reference excerpt: N. M. Doan, X. Li, and V. Nguyen, McShane--Rivin norm balls and simple-length multiplicities, arXiv:2605.14574, version 2, 2026, https://arxiv.org/abs/2605.14574v2. arXiv
@@ -55,15 +55,15 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T04:46:35+00:00.
 
 ### Optimal special polygons for the congruence subgroups Gamma_0(p) and Gamma_0(pq)
 
-- [Concentration of closed geodesics in the homology of modular curves](https://arxiv.org/abs/2203.06446) — Nordentoft, Asbjørn Christian; independent. Verified in arXiv PDF bibliography.
+- [Concentration of closed geodesics in the homology of modular curves](https://arxiv.org/abs/2203.06446) — Asbjørn Christian Nordentoft; independent. Verified in arXiv PDF bibliography.
   Reference excerpt: [DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and S er Peow Tan. Optimal independent gener- ating system for the congruence subgroups Γ 0(p). arXiv e-prints , page arXiv:2209.13937, September 2022.
-- [Equidistribution of $q$-orbits of closed geodesics](https://arxiv.org/abs/2305.18625) — Nordentoft, Asbjørn Christian; independent. Verified by direct bibliography inspection.
+- [Equidistribution of $q$-orbits of closed geodesics](https://arxiv.org/abs/2305.18625) — Asbjørn Christian Nordentoft; independent. Verified by direct bibliography inspection.
   Reference excerpt: [DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and Ser Peow Tan. Optimal independent gener- ating system for the congruence subgroupsΓ0(p).arXiv e-prints, page arXiv:2209.13937, September 2022.
-- [On the Burau representation of $B_3$ modulo $p$](https://arxiv.org/abs/2406.14538) — Lee, Donsung; independent. Verified by direct bibliography inspection.
+- [On the Burau representation of $B_3$ modulo $p$](https://arxiv.org/abs/2406.14538) — Donsung Lee; independent. Verified by direct bibliography inspection.
   Reference excerpt: [6] Nhat Minh Doan, Sang hyun Kim, Mong Lung Lang, and Ser Peow Tan, Optimal in- dependent generating system for the congruence subgroups γ0(p) and γ0(p2), 2023. arXiv:2209.13937.
 - [Optimal Farey sequence for the congruence subgroup Gamma_0(2^n)](https://arxiv.org/abs/2601.01324) — Nhat Minh Doan; Sang-hyun Kim; Mong Lung Lang; Ser Peow Tan; shared author. Verified by direct bibliography inspection.
   Reference excerpt: [DKLT] N.M. Doan, S. Kim, M.L. Lang and S.P. Tan,Optimal special polygons for the congruence subgroupsΓ 0(p) andΓ 0(pq), The Journal of Geometric Analysis 35, Article 216 (2025).
-- [Sparse equidistribution of geometric invariants of real quadratic fields](https://doi.org/10.4171/jems/1691) — Humphries, Peter; Nordentoft, Asbjørn Christian; independent. Verified by direct bibliography inspection.
+- [Sparse equidistribution of geometric invariants of real quadratic fields](https://doi.org/10.4171/jems/1691) — Peter Humphries; Asbjørn Christian Nordentoft; independent. Verified by direct bibliography inspection.
   Reference excerpt: [15] Doan, N. M., Kim, S.-h., Lang, M. L., Tan, S. P.: Optimal special polygons for the congruence subgroups0.p/and 0.pq/. J. Geom. Anal.35, article no. 216 (2025) MR 4917150 P. Humphries, A. C. Nordentoft 5190
 
 ### Ortho-integral surfaces
@@ -88,7 +88,7 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T04:46:35+00:00.
   Reference excerpt: [12] N. Doan, H. Parlier, and S. Tan.Measuring pants. arXiv:2002.02738, (2020).
 - [Some arithmetic aspects of ortho-integral surfaces](https://arxiv.org/abs/2504.09403) — Nhat Minh Doan; Khanh Le; shared author. Verified by direct bibliography inspection.
   Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Math- ematical Society, 376(08):5281–5306, 2023.
-- [The entropy spectrum of hyperbolic surfaces](https://arxiv.org/abs/2608.20143) — Basmajian, Ara; Parlier, Hugo; shared author. Verified by direct bibliography inspection.
+- [The entropy spectrum of hyperbolic surfaces](https://arxiv.org/abs/2608.20143) — Ara Basmajian; Hugo Parlier; shared author. Verified by direct bibliography inspection.
   Reference excerpt: [14] N. M. Doan, H. Parlier and S. P . Tan,Measuring pants, Trans. Amer. Math. Soc. 376(2023), no. 8, 5281–5306.
 
 ## Scholar-listed references awaiting full-text verification
