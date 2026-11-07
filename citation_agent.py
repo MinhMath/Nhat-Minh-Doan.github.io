@@ -232,6 +232,72 @@ def hexagon_scan(papers):
         url=urljoin(url,nxt.get("href",""))
     return new
 
+
+def opencitations(p):
+    """OpenCitations incoming DOI edges; independent bibliographic index."""
+    if not p.get("doi"):return []
+    data=get("https://api.opencitations.net/index/v2/citations/doi:"+p["doi"])
+    if not isinstance(data,list):return []
+    out=[]
+    for item in data[:500]:
+        match=re.search(r"doi:(10\.\S+)",item.get("citing",""),flags=re.I)
+        if not match:continue
+        doi=match.group(1).rstrip(".,;")
+        response=get("https://api.crossref.org/works/"+quote(doi,safe="/"))
+        meta=response.get("message",{}) if isinstance(response,dict) else {}
+        title=(meta.get("title") or [""])[0]
+        if not title:continue
+        author="; ".join(" ".join([a.get("given",""),a.get("family","")]).strip() for a in meta.get("author",[]))
+        out.append({"target":p["id"],"title":title,"authors":author,"doi":doi,
+                    "platform":"doi","id":doi,"url":"https://doi.org/"+doi,
+                    "source":"OpenCitations reference edge (Crossref metadata)","verified":False})
+        time.sleep(.1)
+    return out
+
+def zenodo_pdf_scan(papers):
+    """Targeted Zenodo API search followed by real PDF reference verification."""
+    from io import BytesIO
+    from pypdf import PdfReader
+    verified=[]
+    for p in papers:
+        queries=[p["title"]]
+        if p.get("arxiv"):queries.append(p["arxiv"])
+        if p.get("doi"):queries.append(p["doi"])
+        count=0
+        for query in queries:
+            data=get("https://zenodo.org/api/records",{"q":'"'+query+'"',"size":10})
+            if not isinstance(data,dict):continue
+            for item in data.get("hits",{}).get("hits",[]):
+                if count>=5:break
+                meta=item.get("metadata") or {}
+                title=meta.get("title","")
+                if not title or clean(title)==clean(p["title"]):continue
+                description=BeautifulSoup(meta.get("description",""),"html.parser").get_text(" ",strip=True)
+                if not matches_target(description,p):continue
+                for file in item.get("files",[]):
+                    if count>=5:break
+                    if not str(file.get("key","")).lower().endswith(".pdf"):continue
+                    location=(file.get("links") or {}).get("self")
+                    if not location:continue
+                    try:
+                        response=session.get(location,timeout=30)
+                        if response.status_code!=200 or len(response.content)>18_000_000:continue
+                        if not response.content.startswith(b"%PDF"):continue
+                        count+=1
+                        reader=PdfReader(BytesIO(response.content),strict=False)
+                        tail="\n".join(x.extract_text() or "" for x in list(reader.pages)[-min(16,len(reader.pages)):])
+                        if not matches_target(bibliography(tail),p):continue
+                        ident=str(item.get("id",""))
+                        verified.append({"target":p["id"],"title":title,
+                                         "authors":"; ".join(a.get("name","") for a in meta.get("creators",[])),
+                                         "platform":"zenodo","id":ident,
+                                         "doi":item.get("doi",""),"verified":True,
+                                         "source":"Verified in Zenodo-hosted PDF bibliography",
+                                         "url":"https://zenodo.org/records/"+ident})
+                    except Exception as exc:
+                        errors.append("Zenodo verification: "+str(exc)[:120])
+    return verified
+
 def main():
     old={}
     if DEST.exists():
@@ -239,7 +305,7 @@ def main():
         except ValueError:pass
     candidates=[c for c in old.get("citations",[]) if not c.get("verified")]
     for p in PAPERS:
-        for func in (openalex,semantic):
+        for func in (openalex,semantic,opencitations):
             try:
                 items=func(p)
                 candidates.extend(items)
@@ -258,6 +324,7 @@ def main():
                 if finding:new_verified.append(finding)
     try:
         new_verified.extend(hexagon_scan(PAPERS))
+        new_verified.extend(zenodo_pdf_scan(PAPERS))
     except Exception as exc:
         errors.append("Hexagon bibliography scan: "+str(exc)[:150])
     already={(c["target"],work_key(c)) for c in SEEDS}
