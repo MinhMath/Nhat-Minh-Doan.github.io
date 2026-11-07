@@ -19,7 +19,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2026-05-14",
     "first_online_source": "https://arxiv.org/abs/2605.14574v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "We use normal-turn estimates to study the local and global geometry of the boundaries of stable-norm balls $B_X$ for complete finite-area hyperbolic once-punctured tori $X$. We show that the boundary $\\partial B_X$ is a convex-geometric detector of exponential Diophantine approximation: rational directions give genuine corners with exponentially small exterior angles, while at an irrational direction $\\beta$ the graph-flatness order admits an explicit formula in terms of the exponential rate at which rational directions approach $\\beta$ and the $\\ell^\\infty$-radius of $B_X$ in the projective direction $\\beta$. Thus irrational directions are not uniformly flat to infinite order, correcting the McShane--Rivin local picture. We also determine all possible irrational flatness orders and the size of the corresponding level sets. The computation of the rational corners unexpectedly yields a new McShane-type identity for the area of the dual body $B_X^*$: $$ \\operatorname{Area}(B_X^*) = 4\\sum_{\\gamma} \\ell_X(\\gamma) \\log\\coth\\left(\\frac{\\ell_X(\\gamma)}{2}\\right), $$ where the sum is over unoriented simple closed geodesics on $X$. As another global application, the normal-turn estimates also give a logarithmic-square bound for the number of integer points on the boundary of each dilated norm ball. Consequently, the number of simple closed geodesics of length exactly $L\\geq2$ is at most $C_X(\\log L)^2$. For the modular torus this yields $$ \\#\\lambda_M^{-1}(m)\\leq C(\\log\\log(3m))^2 $$ for every Markoff number $m$, improving the previous logarithmic bounds for Markoff fibers.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2605.14574"
   },
   {
     "id": "DDD",
@@ -37,7 +40,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2026-10-08",
     "first_online_source": "https://hexagonmath.org/2610.00159v1",
-    "first_online_note": "Publication of HexagonMath version 1."
+    "first_online_note": "Publication of HexagonMath version 1.",
+    "abstract": "We prove that the modular torus uniquely minimizes the area of the stable-norm unit ball among complete finite-area hyperbolic once-punctured tori, resolving the McShane--Rivin area conjecture. It therefore has fewer simple closed geodesics of length at most $L$ than any fixed nonmodular torus for all sufficiently large $L$. We also bound the area increase away from the modular torus and determine its leading growth and first correction term as the systole tends to zero, with error bounds independent of the twist.",
+    "abstract_kind": "original",
+    "abstract_source": "https://hexagonmath.org/2610.00159"
   },
   {
     "id": "SSC",
@@ -53,7 +59,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2026-10-17",
     "first_online_source": "https://hexagonmath.org/2610.00298v1",
-    "first_online_note": "Publication of HexagonMath version 1."
+    "first_online_note": "Publication of HexagonMath version 1.",
+    "abstract": "For every fixed hyperbolic torus with one cusp or one geodesic\nboundary, we prove that, among simple curves of length at most $L$,\nthe number of isometry orbits and the number of distinct lengths\ndiffer by $o(L^2)$. Thus almost every complete length level is a single isometry orbit\nof at most six curves, and multiplicity converges in mean to the\ngeneric orbit size. The modular specialization is exactly Chen's\ndensity theorem for Markoff uniqueness. We also prove the full Schmutz--Schaller bound for every punctured\ntorus having a simple trace that is not an algebraic integer,\nincluding any transcendental trace, and for dense families with\nintegral traces. More strongly, every rational length class on\nthese surfaces contains at most two curves. Transcendental twists\ngive multiplicity one, while symmetric families with geodesic\nboundary attain the sharp bounds four and six.\nThe density proof extends\nChen's method using the stable-norm estimates of Doan-Li-Nguyen.",
+    "abstract_kind": "original",
+    "abstract_source": "https://hexagonmath.org/2610.00298"
   },
   {
     "id": "density",
@@ -70,7 +79,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2026-10-17",
     "first_online_source": "https://arxiv.org/abs/2610.24700v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "We study length ratios of simple closed geodesics on finite-type hyperbolic surfaces of positive genus. We allow cusps and fix the geodesic boundary lengths. Let $d$ be the dimension of the corresponding Teichmüller space $\\mathcal{T}_{\\mathbf{L}}(S)$. We prove that for every positive vector $(r_0,\\ldots,r_d)$, the set of surfaces carrying $d+1$ distinct essential interior simple closed geodesics with lengths proportional to this vector is dense in $\\mathcal{T}_{\\mathbf{L}}(S)$. In particular, one-holed tori with three distinct simple closed geodesics of equal length are dense. The proof uses high powers of Dehn twists, asymptotics of length differentials, and the Brouwer fixed-point theorem.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2610.24700"
   },
   {
     "id": "graded",
@@ -89,7 +101,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2026-01-07",
     "first_online_source": "https://arxiv.org/abs/2601.03876v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "We establish graded versions of Bridgeman's dilogarithm identity for hyperbolic cone surfaces, including surfaces with only cusps and cone points, and provide applications to the study of orthogeodesics.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2601.03876"
   },
   {
     "id": "farey",
@@ -109,7 +124,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2026-01-04",
     "first_online_source": "https://arxiv.org/abs/2601.01324v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "We prove that $\\Gamma_0(2^n)$ ($n\\ge2$) has a Farey sequence $\\{e_i\\}$ such that $e_i \\le 2^{n-1}$ for all $e_i$. The above upper bound is optimal, and there exists a unique $j$ such that $e_j= 2^{n-1} $. For each $e_i$, there exists a unique $a_i$ such that $\\{ a_i/e_i\\}\\cup \\{\\infty\\}$ is the set of ideal vertices of a fundamental domain of $\\Gamma_0(2^n)$ whose side-pairings give a set of independent generators of $\\Gamma_0(2^n)$.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2601.01324"
   },
   {
     "id": "arithmetic",
@@ -127,7 +145,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2025-04-13",
     "first_online_source": "https://arxiv.org/abs/2504.09403v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "We investigate ortho-integral (OI) hyperbolic surfaces with totally geodesic boundaries, defined by the property that every orthogeodesic (i.e. a geodesic arc meeting the boundary perpendicularly at both endpoints) has an integer cosh-length. We prove that while only finitely many OI surfaces exist for any fixed topology, infinitely many commensurability classes arise as the topology varies. Moreover, we completely classify OI pants and OI one-holed tori, and show that their doubles are arithmetic surfaces of genus 2 derived from quaternion algebras over $\\mathbb{Q}$.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2504.09403"
   },
   {
     "id": "free",
@@ -144,7 +165,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2025-01-24",
     "first_online_source": "https://www.researchgate.net/publication/388324381_SOME_REMARKS_ON_SUBGROUPS_OF_FREE-BY-CYCLIC_GROUPS",
-    "first_online_note": "Earliest documented public posting: author-uploaded ResearchGate preprint, 24 January 2025. The manuscript date is not a public posting date."
+    "first_online_note": "Earliest documented public posting: author-uploaded ResearchGate preprint, 24 January 2025. The manuscript date is not a public posting date.",
+    "abstract": "The paper studies geometric properties of free-by-cyclic groups. It gives a positive answer to a conjecture of Gersten and proves equivalence of finite height and strong quasiconvexity for a broad class of these groups, partially answering a question of Nguyen, Tran, and Yang.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://www.researchgate.net/publication/388324381_SOME_REMARKS_ON_SUBGROUPS_OF_FREE-BY-CYCLIC_GROUPS"
   },
   {
     "id": "arcs",
@@ -166,7 +190,10 @@
     "display_title": "Self-intersection of arcs on a pair of pants",
     "first_online": "2024-07-25",
     "first_online_source": "https://arxiv.org/abs/2407.17750v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "We investigate arcs on a pair of pants and present an algorithm to compute the self-intersection number of an arc. Additionally, we establish bounds for the self-intersection number in terms of the word length. We also prove that the spectrum of self-intersection numbers of 2-low-lying arcs covers all natural numbers.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2407.17750"
   },
   {
     "id": "polygons",
@@ -194,7 +221,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2022-09-28",
     "first_online_source": "https://arxiv.org/abs/2209.13937v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "Let $n$ be a prime or its square. We prove that the congruence subgroup $\\Gamma_0(n)$ admits a free product decomposition into cyclic factors in such a way that the $(2,1)$-component of each cyclic generator is either $n$ or $0$, answering a conjecture of Kulkarni. We can also require that the Frobenius norm of each generator is less than $2n-1$. A crucial observation is that if $P$ denotes the convex hull of the extended Farey sequence of order $\\lfloor \\sqrt{n} \\rfloor$ in the hyperbolic plane $\\mathbb{H}^2$, then the projection $\\pi: \\mathbb{H}^2\\to \\mathbb{H}^2/\\Gamma_0(n)$ is injective on the interior of $P$ and each connected component of $\\pi(\\mathbb{H}^2)\\setminus\\pi(P)$ is either an order-three cone of area $\\pi/3$ or an ideal triangle. Denoting by $m(\\Gamma_0(n))$ the minimum of the largest denominator in the cusp set of $Q$ where $Q$ ranges over all possible special (fundamental) polygons for $\\Gamma_0(n)$, we establish the inequality $ \\lfloor \\sqrt{n} \\rfloor \\le m(\\Gamma_0(n))\\le \\lfloor \\sqrt{4n/3} \\rfloor$, and completely characterize the cases in which the bounds are achieved. We also prove analogous results when $n$ is the multiplication of two sufficiently close odd primes.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2209.13937"
   },
   {
     "id": "ortho",
@@ -214,7 +244,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2021-12-20",
     "first_online_source": "https://arxiv.org/abs/2112.10694v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "This paper introduces a combinatorial structure of orthogeodesics on hyperbolic surfaces and presents several relations among them. As a primary application, we propose a recursive method for computing the trace (the hyperbolic cosine of the length) of orthogeodesics and establish the existence of surfaces where the trace of each orthogeodesic is an integer. These surfaces and their orthogeodesics are closely related to integral Apollonian circle packings. Notably, we found a new type of root-flipping that transitions between roots in different quadratic Diophantine equations of a certain type, with Vieta root-flipping as a special case. Finally, we provide a combinatorial proof of Basmajian's identity for hyperbolic surfaces, akin to Bowditch's combinatorial proof of the McShane identity.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2112.10694"
   },
   {
     "id": "filling",
@@ -231,7 +264,10 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2020-12-04",
     "first_online_source": "https://arxiv.org/abs/2012.02461v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "This paper is about a type of quantitative density of closed geodesics and orthogeodesics on complete finite-area hyperbolic surfaces. The main results are upper bounds on the length of the shortest closed geodesic and the shortest doubly truncated orthogeodesic that are $\\varepsilon$-dense on a given compact set on the surface.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2012.02461"
   },
   {
     "id": "pants",
@@ -250,6 +286,9 @@
     "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
     "first_online": "2020-02-07",
     "first_online_source": "https://arxiv.org/abs/2002.02738v1",
-    "first_online_note": "Initial arXiv submission, version 1."
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "abstract": "We investigate the terms arising in an identity for hyperbolic surfaces proved by Luo and Tan, namely showing that they vary monotonically in terms of lengths and that they verify certain convexity properties. Using these properties, we deduce two results. As a first application, we show how to deduce a theorem of Thurston which states, in particular for closed hyperbolic surfaces, that if a simple length spectrum \"dominates\" another, then in fact the two surfaces are isometric. As a second application, we show how to find upper bounds on the number of pairs of pants of bounded length that only depend on the boundary length and the topology of the surface.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2002.02738"
   }
 ]

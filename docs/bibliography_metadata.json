@@ -184,5 +184,117 @@
     "venue": "Ph.D. thesis, University of Toronto, 2021.",
     "first_online": "2021-11-30",
     "first_online_source": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07"
+  },
+  {
+    "arxiv": "2609.14149",
+    "abstract": "This paper treats Markov-type solution trees for arbitrary real parameters. A continuous function records the values on each tree; its graph changes from convex to linear to concave as the parameter passes through four. The framework extends counting estimates, lattice-curve descriptions, uniqueness criteria, and geometric identities beyond the classical Markov equation.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://arxiv.org/abs/2609.14149",
+    "first_online": "2026-09-12",
+    "first_online_source": "https://arxiv.org/abs/2609.14149v1"
+  },
+  {
+    "arxiv": "2610.36069",
+    "abstract": "An improved asymptotic estimate counts Markov triples by their largest entry, with an error smaller than a constant multiple of the logarithm. The argument combines the correspondence with simple geodesics on the modular punctured torus and detailed geometry of the stable-norm ball. Further error estimates use zero-free regions and a hypothesis on zeros of the zeta function.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://arxiv.org/abs/2610.36069",
+    "first_online": "2026-10-26",
+    "first_online_source": "https://arxiv.org/abs/2610.36069v1"
+  },
+  {
+    "platform": "hexagon",
+    "id": "2610.00281",
+    "abstract": "The paper establishes Frobenius uniqueness for a density-one subset of Markoff numbers. Equal-length simple geodesics are studied through the stable norm on the modular torus. Boundary estimates lead to equations involving rational linear maps, and a zero-one result for 3-adic dynamics excludes a positive density of nonsymmetric coincidences.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://hexagonmath.org/2610.00281",
+    "first_online": "2026-10-16",
+    "first_online_source": "https://hexagonmath.org/2610.00281v1"
+  },
+  {
+    "platform": "hexagon",
+    "id": "2611.00023",
+    "abstract": "For generalized k-Markov numbers, the paper rules out the proposed reversal of order as the parameter changes. This gives a negative answer to Question 35 of Banaian and Huang.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://hexagonmath.org/2611.00023",
+    "first_online": "2026-11-03",
+    "first_online_source": "https://hexagonmath.org/2611.00023v1"
+  },
+  {
+    "arxiv": "2203.06446",
+    "abstract": "For closed geodesics arising from subgroups of real quadratic narrow class groups, the paper shows concentration of their homology near the Eisenstein direction. It also considers variation of the modular level and a homological supremum-norm problem, with applications to modular forms and group theory.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://arxiv.org/abs/2203.06446",
+    "first_online": "2022-03-12",
+    "first_online_source": "https://arxiv.org/abs/2203.06446v1"
+  },
+  {
+    "arxiv": "2211.05890",
+    "abstract": "Hyperbolic orbifolds attached to real quadratic ideal classes are extended to include modular level structure. The authors establish sparse and small-scale equidistribution results, together with discrepancy estimates. The proof interprets Weyl sums through adelic periods and connects them to Rankin–Selberg L-functions, subconvexity, and homological bounds.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://arxiv.org/abs/2211.05890",
+    "first_online": "2022-11-10",
+    "first_online_source": "https://arxiv.org/abs/2211.05890v1"
+  },
+  {
+    "arxiv": "2608.20143",
+    "abstract": "The authors study entropies of subsurfaces inside a hyperbolic surface. They establish an ordering property, finite multiplicities, and a quantitative gap near one. These conclusions follow from bounds for non-filling geodesics and curve counts that depend explicitly on boundary lengths and boundary width.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://arxiv.org/abs/2608.20143",
+    "first_online": "2026-08-20",
+    "first_online_source": "https://arxiv.org/abs/2608.20143v1"
+  },
+  {
+    "arxiv": "2305.18625",
+    "abstract": "Residue classes modulo an integer determine closed geodesics on the modular surface. The paper proves equidistribution for geodesics associated with cosets of sufficiently large subgroups as the modulus grows. Their oriented homology classes concentrate near the Eisenstein direction, yielding further group-theoretic applications.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://arxiv.org/abs/2305.18625",
+    "first_online": "2023-05-29",
+    "first_online_source": "https://arxiv.org/abs/2305.18625v1"
+  },
+  {
+    "arxiv": "2406.14538",
+    "abstract": "The paper gives a procedure for deciding faithfulness of the three-strand Burau representation after reduction modulo a prime. It proves faithfulness for primes at most thirteen and resolves the stated finite-field form of Salter’s question for every prime.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://arxiv.org/abs/2406.14538",
+    "first_online": "2024-06-20",
+    "first_online_source": "https://arxiv.org/abs/2406.14538v1"
+  },
+  {
+    "platform": "zenodo",
+    "id": "23603543",
+    "zenodo_concept": "23603542",
+    "abstract": "The modular punctured torus is shown to be the unique maximizer of the stable-norm Mahler product. Polygon enclosures, local Taylor estimates, and certified global comparisons provide the proof and a numerical enclosure for the maximum. Combined with the primal-area minimum theorem of Dang, Dao, and Doan, the result also identifies the maximizer of polar area.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://zenodo.org/records/23603543",
+    "first_online": "2026-10-23",
+    "first_online_source": "https://zenodo.org/records/23603543"
+  },
+  {
+    "platform": "zenodo",
+    "id": "22998822",
+    "zenodo_concept": "22998821",
+    "abstract": "For every fixed boundary length, including a cusp, one-holed tori with three distinct simple geodesics of equal length form a dense but meager set. Such coincidences occur with arbitrarily large common length in each open set. The construction uses twisting, three Farey directions, and a locally nondegenerate map of length ratios.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://zenodo.org/records/22998822",
+    "first_online": "2026-09-27",
+    "first_online_source": "https://zenodo.org/records/22998822"
+  },
+  {
+    "platform": "thesis",
+    "id": "1807/108584",
+    "abstract": "This thesis constructs a Thurston geodesic that stays in the thick part while approaching a filling, minimal lamination that is not uniquely ergodic. The construction on the sphere with seven punctures uses bounded annular projections and supplies a counterexample to a Thurston-metric analogue of Masur’s criterion.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07",
+    "first_online": "2021-11-30",
+    "first_online_source": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07"
+  },
+  {
+    "platform": "thesis",
+    "id": "10993/50710",
+    "abstract": "The thesis studies quantitative density of geodesics and orthogeodesics, the length-dependent terms in the Luo–Tan identity and their counting applications, and a tree structure on orthogeodesics. Applications include counting pairs of pants, recursive dilogarithm formulas, and a combinatorial proof of Basmajian’s identity.",
+    "abstract_kind": "summary",
+    "abstract_source": "https://orbilu.uni.lu/handle/10993/50710",
+    "first_online": "2022-03-30",
+    "first_online_source": "https://orbilu.uni.lu/handle/10993/50710"
   }
 ]

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Papers</title>
 <style>
-*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;color:#25282c;background:#fff;max-width:1220px;margin:0 auto;padding:12px 16px;line-height:1.55}table{width:100%;border-collapse:collapse;table-layout:fixed}th,td{text-align:left;vertical-align:top;padding:14px 10px;border-bottom:1px solid #e7e8ea}th{font-size:13px;font-weight:500;color:#646b73}th:first-child{width:54%}th:nth-child(2){width:15%}th:last-child{width:31%}a{color:#245c9d;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible,summary:focus-visible{outline:2px solid #245c9d;outline-offset:3px}.paper{font-size:16px}.authors,.venue{font-size:13px;color:#59616a;margin-top:3px}.date{font-size:13px;white-space:nowrap}summary{cursor:pointer;color:#245c9d;font-size:14px;width:fit-content}ol{padding-left:19px;margin:9px 0 0;font-size:13px}li{margin:0 0 15px;overflow-wrap:anywhere}li .authors,li .venue{font-size:12px}.empty{color:#9a9fa5;font-size:14px}.totals{display:flex;gap:8px 24px;flex-wrap:wrap;padding:17px 10px;font-size:13px;color:#59616a}.totals strong{color:#25282c;font-weight:500}@media(max-width:650px){body{padding:4px}th,td{padding:10px 5px}th:first-child{width:49%}th:nth-child(2){width:20%}th:last-child{width:31%}.paper{font-size:14px}.authors,.venue{font-size:12px}.date{font-size:11px;white-space:normal}ol{padding-left:14px;font-size:12px}li .authors,li .venue{font-size:11px}.totals{gap:8px 14px;padding:14px 5px}}
+*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;color:#25282c;background:#fff;max-width:1600px;margin:0 auto;padding:12px 16px;line-height:1.55}table{width:100%;border-collapse:collapse;table-layout:fixed}th,td{text-align:left;vertical-align:top;padding:14px 10px;border-bottom:1px solid #e7e8ea}th{font-size:13px;font-weight:500;color:#646b73}th:first-child{width:78%}th:nth-child(2){width:15%;text-align:right}th:last-child{width:7%;text-align:right}a{color:#245c9d;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid #245c9d;outline-offset:3px}.paper{font-size:16px}.authors,.venue{font-size:13px;color:#59616a;margin-top:4px}.date{font-size:13px;white-space:nowrap;text-align:right}.citation-count{text-align:right}.citation-toggle{border:0;background:none;color:#245c9d;font:inherit;font-size:14px;padding:0;cursor:pointer}.citation-toggle:before{content:'▸';display:inline-block;margin-right:6px;font-size:12px}.citation-toggle[aria-expanded="true"]:before{content:'▾'}.more-details{margin-top:5px;font-size:13px}.more-details>summary{cursor:pointer;color:#646b73;font-size:12px;width:fit-content}.detail-content{margin:8px 0 2px;max-width:100ch}.abstract{font-size:13px;margin-top:12px;line-height:1.65}.abstract-label{font-size:12px;margin-bottom:4px}.abstract-text{white-space:pre-line;overflow-wrap:anywhere}.abstract-text mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.empty{color:#9a9fa5;font-size:14px}.citing-row[hidden]{display:none}.citing-row>td{padding:2px 10px 18px}.citation-list{padding-left:22px;margin:4px 0 0;font-size:14px}.citation-list>li{margin:0 0 16px;padding-left:3px}.citation-list>li:last-child{margin-bottom:0}.citing-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:start}.citing-title{overflow-wrap:anywhere}.citing-date{font-size:12px;white-space:nowrap;text-align:right;color:#59616a}.totals{padding:17px 10px;font-size:13px;color:#59616a}.totals strong{color:#25282c;font-weight:500}@media(max-width:650px){body{padding:4px}th,td{padding:11px 5px}th:first-child{width:69%}th:nth-child(2){width:20%}th:last-child{width:11%}.paper{font-size:14px}.date{font-size:11px;white-space:normal}.authors,.venue,.abstract{font-size:12px}.more-details>summary{font-size:11px}.citation-toggle{font-size:13px}.citation-toggle:before{margin-right:3px}.citing-row>td{padding:2px 5px 14px}.citation-list{font-size:13px;padding-left:18px}.citing-heading{gap:12px;grid-template-columns:minmax(0,1fr) 78px}.citing-date{font-size:11px;white-space:normal}.totals{padding:14px 5px}}
 </style>
 </head>
 <body>
@@ -16,20 +16,49 @@ const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;
 const safe=value=>{try{const url=new URL(value);return ['https:','http:'].includes(url.protocol)?url.href:'#'}catch{return '#'}};
 const link=(url,label,attributes='')=>'<a href="'+esc(safe(url))+'" target="_blank" rel="noopener noreferrer" '+attributes+'>'+esc(label)+'</a>';
 const paperUrl=p=>p.doi?'https://doi.org/'+p.doi:p.arxiv?'https://arxiv.org/abs/'+p.arxiv:p.hexagon?'https://hexagonmath.org/'+p.hexagon:'#';
-const sourceUrl=c=>c.url||(c.arxiv?'https://arxiv.org/abs/'+c.arxiv:c.platform==='arxiv'?'https://arxiv.org/abs/'+c.id:c.platform==='hexagon'?'https://hexagonmath.org/'+c.id:c.doi?'https://doi.org/'+c.doi:'#');
+const sourceUrl=c=>c.url||(c.arxiv?'https://arxiv.org/abs/'+c.arxiv:c.hexagon?'https://hexagonmath.org/'+c.hexagon:c.platform==='arxiv'?'https://arxiv.org/abs/'+c.id:c.platform==='hexagon'?'https://hexagonmath.org/'+c.id:c.doi?'https://doi.org/'+c.doi:'#');
 const authors=value=>Array.isArray(value)?value.join(', '):String(value||'').split(';').map(s=>s.trim()).filter(Boolean).join(', ');
-const description=p=>'<div class="authors">'+esc(authors(p.authors))+'.</div><div class="venue">'+esc(p.venue||'')+'</div>';
 const dateText=value=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return '—';return new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(value+'T00:00:00Z'))};
+const newestFirst=(a,b)=>(b.first_online||'').localeCompare(a.first_online||'')||(a.display_title||a.title).localeCompare(b.display_title||b.title);
+const dateLink=p=>p.first_online?link(p.first_online_source||sourceUrl(p),dateText(p.first_online),'title="'+esc(p.first_online_note||'First documented public posting')+'"'):'—';
+const moreDetails=p=>{
+ const byline=authors(p.authors);
+ const abstract=p.abstract?'<div class="abstract"><div class="abstract-label">'+link(p.abstract_source||sourceUrl(p),p.abstract_kind==='summary'?'Abstract summary':'Abstract')+'</div><div class="abstract-text">'+esc(p.abstract)+'</div></div>':'<div class="abstract">'+link(p.abstract_source||sourceUrl(p),'Abstract')+'</div>';
+ return '<details class="more-details"><summary>more details</summary><div class="detail-content">'+(byline?'<div class="authors">'+esc(byline)+'.</div>':'')+(p.venue?'<div class="venue">'+esc(p.venue)+'</div>':'')+abstract+'</div></details>';
+};
+// Mathematics is loaded only when an opened details panel needs it.
+let mathReady,mathQueue=Promise.resolve();
+function loadMath(){
+ if(!mathReady)mathReady=new Promise((resolve,reject)=>{
+  window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},startup:{typeset:false}};
+  const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js';script.async=true;
+  script.onload=()=>window.MathJax.startup.promise.then(resolve,reject);script.onerror=reject;document.head.appendChild(script);
+ });
+ return mathReady;
+}
+const tableBody=document.getElementById('papers');
+tableBody.addEventListener('click',event=>{
+ const button=event.target.closest('.citation-toggle');if(!button)return;
+ const row=document.getElementById(button.getAttribute('aria-controls'));
+ const opening=button.getAttribute('aria-expanded')!=='true';row.hidden=!opening;button.setAttribute('aria-expanded',String(opening));
+});
+tableBody.addEventListener('toggle',event=>{
+ const panel=event.target;
+ if(!panel.matches('.more-details')||!panel.open||panel.dataset.mathDone)return;
+ const abstract=panel.querySelector('.abstract-text');if(!abstract||!/[\$\\]/.test(abstract.textContent))return;
+ mathQueue=mathQueue.then(()=>loadMath()).then(()=>window.MathJax.typesetPromise([abstract])).then(()=>{panel.dataset.mathDone='true'}).catch(()=>{});
+},true);
 fetch('ledger.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error();return r.json()}).then(data=>{
- const papers=[...data.papers].sort((a,b)=>(b.first_online||'').localeCompare(a.first_online||'')||(a.display_title||a.title).localeCompare(b.display_title||b.title));
- document.getElementById('papers').innerHTML=papers.map(p=>{
-  const citations=data.citations.filter(c=>c.target===p.id&&(c.verified||c.listing_confirmed)).sort((a,b)=>(b.first_online||'').localeCompare(a.first_online||'')||a.title.localeCompare(b.title));
-  const details=citations.length?'<details><summary aria-label="'+citations.length+' citing works">'+citations.length+'</summary><ol>'+citations.map(c=>'<li>'+link(sourceUrl(c),c.display_title||c.title,'title="'+esc(c.bibliography_status||'Bibliography reference verified')+'"')+description(c)+'</li>').join('')+'</ol></details>':'<span class="empty">—</span>';
-  const date=p.first_online?link(p.first_online_source,dateText(p.first_online),'title="'+esc(p.first_online_note||'Earliest documented public posting')+'"'):'—';
-  return '<tr><td><div class="paper">'+link(paperUrl(p),p.display_title||p.title)+'</div>'+description(p)+'</td><td class="date">'+date+'</td><td>'+details+'</td></tr>';
+ const papers=[...data.papers].sort(newestFirst);
+ tableBody.innerHTML=papers.map(p=>{
+  const citations=data.citations.filter(c=>c.target===p.id&&(c.verified||c.listing_confirmed)).sort(newestFirst);
+  const id='cited-'+p.id;
+  const control=citations.length?'<button type="button" class="citation-toggle" aria-expanded="false" aria-controls="'+esc(id)+'" aria-label="'+citations.length+' citing works">'+citations.length+'</button>':'<span class="empty">—</span>';
+  const main='<tr><td><div class="paper">'+link(paperUrl(p),p.display_title||p.title)+'</div>'+moreDetails(p)+'</td><td class="date">'+dateLink(p)+'</td><td class="citation-count">'+control+'</td></tr>';
+  const list=citations.length?'<tr class="citing-row" id="'+esc(id)+'" hidden><td colspan="3"><ol class="citation-list">'+citations.map(c=>'<li><div class="citing-heading"><div class="citing-title">'+link(sourceUrl(c),c.display_title||c.title,'title="'+esc(c.bibliography_status||'Bibliography reference verified')+'"')+'</div><div class="citing-date">'+dateLink(c)+'</div></div>'+moreDetails(c)+'</li>').join('')+'</ol></td></tr>':'';
+  return main+list;
  }).join('');
- const c=data.counts;
- document.getElementById('totals').innerHTML='<span>Total citations: <strong>'+c.total_citations+'</strong></span>';
+ document.getElementById('totals').innerHTML='<span>Total citations: <strong>'+data.counts.total_citations+'</strong></span>';
 }).catch(()=>{});
 </script>
 </body>
