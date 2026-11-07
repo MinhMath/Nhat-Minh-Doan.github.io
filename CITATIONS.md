@@ -4,7 +4,7 @@
 
 **Verified relationships:** 9 | **Independent verified:** 5 | **Distinct verified citing works:** 8 | **Indexed-only candidates:** 1 | **Papers tracked:** 13
 
-Collection status: **partial**. Last saved discovery: 2026-11-07T02:41:53+00:00.
+Collection status: **partial**. Last saved discovery: 2026-11-07T02:47:42+00:00.
 
 | Canonical paper | Verified citations | Indexed candidates |
 |---|---:|---:|
@@ -28,10 +28,12 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T02:41:53+00:00.
 
 - [Almost all Markoff numbers are unique](https://hexagonmath.org/2610.00281) — William Y. Chen; independent. Manually inspected bibliography (2026-11-07).
 - [Almost all simple lengths are unique up to isometry](https://hexagonmath.org/2610.00298) — Nhat Minh Doan; shared author. Manually inspected bibliography (2026-11-07).
-- [Counting Markov Triples and Simple Geodesics](https://arxiv.org/abs/2610.36069) — Morten S. Risager; independent. Manually inspected bibliography (2026-11-07).
+- [Counting Markov Triples and Simple Geodesics](https://arxiv.org/abs/2610.36069) — Morten S. Risager; independent. Verified in arXiv PDF bibliography.
+  Reference excerpt: 5. Harvey Cohn,Approach to Markoff’s Minimal Forms Through Modular Functions, Annals of Mathe- matics61(1955), no. 1, 1–12. MR0067935 6. Charles de la Vall´ ee Poussin,Sur la fonctionζ(s)de Riemann et le nombre des nombres premiers inf´ erieurs ` a une limite donn´ ee, M´ emoires de l’Acad´ emie royale de Belgique59(1899), no. 1, 1–74. 7. Nhat Minh Doan, Xiaobin Li, and Van Nguyen,Stable-norm boundary geometry on once-punctured tori, October 2026, arXiv:2605.14574v3.
 - [PARAMETER MONOTONICITY FOR GENERALIZED k-MARKOV NUMBERS](https://hexagonmath.org/2611.00023v1) — Qiyue Tang; independent. Verified in HexagonMath HTML bibliography.
   Reference excerpt: N. M. Doan, X. Li, and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv
-- [Patterns in the Markov Numbers and Their Generalizations](https://arxiv.org/abs/2609.14149) — Cormac O'Sullivan; independent. Manually inspected bibliography (2026-11-07).
+- [Patterns in the Markov Numbers and Their Generalizations](https://arxiv.org/abs/2609.14149) — Cormac O'Sullivan; independent. Verified in arXiv PDF bibliography.
+  Reference excerpt: [DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.
 - [The torus with asymptotically the fewest simple closed geodesics](https://hexagonmath.org/2610.00159) — Phuc Thinh Dang; Trong Toan Dao; Nhat Minh Doan; shared author. Manually inspected bibliography (2026-11-07).
 
 ### The torus with asymptotically the fewest simple closed geodesics
@@ -41,7 +43,7 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T02:41:53+00:00.
 ### Optimal special polygons for the congruence subgroups Gamma_0(p) and Gamma_0(pq)
 
 - [Concentration of closed geodesics in the homology of modular curves](https://arxiv.org/abs/2203.06446) — Asbjørn Christian Nordentoft; independent. Verified in arXiv PDF bibliography.
-  Reference excerpt: [ALMW22] Menny Aka, Manuel Luethi, Philippe Michel, and And reas Wieser. Simultaneous supersingular re- ductions of cm elliptic curves. Journal für die reine und angewandte Mathematik (Crelles Jo urnal), 2022(786):1–43, 2022. [BD96] M. Bertolini and H. Darmon. Heegner points on Mumford -Tate curves. Invent. Math. , 126(3):413– 456, 1996. [Bea83] Alan F. Beardon. The geometry of discrete groups , volume 91. Springer, Cham, 1983. [BH10] Valentin Blomer and Roman Holowinsky. Bounding sup- norms of cusp forms of large level. Invent. Math., 179(3):645–681, 2010. [BM11] Valentin Blomer and Philippe Michel. Sup-norms of ei genfunctions on arithmetic
+  Reference excerpt: [DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and S er Peow Tan. Optimal independent gener- ating system for the congruence subgroups Γ 0(p). arXiv e-prints , page arXiv:2209.13937, September 2022.
 
 ### Ortho-integral surfaces
 

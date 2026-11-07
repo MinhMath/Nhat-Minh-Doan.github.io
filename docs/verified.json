@@ -24,7 +24,7 @@
     "platform": "arxiv",
     "authors": "Cormac O'Sullivan",
     "verified": true,
-    "source": "Manually inspected bibliography (2026-11-07)",
+    "source": "Verified in arXiv PDF bibliography",
     "work_id": "arxiv:2609.14149",
     "identifiers": [
       "arxiv:2609.14149"
@@ -32,8 +32,20 @@
     "evidence": [
       {
         "source": "Manually inspected bibliography (2026-11-07)"
+      },
+      {
+        "source": "Verified in arXiv PDF bibliography",
+        "url": "https://arxiv.org/abs/2609.14149",
+        "evidence_url": "https://arxiv.org/pdf/2609.14149",
+        "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.",
+        "checked_utc": "2026-11-07T02:47:20+00:00"
       }
-    ]
+    ],
+    "arxiv": "2609.14149",
+    "url": "https://arxiv.org/abs/2609.14149",
+    "evidence_url": "https://arxiv.org/pdf/2609.14149",
+    "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.",
+    "checked_utc": "2026-11-07T02:47:20+00:00"
   },
   {
     "target": "DLN",
@@ -42,7 +54,7 @@
     "platform": "arxiv",
     "authors": "Morten S. Risager",
     "verified": true,
-    "source": "Manually inspected bibliography (2026-11-07)",
+    "source": "Verified in arXiv PDF bibliography",
     "work_id": "arxiv:2610.36069",
     "identifiers": [
       "arxiv:2610.36069"
@@ -50,8 +62,20 @@
     "evidence": [
       {
         "source": "Manually inspected bibliography (2026-11-07)"
+      },
+      {
+        "source": "Verified in arXiv PDF bibliography",
+        "url": "https://arxiv.org/abs/2610.36069",
+        "evidence_url": "https://arxiv.org/pdf/2610.36069",
+        "evidence_excerpt": "5. Harvey Cohn,Approach to Markoff’s Minimal Forms Through Modular Functions, Annals of Mathe- matics61(1955), no. 1, 1–12. MR0067935 6. Charles de la Vall´ ee Poussin,Sur la fonctionζ(s)de Riemann et le nombre des nombres premiers inf´ erieurs ` a une limite donn´ ee, M´ emoires de l’Acad´ emie royale de Belgique59(1899), no. 1, 1–74. 7. Nhat Minh Doan, Xiaobin Li, and Van Nguyen,Stable-norm boundary geometry on once-punctured tori, October 2026, arXiv:2605.14574v3.",
+        "checked_utc": "2026-11-07T02:47:21+00:00"
       }
-    ]
+    ],
+    "arxiv": "2610.36069",
+    "url": "https://arxiv.org/abs/2610.36069",
+    "evidence_url": "https://arxiv.org/pdf/2610.36069",
+    "evidence_excerpt": "5. Harvey Cohn,Approach to Markoff’s Minimal Forms Through Modular Functions, Annals of Mathe- matics61(1955), no. 1, 1–12. MR0067935 6. Charles de la Vall´ ee Poussin,Sur la fonctionζ(s)de Riemann et le nombre des nombres premiers inf´ erieurs ` a une limite donn´ ee, M´ emoires de l’Acad´ emie royale de Belgique59(1899), no. 1, 1–74. 7. Nhat Minh Doan, Xiaobin Li, and Van Nguyen,Stable-norm boundary geometry on once-punctured tori, October 2026, arXiv:2605.14574v3.",
+    "checked_utc": "2026-11-07T02:47:21+00:00"
   },
   {
     "target": "DLN",
@@ -168,6 +192,13 @@
       {
         "source": "OpenCitations reference edge (Crossref metadata)",
         "url": "https://doi.org/10.1112/blms.70088"
+      },
+      {
+        "source": "Verified in arXiv PDF bibliography",
+        "url": "https://arxiv.org/abs/2407.17750",
+        "evidence_url": "https://arxiv.org/pdf/2407.17750",
+        "evidence_excerpt": "[20] Nhat Minh Doan. Ortho-integral surfaces.arXiv preprint arXiv:2112.10694, 2021. 16 NHAT MINH DOAN, HANH VO",
+        "checked_utc": "2026-11-07T02:35:27+00:00"
       }
     ],
     "evidence_url": "https://arxiv.org/pdf/2407.17750",
@@ -195,10 +226,24 @@
       {
         "source": "OpenAlex indexed reference edge",
         "url": "https://doi.org/10.1017/fms.2023.85"
+      },
+      {
+        "source": "Verified in arXiv PDF bibliography",
+        "url": "https://arxiv.org/abs/2203.06446",
+        "evidence_url": "https://arxiv.org/pdf/2203.06446",
+        "evidence_excerpt": "[ALMW22] Menny Aka, Manuel Luethi, Philippe Michel, and And reas Wieser. Simultaneous supersingular re- ductions of cm elliptic curves. Journal für die reine und angewandte Mathematik (Crelles Jo urnal), 2022(786):1–43, 2022. [BD96] M. Bertolini and H. Darmon. Heegner points on Mumford -Tate curves. Invent. Math. , 126(3):413– 456, 1996. [Bea83] Alan F. Beardon. The geometry of discrete groups , volume 91. Springer, Cham, 1983. [BH10] Valentin Blomer and Roman Holowinsky. Bounding sup- norms of cusp forms of large level. Invent. Math., 179(3):645–681, 2010. [BM11] Valentin Blomer and Philippe Michel. Sup-norms of ei genfunctions on arithmetic",
+        "checked_utc": "2026-11-07T02:35:26+00:00"
+      },
+      {
+        "source": "Verified in arXiv PDF bibliography",
+        "url": "https://arxiv.org/abs/2203.06446",
+        "evidence_url": "https://arxiv.org/pdf/2203.06446",
+        "evidence_excerpt": "[DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and S er Peow Tan. Optimal independent gener- ating system for the congruence subgroups Γ 0(p). arXiv e-prints , page arXiv:2209.13937, September 2022.",
+        "checked_utc": "2026-11-07T02:47:22+00:00"
       }
     ],
     "evidence_url": "https://arxiv.org/pdf/2203.06446",
-    "evidence_excerpt": "[ALMW22] Menny Aka, Manuel Luethi, Philippe Michel, and And reas Wieser. Simultaneous supersingular re- ductions of cm elliptic curves. Journal für die reine und angewandte Mathematik (Crelles Jo urnal), 2022(786):1–43, 2022. [BD96] M. Bertolini and H. Darmon. Heegner points on Mumford -Tate curves. Invent. Math. , 126(3):413– 456, 1996. [Bea83] Alan F. Beardon. The geometry of discrete groups , volume 91. Springer, Cham, 1983. [BH10] Valentin Blomer and Roman Holowinsky. Bounding sup- norms of cusp forms of large level. Invent. Math., 179(3):645–681, 2010. [BM11] Valentin Blomer and Philippe Michel. Sup-norms of ei genfunctions on arithmetic",
-    "checked_utc": "2026-11-07T02:35:26+00:00"
+    "evidence_excerpt": "[DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and S er Peow Tan. Optimal independent gener- ating system for the congruence subgroups Γ 0(p). arXiv e-prints , page arXiv:2209.13937, September 2022.",
+    "checked_utc": "2026-11-07T02:47:22+00:00"
   }
 ]
