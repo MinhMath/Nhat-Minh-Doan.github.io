@@ -102,6 +102,34 @@ class CitationLedgerTests(unittest.TestCase):
         self.assertIn("2209.13937",excerpt)
         self.assertNotIn("irrelevant detail",excerpt)
 
+    def test_short_title_with_author_is_verified(self):
+        p=next(x for x in PAPERS if x["id"]=="pants")
+        self.assertTrue(matches_target("[DPT23] Nhat Minh Doan, Hugo Parlier and Ser Peow Tan. Measuring pants. Transactions AMS, 2023.",p))
+        self.assertFalse(matches_target("A tailor explains measuring pants for clothing.",p))
+
+    def test_related_ortho_titles_are_not_counted_twice(self):
+        p=next(x for x in PAPERS if x["id"]=="ortho")
+        arithmetic=next(x for x in PAPERS if x["id"]=="arithmetic")
+        entry="[DL26] Nhat Minh Doan and Khanh Le. Some arithmetic aspects of ortho-integral surfaces. Transactions AMS, 2026."
+        self.assertFalse(matches_target(entry,p))
+        self.assertTrue(matches_target(entry,arithmetic))
+        self.assertTrue(matches_target(entry+"\n[Doa25] Nhat Minh Doan. Ortho-integral surfaces. Advances in Mathematics, 2025.",p))
+
+    def test_page_number_prefix_does_not_hide_bibliography(self):
+        document="Main text.\n35References\n[Doa25] Nhat Minh Doan. Ortho-integral surfaces."
+        self.assertEqual(bibliography(document).strip(),"[Doa25] Nhat Minh Doan. Ortho-integral surfaces.")
+
+    def test_contents_heading_does_not_turn_body_mentions_into_citations(self):
+        document="Contents\nReferences\n37\nIntroduction\nDoan wrote Measuring pants.\nReferences\n[1] Alice Example. Another work."
+        p=next(x for x in PAPERS if x["id"]=="pants")
+        self.assertFalse(matches_target(bibliography(document),p))
+
+    def test_versioned_identifier_and_line_wrapped_title(self):
+        p=next(x for x in PAPERS if x["id"]=="DLN")
+        self.assertTrue(matches_target("[1] N. M. Doan et al. arXiv:2605.14574v3.",p))
+        filling=next(x for x in PAPERS if x["id"]=="filling")
+        self.assertTrue(matches_target("[20] N. M. Doan. Geometric filling curves on punc-\ntured surfaces. Glasgow Mathematical Journal, 2023.",filling))
+
 if __name__=="__main__":
     unittest.main()
 

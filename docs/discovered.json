@@ -26,36 +26,7 @@
       "verified_records": 0
     }
   },
-  "citations": [
-    {
-      "target": "filling",
-      "title": "Self‐intersections of arcs on a pair of pants",
-      "authors": "Nhat Minh Doan; Hanh Nguyen Vo",
-      "doi": "10.1112/blms.70088",
-      "arxiv": "2407.17750",
-      "platform": "openalex",
-      "id": "W4410122476",
-      "url": "https://doi.org/10.1112/blms.70088",
-      "source": "OpenAlex indexed reference edge",
-      "verified": false,
-      "work_id": "doi:10.1112/blms.70088",
-      "identifiers": [
-        "arxiv:2407.17750",
-        "doi:10.1112/blms.70088",
-        "openalex:W4410122476"
-      ],
-      "evidence": [
-        {
-          "source": "OpenAlex indexed reference edge",
-          "url": "https://doi.org/10.1112/blms.70088"
-        },
-        {
-          "source": "OpenCitations reference edge (Crossref metadata)",
-          "url": "https://doi.org/10.1112/blms.70088"
-        }
-      ]
-    }
-  ],
+  "citations": [],
   "errors": [
     "api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run"
   ],

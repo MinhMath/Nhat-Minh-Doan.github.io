@@ -2,16 +2,18 @@
 
 > **Verified lower bound, not an exact worldwide total.** Inspected references and indexed candidates are counted separately. A missing or failed source is not evidence of zero citations.
 
-**Verified relationships:** 9 | **Independent verified:** 5 | **Distinct verified citing works:** 8 | **Indexed-only candidates:** 1 | **Papers tracked:** 13
+**Verified relationships:** 15 | **Independent verified:** 5 | **Distinct verified citing works:** 11 | **Indexed-only candidates:** 0 | **Papers tracked:** 13
 
 Collection status: **partial**. Last saved discovery: 2026-11-07T02:47:42+00:00.
 
 | Canonical paper | Verified citations | Indexed candidates |
 |---|---:|---:|
 | [Stable-norm boundary geometry on once-punctured tori](https://arxiv.org/abs/2605.14574) | 6 | 0 |
+| [Ortho-integral surfaces](https://doi.org/10.1016/j.aim.2025.110162) | 3 | 0 |
+| [Optimal special polygons for the congruence subgroups Gamma_0(p) and Gamma_0(pq)](https://doi.org/10.1007/s12220-025-02051-y) | 2 | 0 |
+| [Measuring pants](https://doi.org/10.1090/tran/8893) | 2 | 0 |
 | [The torus with asymptotically the fewest simple closed geodesics](https://hexagonmath.org/2610.00159) | 1 | 0 |
-| [Optimal special polygons for the congruence subgroups Gamma_0(p) and Gamma_0(pq)](https://doi.org/10.1007/s12220-025-02051-y) | 1 | 0 |
-| [Ortho-integral surfaces](https://doi.org/10.1016/j.aim.2025.110162) | 1 | 0 |
+| [Geometric filling curves on punctured surfaces](https://doi.org/10.1017/S0017089522000404) | 1 | 0 |
 | [Almost all simple lengths are unique up to isometry](https://hexagonmath.org/2610.00298) | 0 | 0 |
 | [Density of length ratios on Teichmüller space](https://arxiv.org/abs/2610.24700) | 0 | 0 |
 | [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) | 0 | 0 |
@@ -19,8 +21,6 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T02:47:42+00:00.
 | [Some arithmetic aspects of ortho-integral surfaces](https://doi.org/10.1090/tran/9657) | 0 | 0 |
 | [Some remarks on subgroups of free-by-cyclic groups](https://doi.org/10.1007/s10013-025-00762-x) | 0 | 0 |
 | [Self-intersections of arcs on a pair of pants](https://doi.org/10.1112/blms.70088) | 0 | 0 |
-| [Geometric filling curves on punctured surfaces](https://doi.org/10.1017/S0017089522000404) | 0 | 1 |
-| [Measuring pants](https://doi.org/10.1090/tran/8893) | 0 | 0 |
 
 ## Verified bibliography references
 
@@ -44,11 +44,29 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T02:47:42+00:00.
 
 - [Concentration of closed geodesics in the homology of modular curves](https://arxiv.org/abs/2203.06446) — Asbjørn Christian Nordentoft; independent. Verified in arXiv PDF bibliography.
   Reference excerpt: [DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and S er Peow Tan. Optimal independent gener- ating system for the congruence subgroups Γ 0(p). arXiv e-prints , page arXiv:2209.13937, September 2022.
+- [Optimal Farey sequence for the congruence subgroup Gamma_0(2^n)](https://arxiv.org/abs/2601.01324) — Nhat Minh Doan; Sang-hyun Kim; Mong Lung Lang; Ser Peow Tan; shared author. Manually checked primary-source bibliography.
+  Reference excerpt: [DKLT] N.M. Doan, S. Kim, M.L. Lang and S.P. Tan, Optimal special polygons for the congruence subgroups Γ0(p) and Γ0(pq), The Journal of Geometric Analysis 35, Article 216 (2025).
 
 ### Ortho-integral surfaces
 
+- [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) — Ara Basmajian; Nhat Minh Doan; Hugo Parlier; Ser Peow Tan; shared author. Manually checked primary-source bibliography.
+  Reference excerpt: [Doa25] Nhat Minh Doan. Ortho-integral surfaces. Advances in Mathematics, 466:110162, 2025.
 - [Self‐intersections of arcs on a pair of pants](https://arxiv.org/abs/2407.17750) — Nhat Minh Doan; Hanh Nguyen Vo; shared author. Verified in arXiv PDF bibliography.
   Reference excerpt: [20] Nhat Minh Doan. Ortho-integral surfaces.arXiv preprint arXiv:2112.10694, 2021. 16 NHAT MINH DOAN, HANH VO
+- [Some arithmetic aspects of ortho-integral surfaces](https://arxiv.org/abs/2504.09403) — Nhat Minh Doan; Khanh Le; shared author. Manually checked primary-source bibliography.
+  Reference excerpt: [Doa25] Nhat Minh Doan. Ortho-integral surfaces. Advances in Mathematics, 466:110162, 2025.
+
+### Geometric filling curves on punctured surfaces
+
+- [Self-intersections of arcs on a pair of pants](https://doi.org/10.1112/blms.70088) — Nhat Minh Doan; Hanh Vo; shared author. Manually checked primary-source bibliography.
+  Reference excerpt: 20 N. M. Doan, Geometric filling curves on punctured surfaces, Glasg. Math. J. 65 (2023), no. 2, 383–400.
+
+### Measuring pants
+
+- [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) — Ara Basmajian; Nhat Minh Doan; Hugo Parlier; Ser Peow Tan; shared author. Manually checked primary-source bibliography.
+  Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants. Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.
+- [Some arithmetic aspects of ortho-integral surfaces](https://arxiv.org/abs/2504.09403) — Nhat Minh Doan; Khanh Le; shared author. Manually checked primary-source bibliography.
+  Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants. Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.
 
 ## Collection status
 

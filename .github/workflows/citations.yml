@@ -9,6 +9,7 @@ on:
       - 'test_citation_agent.py'
       - 'generate_report.py'
       - 'docs/papers.json'
+      - 'docs/citing_sources.json'
       - 'requirements.txt'
       - '.github/workflows/citations.yml'
   schedule:

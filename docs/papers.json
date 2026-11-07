@@ -12,7 +12,10 @@
       "Xiaobin Li",
       "Van Nguyen"
     ],
-    "year": 2026
+    "year": 2026,
+    "section": "papers",
+    "display_number": 10,
+    "venue": "Preprint, 2026. Submitted."
   },
   {
     "id": "DDD",
@@ -23,7 +26,10 @@
       "Trong Toan Dao",
       "Nhat Minh Doan"
     ],
-    "year": 2026
+    "year": 2026,
+    "section": "other",
+    "display_number": 2,
+    "venue": "Preprint, 2026."
   },
   {
     "id": "SSC",
@@ -32,7 +38,10 @@
     "authors": [
       "Nhat Minh Doan"
     ],
-    "year": 2026
+    "year": 2026,
+    "section": "other",
+    "display_number": 1,
+    "venue": "Preprint, 2026."
   },
   {
     "id": "density",
@@ -42,7 +51,10 @@
       "Nhat Minh Doan",
       "Hanh Vo"
     ],
-    "year": 2026
+    "year": 2026,
+    "section": "papers",
+    "display_number": 11,
+    "venue": "Preprint, 2026."
   },
   {
     "id": "graded",
@@ -54,7 +66,10 @@
       "Hugo Parlier",
       "Ser Peow Tan"
     ],
-    "year": 2026
+    "year": 2026,
+    "section": "papers",
+    "display_number": 9,
+    "venue": "Preprint, 2026. Submitted."
   },
   {
     "id": "farey",
@@ -66,7 +81,11 @@
       "Mong Lung Lang",
       "Ser Peow Tan"
     ],
-    "year": 2026
+    "year": 2026,
+    "section": "papers",
+    "display_number": 8,
+    "venue": "Preprint, 2026. Submitted.",
+    "display_title": "Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)"
   },
   {
     "id": "arithmetic",
@@ -77,7 +96,10 @@
       "Nhat Minh Doan",
       "Khanh Le"
     ],
-    "year": 2026
+    "year": 2026,
+    "section": "papers",
+    "display_number": 7,
+    "venue": "Transactions of the American Mathematical Society 379 (2026), 6365–6392."
   },
   {
     "id": "free",
@@ -87,7 +109,10 @@
       "Nhat Minh Doan",
       "Hoang Thanh Nguyen"
     ],
-    "year": 2026
+    "year": 2026,
+    "section": "papers",
+    "display_number": 6,
+    "venue": "Vietnam Journal of Mathematics 54 (2026), 715–728."
   },
   {
     "id": "arcs",
@@ -101,7 +126,10 @@
     "year": 2025,
     "aliases": [
       "Self-intersection of arcs on a pair of pants"
-    ]
+    ],
+    "section": "papers",
+    "display_number": 5,
+    "venue": "Bulletin of the London Mathematical Society 57 (2025), 2190–2209."
   },
   {
     "id": "polygons",
@@ -118,7 +146,11 @@
     "aliases": [
       "Optimal independent generating system for the congruence subgroups Γ_0(p) and Γ_0(p^2)",
       "Optimal independent generating system for the congruence subgroups Gamma_0(p) and Gamma_0(p^2)"
-    ]
+    ],
+    "section": "papers",
+    "display_number": 4,
+    "venue": "Journal of Geometric Analysis 35 (2025), Article 216.",
+    "display_title": "Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)"
   },
   {
     "id": "ortho",
@@ -131,7 +163,10 @@
     "authors": [
       "Nhat Minh Doan"
     ],
-    "year": 2025
+    "year": 2025,
+    "section": "papers",
+    "display_number": 3,
+    "venue": "Advances in Mathematics 466 (2025), Article 110162."
   },
   {
     "id": "filling",
@@ -141,7 +176,10 @@
     "authors": [
       "Nhat Minh Doan"
     ],
-    "year": 2023
+    "year": 2023,
+    "section": "papers",
+    "display_number": 2,
+    "venue": "Glasgow Mathematical Journal 65 (2023), 383–400."
   },
   {
     "id": "pants",
@@ -153,6 +191,9 @@
       "Hugo Parlier",
       "Ser Peow Tan"
     ],
-    "year": 2023
+    "year": 2023,
+    "section": "papers",
+    "display_number": 1,
+    "venue": "Transactions of the American Mathematical Society 376 (2023), 5281–5306."
   }
 ]

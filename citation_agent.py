@@ -86,39 +86,44 @@ def openalex(p):
     auth={}
     headers={"Authorization":"Bearer "+token} if token else {}
     found=set()
-    # Search alternate paper titles, combining publisher/preprint versions.
+    works=[]
+    for doi in ([p["doi"]] if p.get("doi") else [])+(["10.48550/arXiv."+p["arxiv"]] if p.get("arxiv") else []):
+        work=get("https://api.openalex.org/works/https://doi.org/"+quote(doi,safe="/"),headers=headers)
+        if isinstance(work,dict):works.append(work)
+    # Search alternate titles as well; older and published versions can be split.
     for title in [p["title"]]+p.get("aliases",[])[:2]:
         if not within_budget():break
-        r=get("https://api.openalex.org/works",{"search":title,"per_page":15,**auth},headers)
+        r=get("https://api.openalex.org/works",{"search":title,"per_page":15},headers)
         if not isinstance(r,dict):continue
-        for w in r.get("results",[]):
-            if not known(p,w):continue
-            names=" ".join(x.get("author",{}).get("display_name","") for x in w.get("authorships",[])).lower()
-            if "doan" not in names:continue
-            ident=w.get("id","").split("/")[-1]
-            if not re.fullmatch(r"W\d+",ident) or ident in found:continue
-            found.add(ident)
-            for page in range(1,11):
-                c=get("https://api.openalex.org/works",{"filter":"cites:"+ident,"per_page":100,"page":page,**auth},headers)
-                if not isinstance(c,dict):break
-                items=c.get("results",[])
-                for v in items:
-                    authors=[x.get("author",{}).get("display_name","") for x in v.get("authorships",[])]
-                    title=v.get("display_name") or v.get("title")
-                    if not title:continue
-                    ids=v.get("ids") or {}
-                    arxiv=""
-                    for loc in v.get("locations") or []:
-                        u=loc.get("landing_page_url") or ""
-                        mat=re.search(r"arxiv\.org/abs/(\d{4}\.\d{4,5})",u)
-                        if mat:arxiv=mat.group(1);break
-                    doi=(v.get("doi") or "").removeprefix("https://doi.org/")
-                    out.append({"target":p["id"],"title":title,"authors":"; ".join(authors),
-                                "doi":doi,"arxiv":arxiv,"platform":"openalex",
-                                "id":v.get("id","").split("/")[-1],
-                                "url":v.get("doi") or v.get("id"),"source":"OpenAlex indexed reference edge","verified":False})
-                if len(items)<100:break
-                time.sleep(.15)
+        for work in r.get("results",[]):
+            if not known(p,work):continue
+            names=clean(" ".join(x.get("author",{}).get("display_name","") for x in work.get("authorships",[])))
+            if "doan" in names:works.append(work)
+    for w in works:
+        ident=w.get("id","").split("/")[-1]
+        if not re.fullmatch(r"W\d+",ident) or ident in found:continue
+        found.add(ident)
+        for page in range(1,11):
+            c=get("https://api.openalex.org/works",{"filter":"cites:"+ident,"per_page":100,"page":page,**auth},headers)
+            if not isinstance(c,dict):break
+            items=c.get("results",[])
+            for v in items:
+                authors=[x.get("author",{}).get("display_name","") for x in v.get("authorships",[])]
+                title=v.get("display_name") or v.get("title")
+                if not title:continue
+                ids=v.get("ids") or {}
+                arxiv=""
+                for loc in v.get("locations") or []:
+                    u=loc.get("landing_page_url") or ""
+                    mat=re.search(r"arxiv\.org/abs/(\d{4}\.\d{4,5})",u)
+                    if mat:arxiv=mat.group(1);break
+                doi=(v.get("doi") or "").removeprefix("https://doi.org/")
+                out.append({"target":p["id"],"title":title,"authors":"; ".join(authors),
+                            "doi":doi,"arxiv":arxiv,"platform":"openalex",
+                            "id":v.get("id","").split("/")[-1],
+                            "url":v.get("doi") or v.get("id"),"source":"OpenAlex indexed reference edge","verified":False})
+            if len(items)<100:break
+            time.sleep(.15)
     return out
 
 def semantic(p):
@@ -152,25 +157,51 @@ def semantic(p):
 
 
 def bibliography(text):
-    """Return only text after the last standalone References/Bibliography heading."""
-    found=list(re.finditer(r"(?im)^\s*(?:references|bibliography)\s*$",text))
+    """Extract references, including numbered headings and PDF page prefixes."""
+    heading=r"(?im)^[ \t]*(?:\d+[.)]?[ \t]*)?(?:references|bibliography|literature cited)[ \t]*$"
+    found=list(re.finditer(heading,text))
+    for match in found:
+        following=text[match.end():]
+        if re.match(r"\s*(?:\[[A-Za-z0-9][^\]\n]{0,24}\]|\d+[.)]\s+[A-Z])",following):
+            return following
     return text[found[-1].end():] if found else ""
 
+
+def reference_entries(text):
+    pattern=r"(?m)(?=^[ \t]*\[[A-Za-z0-9][^\]\n]{0,24}\])|\n[ \t]*\n|(?=^[ \t]*\d+[.)][ \t]+[A-Z])"
+    return [entry.strip() for entry in re.split(pattern,text) if entry.strip()]
+
+
 def matches_target(text,p):
-    compact=clean(text)
-    for identifier in (p.get("arxiv"),p.get("hexagon"),p.get("doi")):
-        if identifier and re.search(r"(?<![a-z0-9])"+re.escape(clean(identifier))+r"(?![a-z0-9])",compact):
-            return True
-    # Only distinctive long titles count as evidence.
-    for variant in [p["title"]]+p.get("aliases",[]):
-        normalized=clean(variant)
-        if len(normalized)>40 and normalized in compact:
-            return True
+    for entry in reference_entries(text):
+        compact=clean(entry)
+        joined=compact.replace(" ","")
+        for key in ("arxiv","hexagon","doi"):
+            identifier=p.get(key)
+            suffix=r"(?:v\d+)?(?![a-z0-9])" if key in ("arxiv","hexagon") else r"(?![a-z0-9])"
+            if identifier and re.search(r"(?<![a-z0-9])"+re.escape(clean(identifier))+suffix,compact):
+                return True
+        for variant in [p["title"]]+p.get("aliases",[]):
+            normalized=clean(variant)
+            if not normalized:continue
+            if normalized not in compact and normalized.replace(" ","") not in joined:continue
+            # Short titles need the target author's surname in the same entry.
+            if len(normalized)<=40 and not re.search(r"\bdoan\b",compact):continue
+            # A reference to Some arithmetic aspects of ortho-integral surfaces
+            # must not also count as a reference to Ortho-integral surfaces.
+            shadowed=False
+            for other in PAPERS:
+                if other.get("id")==p.get("id"):continue
+                for title in [other["title"]]+other.get("aliases",[]):
+                    longer=clean(title)
+                    if len(longer)>len(normalized) and normalized in longer and longer.replace(" ","") in joined:
+                        shadowed=True
+            if not shadowed:return True
     return False
 
 
 def evidence_excerpt(text,p):
-    for entry in re.split(r"\n\s*\n|(?=\[[A-Za-z0-9][^\]\n]{0,20}\])",text):
+    for entry in reference_entries(text):
         if not matches_target(entry,p):continue
         compact=" ".join(entry.split())
         if len(compact)<=650:return compact
@@ -182,34 +213,102 @@ def evidence_excerpt(text,p):
     return ""
 
 
+PDF_CACHE={}
+
+
+def pdf_bibliography(url):
+    """Read one public PDF once per run and retain reproducible provenance."""
+    if url in PDF_CACHE:return PDF_CACHE[url]
+    if not within_budget():return None
+    from io import BytesIO
+    from hashlib import sha256
+    from pypdf import PdfReader
+    try:
+        with session.get(url,timeout=28,stream=True) as response:
+            if response.status_code!=200:
+                record_error("PDF HTTP "+str(response.status_code)+": "+url)
+                PDF_CACHE[url]=None
+                return None
+            chunks=[];size=0
+            for block in response.iter_content(chunk_size=131072):
+                size+=len(block)
+                if size>18_000_000:
+                    record_error("PDF exceeds size limit: "+url)
+                    PDF_CACHE[url]=None
+                    return None
+                chunks.append(block)
+        data=b"".join(chunks)
+        if not data.startswith(b"%PDF"):
+            record_error("PDF URL returned non-PDF: "+url)
+            PDF_CACHE[url]=None
+            return None
+        reader=PdfReader(BytesIO(data),strict=False)
+        start=max(0,len(reader.pages)-24)
+        tail="\n".join(page.extract_text() or "" for page in list(reader.pages)[start:])
+        refs=bibliography(tail)
+        first=reader.pages[0].extract_text() or ""
+        version=re.search(r"arXiv[:\s]+(\d{4}\.\d{4,5}v\d+)",first,re.I)
+        result={"references":refs,"evidence_url":url,"evidence_sha256":sha256(data).hexdigest(),
+                "evidence_version":version.group(1) if version else "",
+                "checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")}
+        if not refs:record_error("Reference heading not found in PDF: "+url)
+        PDF_CACHE[url]=result
+        return result
+    except Exception as exc:
+        record_error("PDF verification "+url+": "+str(exc)[:120])
+        PDF_CACHE[url]=None
+        return None
+
 def same_as_target(p,c):
     from citation_identity import identifiers
     return bool(identifiers(p) & identifiers(c)) or clean(p["title"])==clean(c.get("title"))
 
 def inspect_arxiv_pdf(p,c):
-    """Verify candidate citation against actual arXiv reference pages."""
-    aid=c.get("arxiv")
-    if not aid or same_as_target(p,c) or not within_budget():return None
-    from io import BytesIO
-    from pypdf import PdfReader
-    url="https://arxiv.org/pdf/"+aid
-    try:
-        response=session.get(url,timeout=28)
-        if response.status_code!=200 or not response.content.startswith(b"%PDF"):
-            return None
-        if len(response.content)>18_000_000:return None
-        reader=PdfReader(BytesIO(response.content),strict=False)
-        pages=list(reader.pages)[-min(16,len(reader.pages)):]
-        tail="\n".join(page.extract_text() or "" for page in pages)
-        refs=bibliography(tail)
-        if refs and matches_target(refs,p):
-            return {**c,"verified":True,"source":"Verified in arXiv PDF bibliography",
-                    "url":"https://arxiv.org/abs/"+aid,
-                    "evidence_url":url,"evidence_excerpt":evidence_excerpt(refs,p),
-                    "checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")}
-    except Exception as exc:
-        record_error("arXiv verification "+aid+": "+str(exc)[:120])
+    aid=c.get("arxiv") or (c.get("id") if c.get("platform")=="arxiv" else "")
+    if not aid or same_as_target(p,c):return None
+    document=pdf_bibliography("https://arxiv.org/pdf/"+aid)
+    if document and document["references"] and matches_target(document["references"],p):
+        return {**c,**{k:v for k,v in document.items() if k!="references"},
+                "verified":True,"source":"Verified in arXiv PDF bibliography",
+                "url":"https://arxiv.org/abs/"+aid,
+                "evidence_excerpt":evidence_excerpt(document["references"],p)}
     return None
+
+
+def bibliography_sources():
+    sources=[]
+    for paper in PAPERS:
+        if paper.get("arxiv"):
+            sources.append({**paper,"platform":"arxiv","id":paper["arxiv"],
+                            "authors":"; ".join(paper.get("authors",[]))})
+    extra=DIR/"citing_sources.json"
+    if extra.exists():sources.extend(json.loads(extra.read_text(encoding="utf-8")))
+    return sources
+
+
+def scan_known_bibliographies(candidates,verified):
+    """Check known manuscripts directly, including citations missing from indexes."""
+    status=sources.setdefault("known_bibliographies",{"status":"running","papers_checked":0,"verified_records":0})
+    for source in bibliography_sources():
+        if not within_budget():
+            status["status"]="deferred_time_budget"
+            break
+        aid=source.get("arxiv")
+        url=source.get("pdf_url") or ("https://arxiv.org/pdf/"+aid if aid else "")
+        if not url:continue
+        document=pdf_bibliography(url)
+        if not document or not document["references"]:continue
+        status["papers_checked"]+=1
+        for paper in PAPERS:
+            if same_as_target(paper,source) or not matches_target(document["references"],paper):continue
+            verified.append({**source,"target":paper["id"],"verified":True,
+                             "source":"Verified by direct bibliography inspection",
+                             "url":source.get("url") or ("https://arxiv.org/abs/"+aid if aid else url),
+                             **{k:v for k,v in document.items() if k!="references"},
+                             "evidence_excerpt":evidence_excerpt(document["references"],paper)})
+            status["verified_records"]+=1
+        checkpoint(candidates,verified,"running")
+    else:status["status"]="completed_requests"
 
 def hexagon_scan(papers):
     """Check Hexagon HTML reference lists, plus a rotating queue of PDF bibliographies.
@@ -445,7 +544,7 @@ def checkpoint(candidates,verified,status):
 def main():
     global RUN_DEADLINE
     RUN_DEADLINE=time.monotonic()+int(os.getenv("CITATION_SCAN_SECONDS","720"))
-    errors.clear();failed_hosts.clear();sources.clear()
+    errors.clear();failed_hosts.clear();sources.clear();PDF_CACHE.clear()
     old={}
     if DEST.exists():
         try:old=json.loads(DEST.read_text(encoding="utf-8"))
@@ -462,6 +561,7 @@ def main():
     ordered=PAPERS[offset:]+PAPERS[:offset]
     last_offset=offset
     try:
+        scan_known_bibliographies(candidates,verified)
         for number,p in enumerate(ordered):
             if not within_budget():break
             last_offset=(offset+number+1)%len(PAPERS)

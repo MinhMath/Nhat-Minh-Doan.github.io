@@ -1,6 +1,6 @@
 # Nhat Minh Doan — automatic citation evidence audit
 
-This repository contains an immediately accessible [citation report](CITATIONS.md), an interactive [citation dashboard](docs/index.html), and a daily GitHub Actions collector for the mathematical publications of Nhat Minh Doan. This is an evidence-backed **lower bound**, not a claim to know an exact worldwide citation total.
+This repository contains an immediately accessible [citation report](CITATIONS.md), a minimal [papers list](docs/index.html), and a daily GitHub Actions collector for the mathematical publications of Nhat Minh Doan. This is an evidence-backed **lower bound**, not a claim to know an exact worldwide citation total.
 
 ## What is monitored
 
@@ -54,3 +54,9 @@ The verified seed contains seven relationships across six citing works: four ind
 The dashboard is published at https://minhmath.github.io/Nhat-Minh-Doan.github.io/. The first revised audit completed successfully on 7 November 2026 and recorded nine verified relationships, five independent relationships, eight distinct citing works, and one indexed candidate. Semantic Scholar rate-limited the scan, so coverage remains partial. The Google Sites embed still requires a signed-in editor session.
 
 OpenAlex authentication documentation: https://help.openalex.org/api/authentication/
+
+## Public page
+
+The embedded page contains only paper titles and a Sources column. Sources expand into links to checked citing papers. Counts, collection diagnostics, candidates, and provenance remain in the repository report and JSON records. The iframe title is `Papers`.
+
+The collector now checks known paper bibliographies directly before searching indexes. Short titles require the target author in the same reference entry, related longer titles are disambiguated, and PDF line wrapping and numbered reference headings are handled. Six omitted relationships were checked against primary bibliographies on 7 November 2026.
