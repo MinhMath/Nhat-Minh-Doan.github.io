@@ -1,0 +1,281 @@
+{
+  "pdf_sha256": "9adbcee63025f63e4b5f63c27687c16cc51ad0a9a70f034b792956b02aa71f97",
+  "pages": [
+    {
+      "file": "cv-page-1.svg",
+      "text": "Nhat Minh Doan (Đoàn Nhật Minh)\n\n\n Affiliation          Institute of Mathematics, Vietnam Academy of Science and Technology\n                      Email: dnminh@math.ac.vn\n                      Homepage: minhmath.github.io/Nhat-Minh-Doan.github.io\n\n Research area        Hyperbolic geometry and low-dimensional topology. My current research concerns the multiplicity of\n                      simple closed geodesics on hyperbolic surfaces.\n\n Education            PhD in Mathematics, University of Luxembourg, Luxembourg                                  2018 - 2022\n                      Advisor: Prof. Hugo Parlier\n                      Thesis: Quantifying some properties of curves and arcs on hyperbolic surfaces\n                      MSc in Mathematics, University of Nice Sophia Antipolis, France                           2016 - 2017\n                      Advisor: Prof. François Labourie\n                      Thesis: Arithmetic and ergodic theory of hyperbolic surfaces\n                      BA in Mathematics, University of Education, Ho Chi Minh City, Vietnam                     2013 - 2015\n\n\n Academic             [3] Researcher, Institute of Mathematics, VAST, Vietnam                                 2022 - present\n positions\n                      [2] SASEA Research Fellow, National University of Singapore, Singapore                    2024 - 2026\n                      Mentor: Prof. Ser Peow Tan\n                      [1] Doctoral Researcher, University of Luxembourg, Luxembourg                             2018 - 2022\n\n\n Papers               [11] Density of length ratios on Teichmüller space                                               2026\n                      (with Hanh Vo)\n                      arXiv:2610.24700.\n                      [10] Stable-norm boundary geometry on once-punctured tori                                        2026\n                      (with Xiaobin Li and Van Nguyen)\n                      arXiv:2605.14574. Submitted.\n                      [9] Graded Bridgeman dilogarithm identities on hyperbolic surfaces                               2026\n                      (with Ara Basmajian, Hugo Parlier and Ser Peow Tan)\n                      arXiv:2601.03876. Submitted.\n                      [8] Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)                                    2026\n                      (with Sang-hyun Kim, Mong Lung Lang and Ser Peow Tan)\n                      arXiv:2601.01324. Submitted.\n                      [7] Some arithmetic aspects of ortho-integral surfaces                                           2026\n                      (with Khanh Le)\n                      Trans. AMS, 379 (2026), 6365 - 6392. arXiv:2504.09403\n                      [6] Some remarks on subgroups of free-by-cyclic groups                                           2026\n                      (with Hoang Thanh Nguyen)\n                      Vietnam J. Math., 54, 715 - 728 (2026).\n                      [5] Self-intersection of arcs on a pair of pants                                                 2025\n                      (with Hanh Vo)\n                      Bull. LMS, 57 (2025), 2190 - 2209. arXiv:2407.17750\n                      [4] Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)                       2025\n                      (with Sang-hyun Kim, Mong Lung Lang and Ser Peow Tan)\n                      J. Geom. Anal., Volume 35, 216 (2025). arXiv:2209.13937\n\n\nNhat Minh Doan | Updated 7 November 2026                                                                                   1",
+      "width": 612.0,
+      "height": 792.0,
+      "links": [
+        {
+          "url": "mailto:dnminh@math.ac.vn",
+          "rect": [
+            156.2014,
+            668.26,
+            245.6937,
+            681.1
+          ]
+        },
+        {
+          "url": "https://minhmath.github.io/Nhat-Minh-Doan.github.io/",
+          "rect": [
+            176.9953,
+            655.36,
+            379.684,
+            668.2
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2610.24700",
+          "rect": [
+            145.5014,
+            377.86,
+            341.0167,
+            390.7
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2605.14574",
+          "rect": [
+            145.5014,
+            336.16,
+            384.6944,
+            349.0
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2601.03876",
+          "rect": [
+            140.1514,
+            294.46,
+            415.8958,
+            307.3
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2601.01324",
+          "rect": [
+            140.1514,
+            252.76,
+            397.9649,
+            265.6
+          ]
+        },
+        {
+          "url": "https://doi.org/10.1090/tran/9657",
+          "rect": [
+            140.1514,
+            211.06,
+            354.9664,
+            223.9
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2504.09403",
+          "rect": [
+            292.9189,
+            185.26,
+            371.0791,
+            198.1
+          ]
+        },
+        {
+          "url": "https://doi.org/10.1007/s10013-025-00762-x",
+          "rect": [
+            140.1514,
+            169.36,
+            367.7615,
+            182.2
+          ]
+        },
+        {
+          "url": "https://doi.org/10.1112/blms.70088",
+          "rect": [
+            140.1514,
+            127.66,
+            319.3137,
+            140.5
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2407.17750",
+          "rect": [
+            280.4478,
+            101.86,
+            358.608,
+            114.7
+          ]
+        },
+        {
+          "url": "https://doi.org/10.1007/s12220-025-02051-y",
+          "rect": [
+            140.1514,
+            85.96,
+            452.6718,
+            98.8
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2209.13937",
+          "rect": [
+            300.6357,
+            60.16,
+            378.7958,
+            73.0
+          ]
+        }
+      ]
+    },
+    {
+      "file": "cv-page-2.svg",
+      "text": "[3] Ortho-integral surfaces                                                                     2025\n                      Adv. Math., Volume 466, April 2025, 110162. arXiv:2112.10694\n                      [2] Geometric filling curves on punctured surfaces                                              2023\n                      Glasgow Math. J., Volume 65, Issue 2, May 2023, pp. 383 - 400. arXiv:2012.02461\n                      [1] Measuring pants                                                                             2023\n                      (with Hugo Parlier and Ser Peow Tan)\n                      Trans. AMS, 376 (2023), 5281 - 5306. arXiv:2002.02738\n\n Other                [1] Almost all simple lengths are unique up to isometry                                         2026\n writings             hexagon:2610.00298v1.\n                      [2] The torus with asymptotically the fewest simple closed geodesics                            2026\n                      (with Phuc Thinh Dang and Trong Toan Dao)\n                      hexagon:2610.00159v1.\n\n Referee work         International Mathematics Research Notices; Proceedings of the American Mathematical Society;\n                      Mathematische Annalen; Transactions of the American Mathematical Society; Conformal Geometry\n                      and Dynamics.\n\n Talks                [28] The McShane-Rivin norm ball and some applications                              Aug-Sep 2026\n                      Remarkable Developments on Hyperbolic Geometry, Hebei Normal University,\n                      Shijiazhuang, China\n                      [27] Seminar, TIMAS, Thang Long University, Vietnam                                     June 2026\n                      [26] Topology and Geometry Seminar, NUS, Singapore                                      May 2026\n                      [25] Topology and Geometry Seminar, Southwest Jiaotong University, China              March 2026\n                      [24] Workshop on Geometry and related topics, Phu Tho, Vietnam                           Jul 2025\n                      [23] Grad Student Seminar, NUS, Singapore                                                Apr 2025\n                      [22] Teichmüller Theory and Flat Structures, Matrix, Creswick, Australia                Mar 2025\n                      [21] Workshop on Dynamics and Related Topics, IMS, NUS, Singapore                       Mar 2025\n                      [20] Workshop on Geometry and Dynamics in Low Dimensions, IMVAST, Hanoi                  Jan 2025\n                      [19] Scientific workshop for young researchers, Vinh Phuc, Vietnam                       Sep 2024\n                      [18] IMVAST-OCAMI Joint Conference, Osaka Metropolitan University, Japan                May 2024\n                      [17] Geometry and Topology Seminar, KIAS, Korea                                         Mar 2024\n                      [16] Workshop on Hyperbolic Geometry of Numbers, HCMC, KIAS, Korea                      Dec 2023\n                      [15] JSPS-VAST Workshop, FPT University Quy Nhon, Vietnam                                Sep 2023\n                      [14] Mathematics workshop and related fields, Ha Tinh University, Vietnam                Apr 2023\n                      [13] JSPS-VAST Bilateral Joint Research Project Workshop, IMVAST                        Dec 2022\n                      [12] Algebra and Number Theory Seminar, IMVAST                                          Nov 2022\n                      [11] Scientific conference on Geometry, Analysis and Applications, Phu Tho,              Oct 2022\n                      Vietnam\n                      [10] Topology and Geometry Seminar, NUS, Singapore                                       Sep 2022\n                      [9] Scientific workshop for young researchers, Vinh Phuc, Vietnam                       Aug 2022\n                      [8] Japan-Vietnam Singularity Seminar (Online), IMVAST                                   Apr 2022\n                      [7] Mostly Teichmüller Spaces Seminar (Online), Queens College, USA                     Mar 2022\n                      [6] Ph.D. Defense, Geometry Winter Workshop, Luxembourg                                  Jan 2022\n                      [5] Topology and Geometry Seminar (Online), IMVAST                                      Nov 2021\n                      [4] Topology and Geometry Seminar (Online), VNU, Ho Chi Minh City, Vietnam               Oct 2021\n\n\nNhat Minh Doan | Updated 7 November 2026                                                                                2",
+      "width": 612.0,
+      "height": 792.0,
+      "links": [
+        {
+          "url": "https://doi.org/10.1016/j.aim.2025.110162",
+          "rect": [
+            140.1514,
+            737.16,
+            239.0846,
+            750.0
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2112.10694",
+          "rect": [
+            327.3961,
+            724.26,
+            405.5563,
+            737.1
+          ]
+        },
+        {
+          "url": "https://doi.org/10.1017/S0017089522000404",
+          "rect": [
+            140.1514,
+            708.36,
+            341.2988,
+            721.2
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2012.02461",
+          "rect": [
+            405.8541,
+            695.46,
+            484.0143,
+            708.3
+          ]
+        },
+        {
+          "url": "https://doi.org/10.1090/tran/8893",
+          "rect": [
+            140.1514,
+            679.56,
+            211.1747,
+            692.4
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2002.02738",
+          "rect": [
+            292.9189,
+            653.76,
+            371.0791,
+            666.6
+          ]
+        },
+        {
+          "url": "https://hexagonmath.org/2610.00298",
+          "rect": [
+            140.1514,
+            622.86,
+            361.8472,
+            635.7
+          ]
+        },
+        {
+          "url": "https://hexagonmath.org/2610.00159",
+          "rect": [
+            140.1514,
+            594.06,
+            420.0703,
+            606.9
+          ]
+        },
+        {
+          "url": "https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract",
+          "rect": [
+            145.5014,
+            480.66,
+            374.3131,
+            493.5
+          ]
+        }
+      ]
+    },
+    {
+      "file": "cv-page-3.svg",
+      "text": "[3] PhD Away Days (Online), University of Luxembourg, Luxembourg                          Oct 2020\n                      [2] PhD Seminar (Online), University of Luxembourg, Luxembourg                            May 2020\n                      [1] School on Geometry and Dynamics on Hyperbolic Surfaces, Switzerland                   Aug 2018\n\n\n Services             [3] Co-organizing Geometry and Dynamics in Low Dimensions Workshop, Hanoi                  Jan 2025\n                      With S. Kim, T. Koberda, C. Leininger, S. P. Tan, T. T. Nguyen, T. D. Do, and V. T.\n                      Tran\n                      [2] Co-organizing Geometry, Topology & Dynamics Seminar, National University            2024 - 2026\n                      of Singapore\n                      With Tengren Zhang and Daren Wei\n                      [1] Co-writing a short comic story: Maths, Magic and Maryam                                    2020\n\n\n Advising             [3] Undergraduate student: Phuc Thinh Dang                                            2026 - present\n                      [2] PhD student: Van Nguyen                                                           2025 - present\n                      [1] Vietnamese REU students: Trong Toan Dao and Anh Tuan Nguyen                         2023 - 2024\n                      Co-supervised with Ser Peow Tan\n\n Teaching             [5] Modern Geometry, Master program, Institute of Mathematics, VAST                            2023\n                      [4] Probability, Applied Mathematics and Data Science students, Vietnam France                 2022\n                      University\n                      [3] Linear Algebra (teaching assistant), University of Engineering and Technology              2022\n                      [2] Analysis for Applications (teaching assistant), University of Luxembourg            2018 - 2020\n                      [1] Elementary Mathematics, children aged 5-10, Mathnasium Vietnam                      2012 - 2013\n\n\n Awards               [1] Excellent Doctoral Thesis Award, University of Luxembourg                                  2022\n\n\n Grants               [5] Singapore Academies South-East Asia Fellowship, hosted at the National              2024 - 2026\n                      University of Singapore\n                      [4] NAFOSTED, Vietnam (2 years)                                                         2024 - 2026\n                      [3] Research Grant, Institute of Mathematics, VAST, Vietnam (2 years)                   2022 - 2024\n                      [2] PRIDE Grant, Fonds National de la Recherche, Luxembourg (4 years)                   2018 - 2022\n                      [1] Master 2 Excellence Scholarship (10 months)                                         2016 - 2017\n                      J. A. Dieudonné Mathematics Laboratory, Nice, France\n\n References           Prof. Ara Basmajian                                Prof. François Labourie\n                      Hunter College, CUNY                               EPFL, Institute of Mathematics\n                      abasmajian@gc.cuny.edu                             francois.labourie@epfl.ch\n\n                      Prof. Martin Bridgeman                             Prof. Hugo Parlier\n                      Boston College                                     University of Fribourg\n                      bridgem@bc.edu                                     hugo.parlier@unifr.ch\n\n                      Prof. Sang-Hyun Kim                                Prof. Ser Peow Tan\n                      Korea Institute for Advanced Study                 National University of Singapore\n                      kimsh@kias.re.kr                                   mattansp@nus.edu.sg\n\n\n Hobbies              Table tennis, badminton, hiking\n\n\n\nNhat Minh Doan | Updated 7 November 2026                                                                               3",
+      "width": 612.0,
+      "height": 792.0,
+      "links": [
+        {
+          "url": "mailto:abasmajian@gc.cuny.edu",
+          "rect": [
+            125.0,
+            200.16,
+            234.6802,
+            213.0
+          ]
+        },
+        {
+          "url": "mailto:francois.labourie@epfl.ch",
+          "rect": [
+            350.5,
+            200.16,
+            461.9566,
+            213.0
+          ]
+        },
+        {
+          "url": "mailto:bridgem@bc.edu",
+          "rect": [
+            125.0,
+            152.46,
+            198.7349,
+            165.3
+          ]
+        },
+        {
+          "url": "mailto:hugo.parlier@unifr.ch",
+          "rect": [
+            350.5,
+            152.46,
+            445.9223,
+            165.3
+          ]
+        },
+        {
+          "url": "mailto:kimsh@kias.re.kr",
+          "rect": [
+            125.0,
+            104.76,
+            200.8248,
+            117.6
+          ]
+        },
+        {
+          "url": "mailto:mattansp@nus.edu.sg",
+          "rect": [
+            350.5,
+            104.76,
+            444.1616,
+            117.6
+          ]
+        }
+      ]
+    }
+  ]
+}

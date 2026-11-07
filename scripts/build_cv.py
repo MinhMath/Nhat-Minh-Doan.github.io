@@ -14,6 +14,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_CENTER, TA_RIGHT
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, LongTable, Table, TableStyle
 from reportlab.lib.pagesizes import letter
+from render_cv_pages import render_cv_pages
 
 ROOT=Path(__file__).resolve().parents[1]
 DEST=ROOT/'docs/assets/cv.pdf'
@@ -106,4 +107,5 @@ table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(
 doc=SimpleDocTemplate(str(DEST),pagesize=letter,rightMargin=42,leftMargin=42,topMargin=36,bottomMargin=42,title='Curriculum vitae - Nhat Minh Doan',author='Nhat Minh Doan',subject='Updated publications and academic activities, '+DETAILS['updated'])
 story=[para('Nhat Minh Doan (Đoàn Nhật Minh)',TITLE),Table([['']],colWidths=[WIDTH],style=TableStyle([('LINEBELOW',(0,0),(-1,-1),0.8,INK),('TOPPADDING',(0,0),(-1,-1),0),('BOTTOMPADDING',(0,0),(-1,-1),0)])),Spacer(1,13),table]
 doc.build(story,onFirstPage=footer,onLaterPages=footer)
+render_cv_pages(DEST,doc.page)
 print('Wrote',DEST)

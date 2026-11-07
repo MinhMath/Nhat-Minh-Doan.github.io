@@ -28,6 +28,7 @@ def header(active, prefix=''):
  <nav id="site-navigation" class="site-navigation" aria-label="Main navigation">
   <a href="{prefix or './'}" {'aria-current="page"' if active=='home' else ''}>Homepage</a>
   <a href="{prefix}papers/" {'aria-current="page"' if active=='papers' else ''}>Papers</a>
+  <a href="{prefix}cv/" {'aria-current="page"' if active=='cv' else ''}>CV</a>
   <button class="search-open" type="button" aria-label="Search this site"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
  </nav>
 </header>
@@ -64,7 +65,7 @@ def main():
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
   <p>Hello! I am Minh, a researcher at the {external('https://vast.gov.vn/web/vietnam-academy-of-science-and-technology/institutes1','Institute of Mathematics, VAST')}. I was a {external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} at the {external('https://www.math.nus.edu.sg/','National University of Singapore')} under Prof. {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}. My {external('https://orbilu.uni.lu/handle/10993/50710','PhD thesis')} was completed at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')} under Prof. {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} in 2022.</p>
   <p>My research focuses on hyperbolic surfaces, length spectra, and related topics. I was introduced to hyperbolic geometry during my Master’s (M2) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')} in 2017, where Prof. {external('https://flab.perso.math.cnrs.fr/','François Labourie')} supervised my master’s thesis.</p>
-  <p>Here is my <a href="assets/cv.pdf?v={asset_revision('cv.pdf')}" target="_blank" rel="noopener">CV</a> and my email address: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
+  <p>Here is my <a href="cv/">CV</a> and my email address: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
  </section>
  <section aria-labelledby="papers-heading">
   <div class="section-heading"><div class="content-width"><h2 id="papers-heading">Papers</h2></div></div>
@@ -87,6 +88,36 @@ def main():
   page=re.sub(r'href="\.\./assets/site\.css[^"]*"','href="../assets/site.css?v='+asset_revision('site.css')+'"',page,count=1)
   papers_page.write_text(page,encoding='utf-8')
  (DOCS/'homepage/index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nhat Minh Doan</title><meta http-equiv="refresh" content="0;url=../"><link rel="canonical" href="'+BASE+'"></head><body><a href="../">Homepage</a></body></html>')
+ manifest=json.loads((DOCS/'assets/cv-pages.json').read_text())
+ if manifest['pdf_sha256']!=hashlib.sha256((DOCS/'assets/cv.pdf').read_bytes()).hexdigest():
+  raise ValueError('Render the CV pages again after changing the PDF')
+ sheets=[]
+ link_labels={}
+ for paper in papers:
+  link_labels[url(paper)]=paper.get('display_title',paper['title'])
+  if paper.get('arxiv'):link_labels['https://arxiv.org/abs/'+paper['arxiv']]='arXiv version: '+paper.get('display_title',paper['title'])
+ for number,page in enumerate(manifest['pages'],1):
+  file=page['file']
+  links=[]
+  for link in page.get('links',[]):
+   x1,y1,x2,y2=link['rect'];width=page['width'];height=page['height'];href=link['url']
+   if not href.startswith(('https://','http://','mailto:')):continue
+   label=link_labels.get(href,href.removeprefix('mailto:'))
+   position=f'left:{100*x1/width:.5f}%;top:{100*(height-y2)/height:.5f}%;width:{100*(x2-x1)/width:.5f}%;height:{100*(y2-y1)/height:.5f}%'
+   links.append(f'<a class="cv-link" href="{escape(href)}" title="{escape(label)}" aria-label="{escape(label)}" target="_blank" rel="noopener noreferrer" style="{position}"></a>')
+  sheets.append(f'<section class="cv-sheet" aria-label="CV page {number} of {len(manifest["pages"])}"><img src="../assets/{escape(file)}?v={asset_revision(file)}" width="612" height="792" alt="" aria-hidden="true" loading="{("eager" if number==1 else "lazy")}"><div class="visually-hidden">{escape(page["text"])}</div>{"".join(links)}</section>')
+ cv=f'''<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV — Nhat Minh Doan</title><meta name="description" content="Curriculum vitae of Nhat Minh Doan: publications, talks, education, teaching, and academic activities.">
+<link rel="canonical" href="{BASE}cv/"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css?v={asset_revision('site.css')}">
+<script defer src="../assets/site.js" data-catalogue="../papers.json" data-papers="../papers/"></script>
+</head><body class="cv-page">{header('cv','../')}
+<main id="main" class="cv-content"><h1 class="visually-hidden">Curriculum vitae — Nhat Minh Doan</h1>
+<div class="cv-toolbar"><a href="../assets/cv.pdf?v={asset_revision('cv.pdf')}" target="_blank" rel="noopener" download="Nhat_Minh_Doan_CV.pdf">Download PDF</a></div>
+{''.join(sheets)}</main></body></html>'''
+ (DOCS/'cv').mkdir(exist_ok=True)
+ (DOCS/'cv/index.html').write_text(cv,encoding='utf-8')
  print('Built personal homepage:',len(primary),'papers and',len(other),'other writings')
 
 if __name__=='__main__':main()
