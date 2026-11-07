@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nhat Minh Doan — Citation Evidence</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;background:#0c1523;color:#edf3f9}*{box-sizing:border-box}body{max-width:1200px;margin:auto;padding:30px 22px 60px}
+h1{font-size:clamp(25px,3vw,40px);margin:5px 0}p,.muted{color:#aab8c6;line-height:1.55}a{color:#83c9ff}a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:25px 0}.card{background:#142538;border:1px solid #31475d;padding:16px;border-radius:12px}
+.big{font-size:32px;font-weight:750;margin-top:5px}.label{font-size:12px;color:#aebdcb}.notice{padding:13px 18px;border-left:3px solid #e5bc64;background:#2c2a24;border-radius:6px}
+table{width:100%;border-collapse:collapse;margin-top:17px;font-size:14px}th,td{text-align:left;padding:12px 9px;border-bottom:1px solid #314459}th{color:#acbacc;font-size:12px}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+details{margin:5px 0}summary{cursor:pointer;color:#83c9ff}.evidence{padding:10px;margin:7px 0;border-left:2px solid #4f6b89;background:#17293d}.small{font-size:12px;color:#b5c1ce}
+input{background:#172739;color:#edf3f9;border:1px solid #47617a;border-radius:8px;padding:10px;width:100%;margin:20px 0 0}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}table{font-size:12px}th,td{padding:9px 4px}.big{font-size:26px}}
+</style></head><body>
+<header><h1>Citation evidence ledger</h1><p>Research papers of Nhat Minh Doan · Auditable, duplicate-aware scholarly citation tracking.</p></header>
+<section class="cards"><div class="card"><div class="label">Verified citation relationships</div><div class="big" id="verified">—</div></div><div class="card"><div class="label">Independent verified relationships</div><div class="big" id="independent">—</div></div><div class="card"><div class="label">Indexed-only candidates</div><div class="big" id="candidates">—</div></div><div class="card"><div class="label">Canonical papers monitored</div><div class="big" id="papers">—</div></div></section>
+<div class="notice"><strong>Method.</strong> A verified citation requires evidence in a bibliography. Indexed citation links are separately reported as candidates. Counts are <strong>documented lower bounds</strong>, not mathematically exact worldwide citation totals. Preprint and journal duplicates are merged where identifiers or title/author evidence allow.</div>
+<input id="search" placeholder="Filter papers by title…" aria-label="Filter papers" />
+<table><thead><tr><th>Paper</th><th class="num">Verified</th><th class="num">Candidates</th><th>Sources</th></tr></thead><tbody id="tbody"></tbody></table>
+<footer><p class="small">Verified seed: 7 November 2026. Additional indexed records appear when the daily GitHub Actions collector succeeds. <a href="https://github.com/MinhMath/Nhat-Minh-Doan.github.io">Source and audit history on GitHub</a>. All counts are subject to provenance review.</p><p class="small" id="run"></p></footer>
+<script>
+let all=[],edges=[],candidates=[],meta={};const el=x=>document.getElementById(x);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const url=p=>p.doi?"https://doi.org/"+p.doi:p.arxiv?"https://arxiv.org/abs/"+p.arxiv:p.hexagon?"https://hexagonmath.org/"+p.hexagon:"#";
+const citeUrl=c=>c.url||(c.platform==="arxiv"?"https://arxiv.org/abs/"+c.id:c.platform==="hexagon"?"https://hexagonmath.org/"+c.id:"#");
+function key(c){return c.doi?"doi:"+c.doi.toLowerCase():c.arxiv?"arxiv:"+c.arxiv:c.platform&&c.id?c.platform+":"+c.id:(c.title||"").toLowerCase().replace(/[^a-z0-9]/g,"")}
+function dedup(items){const m=new Map();for(const c of items){const k=c.target+"|"+key(c);if(!m.has(k)||c.verified)m.set(k,c)}return [...m.values()]}
+function render(){const q=el("search").value.toLowerCase();let rows=all.filter(p=>p.title.toLowerCase().includes(q));rows.sort((a,b)=>edges.filter(c=>c.target===b.id).length-edges.filter(c=>c.target===a.id).length);
+ el("tbody").innerHTML=rows.map(p=>{const found=edges.filter(c=>c.target===p.id),indexed=candidates.filter(c=>c.target===p.id&&!found.some(v=>key(v)===key(c)));
+ const list=[...found,...indexed].map(c=>'<div class="evidence"><a href="'+esc(citeUrl(c))+'" target="_blank" rel="noopener">'+esc(c.title)+'</a> <span class="small">('+esc(c.authors||"author unknown")+') · '+(c.verified?"Verified bibliography":"Indexed candidate")+' · '+esc(c.source||"")+'</span></div>').join("");
+ return '<tr><td><a href="'+esc(url(p))+'" target="_blank" rel="noopener">'+esc(p.title)+'</a></td><td class="num">'+found.length+'</td><td class="num">'+indexed.length+'</td><td><details><summary>View '+(found.length+indexed.length)+'</summary>'+ (list||'<span class="small">No known citations; not proof of none.</span>') +'</details></td></tr>'
+ }).join("")}
+Promise.all([fetch("papers.json").then(x=>x.json()),fetch("verified.json").then(x=>x.json()),fetch("discovered.json").then(x=>x.ok?x.json():{citations:[]}).catch(()=>({citations:[]}))]).then(([p,v,d])=>{
+ all=p;edges=dedup(v.filter(x=>x.verified));candidates=dedup(d.citations||[]);el("papers").textContent=all.length;el("verified").textContent=edges.length;el("independent").textContent=edges.filter(c=>!String(c.authors||"").toLowerCase().includes("doan")).length;el("candidates").textContent=candidates.filter(c=>!edges.some(v=>v.target===c.target&&key(v)===key(c))).length;el("run").textContent="Last automated discovery: "+(d.generated_utc||"not yet run");render()
+}).catch(e=>el("tbody").innerHTML='<tr><td colspan="4">Unable to read citation data: '+esc(e.message)+'</td></tr>');
+el("search").addEventListener("input",render);
+</script></body></html>
