@@ -17,15 +17,15 @@ There are **13 provisional canonical works** and **7 manually verified citation 
 ## Activate daily scans
 
 1. Create an OpenAlex API key at https://openalex.org/settings/api and store it as `OPENALEX_API_KEY` at **Repository Settings → Secrets and variables → Actions**. Optional: store a Semantic Scholar key as `SEMANTIC_SCHOLAR_API_KEY`.
-2. At **Actions → Daily citation audit**, enable workflows if necessary and choose **Run workflow** for the first scan. The scheduled run is **08:23 Vietnam time** every day (01:23 UTC). GitHub does not guarantee exact scheduled-start times.
-3. Enable **Settings → Pages → Deploy from a branch**, choose **main** and **/docs**, and save. The expected address, once Pages has published, is https://minhmath.github.io/Nhat-Minh-Doan.github.io/
+2. At **Actions → Daily citation audit**, enable workflows if necessary and choose **Run workflow** for the first scan. The collector also attempts to start on source-code changes. The scheduled run is **08:23 Vietnam time** every day (01:23 UTC). GitHub does not guarantee exact scheduled-start times.
+3. Enable **Settings → Pages → Build and deployment → Source: GitHub Actions** and save. The separate `Publish citation dashboard` workflow deploys the `/docs` folder after changes or a completed audit. The expected address, once Pages has published, is https://minhmath.github.io/Nhat-Minh-Doan.github.io/
 4. Embed the published URL into https://sites.google.com/view/dnminh/homepage using **Insert → Embed**.
 
 ## Definitions
 
 A verified citation relationship is a distinct citing work mentioning a given target paper in its bibliography. If a citing paper references two of your papers, it contributes **two relationships**, not one. References in different versions of the same citing paper should count once. The dashboard shows independent verified citations separately from papers authored by Doan.
 
-The automated collector is a **best-effort supplementary discovery system**: APIs can rate-limit, HTML layouts can change, and full-text coverage is incomplete. Inspect any unexpected discoveries before treating the counts as definitive.
+The HexagonMath scan records successfully checked versions in `docs/scan_state.json` so later runs concentrate on newly added versions. The automated collector is a **best-effort supplementary discovery system**: APIs can rate-limit, HTML layouts can change, and full-text coverage is incomplete. Inspect any unexpected discoveries before treating the counts as definitive.
 
 ## Manual correction
 
