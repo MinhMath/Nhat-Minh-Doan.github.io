@@ -44,14 +44,13 @@ def main():
 <title>Nhat Minh Doan (Đoàn Nhật Minh)</title>
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="{BASE}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/surfaces-banner.png">
+<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/portrait.png">
 <link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
 <script defer src="assets/site.js" data-catalogue="papers.json" data-papers="papers/"></script>
 </head>
 <body>
 {header('home')}
-<div class="hero"><img src="assets/surfaces-banner.png?v={asset_revision('surfaces-banner.png')}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" fetchpriority="high"></div>
 <main id="main">
  <section class="intro content-width" aria-label="About Minh">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
@@ -69,6 +68,9 @@ def main():
   page,count=re.subn(r'<a class="skip-link".*?</dialog>',header('papers','../'),papers_page.read_text(),count=1,flags=re.S)
   if count!=1:raise ValueError('Cannot find the Papers page navigation')
   page=re.sub(r'href="\.\./assets/site\.css[^"]*"','href="../assets/site.css?v='+asset_revision('site.css')+'"',page,count=1)
+  illustration=f'<figure class="papers-illustration"><img src="../assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" fetchpriority="high"></figure>'
+  page,count=re.subn(r'(<main id="main" class="papers-content">)(?:\s*<figure class="papers-illustration">.*?</figure>)?',lambda match:match[1]+'\n'+illustration,page,count=1,flags=re.S)
+  if count!=1:raise ValueError('Cannot find the Papers page content')
   papers_page.write_text(page,encoding='utf-8')
  (DOCS/'homepage/index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nhat Minh Doan</title><meta http-equiv="refresh" content="0;url=../"><link rel="canonical" href="'+BASE+'"></head><body><a href="../">Homepage</a></body></html>')
  manifest=json.loads((DOCS/'assets/cv-pages.json').read_text())
