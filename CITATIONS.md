@@ -4,7 +4,7 @@
 
 **Total citation records:** 25 | **Bibliography verified:** 23 | **Scholar-listed, full text pending:** 2 | **Self citations:** 13 | **Non-self citations:** 12
 
-Collection status: **partial**. Last saved discovery: 2026-11-07T03:58:34+00:00.
+Collection status: **partial**. Last saved discovery: 2026-11-07T04:00:25+00:00.
 
 | Canonical paper | Verified citations | Scholar-listed | Unverified candidates |
 |---|---:|---:|---:|
@@ -84,7 +84,7 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T03:58:34+00:00.
 
 - [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) — Ara Basmajian; Nhat Minh Doan; Hugo Parlier; Ser Peow Tan; shared author. Verified by direct bibliography inspection.
   Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.
-- [On the Geometry of the Thurston Metric on Teichmüller Spaces: Geodesics that Disobey an Analogue of Masur’s Criterion](https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07) — Ivan Telpukhovskiy; independent. Verified in institutional doctoral-thesis PDF bibliography.
+- [On the Geometry of the Thurston Metric on Teichmüller Spaces: Geodesics that Disobey an Analogue of Masur’s Criterion](https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07) — Ivan Telpukhovskiy; independent. Verified by direct bibliography inspection.
   Reference excerpt: [12] N. Doan, H. Parlier, and S. Tan.Measuring pants. arXiv:2002.02738, (2020).
 - [Some arithmetic aspects of ortho-integral surfaces](https://arxiv.org/abs/2504.09403) — Nhat Minh Doan; Khanh Le; shared author. Verified by direct bibliography inspection.
   Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Math- ematical Society, 376(08):5281–5306, 2023.
@@ -102,19 +102,19 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T03:58:34+00:00.
 |---|---|
 | publisher_bibliographies | completed_requests |
 | known_bibliographies | completed_requests |
+| zenodo_authors | completed_requests |
 | openalex | completed_requests |
 | openalex_fulltext | completed_requests |
 | semantic | deferred_after_error |
 | opencitations | completed_requests |
 | hexagon | completed_requests |
-| zenodo | completed_requests |
-| zenodo_author_audit | completed_requests |
-| institutional_thesis_audit | partial |
+| zenodo | partial |
 
 Collection limitations:
 
 - api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run
 - PDF HTTP 403: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1112/blms.13080
+- zenodo.org: HTTP 429; remaining requests to this host deferred until the next run
 
 The dashboard and this report use [the same normalized ledger](docs/ledger.json).
 Independent citations exclude identified shared authors; incomplete or ambiguous author names are recorded separately.
