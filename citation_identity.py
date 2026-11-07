@@ -90,11 +90,12 @@ def canonicalize(rows):
         for row in family:
             targets.setdefault(row["target"], []).append(row)
         for target, variants in targets.items():
-            variants.sort(key=lambda r: (bool(r.get("verified")), bool(r.get("evidence_excerpt")), len(str(r.get("authors") or ""))), reverse=True)
+            variants.sort(key=lambda r: (bool(r.get("verified")), bool(r.get("evidence_excerpt")), r.get("checked_utc", ""), len(str(r.get("authors") or ""))), reverse=True)
             best = dict(variants[0])
             evidence = []
             for row in variants:
-                for ev in row.get("evidence") or [{k: row[k] for k in ("source", "url", "evidence_url", "evidence_excerpt", "checked_utc") if row.get(k)}]:
+                current={k: row[k] for k in ("source", "url", "evidence_url", "evidence_excerpt", "checked_utc") if row.get(k)}
+                for ev in (row.get("evidence") or [])+[current]:
                     if ev and ev not in evidence:
                         evidence.append(ev)
                 for k in ("doi", "arxiv", "authors", "url"):

@@ -51,6 +51,6 @@ The collector saves atomic checkpoints after each source/target request. Each sc
 
 The verified seed contains seven relationships across six citing works: four independent relationships and three with shared authors. This seed was inherited from the preceding manual audit; it is not a fresh, exhaustive census. Missing authorship is reported as unknown. Duplicate references inside one bibliography count once per target paper.
 
-Current access limitation: GitHub Pages has not been enabled, and the Google Sites editor requires a signed-in browser. The GitHub-readable citation report remains available independently of both.
+The dashboard is published at https://minhmath.github.io/Nhat-Minh-Doan.github.io/. The first revised audit completed successfully on 7 November 2026 and recorded nine verified relationships, five independent relationships, eight distinct citing works, and one indexed candidate. Semantic Scholar rate-limited the scan, so coverage remains partial. The Google Sites embed still requires a signed-in editor session.
 
 OpenAlex authentication documentation: https://help.openalex.org/api/authentication/

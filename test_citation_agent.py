@@ -95,6 +95,13 @@ class CitationLedgerTests(unittest.TestCase):
         p=next(x for x in PAPERS if x["id"]=="DLN")
         self.assertFalse(matches_target("arXiv:2605.145740",p))
 
+    def test_alphanumeric_reference_excerpt_contains_the_match(self):
+        p=next(x for x in PAPERS if x["id"]=="polygons")
+        references="[AB01] Unrelated work.\n"+"irrelevant detail. "*100+"\n[DKLT22] Doan et al., arXiv:2209.13937.\n[ZZ24] Another paper."
+        excerpt=agent.evidence_excerpt(references,p)
+        self.assertIn("2209.13937",excerpt)
+        self.assertNotIn("irrelevant detail",excerpt)
+
 if __name__=="__main__":
     unittest.main()
 

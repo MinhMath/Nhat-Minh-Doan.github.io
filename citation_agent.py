@@ -170,9 +170,15 @@ def matches_target(text,p):
 
 
 def evidence_excerpt(text,p):
-    for line in re.split(r"\n\s*\n|(?=\[\d+\])",text):
-        if matches_target(line,p):
-            return " ".join(line.split())[:650]
+    for entry in re.split(r"\n\s*\n|(?=\[[A-Za-z0-9][^\]\n]{0,20}\])",text):
+        if not matches_target(entry,p):continue
+        compact=" ".join(entry.split())
+        if len(compact)<=650:return compact
+        lines=entry.splitlines()
+        for i in range(len(lines)):
+            window=" ".join(lines[max(0,i-2):i+4])
+            if matches_target(window,p) and len(window)<=650:
+                return " ".join(window.split())
     return ""
 
 
@@ -481,7 +487,9 @@ def main():
         for p in PAPERS:
             if not within_budget():break
             attempted=0
-            for c in merged(c for c in candidates if c.get("target")==p["id"]):
+            retry_evidence=[c for c in verified if c.get("target")==p["id"]
+                            and not matches_target(c.get("evidence_excerpt",""),p)]
+            for c in merged(c for c in candidates+retry_evidence if c.get("target")==p["id"]):
                 if not within_budget():break
                 if (c.get("arxiv") or c.get("platform")=="arxiv") and attempted<12:
                     attempted+=1
