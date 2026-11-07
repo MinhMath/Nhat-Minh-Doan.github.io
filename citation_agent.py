@@ -264,6 +264,13 @@ def hexagon_scan(papers):
     for entry in todo:
         if checked_pdf>=40:break
         href=entry["href"]
+        checked_pdf+=1
+        entry["attempts"]=int(entry.get("attempts",0))+1
+        if entry["attempts"]>3:
+            pdf_done.add(href)
+            pending.pop(href,None)
+            errors.append("Hexagon PDF skipped after three attempts: "+href)
+            continue
         try:
             with session.get(entry["pdf_url"],timeout=35,stream=True) as response:
                 if response.status_code!=200:continue
@@ -278,7 +285,11 @@ def hexagon_scan(papers):
                 pending.pop(href,None)
                 continue
             data=b"".join(chunks)
-            if not data.startswith(b"%PDF"):continue
+            if not data.startswith(b"%PDF"):
+                errors.append("Hexagon PDF URL returned non-PDF: "+href)
+                pdf_done.add(href)
+                pending.pop(href,None)
+                continue
             reader=PdfReader(BytesIO(data),strict=False)
             tail="\n".join(page.extract_text() or "" for page in
                            list(reader.pages)[-min(18,len(reader.pages)):])
@@ -293,8 +304,7 @@ def hexagon_scan(papers):
                                 "url":urljoin(base,href)})
             pdf_done.add(href)
             pending.pop(href,None)
-            checked_pdf+=1
-        except (requests.RequestException,ValueError,KeyError,Exception) as exc:
+        except Exception as exc:
             # Preserve unscanned items for the next run.
             errors.append("Hexagon PDF "+href+": "+str(exc)[:140])
             continue
