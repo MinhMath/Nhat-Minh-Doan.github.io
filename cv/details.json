@@ -32,7 +32,8 @@
       "number": 3,
       "title": "Researcher",
       "institution": "Institute of Mathematics, VAST, Vietnam",
-      "date": "2022 - present"
+      "date": "2022 - present",
+      "detail": []
     },
     {
       "number": 2,
@@ -40,14 +41,15 @@
       "institution": "National University of Singapore, Singapore",
       "date": "2024 - 2026",
       "detail": [
-        "Mentor: Prof. Ser Peow Tan"
+        "Advisor: Prof. Ser Peow Tan"
       ]
     },
     {
       "number": 1,
       "title": "Doctoral Researcher",
       "institution": "University of Luxembourg, Luxembourg",
-      "date": "2018 - 2022"
+      "date": "2018 - 2022",
+      "detail": []
     }
   ],
   "referee_work": [
@@ -60,8 +62,7 @@
   "talks": [
     {
       "number": 28,
-      "text": "The McShane-Rivin norm ball and some applications",
-      "detail": "Remarkable Developments on Hyperbolic Geometry, Hebei Normal University, Shijiazhuang, China",
+      "text": "Conference on Hyperbolic Geometry, Hebei Normal University, China",
       "date": "Aug-Sep 2026",
       "url": "https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract",
       "date_note": "The public programme is labelled tentative and places the talk on 31 August. The CV gives the conference month range, not an unconfirmed exact delivery date."
