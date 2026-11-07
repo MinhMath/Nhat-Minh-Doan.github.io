@@ -1,11 +1,11 @@
 {
   "counts": {
-    "verified": 7,
-    "independent": 4,
-    "overlap": 3,
+    "verified": 9,
+    "independent": 5,
+    "overlap": 4,
     "unknown_authorship": 0,
-    "unique_citing_works": 6,
-    "candidates": 0,
+    "unique_citing_works": 8,
+    "candidates": 1,
     "papers": 13
   },
   "papers": [
@@ -283,27 +283,160 @@
     },
     {
       "target": "DLN",
-      "title": "Parameter Monotonicity for Generalized k-Markov Numbers",
-      "id": "2611.00023",
-      "platform": "hexagon",
+      "title": "PARAMETER MONOTONICITY FOR GENERALIZED k-MARKOV NUMBERS",
       "authors": "Qiyue Tang",
+      "platform": "hexagon",
+      "id": "2611.00023",
       "verified": true,
-      "source": "Manually inspected bibliography (2026-11-07)",
+      "source": "Verified in HexagonMath HTML bibliography",
+      "url": "https://hexagonmath.org/2611.00023v1",
+      "evidence_url": "https://hexagonmath.org/2611.00023v1",
+      "evidence_excerpt": "N. M. Doan, X. Li, and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv",
+      "checked_utc": "2026-11-07T02:38:10+00:00",
       "work_id": "hexagon:2611.00023",
       "identifiers": [
         "hexagon:2611.00023"
       ],
       "evidence": [
         {
+          "source": "Verified in HexagonMath HTML bibliography",
+          "url": "https://hexagonmath.org/2611.00023v1",
+          "evidence_url": "https://hexagonmath.org/2611.00023v1",
+          "evidence_excerpt": "N. M. Doan, X. Li, and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv",
+          "checked_utc": "2026-11-07T02:38:10+00:00"
+        },
+        {
+          "source": "Verified in HexagonMath HTML bibliography",
+          "url": "https://hexagonmath.org/2611.00023v1",
+          "evidence_url": "https://hexagonmath.org/2611.00023v1",
+          "evidence_excerpt": "N. M. Doan, X. Li, and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv",
+          "checked_utc": "2026-11-07T02:38:11+00:00"
+        },
+        {
           "source": "Manually inspected bibliography (2026-11-07)"
         }
       ],
       "independence": "independent"
+    },
+    {
+      "target": "filling",
+      "title": "Self‐intersections of arcs on a pair of pants",
+      "authors": "Nhat Minh Doan; Hanh Nguyen Vo",
+      "doi": "10.1112/blms.70088",
+      "arxiv": "2407.17750",
+      "platform": "openalex",
+      "id": "W4410122476",
+      "url": "https://doi.org/10.1112/blms.70088",
+      "source": "OpenAlex indexed reference edge",
+      "verified": false,
+      "work_id": "doi:10.1112/blms.70088",
+      "identifiers": [
+        "arxiv:2407.17750",
+        "doi:10.1112/blms.70088",
+        "openalex:W4410122476"
+      ],
+      "evidence": [
+        {
+          "source": "OpenAlex indexed reference edge",
+          "url": "https://doi.org/10.1112/blms.70088"
+        },
+        {
+          "source": "OpenCitations reference edge (Crossref metadata)",
+          "url": "https://doi.org/10.1112/blms.70088"
+        }
+      ],
+      "independence": "overlap"
+    },
+    {
+      "target": "ortho",
+      "title": "Self‐intersections of arcs on a pair of pants",
+      "authors": "Nhat Minh Doan; Hanh Nguyen Vo",
+      "doi": "10.1112/blms.70088",
+      "arxiv": "2407.17750",
+      "platform": "openalex",
+      "id": "W4410122476",
+      "url": "https://arxiv.org/abs/2407.17750",
+      "source": "Verified in arXiv PDF bibliography",
+      "verified": true,
+      "work_id": "doi:10.1112/blms.70088",
+      "identifiers": [
+        "arxiv:2407.17750",
+        "doi:10.1112/blms.70088",
+        "openalex:W4410122476"
+      ],
+      "evidence": [
+        {
+          "source": "OpenAlex indexed reference edge",
+          "url": "https://doi.org/10.1112/blms.70088"
+        },
+        {
+          "source": "OpenCitations reference edge (Crossref metadata)",
+          "url": "https://doi.org/10.1112/blms.70088"
+        }
+      ],
+      "evidence_url": "https://arxiv.org/pdf/2407.17750",
+      "evidence_excerpt": "[20] Nhat Minh Doan. Ortho-integral surfaces.arXiv preprint arXiv:2112.10694, 2021. 16 NHAT MINH DOAN, HANH VO",
+      "checked_utc": "2026-11-07T02:35:27+00:00",
+      "independence": "overlap"
+    },
+    {
+      "target": "polygons",
+      "title": "Concentration of closed geodesics in the homology of modular curves",
+      "authors": "Asbjørn Christian Nordentoft",
+      "doi": "10.1017/fms.2023.85",
+      "arxiv": "2203.06446",
+      "platform": "openalex",
+      "id": "W4387367731",
+      "url": "https://arxiv.org/abs/2203.06446",
+      "source": "Verified in arXiv PDF bibliography",
+      "verified": true,
+      "work_id": "doi:10.1017/fms.2023.85",
+      "identifiers": [
+        "arxiv:2203.06446",
+        "doi:10.1017/fms.2023.85",
+        "openalex:W4387367731"
+      ],
+      "evidence": [
+        {
+          "source": "OpenAlex indexed reference edge",
+          "url": "https://doi.org/10.1017/fms.2023.85"
+        }
+      ],
+      "evidence_url": "https://arxiv.org/pdf/2203.06446",
+      "evidence_excerpt": "[ALMW22] Menny Aka, Manuel Luethi, Philippe Michel, and And reas Wieser. Simultaneous supersingular re- ductions of cm elliptic curves. Journal für die reine und angewandte Mathematik (Crelles Jo urnal), 2022(786):1–43, 2022. [BD96] M. Bertolini and H. Darmon. Heegner points on Mumford -Tate curves. Invent. Math. , 126(3):413– 456, 1996. [Bea83] Alan F. Beardon. The geometry of discrete groups , volume 91. Springer, Cham, 1983. [BH10] Valentin Blomer and Roman Holowinsky. Bounding sup- norms of cusp forms of large level. Invent. Math., 179(3):645–681, 2010. [BM11] Valentin Blomer and Philippe Michel. Sup-norms of ei genfunctions on arithmetic",
+      "checked_utc": "2026-11-07T02:35:26+00:00",
+      "independence": "independent"
     }
   ],
-  "generated_utc": null,
-  "collection_status": "not_run",
-  "sources": {},
-  "errors": [],
+  "generated_utc": "2026-11-07T02:41:53+00:00",
+  "collection_status": "partial",
+  "sources": {
+    "openalex": {
+      "papers_attempted": 13,
+      "new_records": 3,
+      "status": "completed_requests"
+    },
+    "semantic": {
+      "papers_attempted": 1,
+      "new_records": 0,
+      "status": "deferred_after_error"
+    },
+    "opencitations": {
+      "papers_attempted": 13,
+      "new_records": 2,
+      "status": "completed_requests"
+    },
+    "hexagon": {
+      "status": "completed_requests",
+      "verified_records": 3
+    },
+    "zenodo": {
+      "status": "completed_requests",
+      "verified_records": 0
+    }
+  },
+  "errors": [
+    "api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run"
+  ],
   "warning": "Verified lower bounds; missing coverage is not a zero-citation claim."
 }

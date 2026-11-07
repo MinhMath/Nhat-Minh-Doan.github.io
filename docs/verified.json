@@ -1,30 +1,21 @@
 [
   {
-    "target": "DLN",
-    "title": "Almost all Markoff numbers are unique",
-    "id": "2610.00281",
+    "target": "DDD",
+    "title": "Almost all simple lengths are unique up to isometry",
+    "id": "2610.00298",
     "platform": "hexagon",
-    "authors": "William Y. Chen",
+    "authors": "Nhat Minh Doan",
     "verified": true,
-    "source": "Manually inspected bibliography (2026-11-07)"
-  },
-  {
-    "target": "DLN",
-    "title": "Parameter Monotonicity for Generalized k-Markov Numbers",
-    "id": "2611.00023",
-    "platform": "hexagon",
-    "authors": "Qiyue Tang",
-    "verified": true,
-    "source": "Manually inspected bibliography (2026-11-07)"
-  },
-  {
-    "target": "DLN",
-    "title": "Counting Markov Triples and Simple Geodesics",
-    "id": "2610.36069",
-    "platform": "arxiv",
-    "authors": "Morten S. Risager",
-    "verified": true,
-    "source": "Manually inspected bibliography (2026-11-07)"
+    "source": "Manually inspected bibliography (2026-11-07)",
+    "work_id": "hexagon:2610.00298",
+    "identifiers": [
+      "hexagon:2610.00298"
+    ],
+    "evidence": [
+      {
+        "source": "Manually inspected bibliography (2026-11-07)"
+      }
+    ]
   },
   {
     "target": "DLN",
@@ -33,7 +24,34 @@
     "platform": "arxiv",
     "authors": "Cormac O'Sullivan",
     "verified": true,
-    "source": "Manually inspected bibliography (2026-11-07)"
+    "source": "Manually inspected bibliography (2026-11-07)",
+    "work_id": "arxiv:2609.14149",
+    "identifiers": [
+      "arxiv:2609.14149"
+    ],
+    "evidence": [
+      {
+        "source": "Manually inspected bibliography (2026-11-07)"
+      }
+    ]
+  },
+  {
+    "target": "DLN",
+    "title": "Counting Markov Triples and Simple Geodesics",
+    "id": "2610.36069",
+    "platform": "arxiv",
+    "authors": "Morten S. Risager",
+    "verified": true,
+    "source": "Manually inspected bibliography (2026-11-07)",
+    "work_id": "arxiv:2610.36069",
+    "identifiers": [
+      "arxiv:2610.36069"
+    ],
+    "evidence": [
+      {
+        "source": "Manually inspected bibliography (2026-11-07)"
+      }
+    ]
   },
   {
     "target": "DLN",
@@ -42,7 +60,34 @@
     "platform": "hexagon",
     "authors": "Phuc Thinh Dang; Trong Toan Dao; Nhat Minh Doan",
     "verified": true,
-    "source": "Manually inspected bibliography (2026-11-07)"
+    "source": "Manually inspected bibliography (2026-11-07)",
+    "work_id": "hexagon:2610.00159",
+    "identifiers": [
+      "hexagon:2610.00159"
+    ],
+    "evidence": [
+      {
+        "source": "Manually inspected bibliography (2026-11-07)"
+      }
+    ]
+  },
+  {
+    "target": "DLN",
+    "title": "Almost all Markoff numbers are unique",
+    "id": "2610.00281",
+    "platform": "hexagon",
+    "authors": "William Y. Chen",
+    "verified": true,
+    "source": "Manually inspected bibliography (2026-11-07)",
+    "work_id": "hexagon:2610.00281",
+    "identifiers": [
+      "hexagon:2610.00281"
+    ],
+    "evidence": [
+      {
+        "source": "Manually inspected bibliography (2026-11-07)"
+      }
+    ]
   },
   {
     "target": "DLN",
@@ -51,15 +96,109 @@
     "platform": "hexagon",
     "authors": "Nhat Minh Doan",
     "verified": true,
-    "source": "Manually inspected bibliography (2026-11-07)"
+    "source": "Manually inspected bibliography (2026-11-07)",
+    "work_id": "hexagon:2610.00298",
+    "identifiers": [
+      "hexagon:2610.00298"
+    ],
+    "evidence": [
+      {
+        "source": "Manually inspected bibliography (2026-11-07)"
+      }
+    ]
   },
   {
-    "target": "DDD",
-    "title": "Almost all simple lengths are unique up to isometry",
-    "id": "2610.00298",
+    "target": "DLN",
+    "title": "PARAMETER MONOTONICITY FOR GENERALIZED k-MARKOV NUMBERS",
+    "authors": "Qiyue Tang",
     "platform": "hexagon",
-    "authors": "Nhat Minh Doan",
+    "id": "2611.00023",
     "verified": true,
-    "source": "Manually inspected bibliography (2026-11-07)"
+    "source": "Verified in HexagonMath HTML bibliography",
+    "url": "https://hexagonmath.org/2611.00023v1",
+    "evidence_url": "https://hexagonmath.org/2611.00023v1",
+    "evidence_excerpt": "N. M. Doan, X. Li, and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv",
+    "checked_utc": "2026-11-07T02:38:10+00:00",
+    "work_id": "hexagon:2611.00023",
+    "identifiers": [
+      "hexagon:2611.00023"
+    ],
+    "evidence": [
+      {
+        "source": "Verified in HexagonMath HTML bibliography",
+        "url": "https://hexagonmath.org/2611.00023v1",
+        "evidence_url": "https://hexagonmath.org/2611.00023v1",
+        "evidence_excerpt": "N. M. Doan, X. Li, and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv",
+        "checked_utc": "2026-11-07T02:38:10+00:00"
+      },
+      {
+        "source": "Verified in HexagonMath HTML bibliography",
+        "url": "https://hexagonmath.org/2611.00023v1",
+        "evidence_url": "https://hexagonmath.org/2611.00023v1",
+        "evidence_excerpt": "N. M. Doan, X. Li, and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv",
+        "checked_utc": "2026-11-07T02:38:11+00:00"
+      },
+      {
+        "source": "Manually inspected bibliography (2026-11-07)"
+      }
+    ]
+  },
+  {
+    "target": "ortho",
+    "title": "Self‐intersections of arcs on a pair of pants",
+    "authors": "Nhat Minh Doan; Hanh Nguyen Vo",
+    "doi": "10.1112/blms.70088",
+    "arxiv": "2407.17750",
+    "platform": "openalex",
+    "id": "W4410122476",
+    "url": "https://arxiv.org/abs/2407.17750",
+    "source": "Verified in arXiv PDF bibliography",
+    "verified": true,
+    "work_id": "doi:10.1112/blms.70088",
+    "identifiers": [
+      "arxiv:2407.17750",
+      "doi:10.1112/blms.70088",
+      "openalex:W4410122476"
+    ],
+    "evidence": [
+      {
+        "source": "OpenAlex indexed reference edge",
+        "url": "https://doi.org/10.1112/blms.70088"
+      },
+      {
+        "source": "OpenCitations reference edge (Crossref metadata)",
+        "url": "https://doi.org/10.1112/blms.70088"
+      }
+    ],
+    "evidence_url": "https://arxiv.org/pdf/2407.17750",
+    "evidence_excerpt": "[20] Nhat Minh Doan. Ortho-integral surfaces.arXiv preprint arXiv:2112.10694, 2021. 16 NHAT MINH DOAN, HANH VO",
+    "checked_utc": "2026-11-07T02:35:27+00:00"
+  },
+  {
+    "target": "polygons",
+    "title": "Concentration of closed geodesics in the homology of modular curves",
+    "authors": "Asbjørn Christian Nordentoft",
+    "doi": "10.1017/fms.2023.85",
+    "arxiv": "2203.06446",
+    "platform": "openalex",
+    "id": "W4387367731",
+    "url": "https://arxiv.org/abs/2203.06446",
+    "source": "Verified in arXiv PDF bibliography",
+    "verified": true,
+    "work_id": "doi:10.1017/fms.2023.85",
+    "identifiers": [
+      "arxiv:2203.06446",
+      "doi:10.1017/fms.2023.85",
+      "openalex:W4387367731"
+    ],
+    "evidence": [
+      {
+        "source": "OpenAlex indexed reference edge",
+        "url": "https://doi.org/10.1017/fms.2023.85"
+      }
+    ],
+    "evidence_url": "https://arxiv.org/pdf/2203.06446",
+    "evidence_excerpt": "[ALMW22] Menny Aka, Manuel Luethi, Philippe Michel, and And reas Wieser. Simultaneous supersingular re- ductions of cm elliptic curves. Journal für die reine und angewandte Mathematik (Crelles Jo urnal), 2022(786):1–43, 2022. [BD96] M. Bertolini and H. Darmon. Heegner points on Mumford -Tate curves. Invent. Math. , 126(3):413– 456, 1996. [Bea83] Alan F. Beardon. The geometry of discrete groups , volume 91. Springer, Cham, 1983. [BH10] Valentin Blomer and Roman Holowinsky. Bounding sup- norms of cusp forms of large level. Invent. Math., 179(3):645–681, 2010. [BM11] Valentin Blomer and Philippe Michel. Sup-norms of ei genfunctions on arithmetic",
+    "checked_utc": "2026-11-07T02:35:26+00:00"
   }
 ]

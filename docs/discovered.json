@@ -1,5 +1,63 @@
 {
-  "generated_utc": null,
-  "citations": [],
-  "warning": "Only manually verified seeds; collector not yet run."
+  "generated_utc": "2026-11-07T02:41:53+00:00",
+  "collection_status": "partial",
+  "sources": {
+    "openalex": {
+      "papers_attempted": 13,
+      "new_records": 3,
+      "status": "completed_requests"
+    },
+    "semantic": {
+      "papers_attempted": 1,
+      "new_records": 0,
+      "status": "deferred_after_error"
+    },
+    "opencitations": {
+      "papers_attempted": 13,
+      "new_records": 2,
+      "status": "completed_requests"
+    },
+    "hexagon": {
+      "status": "completed_requests",
+      "verified_records": 3
+    },
+    "zenodo": {
+      "status": "completed_requests",
+      "verified_records": 0
+    }
+  },
+  "citations": [
+    {
+      "target": "filling",
+      "title": "Self‐intersections of arcs on a pair of pants",
+      "authors": "Nhat Minh Doan; Hanh Nguyen Vo",
+      "doi": "10.1112/blms.70088",
+      "arxiv": "2407.17750",
+      "platform": "openalex",
+      "id": "W4410122476",
+      "url": "https://doi.org/10.1112/blms.70088",
+      "source": "OpenAlex indexed reference edge",
+      "verified": false,
+      "work_id": "doi:10.1112/blms.70088",
+      "identifiers": [
+        "arxiv:2407.17750",
+        "doi:10.1112/blms.70088",
+        "openalex:W4410122476"
+      ],
+      "evidence": [
+        {
+          "source": "OpenAlex indexed reference edge",
+          "url": "https://doi.org/10.1112/blms.70088"
+        },
+        {
+          "source": "OpenCitations reference edge (Crossref metadata)",
+          "url": "https://doi.org/10.1112/blms.70088"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    "api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run"
+  ],
+  "warning": "Indexed edges are candidates. Partial or failed coverage is not evidence of zero citations."
 }
