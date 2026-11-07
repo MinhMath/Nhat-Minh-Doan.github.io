@@ -324,9 +324,12 @@ def main():
                 if finding:new_verified.append(finding)
     try:
         new_verified.extend(hexagon_scan(PAPERS))
-        new_verified.extend(zenodo_pdf_scan(PAPERS))
     except Exception as exc:
         errors.append("Hexagon bibliography scan: "+str(exc)[:150])
+    try:
+        new_verified.extend(zenodo_pdf_scan(PAPERS))
+    except Exception as exc:
+        errors.append("Zenodo bibliography scan: "+str(exc)[:150])
     already={(c["target"],work_key(c)) for c in SEEDS}
     for c in merged(new_verified):
         if (c["target"],work_key(c)) not in already:
