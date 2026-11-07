@@ -35,17 +35,8 @@ def header(active, prefix=''):
 </header>
 <dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search this site</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label for="site-search-input">Search papers</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>'''
 
-COAUTHORS={'Ser Peow Tan':'https://sites.google.com/view/serpeowtan/home','Sang-hyun Kim':'https://cayley.kr/','Mong Lung Lang':'https://arxiv.org/search/?searchtype=author&query=Lang%2C+M+L','Hugo Parlier':'https://homeweb.unifr.ch/parlierh/pub/index.html','Khanh Le':'https://sites.google.com/view/khanhqle','Hoang Thanh Nguyen':'https://sites.google.com/site/nthoangmath/home','Hanh Vo':'https://hanhv.github.io/'}
-
-def publication(p):
- title=p.get('display_title',p['title'])
- byline=', '.join(external(COAUTHORS[a],a) if a in COAUTHORS else escape(a) for a in p['authors'])
- return f'''<li value="{p['display_number']}" id="paper-{escape(p['id'])}"><div class="publication-title">{external(url(p),title)}.</div><div class="publication-authors">{byline}.</div><div class="publication-venue">{escape(p['venue'])}</div></li>'''
-
 def main():
  papers=json.loads((DOCS/'papers.json').read_text())
- primary=sorted((p for p in papers if p['section']=='papers'),key=lambda p:p['display_number'],reverse=True)
- other=sorted((p for p in papers if p['section']=='other'),key=lambda p:p['display_number'])
  content=f'''<!doctype html>
 <html lang="en">
 <head>
@@ -53,14 +44,14 @@ def main():
 <title>Nhat Minh Doan (Đoàn Nhật Minh)</title>
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="{BASE}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/ha-long-bay.jpg">
+<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/surfaces-banner.png">
 <link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
 <script defer src="assets/site.js" data-catalogue="papers.json" data-papers="papers/"></script>
 </head>
 <body>
 {header('home')}
-<div class="hero" role="img" aria-label="Boats among the limestone islands of Hạ Long Bay"></div>
+<div class="hero"><img src="assets/surfaces-banner.png?v={asset_revision('surfaces-banner.png')}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" fetchpriority="high"></div>
 <main id="main">
  <section class="intro content-width" aria-label="About Minh">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
@@ -130,6 +121,6 @@ def main():
 </main></body></html>'''
  (DOCS/'seminars').mkdir(exist_ok=True)
  (DOCS/'seminars/index.html').write_text(seminars,encoding='utf-8')
- print('Built personal homepage:',len(primary),'papers and',len(other),'other writings')
+ print('Built Homepage, Papers, CV, and Online Seminars')
 
 if __name__=='__main__':main()
