@@ -11,7 +11,8 @@ import time
 from pathlib import Path
 from difflib import SequenceMatcher
 from datetime import datetime, timezone
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
+from citation_identity import clean, work_key, canonicalize as merged
 
 import requests
 from bs4 import BeautifulSoup
@@ -25,22 +26,53 @@ session=requests.Session()
 session.headers["User-Agent"]="NhatMinhDoanCitationAudit/1.0 (noncommercial citation metadata)"
 errors=[]
 
-def clean(s):
-    return " ".join(re.findall(r"[a-z0-9]+",str(s or "").lower().replace("–","-")))
+RUN_DEADLINE=float("inf")
+failed_hosts=set()
+sources={}
+
+
+def within_budget():
+    return time.monotonic() < RUN_DEADLINE
+
+
+def safe_error(message):
+    text=str(message)
+    for key in ("OPENALEX_API_KEY", "SEMANTIC_SCHOLAR_API_KEY", "OPENCITATIONS_API_KEY"):
+        secret=os.getenv(key)
+        if secret:
+            text=text.replace(secret,"[redacted]")
+    return re.sub(r"(?i)(api_key|access_token|token)=([^&\s]+)", r"\1=[redacted]", text)[:300]
+
+
+def record_error(message):
+    message=safe_error(message)
+    if message not in errors:
+        errors.append(message)
+
 
 def get(url,params=None,headers=None):
-    for i in range(3):
+    host=urlsplit(url).netloc
+    if host in failed_hosts or not within_budget():
+        return None
+    failure="request failed"
+    for i in range(2):
+        if not within_budget():break
         try:
-            r=session.get(url,params=params,headers=headers,timeout=25)
+            r=session.get(url,params=params,headers=headers,timeout=min(15,max(1,RUN_DEADLINE-time.monotonic())))
             if r.status_code==404:return None
+            if r.status_code in (401,403):
+                failure="HTTP "+str(r.status_code)+" (authentication or access required)"
+                break
             if r.status_code in (429,500,502,503,504):
-                time.sleep(2**i)
+                failure="HTTP "+str(r.status_code)
+                if i==0:time.sleep(1)
                 continue
             r.raise_for_status()
             return r.json()
-        except (requests.RequestException,ValueError) as e:
-            if i==2:errors.append(str(e)[:200])
-            else:time.sleep(i+1)
+        except (requests.RequestException,ValueError) as exc:
+            failure=type(exc).__name__
+    failed_hosts.add(host)
+    record_error(host+": "+failure+"; remaining requests to this host deferred until the next run")
     return None
 
 def known(p,work):
@@ -51,11 +83,13 @@ def known(p,work):
 def openalex(p):
     out=[]
     token=os.getenv("OPENALEX_API_KEY","")
-    auth={"api_key":token} if token else {}
+    auth={}
+    headers={"Authorization":"Bearer "+token} if token else {}
     found=set()
     # Search alternate paper titles, combining publisher/preprint versions.
     for title in [p["title"]]+p.get("aliases",[])[:2]:
-        r=get("https://api.openalex.org/works",{"search":title,"per_page":15,**auth})
+        if not within_budget():break
+        r=get("https://api.openalex.org/works",{"search":title,"per_page":15,**auth},headers)
         if not isinstance(r,dict):continue
         for w in r.get("results",[]):
             if not known(p,w):continue
@@ -65,7 +99,7 @@ def openalex(p):
             if not re.fullmatch(r"W\d+",ident) or ident in found:continue
             found.add(ident)
             for page in range(1,11):
-                c=get("https://api.openalex.org/works",{"filter":"cites:"+ident,"per_page":100,"page":page,**auth})
+                c=get("https://api.openalex.org/works",{"filter":"cites:"+ident,"per_page":100,"page":page,**auth},headers)
                 if not isinstance(c,dict):break
                 items=c.get("results",[])
                 for v in items:
@@ -92,6 +126,7 @@ def semantic(p):
     ids=(["ARXIV:"+p["arxiv"]] if p.get("arxiv") else [])+(["DOI:"+p["doi"]] if p.get("doi") else [])
     headers={"x-api-key":os.environ["SEMANTIC_SCHOLAR_API_KEY"]} if os.getenv("SEMANTIC_SCHOLAR_API_KEY") else {}
     for pid in ids:
+        if not within_budget():break
         meta=get("https://api.semanticscholar.org/graph/v1/paper/"+quote(pid,safe=":"),{"fields":"paperId"},headers)
         if not isinstance(meta,dict) or not meta.get("paperId"):continue
         paperid=meta["paperId"]
@@ -115,29 +150,6 @@ def semantic(p):
             time.sleep(.25)
     return out
 
-def work_key(c):
-    if c.get("doi"):return "doi:"+str(c["doi"]).lower().removeprefix("https://doi.org/")
-    if c.get("arxiv"):return "arxiv:"+re.sub(r"v\d+$","",str(c["arxiv"]))
-    if c.get("platform") in ("arxiv","hexagon") and c.get("id"):
-        return str(c["platform"])+":"+re.sub(r"v\d+$","",str(c["id"]))
-    return "title:"+clean(c.get("title"))
-
-def merged(rows):
-    result={}
-    for c in rows:
-        k=c.get("target","")+"|"+work_key(c)
-        if k not in result:result[k]=c
-        elif c.get("verified"):result[k]=c
-        elif not result[k].get("authors") and c.get("authors"):result[k]=c
-    # Also merge identical title + first author where publisher/preprint IDs differ.
-    ans={}
-    for c in result.values():
-        a=clean(c.get("authors","")).split()
-        first=a[0] if a else ""
-        k=c.get("target","")+"|"+clean(c.get("title",""))+"|"+first
-        if k not in ans or (c.get("verified") and not ans[k].get("verified")):ans[k]=c
-    return list(ans.values())
-
 
 def bibliography(text):
     """Return only text after the last standalone References/Bibliography heading."""
@@ -147,7 +159,7 @@ def bibliography(text):
 def matches_target(text,p):
     compact=clean(text)
     for identifier in (p.get("arxiv"),p.get("hexagon"),p.get("doi")):
-        if identifier and clean(identifier) in compact:
+        if identifier and re.search(r"(?<![a-z0-9])"+re.escape(clean(identifier))+r"(?![a-z0-9])",compact):
             return True
     # Only distinctive long titles count as evidence.
     for variant in [p["title"]]+p.get("aliases",[]):
@@ -156,10 +168,22 @@ def matches_target(text,p):
             return True
     return False
 
+
+def evidence_excerpt(text,p):
+    for line in re.split(r"\n\s*\n|(?=\[\d+\])",text):
+        if matches_target(line,p):
+            return " ".join(line.split())[:650]
+    return ""
+
+
+def same_as_target(p,c):
+    from citation_identity import identifiers
+    return bool(identifiers(p) & identifiers(c)) or clean(p["title"])==clean(c.get("title"))
+
 def inspect_arxiv_pdf(p,c):
     """Verify candidate citation against actual arXiv reference pages."""
     aid=c.get("arxiv")
-    if not aid:return None
+    if not aid or same_as_target(p,c) or not within_budget():return None
     from io import BytesIO
     from pypdf import PdfReader
     url="https://arxiv.org/pdf/"+aid
@@ -174,9 +198,11 @@ def inspect_arxiv_pdf(p,c):
         refs=bibliography(tail)
         if refs and matches_target(refs,p):
             return {**c,"verified":True,"source":"Verified in arXiv PDF bibliography",
-                    "url":"https://arxiv.org/abs/"+aid}
+                    "url":"https://arxiv.org/abs/"+aid,
+                    "evidence_url":url,"evidence_excerpt":evidence_excerpt(refs,p),
+                    "checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")}
     except Exception as exc:
-        errors.append("arXiv verification "+aid+": "+str(exc)[:120])
+        record_error("arXiv verification "+aid+": "+str(exc)[:120])
     return None
 
 def hexagon_scan(papers):
@@ -200,19 +226,20 @@ def hexagon_scan(papers):
     pdf_done=set(state.get("hexagon_pdf_checked",[]))
     pending={r["href"]:r for r in state.get("hexagon_pdf_pending",[]) if isinstance(r,dict) and r.get("href")}
     checked=set(completed)
-    for _ in range(20):
-        if listing in seen_pages:break
+    for _ in range(3):
+        if listing in seen_pages or not within_budget():break
         seen_pages.add(listing)
         try:
             r=session.get(listing,timeout=25)
             if r.status_code!=200:
-                errors.append("Hexagon catalog HTTP "+str(r.status_code))
+                record_error("Hexagon catalog HTTP "+str(r.status_code))
                 break
             soup=BeautifulSoup(r.text,"html.parser")
         except requests.RequestException as exc:
-            errors.append("Hexagon catalog: "+str(exc)[:160])
+            record_error("Hexagon catalog: "+str(exc)[:160])
             break
         for a in soup.select("a[href]"):
+            if not within_budget():break
             href=a.get("href","")
             m=re.fullmatch(r"/(\d{4}\.\d{5})(?:v\d+)?",href)
             if not m or href in completed:continue
@@ -241,7 +268,10 @@ def hexagon_scan(papers):
                     new.append({"target":p["id"],"title":title,"authors":authors,
                                 "platform":"hexagon","id":m.group(1),"verified":True,
                                 "source":"Verified in HexagonMath HTML bibliography",
-                                "url":urljoin(base,href)})
+                                "url":urljoin(base,href),
+                                "evidence_url":urljoin(base,href),
+                                "evidence_excerpt":next((ref[:650] for ref in refs if matches_target(ref,p)),""),
+                                "checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")})
             # The HTML bibliography may be empty despite citations in the PDF.
             pdf_links=[link for link in doc.select("a[href]")
                        if ("pdf"==clean(link.get_text(" ",strip=True))
@@ -262,14 +292,14 @@ def hexagon_scan(papers):
     todo=sorted(pending.values(),key=priority,reverse=True)
     checked_pdf=0
     for entry in todo:
-        if checked_pdf>=40:break
+        if checked_pdf>=12 or not within_budget():break
         href=entry["href"]
         checked_pdf+=1
         entry["attempts"]=int(entry.get("attempts",0))+1
         if entry["attempts"]>3:
             pdf_done.add(href)
             pending.pop(href,None)
-            errors.append("Hexagon PDF skipped after three attempts: "+href)
+            record_error("Hexagon PDF skipped after three attempts: "+href)
             continue
         try:
             with session.get(entry["pdf_url"],timeout=35,stream=True) as response:
@@ -280,13 +310,13 @@ def hexagon_scan(papers):
                     if size>18_000_000:break
                     chunks.append(block)
             if size>18_000_000:
-                errors.append("Hexagon PDF too large: "+href)
+                record_error("Hexagon PDF too large: "+href)
                 pdf_done.add(href)
                 pending.pop(href,None)
                 continue
             data=b"".join(chunks)
             if not data.startswith(b"%PDF"):
-                errors.append("Hexagon PDF URL returned non-PDF: "+href)
+                record_error("Hexagon PDF URL returned non-PDF: "+href)
                 pdf_done.add(href)
                 pending.pop(href,None)
                 continue
@@ -301,12 +331,15 @@ def hexagon_scan(papers):
                                 "authors":entry.get("authors",""),"platform":"hexagon",
                                 "id":re.search(r"(\d{4}\.\d{5})",href).group(1),
                                 "verified":True,"source":"Verified in HexagonMath PDF bibliography",
-                                "url":urljoin(base,href)})
+                                "url":urljoin(base,href),
+                                "evidence_url":entry["pdf_url"],
+                                "evidence_excerpt":evidence_excerpt(references,p),
+                                "checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")})
             pdf_done.add(href)
             pending.pop(href,None)
         except Exception as exc:
             # Preserve unscanned items for the next run.
-            errors.append("Hexagon PDF "+href+": "+str(exc)[:140])
+            record_error("Hexagon PDF "+href+": "+str(exc)[:140])
             continue
     STATE.write_text(json.dumps({"hexagon_pages_checked":sorted(checked),
                                 "hexagon_pdf_checked":sorted(pdf_done),
@@ -342,11 +375,13 @@ def zenodo_pdf_scan(papers):
     from pypdf import PdfReader
     verified=[]
     for p in papers:
+        if not within_budget():break
         queries=[p["title"]]
         if p.get("arxiv"):queries.append(p["arxiv"])
         if p.get("doi"):queries.append(p["doi"])
         count=0
         for query in queries:
+            if not within_budget():break
             data=get("https://zenodo.org/api/records",{"q":'"'+query+'"',"size":10})
             if not isinstance(data,dict):continue
             for item in data.get("hits",{}).get("hits",[]):
@@ -375,56 +410,109 @@ def zenodo_pdf_scan(papers):
                                          "platform":"zenodo","id":ident,
                                          "doi":item.get("doi",""),"verified":True,
                                          "source":"Verified in Zenodo-hosted PDF bibliography",
-                                         "url":"https://zenodo.org/records/"+ident})
+                                         "url":"https://zenodo.org/records/"+ident,
+                                         "evidence_url":location,
+                                         "evidence_excerpt":evidence_excerpt(bibliography(tail),p),
+                                         "checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")})
                     except Exception as exc:
-                        errors.append("Zenodo verification: "+str(exc)[:120])
+                        record_error("Zenodo verification: "+str(exc)[:120])
     return verified
 
+def atomic_json(path,data):
+    temporary=path.with_suffix(path.suffix+".tmp")
+    temporary.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    temporary.replace(path)
+
+
+def checkpoint(candidates,verified,status):
+    # Count all sources together so a preprint identifier can bridge a DOI edge.
+    rows=merged(verified+candidates)
+    verified[:]=[r for r in rows if r.get("verified")]
+    candidates[:]=[r for r in rows if not r.get("verified")]
+    atomic_json(DIR/"verified.json",verified)
+    atomic_json(DEST,{"generated_utc":datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                     "collection_status":status,"sources":sources,
+                     "citations":candidates,"errors":errors[-100:],
+                     "warning":"Indexed edges are candidates. Partial or failed coverage is not evidence of zero citations."})
+
+
 def main():
+    global RUN_DEADLINE
+    RUN_DEADLINE=time.monotonic()+int(os.getenv("CITATION_SCAN_SECONDS","720"))
+    errors.clear();failed_hosts.clear();sources.clear()
     old={}
     if DEST.exists():
         try:old=json.loads(DEST.read_text(encoding="utf-8"))
         except ValueError:pass
-    candidates=[c for c in old.get("citations",[]) if not c.get("verified")]
-    for p in PAPERS:
-        for func in (openalex,semantic,opencitations):
+    candidates=old.get("citations",[])
+    verified=list(SEEDS)
+    # Rotate target order after interrupted runs so recent papers cannot starve
+    # older publications of their turn at each source.
+    state={}
+    if STATE.exists():
+        try:state=json.loads(STATE.read_text(encoding="utf-8"))
+        except ValueError:pass
+    offset=int(state.get("paper_offset",0))%len(PAPERS)
+    ordered=PAPERS[offset:]+PAPERS[:offset]
+    last_offset=offset
+    try:
+        for number,p in enumerate(ordered):
+            if not within_budget():break
+            last_offset=(offset+number+1)%len(PAPERS)
+            for func in (openalex,semantic,opencitations):
+                if not within_budget():break
+                host={"openalex":"api.openalex.org","semantic":"api.semanticscholar.org","opencitations":"api.opencitations.net"}[func.__name__]
+                status=sources.setdefault(func.__name__,{"papers_attempted":0,"new_records":0,"status":"running"})
+                if host in failed_hosts:
+                    status["status"]="deferred_after_error"
+                    continue
+                before=len(errors)
+                status["papers_attempted"]+=1
+                try:
+                    items=func(p)
+                    candidates.extend(c for c in items if not same_as_target(p,c))
+                    status["new_records"]+=len(items)
+                    status["status"]="partial" if len(errors)>before else "completed_requests"
+                    print(p["id"],func.__name__,len(items),flush=True)
+                except Exception as exc:
+                    record_error(p["id"]+" "+func.__name__+": "+str(exc))
+                    status["status"]="partial"
+                checkpoint(candidates,verified,"running")
+        for p in PAPERS:
+            if not within_budget():break
+            attempted=0
+            for c in merged(c for c in candidates if c.get("target")==p["id"]):
+                if not within_budget():break
+                if (c.get("arxiv") or c.get("platform")=="arxiv") and attempted<12:
+                    attempted+=1
+                    if not c.get("arxiv"):c["arxiv"]=c["id"]
+                    finding=inspect_arxiv_pdf(p,c)
+                    if finding:verified.append(finding)
+            checkpoint(candidates,verified,"running")
+        for label,func in (("hexagon",hexagon_scan),("zenodo",zenodo_pdf_scan)):
+            if not within_budget():
+                sources[label]={"status":"deferred_time_budget"}
+                continue
+            before=len(errors)
             try:
-                items=func(p)
-                candidates.extend(items)
-                print(p["id"],func.__name__,len(items),flush=True)
+                items=func(PAPERS)
+                verified.extend(items)
+                sources[label]={"status":"partial" if len(errors)>before else "completed_requests","verified_records":len(items)}
             except Exception as exc:
-                errors.append(p["id"]+" "+func.__name__+": "+str(exc))
-        time.sleep(.2)
-    # Promotion to verified requires inspection of a real bibliography.
-    new_verified=[]
-    for p in PAPERS:
-        attempted=0
-        for c in merged(x for x in candidates if x.get("target")==p["id"]):
-            if c.get("arxiv") and attempted<12:
-                attempted+=1
-                finding=inspect_arxiv_pdf(p,c)
-                if finding:new_verified.append(finding)
-    try:
-        new_verified.extend(hexagon_scan(PAPERS))
-    except Exception as exc:
-        errors.append("Hexagon bibliography scan: "+str(exc)[:150])
-    try:
-        new_verified.extend(zenodo_pdf_scan(PAPERS))
-    except Exception as exc:
-        errors.append("Zenodo bibliography scan: "+str(exc)[:150])
-    already={(c["target"],work_key(c)) for c in SEEDS}
-    for c in merged(new_verified):
-        if (c["target"],work_key(c)) not in already:
-            SEEDS.append(c)
-            already.add((c["target"],work_key(c)))
-    (DIR/"verified.json").write_text(json.dumps(SEEDS,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-    verifiedkeys={(c["target"],work_key(c)) for c in SEEDS}
-    candidates=[c for c in merged(candidates) if (c["target"],work_key(c)) not in verifiedkeys]
-    data={"generated_utc":datetime.now(timezone.utc).isoformat(timespec="seconds"),
-          "citations":candidates,"errors":errors[:30],
-          "warning":"Indexed citation edges are candidates, not bibliography-verified counts."}
-    DEST.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-    print("Indexed candidate citation edges:",len(candidates), "Errors:",len(errors),flush=True)
+                record_error(label+": "+str(exc))
+                sources[label]={"status":"partial"}
+            checkpoint(candidates,verified,"running")
+    finally:
+        # hexagon_scan may have updated the same state file.
+        if STATE.exists():
+            try:state=json.loads(STATE.read_text(encoding="utf-8"))
+            except ValueError:pass
+        state["paper_offset"]=last_offset
+        atomic_json(STATE,state)
+        partial=bool(errors) or not within_budget()
+        checkpoint(candidates,verified,"partial" if partial else "completed_bounded_scan")
+        print("Saved verified relationships:",len(verified),"Candidates:",len(candidates),"Errors:",len(errors),flush=True)
+
 
 if __name__=="__main__":
     main()

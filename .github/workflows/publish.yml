@@ -28,6 +28,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build normalized citation ledger
+        run: python generate_report.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Package static dashboard
@@ -37,3 +42,4 @@ jobs:
       - name: Deploy dashboard
         id: deploy
         uses: actions/deploy-pages@v4
+

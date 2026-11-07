@@ -14,28 +14,25 @@ input{background:#172739;color:#edf3f9;border:1px solid #47617a;border-radius:8p
 <header><h1>Citation evidence ledger</h1><p>Research papers of Nhat Minh Doan · Auditable, duplicate-aware scholarly citation tracking.</p><p class="small"><a href="https://sites.google.com/view/dnminh/homepage">Research homepage</a> · <a href="https://scholar.google.com/citations?user=EM7d4OAAAAAJ">Google Scholar</a> · <a href="https://www.researchgate.net/profile/Nhat-Minh-Doan">ResearchGate</a></p></header>
 <section class="cards"><div class="card"><div class="label">Verified citation relationships</div><div class="big" id="verified">—</div></div><div class="card"><div class="label">Independent verified relationships</div><div class="big" id="independent">—</div></div><div class="card"><div class="label">Indexed-only candidates</div><div class="big" id="candidates">—</div></div><div class="card"><div class="label">Unique verified citing works</div><div class="big" id="unique">—</div></div><div class="card"><div class="label">Canonical papers monitored</div><div class="big" id="papers">—</div></div></section>
 <div class="notice"><strong>Method.</strong> A verified citation requires evidence in a bibliography. Indexed citation links are separately reported as candidates. Counts are <strong>documented lower bounds</strong>, not mathematically exact worldwide citation totals. Preprint and journal duplicates are merged where identifiers or title/author evidence allow.</div>
+<p class="small"><a href="ledger.json">Download the citation ledger</a> · <a href="https://github.com/MinhMath/Nhat-Minh-Doan.github.io/blob/main/CITATIONS.md">Read the citation report</a></p>
 <input id="search" placeholder="Filter papers by title…" aria-label="Filter papers" />
 <table><thead><tr><th>Paper</th><th class="num">Verified</th><th class="num">Candidates</th><th>Sources</th></tr></thead><tbody id="tbody"></tbody></table>
-<footer><p class="small">Verified seed: 7 November 2026. Additional indexed records appear when the daily GitHub Actions collector succeeds. <a href="https://github.com/MinhMath/Nhat-Minh-Doan.github.io">Source and audit history on GitHub</a>. All counts are subject to provenance review.</p><p class="small" id="run"></p></footer>
+<details><summary>Collection status and missing coverage</summary><div id="status" class="small"></div></details><footer><p class="small">Verified seed: 7 November 2026. Additional indexed records appear when the daily GitHub Actions collector succeeds. <a href="https://github.com/MinhMath/Nhat-Minh-Doan.github.io">Source and audit history on GitHub</a>. All counts are subject to provenance review.</p><p class="small" id="run"></p></footer>
 <script>
 let all=[],edges=[],candidates=[],meta={};const el=x=>document.getElementById(x);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const url=p=>p.doi?"https://doi.org/"+p.doi:p.arxiv?"https://arxiv.org/abs/"+p.arxiv:p.hexagon?"https://hexagonmath.org/"+p.hexagon:"#";
 const citeUrl=c=>c.url||(c.platform==="arxiv"?"https://arxiv.org/abs/"+c.id:c.platform==="hexagon"?"https://hexagonmath.org/"+c.id:"#");
-const norm=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
-function key(c){return c.doi?"doi:"+String(c.doi).toLowerCase().replace(/^https:\/\/doi.org\//,""):c.arxiv?"arxiv:"+String(c.arxiv).replace(/v\d+$/,""):c.platform&&c.id?c.platform+":"+String(c.id).replace(/v\d+$/,""):"title:"+norm(c.title)}
-function same(a,b){return a.target===b.target&&(key(a)===key(b)||(norm(a.title).length>=20&&norm(a.title)===norm(b.title)))}
-function dedup(items){const out=[];for(const c of items){const k=out.findIndex(p=>same(p,c));if(k<0)out.push(c);else if(c.verified&&!out[k].verified)out[k]=c}return out}
-const surname=s=>norm(s).split(" ").filter(Boolean).slice(-1)[0]||"";
-function independent(c){const p=all.find(x=>x.id===c.target);const authors=String(c.authors||"").split(";").map(x=>x.trim()).filter(Boolean);if(!p||!p.authors||!authors.length)return false;const own=new Set(p.authors.map(surname));return authors.every(a=>!own.has(surname(a)))}
-function uniqueWorks(list){return new Set(list.map(c=>norm(c.title)||key(c))).size}
 function render(){const q=el("search").value.toLowerCase();let rows=all.filter(p=>p.title.toLowerCase().includes(q));rows.sort((a,b)=>edges.filter(c=>c.target===b.id).length-edges.filter(c=>c.target===a.id).length);
- el("tbody").innerHTML=rows.map(p=>{const found=edges.filter(c=>c.target===p.id),indexed=candidates.filter(c=>c.target===p.id&&!found.some(v=>same(v,c)));
- const list=[...found,...indexed].map(c=>'<div class="evidence"><a href="'+esc(citeUrl(c))+'" target="_blank" rel="noopener">'+esc(c.title)+'</a> <span class="small">('+esc(c.authors||"author unknown")+') · '+(c.verified?"Verified bibliography":"Indexed candidate")+' · '+esc(c.source||"")+'</span></div>').join("");
+ el("tbody").innerHTML=rows.map(p=>{const found=edges.filter(c=>c.target===p.id),indexed=candidates.filter(c=>c.target===p.id);
+ const list=[...found,...indexed].map(c=>'<div class="evidence"><a href="'+esc(citeUrl(c))+'" target="_blank" rel="noopener">'+esc(c.title)+'</a> <span class="small">('+esc(c.authors||"author unknown")+') · '+(c.verified?"Verified bibliography":"Indexed candidate")+' · '+esc(c.source||"")+'</span>'+(c.evidence_excerpt?'<p class="small">Reference: '+esc(c.evidence_excerpt)+'</p>':'')+'</div>').join("");
  return '<tr><td><a href="'+esc(url(p))+'" target="_blank" rel="noopener">'+esc(p.title)+'</a></td><td class="num">'+found.length+'</td><td class="num">'+indexed.length+'</td><td><details><summary>View '+(found.length+indexed.length)+'</summary>'+ (list||'<span class="small">No known citations; not proof of none.</span>') +'</details></td></tr>'
  }).join("")}
-Promise.all([fetch("papers.json").then(x=>x.json()),fetch("verified.json").then(x=>x.json()),fetch("discovered.json").then(x=>x.ok?x.json():{citations:[]}).catch(()=>({citations:[]}))]).then(([p,v,d])=>{
- all=p;edges=dedup(v.filter(x=>x.verified));candidates=dedup(d.citations||[]);el("papers").textContent=all.length;el("verified").textContent=edges.length;el("independent").textContent=edges.filter(independent).length;el("unique").textContent=uniqueWorks(edges);el("candidates").textContent=candidates.filter(c=>!edges.some(v=>same(v,c))).length;el("run").textContent="Last automated discovery: "+(d.generated_utc||"not yet run");render()
+fetch("ledger.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Ledger is not available");return r.json()}).then(d=>{
+ all=d.papers;edges=d.citations.filter(x=>x.verified);candidates=d.citations.filter(x=>!x.verified);
+ const c=d.counts;el("papers").textContent=c.papers;el("verified").textContent=c.verified;el("independent").textContent=c.independent;el("unique").textContent=c.unique_citing_works;el("candidates").textContent=c.candidates;
+ el("run").textContent="Collection: "+d.collection_status+". Last saved discovery: "+(d.generated_utc||"not yet completed")+". "+(d.errors.length?d.errors.length+" collection limitations are listed below.":"");
+ el("status").innerHTML=Object.entries(d.sources||{}).map(([k,v])=>"<p><strong>"+esc(k)+"</strong>: "+esc(v.status)+"</p>").join("")+(d.errors||[]).map(e=>"<p>"+esc(e)+"</p>").join("");render()
 }).catch(e=>el("tbody").innerHTML='<tr><td colspan="4">Unable to read citation data: '+esc(e.message)+'</td></tr>');
 el("search").addEventListener("input",render);
 </script></body></html>

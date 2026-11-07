@@ -1,0 +1,309 @@
+{
+  "counts": {
+    "verified": 7,
+    "independent": 4,
+    "overlap": 3,
+    "unknown_authorship": 0,
+    "unique_citing_works": 6,
+    "candidates": 0,
+    "papers": 13
+  },
+  "papers": [
+    {
+      "id": "DLN",
+      "title": "Stable-norm boundary geometry on once-punctured tori",
+      "arxiv": "2605.14574",
+      "aliases": [
+        "McShane–Rivin norm balls and simple-length multiplicities",
+        "McShane-Rivin norm balls and simple-length multiplicities"
+      ],
+      "authors": [
+        "Nhat Minh Doan",
+        "Xiaobin Li",
+        "Van Nguyen"
+      ],
+      "year": 2026
+    },
+    {
+      "id": "DDD",
+      "title": "The torus with asymptotically the fewest simple closed geodesics",
+      "hexagon": "2610.00159",
+      "authors": [
+        "Phuc Thinh Dang",
+        "Trong Toan Dao",
+        "Nhat Minh Doan"
+      ],
+      "year": 2026
+    },
+    {
+      "id": "SSC",
+      "title": "Almost all simple lengths are unique up to isometry",
+      "hexagon": "2610.00298",
+      "authors": [
+        "Nhat Minh Doan"
+      ],
+      "year": 2026
+    },
+    {
+      "id": "density",
+      "title": "Density of length ratios on Teichmüller space",
+      "arxiv": "2610.24700",
+      "authors": [
+        "Nhat Minh Doan",
+        "Hanh Vo"
+      ],
+      "year": 2026
+    },
+    {
+      "id": "graded",
+      "title": "Graded Bridgeman dilogarithm identities on hyperbolic surfaces",
+      "arxiv": "2601.03876",
+      "authors": [
+        "Ara Basmajian",
+        "Nhat Minh Doan",
+        "Hugo Parlier",
+        "Ser Peow Tan"
+      ],
+      "year": 2026
+    },
+    {
+      "id": "farey",
+      "title": "Optimal Farey sequence for the congruence subgroup Gamma_0(2^n)",
+      "arxiv": "2601.01324",
+      "authors": [
+        "Nhat Minh Doan",
+        "Sang-hyun Kim",
+        "Mong Lung Lang",
+        "Ser Peow Tan"
+      ],
+      "year": 2026
+    },
+    {
+      "id": "arithmetic",
+      "title": "Some arithmetic aspects of ortho-integral surfaces",
+      "arxiv": "2504.09403",
+      "doi": "10.1090/tran/9657",
+      "authors": [
+        "Nhat Minh Doan",
+        "Khanh Le"
+      ],
+      "year": 2026
+    },
+    {
+      "id": "free",
+      "title": "Some remarks on subgroups of free-by-cyclic groups",
+      "doi": "10.1007/s10013-025-00762-x",
+      "authors": [
+        "Nhat Minh Doan",
+        "Hoang Thanh Nguyen"
+      ],
+      "year": 2026
+    },
+    {
+      "id": "arcs",
+      "title": "Self-intersections of arcs on a pair of pants",
+      "arxiv": "2407.17750",
+      "doi": "10.1112/blms.70088",
+      "authors": [
+        "Nhat Minh Doan",
+        "Hanh Vo"
+      ],
+      "year": 2025,
+      "aliases": [
+        "Self-intersection of arcs on a pair of pants"
+      ]
+    },
+    {
+      "id": "polygons",
+      "title": "Optimal special polygons for the congruence subgroups Gamma_0(p) and Gamma_0(pq)",
+      "doi": "10.1007/s12220-025-02051-y",
+      "authors": [
+        "Nhat Minh Doan",
+        "Sang-hyun Kim",
+        "Mong Lung Lang",
+        "Ser Peow Tan"
+      ],
+      "year": 2025,
+      "arxiv": "2209.13937",
+      "aliases": [
+        "Optimal independent generating system for the congruence subgroups Γ_0(p) and Γ_0(p^2)",
+        "Optimal independent generating system for the congruence subgroups Gamma_0(p) and Gamma_0(p^2)"
+      ]
+    },
+    {
+      "id": "ortho",
+      "title": "Ortho-integral surfaces",
+      "arxiv": "2112.10694",
+      "doi": "10.1016/j.aim.2025.110162",
+      "aliases": [
+        "Orthotree, orthoshapes and ortho-integral surfaces"
+      ],
+      "authors": [
+        "Nhat Minh Doan"
+      ],
+      "year": 2025
+    },
+    {
+      "id": "filling",
+      "title": "Geometric filling curves on punctured surfaces",
+      "arxiv": "2012.02461",
+      "doi": "10.1017/S0017089522000404",
+      "authors": [
+        "Nhat Minh Doan"
+      ],
+      "year": 2023
+    },
+    {
+      "id": "pants",
+      "title": "Measuring pants",
+      "arxiv": "2002.02738",
+      "doi": "10.1090/tran/8893",
+      "authors": [
+        "Nhat Minh Doan",
+        "Hugo Parlier",
+        "Ser Peow Tan"
+      ],
+      "year": 2023
+    }
+  ],
+  "citations": [
+    {
+      "target": "DDD",
+      "title": "Almost all simple lengths are unique up to isometry",
+      "id": "2610.00298",
+      "platform": "hexagon",
+      "authors": "Nhat Minh Doan",
+      "verified": true,
+      "source": "Manually inspected bibliography (2026-11-07)",
+      "work_id": "hexagon:2610.00298",
+      "identifiers": [
+        "hexagon:2610.00298"
+      ],
+      "evidence": [
+        {
+          "source": "Manually inspected bibliography (2026-11-07)"
+        }
+      ],
+      "independence": "overlap"
+    },
+    {
+      "target": "DLN",
+      "title": "Patterns in the Markov Numbers and Their Generalizations",
+      "id": "2609.14149",
+      "platform": "arxiv",
+      "authors": "Cormac O'Sullivan",
+      "verified": true,
+      "source": "Manually inspected bibliography (2026-11-07)",
+      "work_id": "arxiv:2609.14149",
+      "identifiers": [
+        "arxiv:2609.14149"
+      ],
+      "evidence": [
+        {
+          "source": "Manually inspected bibliography (2026-11-07)"
+        }
+      ],
+      "independence": "independent"
+    },
+    {
+      "target": "DLN",
+      "title": "Counting Markov Triples and Simple Geodesics",
+      "id": "2610.36069",
+      "platform": "arxiv",
+      "authors": "Morten S. Risager",
+      "verified": true,
+      "source": "Manually inspected bibliography (2026-11-07)",
+      "work_id": "arxiv:2610.36069",
+      "identifiers": [
+        "arxiv:2610.36069"
+      ],
+      "evidence": [
+        {
+          "source": "Manually inspected bibliography (2026-11-07)"
+        }
+      ],
+      "independence": "independent"
+    },
+    {
+      "target": "DLN",
+      "title": "The torus with asymptotically the fewest simple closed geodesics",
+      "id": "2610.00159",
+      "platform": "hexagon",
+      "authors": "Phuc Thinh Dang; Trong Toan Dao; Nhat Minh Doan",
+      "verified": true,
+      "source": "Manually inspected bibliography (2026-11-07)",
+      "work_id": "hexagon:2610.00159",
+      "identifiers": [
+        "hexagon:2610.00159"
+      ],
+      "evidence": [
+        {
+          "source": "Manually inspected bibliography (2026-11-07)"
+        }
+      ],
+      "independence": "overlap"
+    },
+    {
+      "target": "DLN",
+      "title": "Almost all Markoff numbers are unique",
+      "id": "2610.00281",
+      "platform": "hexagon",
+      "authors": "William Y. Chen",
+      "verified": true,
+      "source": "Manually inspected bibliography (2026-11-07)",
+      "work_id": "hexagon:2610.00281",
+      "identifiers": [
+        "hexagon:2610.00281"
+      ],
+      "evidence": [
+        {
+          "source": "Manually inspected bibliography (2026-11-07)"
+        }
+      ],
+      "independence": "independent"
+    },
+    {
+      "target": "DLN",
+      "title": "Almost all simple lengths are unique up to isometry",
+      "id": "2610.00298",
+      "platform": "hexagon",
+      "authors": "Nhat Minh Doan",
+      "verified": true,
+      "source": "Manually inspected bibliography (2026-11-07)",
+      "work_id": "hexagon:2610.00298",
+      "identifiers": [
+        "hexagon:2610.00298"
+      ],
+      "evidence": [
+        {
+          "source": "Manually inspected bibliography (2026-11-07)"
+        }
+      ],
+      "independence": "overlap"
+    },
+    {
+      "target": "DLN",
+      "title": "Parameter Monotonicity for Generalized k-Markov Numbers",
+      "id": "2611.00023",
+      "platform": "hexagon",
+      "authors": "Qiyue Tang",
+      "verified": true,
+      "source": "Manually inspected bibliography (2026-11-07)",
+      "work_id": "hexagon:2611.00023",
+      "identifiers": [
+        "hexagon:2611.00023"
+      ],
+      "evidence": [
+        {
+          "source": "Manually inspected bibliography (2026-11-07)"
+        }
+      ],
+      "independence": "independent"
+    }
+  ],
+  "generated_utc": null,
+  "collection_status": "not_run",
+  "sources": {},
+  "errors": [],
+  "warning": "Verified lower bounds; missing coverage is not a zero-citation claim."
+}
