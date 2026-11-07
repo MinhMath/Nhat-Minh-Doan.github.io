@@ -1,0 +1,65 @@
+[
+  {
+    "target": "DLN",
+    "title": "Almost all Markoff numbers are unique",
+    "id": "2610.00281",
+    "platform": "hexagon",
+    "authors": "William Y. Chen",
+    "verified": true,
+    "source": "Manually inspected bibliography (2026-11-07)"
+  },
+  {
+    "target": "DLN",
+    "title": "Parameter Monotonicity for Generalized k-Markov Numbers",
+    "id": "2611.00023",
+    "platform": "hexagon",
+    "authors": "Qiyue Tang",
+    "verified": true,
+    "source": "Manually inspected bibliography (2026-11-07)"
+  },
+  {
+    "target": "DLN",
+    "title": "Counting Markov Triples and Simple Geodesics",
+    "id": "2610.36069",
+    "platform": "arxiv",
+    "authors": "Morten S. Risager",
+    "verified": true,
+    "source": "Manually inspected bibliography (2026-11-07)"
+  },
+  {
+    "target": "DLN",
+    "title": "Patterns in the Markov Numbers and Their Generalizations",
+    "id": "2609.14149",
+    "platform": "arxiv",
+    "authors": "Cormac O'Sullivan",
+    "verified": true,
+    "source": "Manually inspected bibliography (2026-11-07)"
+  },
+  {
+    "target": "DLN",
+    "title": "The torus with asymptotically the fewest simple closed geodesics",
+    "id": "2610.00159",
+    "platform": "hexagon",
+    "authors": "Phuc Thinh Dang; Trong Toan Dao; Nhat Minh Doan",
+    "verified": true,
+    "source": "Manually inspected bibliography (2026-11-07)"
+  },
+  {
+    "target": "DLN",
+    "title": "Almost all simple lengths are unique up to isometry",
+    "id": "2610.00298",
+    "platform": "hexagon",
+    "authors": "Nhat Minh Doan",
+    "verified": true,
+    "source": "Manually inspected bibliography (2026-11-07)"
+  },
+  {
+    "target": "DDD",
+    "title": "Almost all simple lengths are unique up to isometry",
+    "id": "2610.00298",
+    "platform": "hexagon",
+    "authors": "Nhat Minh Doan",
+    "verified": true,
+    "source": "Manually inspected bibliography (2026-11-07)"
+  }
+]
