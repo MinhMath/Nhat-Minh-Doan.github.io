@@ -137,6 +137,101 @@ def merged(rows):
         if k not in ans or (c.get("verified") and not ans[k].get("verified")):ans[k]=c
     return list(ans.values())
 
+
+def bibliography(text):
+    """Return only text after the last standalone References/Bibliography heading."""
+    found=list(re.finditer(r"(?im)^\s*(?:references|bibliography)\s*$",text))
+    return text[found[-1].end():] if found else ""
+
+def matches_target(text,p):
+    compact=clean(text)
+    for identifier in (p.get("arxiv"),p.get("hexagon"),p.get("doi")):
+        if identifier and clean(identifier) in compact:
+            return True
+    # Only distinctive long titles count as evidence.
+    for variant in [p["title"]]+p.get("aliases",[]):
+        normalized=clean(variant)
+        if len(normalized)>40 and normalized in compact:
+            return True
+    return False
+
+def inspect_arxiv_pdf(p,c):
+    """Verify candidate citation against actual arXiv reference pages."""
+    aid=c.get("arxiv")
+    if not aid:return None
+    from io import BytesIO
+    from pypdf import PdfReader
+    url="https://arxiv.org/pdf/"+aid
+    try:
+        response=session.get(url,timeout=28)
+        if response.status_code!=200 or not response.content.startswith(b"%PDF"):
+            return None
+        if len(response.content)>18_000_000:return None
+        reader=PdfReader(BytesIO(response.content),strict=False)
+        pages=list(reader.pages)[-min(16,len(reader.pages)):]
+        tail="\n".join(page.extract_text() or "" for page in pages)
+        refs=bibliography(tail)
+        if refs and matches_target(refs,p):
+            return {**c,"verified":True,"source":"Verified in arXiv PDF bibliography",
+                    "url":"https://arxiv.org/abs/"+aid}
+    except Exception as exc:
+        errors.append("arXiv verification "+aid+": "+str(exc)[:120])
+    return None
+
+def hexagon_scan(papers):
+    """Walk public HexagonMath listing and check HTML reference lists.
+    The HTML parser is deliberately strict: ambiguous references are not verified.
+    """
+    new=[]
+    url="https://hexagonmath.org/search?per_page=100"
+    seen=set()
+    visited=set()
+    from urllib.parse import urljoin
+    for page in range(20):
+        if url in seen:break
+        seen.add(url)
+        try:
+            r=session.get(url,timeout=25)
+            if r.status_code!=200:break
+            soup=BeautifulSoup(r.text,"html.parser")
+        except requests.RequestException as exc:
+            errors.append("Hexagon listing "+str(exc)[:140]);break
+        for a in soup.select("a[href]"):
+            href=a.get("href","")
+            match=re.fullmatch(r"/(\d{4}\.\d{5})(?:v\d+)?",href)
+            if not match or href in visited:continue
+            visited.add(href)
+            try:
+                page_resp=session.get(urljoin(url,href),timeout=25)
+                if page_resp.status_code!=200:continue
+                doc=BeautifulSoup(page_resp.text,"html.parser")
+                headings=[h for h in doc.find_all(["h2","h3"]) if clean(h.get_text(" ",strip=True))=="references"]
+                if not headings:continue
+                h=headings[-1];refitems=[]
+                for element in h.next_elements:
+                    if getattr(element,"name",None) in ("h2","h3"):break
+                    if getattr(element,"name",None)=="li":
+                        refitems.append(element.get_text(" ",strip=True))
+                if not refitems:continue
+                label=doc.find("h1")
+                title=label.get_text(" ",strip=True) if label else href
+                full=doc.get_text(" ",strip=True)
+                author_match=re.search(r"Contributed by\s+(.{3,160}?)(?:\s+Abstract|\s+Download|\s+Published)",full,re.I)
+                authors=author_match.group(1) if author_match else ""
+                for p in papers:
+                    if p.get("hexagon")==match.group(1):continue
+                    if any(matches_target(ref,p) for ref in refitems):
+                        new.append({"target":p["id"],"title":title,"id":match.group(1),
+                                    "platform":"hexagon","authors":authors,
+                                    "verified":True,"source":"Verified in HexagonMath HTML bibliography",
+                                    "url":"https://hexagonmath.org/"+match.group(1)})
+                time.sleep(.12)
+            except requests.RequestException:continue
+        nxt=next((a for a in soup.select("a[href]") if "next 100 works" in clean(a.get_text(" ",strip=True))),None)
+        if nxt is None:break
+        url=urljoin(url,nxt.get("href",""))
+    return new
+
 def main():
     old={}
     if DEST.exists():
@@ -152,6 +247,25 @@ def main():
             except Exception as exc:
                 errors.append(p["id"]+" "+func.__name__+": "+str(exc))
         time.sleep(.2)
+    # Promotion to verified requires inspection of a real bibliography.
+    new_verified=[]
+    for p in PAPERS:
+        attempted=0
+        for c in merged(x for x in candidates if x.get("target")==p["id"]):
+            if c.get("arxiv") and attempted<12:
+                attempted+=1
+                finding=inspect_arxiv_pdf(p,c)
+                if finding:new_verified.append(finding)
+    try:
+        new_verified.extend(hexagon_scan(PAPERS))
+    except Exception as exc:
+        errors.append("Hexagon bibliography scan: "+str(exc)[:150])
+    already={(c["target"],work_key(c)) for c in SEEDS}
+    for c in merged(new_verified):
+        if (c["target"],work_key(c)) not in already:
+            SEEDS.append(c)
+            already.add((c["target"],work_key(c)))
+    (DIR/"verified.json").write_text(json.dumps(SEEDS,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     verifiedkeys={(c["target"],work_key(c)) for c in SEEDS}
     candidates=[c for c in merged(candidates) if (c["target"],work_key(c)) not in verifiedkeys]
     data={"generated_utc":datetime.now(timezone.utc).isoformat(timespec="seconds"),
