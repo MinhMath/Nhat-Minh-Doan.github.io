@@ -5,24 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Papers</title>
 <style>
-*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;color:#25282c;background:#fff;max-width:1100px;margin:0 auto;padding:12px 16px;line-height:1.6}table{width:100%;border-collapse:collapse}th,td{text-align:left;vertical-align:top;padding:13px 10px;border-bottom:1px solid #e7e8ea}th{font-size:13px;font-weight:500;color:#646b73}th:last-child,td:last-child{width:23%}a{color:#245c9d;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible,summary:focus-visible{outline:2px solid #245c9d;outline-offset:3px}.paper{font-size:16px}.authors,.venue{font-size:13px;color:#59616a}summary{cursor:pointer;color:#245c9d;font-size:14px;width:fit-content}ol{padding-left:17px;margin:8px 0 0;font-size:13px}li{margin:0 0 10px}.empty{color:#9a9fa5;font-size:14px}@media(max-width:600px){body{padding:4px}th,td{padding:10px 5px}.paper{font-size:14px}.authors,.venue{font-size:12px}th:last-child,td:last-child{width:21%}ol{font-size:12px}}
+*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;color:#25282c;background:#fff;max-width:1220px;margin:0 auto;padding:12px 16px;line-height:1.55}table{width:100%;border-collapse:collapse;table-layout:fixed}th,td{text-align:left;vertical-align:top;padding:14px 10px;border-bottom:1px solid #e7e8ea}th{font-size:13px;font-weight:500;color:#646b73}th:first-child{width:54%}th:nth-child(2){width:15%}th:last-child{width:31%}a{color:#245c9d;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible,summary:focus-visible{outline:2px solid #245c9d;outline-offset:3px}.paper{font-size:16px}.authors,.venue{font-size:13px;color:#59616a;margin-top:3px}.date{font-size:13px;white-space:nowrap}summary{cursor:pointer;color:#245c9d;font-size:14px;width:fit-content}ol{padding-left:19px;margin:9px 0 0;font-size:13px}li{margin:0 0 15px;overflow-wrap:anywhere}li .authors,li .venue{font-size:12px}.empty{color:#9a9fa5;font-size:14px}.totals{display:flex;gap:8px 24px;flex-wrap:wrap;padding:17px 10px;font-size:13px;color:#59616a}.totals strong{color:#25282c;font-weight:500}.note{font-size:12px;color:#59616a;padding:0 10px 12px}@media(max-width:650px){body{padding:4px}th,td{padding:10px 5px}th:first-child{width:49%}th:nth-child(2){width:20%}th:last-child{width:31%}.paper{font-size:14px}.authors,.venue{font-size:12px}.date{font-size:11px;white-space:normal}ol{padding-left:14px;font-size:12px}li .authors,li .venue{font-size:11px}.totals{gap:8px 14px;padding:14px 5px}}
 </style>
 </head>
 <body>
-<table aria-label="Papers"><thead><tr><th aria-label="Paper"></th><th>Sources</th></tr></thead><tbody id="papers"></tbody></table>
+<table aria-label="Papers"><thead><tr><th aria-label="Paper"></th><th title="Earliest documented public posting, rather than the journal issue date">First online</th><th>Cited by</th></tr></thead><tbody id="papers"></tbody></table>
+<div class="totals" id="totals" aria-label="Citation totals"></div>
 <script>
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safe=value=>{try{const url=new URL(value);return ['https:','http:'].includes(url.protocol)?url.href:'#'}catch{return '#'}};
-const link=(url,label)=>'<a href="'+esc(safe(url))+'" target="_blank" rel="noopener noreferrer">'+esc(label)+'</a>';
+const link=(url,label,attributes='')=>'<a href="'+esc(safe(url))+'" target="_blank" rel="noopener noreferrer" '+attributes+'>'+esc(label)+'</a>';
 const paperUrl=p=>p.doi?'https://doi.org/'+p.doi:p.arxiv?'https://arxiv.org/abs/'+p.arxiv:p.hexagon?'https://hexagonmath.org/'+p.hexagon:'#';
 const sourceUrl=c=>c.url||(c.arxiv?'https://arxiv.org/abs/'+c.arxiv:c.platform==='arxiv'?'https://arxiv.org/abs/'+c.id:c.platform==='hexagon'?'https://hexagonmath.org/'+c.id:c.doi?'https://doi.org/'+c.doi:'#');
+const authors=value=>Array.isArray(value)?value.join(', '):String(value||'').split(';').map(s=>s.trim()).filter(Boolean).join(', ');
+const description=p=>'<div class="authors">'+esc(authors(p.authors))+'.</div><div class="venue">'+esc(p.venue||'')+'</div>';
+const dateText=value=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return '—';return new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(value+'T00:00:00Z'))};
 fetch('ledger.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error();return r.json()}).then(data=>{
- const papers=[...data.papers].sort((a,b)=>a.section===b.section?(a.section==='other'?a.display_number-b.display_number:b.display_number-a.display_number):a.section==='other'?1:-1);
+ const papers=[...data.papers].sort((a,b)=>(b.first_online||'').localeCompare(a.first_online||'')||(a.display_title||a.title).localeCompare(b.display_title||b.title));
  document.getElementById('papers').innerHTML=papers.map(p=>{
-  const sources=data.citations.filter(c=>c.target===p.id&&c.verified);
-  const details=sources.length?'<details><summary>'+sources.length+'</summary><ol>'+sources.map(c=>'<li>'+link(sourceUrl(c),c.title)+'</li>').join('')+'</ol></details>':'<span class="empty">—</span>';
-  return '<tr><td><div class="paper">'+link(paperUrl(p),p.display_title||p.title)+'</div></td><td>'+details+'</td></tr>';
+  const citations=data.citations.filter(c=>c.target===p.id&&(c.verified||c.listing_confirmed)).sort((a,b)=>(b.first_online||'').localeCompare(a.first_online||'')||a.title.localeCompare(b.title));
+  const pending=citations.some(c=>!c.verified);
+  const details=citations.length?'<details><summary aria-label="'+citations.length+' citing works">'+citations.length+(pending?'†':'')+'</summary><ol>'+citations.map(c=>'<li>'+link(sourceUrl(c),(c.display_title||c.title)+(!c.verified?' †':''),'title="'+esc(c.bibliography_status||'Bibliography reference verified')+'"')+description(c)+'</li>').join('')+'</ol></details>':'<span class="empty">—</span>';
+  const date=p.first_online?link(p.first_online_source,dateText(p.first_online),'title="'+esc(p.first_online_note||'Earliest documented public posting')+'"'):'—';
+  return '<tr><td><div class="paper">'+link(paperUrl(p),p.display_title||p.title)+'</div>'+description(p)+'</td><td class="date">'+date+'</td><td>'+details+'</td></tr>';
  }).join('');
+ const c=data.counts;
+ document.getElementById('totals').innerHTML='<span>Total citations: <strong>'+c.total_citations+(c.scholar_listed?'†':'')+'</strong></span><span title="Citing works that include Nhat Minh Doan as an author">Self citations: <strong>'+c.self_citations+'</strong></span><span title="Citing works whose authors do not include Nhat Minh Doan">Non-self citations: <strong>'+c.non_self_citations+'</strong></span>'+(c.unclassified_citations?'<span>Unclassified: <strong>'+c.unclassified_citations+'</strong></span>':'');
+ if(c.scholar_listed){const note=document.createElement('div');note.className='note';note.textContent='† '+c.scholar_listed+' citations are listed by Google Scholar and await full-text verification.';document.body.appendChild(note);}
 }).catch(()=>{});
 </script>
 </body>

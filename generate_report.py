@@ -31,22 +31,23 @@ def name(s):
 
 def main():
     papers=load("docs/papers.json",[])
-    ledger=build_ledger(papers,load("docs/verified.json",[]),load("docs/discovered.json",{}))
+    ledger=build_ledger(papers,load("docs/verified.json",[]),load("docs/discovered.json",{}),load("docs/bibliography_metadata.json",[]),load("docs/listed.json",[]))
     (ROOT/"docs/ledger.json").write_text(json.dumps(ledger,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     counts=ledger["counts"]
     rows=ledger["citations"]
     verified=[r for r in rows if r["verified"]]
-    candidates=[r for r in rows if not r["verified"]]
+    listed=[r for r in rows if not r["verified"] and r.get("listing_confirmed")]
+    candidates=[r for r in rows if not r["verified"] and not r.get("listing_confirmed")]
     lines=["# Citation evidence — Nhat Minh Doan","",
            "> **Verified lower bound, not an exact worldwide total.** Verified references and unverified discoveries are recorded separately. A missing or failed source is not evidence of zero citations.","",
-           f"**Verified relationships:** {counts['verified']} | **Independent verified:** {counts['independent']} | **Distinct verified citing works:** {counts['unique_citing_works']} | **Unverified candidates:** {counts['candidates']} | **Papers tracked:** {counts['papers']}","",
+           f"**Total citation records:** {counts['total_citations']} | **Bibliography verified:** {counts['verified']} | **Scholar-listed, full text pending:** {counts['scholar_listed']} | **Self citations:** {counts['self_citations']} | **Non-self citations:** {counts['non_self_citations']}","",
            f"Collection status: **{ledger['collection_status']}**. Last saved discovery: {ledger['generated_utc'] or 'not yet completed'}.","",
-           "| Canonical paper | Verified citations | Unverified candidates |","|---|---:|---:|"]
+           "| Canonical paper | Verified citations | Scholar-listed | Unverified candidates |","|---|---:|---:|---:|"]
     for p in sorted(papers,key=lambda p:sum(r["target"]==p["id"] for r in verified),reverse=True):
         label=name(p["title"])
         url=link(p)
         cell=f"[{label}]({url})" if url else label
-        lines.append(f"| {cell} | {sum(r['target']==p['id'] for r in verified)} | {sum(r['target']==p['id'] for r in candidates)} |")
+        lines.append(f"| {cell} | {sum(r['target']==p['id'] for r in verified)} | {sum(r['target']==p['id'] for r in listed)} | {sum(r['target']==p['id'] for r in candidates)} |")
     lines += ["","## Verified bibliography references",""]
     for p in papers:
         matches=[r for r in verified if r["target"]==p["id"]]
@@ -60,6 +61,12 @@ def main():
             if c.get("evidence_excerpt"):
                 lines.append("  Reference excerpt: "+name(c["evidence_excerpt"]))
         lines.append("")
+    if listed:
+        lines += ["## Scholar-listed references awaiting full-text verification", ""]
+        for c in listed:
+            target_title=next((p["title"] for p in papers if p["id"]==c["target"]),c["target"])
+            lines.append(f"- {name(target_title)}: [{name(c['title'])}]({citing_url(c)}) — {name(c.get('authors',''))}. {name(c.get('bibliography_status',''))}")
+        lines.append("")
     lines += ["## Collection status", "", "| Source | Status |", "|---|---|"]
     for source,status in ledger["sources"].items():
         lines.append(f"| {name(source)} | {name(status.get('status','unknown'))} |")
@@ -71,6 +78,8 @@ def main():
               "Independent citations exclude identified shared authors; incomplete or ambiguous author names are recorded separately.",
               "A citing work that references two target papers contributes two relationships and one distinct citing work.",
               "Google Scholar and ResearchGate totals are not automatically accepted as verified evidence.", ""]
+    lines += ["Self citations mean citing works that include Nhat Minh Doan as an author. Citations by collaborators without Doan count as non-self; the separate shared-author classification is retained in the ledger.",
+              "Dates on the public page are the earliest documented public postings, rather than journal issue dates. Each date links to its source.", ""]
     (ROOT/"CITATIONS.md").write_text("\n".join(lines),encoding="utf-8")
     print("Wrote report and ledger:",counts)
 

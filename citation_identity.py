@@ -19,6 +19,10 @@ def identifiers(row):
     aid = re.sub(r"^(?:https?://arxiv\.org/(?:abs|pdf)/|arxiv:)", "", str(row.get("arxiv") or ""), flags=re.I)
     if aid:
         result.add("arxiv:" + re.sub(r"(?:v\d+)?(?:\.pdf)?$", "", aid))
+    if row.get("hexagon"):
+        result.add("hexagon:" + re.sub(r"v\d+$", "", str(row["hexagon"])))
+    if row.get("zenodo_concept"):
+        result.add("zenodo-concept:" + str(row["zenodo_concept"]))
     platform = row.get("platform", "")
     ident = str(row.get("id") or "")
     if platform and ident:
@@ -131,20 +135,38 @@ def independence(paper, row):
     return "unknown" if uncertain else "independent"
 
 
-def build_ledger(papers, verified, discovered):
+def build_ledger(papers, verified, discovered, metadata=None, listed=None):
     valid = {p["id"] for p in papers}
-    rows = canonicalize(verified + discovered.get("citations", []))
+    rows = canonicalize(verified + discovered.get("citations", []) + list(listed or []))
     rows = [r for r in rows if r["target"] in valid]
     by_id = {p["id"]: p for p in papers}
+    descriptions=list(metadata or [])+papers
+    for row in rows:
+        for description in descriptions:
+            if not identifiers(row).intersection(identifiers(description)):continue
+            for key in ("display_title","venue","first_online","first_online_source","first_online_note"):
+                value=description.get(key)
+                if value:row[key]=value
+            if description.get("authors"):
+                row["authors"]="; ".join(author_names(description["authors"]))
     for row in rows:
         row["independence"] = independence(by_id[row["target"]], row)
+        personal=independence({"authors":["Nhat Minh Doan"]},row)
+        row["self_citation"]=True if personal=="overlap" else False if personal=="independent" else None
     checked = [r for r in rows if r["verified"]]
-    candidates = [r for r in rows if not r["verified"]]
+    confirmed_listings = [r for r in rows if not r["verified"] and r.get("listing_confirmed")]
+    counted = checked + confirmed_listings
+    candidates = [r for r in rows if not r["verified"] and not r.get("listing_confirmed")]
     counts = {"verified": len(checked),
               "independent": sum(r["independence"] == "independent" for r in checked),
               "overlap": sum(r["independence"] == "overlap" for r in checked),
               "unknown_authorship": sum(r["independence"] == "unknown" for r in checked),
               "unique_citing_works": len({r["work_id"] for r in checked}),
+              "total_citations": len(counted),
+              "scholar_listed": len(confirmed_listings),
+              "self_citations": sum(r["self_citation"] is True for r in counted),
+              "non_self_citations": sum(r["self_citation"] is False for r in counted),
+              "unclassified_citations": sum(r["self_citation"] is None for r in counted),
               "candidates": len(candidates), "papers": len(papers)}
     return {"counts": counts, "papers": papers, "citations": rows,
             "generated_utc": discovered.get("generated_utc"),

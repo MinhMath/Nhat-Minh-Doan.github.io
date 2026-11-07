@@ -10,6 +10,7 @@ on:
       - 'generate_report.py'
       - 'docs/papers.json'
       - 'docs/citing_sources.json'
+      - 'docs/zenodo_authors.json'
       - 'requirements.txt'
       - '.github/workflows/citations.yml'
   schedule:

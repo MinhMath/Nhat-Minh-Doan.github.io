@@ -573,6 +573,67 @@ def opencitations(p):
         time.sleep(.1)
     return out
 
+def zenodo_author_matches(record,author):
+    for creator in record.get("metadata",{}).get("creators",[]):
+        if clean(creator.get("name"))!=clean(author["name"]):continue
+        if author.get("orcid") and not creator.get("orcid","").endswith(author["orcid"]):continue
+        if author.get("affiliation") and clean(author["affiliation"]) not in clean(creator.get("affiliation")):continue
+        return True
+    return False
+
+
+def zenodo_author_scan(papers):
+    """Author searches find PDF references absent from Zenodo metadata search."""
+    from hashlib import sha256
+    config=DIR/"zenodo_authors.json"
+    cache_file=DIR/"zenodo_scan_state.json"
+    if not config.exists():return []
+    state=json.loads(cache_file.read_text()) if cache_file.exists() else {}
+    checked=set(state.get("checked_versions",[]))
+    out=[];seen=set();records_checked=0
+    for author in json.loads(config.read_text()):
+        query='metadata.creators.person_or_org.name:"'+author["name"]+'"'
+        if author.get("since"):query+=' AND publication_date:['+author["since"]+' TO *]'
+        for page in range(1,11):
+            if not within_budget():break
+            # Zenodo limits unauthenticated searches to 25 results per page.
+            data=get("https://zenodo.org/api/records",{"q":query,"size":25,"page":page,"sort":"mostrecent"})
+            if not isinstance(data,dict):break
+            hits=data.get("hits",{}).get("hits",[])
+            for record in hits:
+                if not within_budget():break
+                rid=str(record["id"])
+                if rid in seen or not zenodo_author_matches(record,author):continue
+                seen.add(rid)
+                files=[f for f in record.get("files",[]) if f.get("key","").lower().endswith(".pdf")]
+                signature=rid+":"+sha256(json.dumps([(f["key"],f.get("checksum")) for f in files],sort_keys=True).encode()).hexdigest()
+                if signature in checked or not files:continue
+                meta=record["metadata"]
+                names=[" ".join(reversed(c["name"].split(", "))) if ", " in c["name"] else c["name"] for c in meta.get("creators",[])]
+                source={"title":meta["title"],"authors":"; ".join(names),"platform":"zenodo","id":rid,
+                        "zenodo_concept":str(record.get("conceptrecid",rid)),"doi":record.get("doi",meta.get("doi","")),
+                        "url":"https://zenodo.org/records/"+rid,"venue":"Zenodo, "+str(meta.get("publication_date",""))+".",
+                        "first_online":record.get("created","")[:10],"first_online_source":"https://zenodo.org/records/"+rid}
+                complete=True
+                for file in files:
+                    document=pdf_bibliography(file["links"]["self"])
+                    if not document or not document["references"]:
+                        complete=False
+                        continue
+                    for paper in papers:
+                        if same_as_target(paper,source) or not matches_target(document["references"],paper):continue
+                        out.append({**source,**{k:v for k,v in document.items() if k!="references"},
+                                    "target":paper["id"],"verified":True,"source":"Verified in Zenodo PDF bibliography",
+                                    "evidence_excerpt":evidence_excerpt(document["references"],paper)})
+                records_checked+=1
+                if complete:checked.add(signature)
+            if len(hits)<25:break
+    atomic_json(cache_file,{"checked_versions":sorted(checked),"last_checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")})
+    sources["zenodo_authors"]={"status":"completed_requests" if within_budget() else "deferred_time_budget",
+                               "records_checked":records_checked,"verified_records":len(out)}
+    return merged(out)
+
+
 def zenodo_pdf_scan(papers):
     """Targeted Zenodo API search followed by real PDF reference verification."""
     from io import BytesIO
@@ -662,6 +723,11 @@ def main():
     try:
         scan_publisher_bibliographies(candidates,verified)
         scan_known_bibliographies(candidates,verified)
+        try:
+            verified.extend(zenodo_author_scan(PAPERS))
+        except Exception as exc:
+            record_error("Zenodo author scan: "+str(exc))
+        checkpoint(candidates,verified,"running")
         for number,p in enumerate(ordered):
             if not within_budget():break
             last_offset=(offset+number+1)%len(PAPERS)

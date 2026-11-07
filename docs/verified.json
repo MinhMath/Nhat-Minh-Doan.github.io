@@ -1,5 +1,41 @@
 [
   {
+    "title": "The modular torus maximizes the Mahler product",
+    "authors": "Hu Tan; Ying Zhang",
+    "platform": "zenodo",
+    "id": "23603543",
+    "doi": "10.5281/zenodo.23603543",
+    "zenodo_concept": "23603542",
+    "url": "https://zenodo.org/records/23603543",
+    "venue": "Zenodo, 2026-10-23.",
+    "first_online": "2026-10-23",
+    "first_online_source": "https://zenodo.org/records/23603543",
+    "target": "DDD",
+    "verified": true,
+    "source": "Verified in Zenodo PDF bibliography",
+    "pdf_url": "https://zenodo.org/api/records/23603543/files/The%20modular%20torus%20maximizes%20the%20Mahler%20product%20--%20Tan-Zhang.pdf/content",
+    "evidence_url": "https://zenodo.org/api/records/23603543/files/The%20modular%20torus%20maximizes%20the%20Mahler%20product%20--%20Tan-Zhang.pdf/content",
+    "evidence_sha256": "cfd513a7625a0bed3440a2ff410a50b72993daca8e944651a24d86afde56b965",
+    "evidence_version": "v1",
+    "evidence_excerpt": "[2] P. T. Dang, T. T. Dao, and N. M. Doan. The torus with asymptotically the fewest simple closed geodesics. Hexagon preprint 2610.00159v1, 2026. 8 October 2026.",
+    "checked_utc": "2026-11-07T03:46:19+00:00",
+    "work_id": "doi:10.5281/zenodo.23603543",
+    "identifiers": [
+      "doi:10.5281/zenodo.23603543",
+      "zenodo-concept:23603542",
+      "zenodo:23603543"
+    ],
+    "evidence": [
+      {
+        "source": "Verified in Zenodo PDF bibliography",
+        "url": "https://zenodo.org/records/23603543",
+        "evidence_url": "https://zenodo.org/api/records/23603543/files/The%20modular%20torus%20maximizes%20the%20Mahler%20product%20--%20Tan-Zhang.pdf/content",
+        "evidence_excerpt": "[2] P. T. Dang, T. T. Dao, and N. M. Doan. The torus with asymptotically the fewest simple closed geodesics. Hexagon preprint 2610.00159v1, 2026. 8 October 2026.",
+        "checked_utc": "2026-11-07T03:46:19+00:00"
+      }
+    ]
+  },
+  {
     "title": "Almost all simple lengths are unique up to isometry",
     "authors": "Nhat Minh Doan",
     "platform": "hexagon",
@@ -96,6 +132,42 @@
     "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.",
     "checked_utc": "2026-11-07T02:47:20+00:00",
     "doi": "10.48550/arxiv.2609.14149"
+  },
+  {
+    "title": "Density of Triple Coincidences in the Simple Length Spectrum of One-holed Tori",
+    "authors": "Hu Tan; Ying Zhang",
+    "platform": "zenodo",
+    "id": "22998822",
+    "doi": "10.5281/zenodo.22998822",
+    "zenodo_concept": "22998821",
+    "url": "https://zenodo.org/records/22998822",
+    "venue": "Zenodo, 2026-09-27.",
+    "first_online": "2026-09-27",
+    "first_online_source": "https://zenodo.org/records/22998822",
+    "target": "DLN",
+    "verified": true,
+    "source": "Verified in Zenodo PDF bibliography",
+    "pdf_url": "https://zenodo.org/api/records/22998822/files/Density%20of%20Triple%20Coincidences%20in%20the%20Simple%20Length%20Spectrum%20of%20One-holed%20Tori%20--%20Tan-Zhang.pdf/content",
+    "evidence_url": "https://zenodo.org/api/records/22998822/files/Density%20of%20Triple%20Coincidences%20in%20the%20Simple%20Length%20Spectrum%20of%20One-holed%20Tori%20--%20Tan-Zhang.pdf/content",
+    "evidence_sha256": "91168d758b67399cbe0dabea517e851ac57e7d8789c70b721ff6afd80b3f35f0",
+    "evidence_version": "v1",
+    "evidence_excerpt": "[3] N. M. Doan, X. Li, and V . Nguyen, McShane–Rivin norm balls and simple-length multi- plicities. 2026, arXiv:2605.14574",
+    "checked_utc": "2026-11-07T03:46:45+00:00",
+    "work_id": "doi:10.5281/zenodo.22998822",
+    "identifiers": [
+      "doi:10.5281/zenodo.22998822",
+      "zenodo-concept:22998821",
+      "zenodo:22998822"
+    ],
+    "evidence": [
+      {
+        "source": "Verified in Zenodo PDF bibliography",
+        "url": "https://zenodo.org/records/22998822",
+        "evidence_url": "https://zenodo.org/api/records/22998822/files/Density%20of%20Triple%20Coincidences%20in%20the%20Simple%20Length%20Spectrum%20of%20One-holed%20Tori%20--%20Tan-Zhang.pdf/content",
+        "evidence_excerpt": "[3] N. M. Doan, X. Li, and V . Nguyen, McShane–Rivin norm balls and simple-length multi- plicities. 2026, arXiv:2605.14574",
+        "checked_utc": "2026-11-07T03:46:45+00:00"
+      }
+    ]
   },
   {
     "title": "The torus with asymptotically the fewest simple closed geodesics",
@@ -680,6 +752,37 @@
       {
         "source": "OpenAlex full-text search match; bibliography not yet checked",
         "url": "https://doi.org/10.48550/arxiv.2608.20143"
+      }
+    ]
+  },
+  {
+    "title": "On the Geometry of the Thurston Metric on Teichmüller Spaces: Geodesics that Disobey an Analogue of Masur’s Criterion",
+    "authors": "Ivan Telpukhovskiy",
+    "platform": "thesis",
+    "id": "1807/108584",
+    "url": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07",
+    "pdf_url": "https://utoronto.scholaris.ca/server/api/core/bitstreams/3d8d6773-46d4-4673-b0f1-779175233016/content",
+    "venue": "Ph.D. thesis, University of Toronto, 2021.",
+    "first_online": "2021-11-30",
+    "first_online_source": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07",
+    "target": "pants",
+    "verified": true,
+    "source": "Verified in institutional doctoral-thesis PDF bibliography",
+    "evidence_url": "https://utoronto.scholaris.ca/server/api/core/bitstreams/3d8d6773-46d4-4673-b0f1-779175233016/content",
+    "evidence_sha256": "8486bf6e0b033089354664a74a87362afd0ee3679cae64d7d3501c907d0d2330",
+    "evidence_excerpt": "[12] N. Doan, H. Parlier, and S. Tan.Measuring pants. arXiv:2002.02738, (2020).",
+    "checked_utc": "2026-11-07T03:54:26+00:00",
+    "work_id": "thesis:1807/108584",
+    "identifiers": [
+      "thesis:1807/108584"
+    ],
+    "evidence": [
+      {
+        "source": "Verified in institutional doctoral-thesis PDF bibliography",
+        "url": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07",
+        "evidence_url": "https://utoronto.scholaris.ca/server/api/core/bitstreams/3d8d6773-46d4-4673-b0f1-779175233016/content",
+        "evidence_excerpt": "[12] N. Doan, H. Parlier, and S. Tan.Measuring pants. arXiv:2002.02738, (2020).",
+        "checked_utc": "2026-11-07T03:54:26+00:00"
       }
     ]
   },

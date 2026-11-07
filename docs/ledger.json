@@ -1,10 +1,15 @@
 {
   "counts": {
-    "verified": 20,
-    "independent": 8,
+    "verified": 23,
+    "independent": 11,
     "overlap": 12,
     "unknown_authorship": 0,
-    "unique_citing_works": 16,
+    "unique_citing_works": 19,
+    "total_citations": 25,
+    "scholar_listed": 2,
+    "self_citations": 13,
+    "non_self_citations": 12,
+    "unclassified_citations": 0,
     "candidates": 1,
     "papers": 13
   },
@@ -25,7 +30,11 @@
       "year": 2026,
       "section": "papers",
       "display_number": 10,
-      "venue": "Preprint, 2026. Submitted."
+      "venue": "arXiv:2605.14574. Submitted.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2026-05-14",
+      "first_online_source": "https://arxiv.org/abs/2605.14574v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     },
     {
       "id": "DDD",
@@ -39,7 +48,11 @@
       "year": 2026,
       "section": "other",
       "display_number": 2,
-      "venue": "Preprint, 2026."
+      "venue": "hexagon:2610.00159v1.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2026-10-08",
+      "first_online_source": "https://hexagonmath.org/2610.00159v1",
+      "first_online_note": "Publication of HexagonMath version 1."
     },
     {
       "id": "SSC",
@@ -51,7 +64,11 @@
       "year": 2026,
       "section": "other",
       "display_number": 1,
-      "venue": "Preprint, 2026."
+      "venue": "hexagon:2610.00298v1.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2026-10-17",
+      "first_online_source": "https://hexagonmath.org/2610.00298v1",
+      "first_online_note": "Publication of HexagonMath version 1."
     },
     {
       "id": "density",
@@ -64,7 +81,11 @@
       "year": 2026,
       "section": "papers",
       "display_number": 11,
-      "venue": "Preprint, 2026."
+      "venue": "arXiv:2610.24700.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2026-10-17",
+      "first_online_source": "https://arxiv.org/abs/2610.24700v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     },
     {
       "id": "graded",
@@ -79,7 +100,11 @@
       "year": 2026,
       "section": "papers",
       "display_number": 9,
-      "venue": "Preprint, 2026. Submitted."
+      "venue": "arXiv:2601.03876. Submitted.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2026-01-07",
+      "first_online_source": "https://arxiv.org/abs/2601.03876v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     },
     {
       "id": "farey",
@@ -94,8 +119,12 @@
       "year": 2026,
       "section": "papers",
       "display_number": 8,
-      "venue": "Preprint, 2026. Submitted.",
-      "display_title": "Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)"
+      "venue": "arXiv:2601.01324. Submitted.",
+      "display_title": "Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2026-01-04",
+      "first_online_source": "https://arxiv.org/abs/2601.01324v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     },
     {
       "id": "arithmetic",
@@ -109,7 +138,11 @@
       "year": 2026,
       "section": "papers",
       "display_number": 7,
-      "venue": "Transactions of the American Mathematical Society 379 (2026), 6365–6392."
+      "venue": "Trans. AMS, 379 (2026), 6365 - 6392.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2025-04-13",
+      "first_online_source": "https://arxiv.org/abs/2504.09403v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     },
     {
       "id": "free",
@@ -122,7 +155,11 @@
       "year": 2026,
       "section": "papers",
       "display_number": 6,
-      "venue": "Vietnam Journal of Mathematics 54 (2026), 715–728."
+      "venue": "Vietnam J. Math., 54, 715 - 728 (2026).",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2025-01-24",
+      "first_online_source": "https://www.researchgate.net/publication/388324381_SOME_REMARKS_ON_SUBGROUPS_OF_FREE-BY-CYCLIC_GROUPS",
+      "first_online_note": "Earliest documented public posting: author-uploaded ResearchGate preprint, 24 January 2025. The manuscript date is not a public posting date."
     },
     {
       "id": "arcs",
@@ -139,7 +176,12 @@
       ],
       "section": "papers",
       "display_number": 5,
-      "venue": "Bulletin of the London Mathematical Society 57 (2025), 2190–2209."
+      "venue": "Bull. LMS, 57 (2025), 2190 - 2209.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "display_title": "Self-intersection of arcs on a pair of pants",
+      "first_online": "2024-07-25",
+      "first_online_source": "https://arxiv.org/abs/2407.17750v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     },
     {
       "id": "polygons",
@@ -159,11 +201,15 @@
       ],
       "section": "papers",
       "display_number": 4,
-      "venue": "Journal of Geometric Analysis 35 (2025), Article 216.",
+      "venue": "J. Geom. Anal., Volume 35, 216 (2025).",
       "display_title": "Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)",
       "reference_title_prefixes": [
         "Optimal special polygons for the congruence subgroups"
-      ]
+      ],
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2022-09-28",
+      "first_online_source": "https://arxiv.org/abs/2209.13937v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     },
     {
       "id": "ortho",
@@ -179,7 +225,11 @@
       "year": 2025,
       "section": "papers",
       "display_number": 3,
-      "venue": "Advances in Mathematics 466 (2025), Article 110162."
+      "venue": "Adv. Math., Volume 466, April 2025, 110162.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2021-12-20",
+      "first_online_source": "https://arxiv.org/abs/2112.10694v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     },
     {
       "id": "filling",
@@ -192,7 +242,11 @@
       "year": 2023,
       "section": "papers",
       "display_number": 2,
-      "venue": "Glasgow Mathematical Journal 65 (2023), 383–400."
+      "venue": "Glasgow Math. J., Volume 65, Issue 2, May 2023, pp. 383 - 400.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2020-12-04",
+      "first_online_source": "https://arxiv.org/abs/2012.02461v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     },
     {
       "id": "pants",
@@ -207,10 +261,52 @@
       "year": 2023,
       "section": "papers",
       "display_number": 1,
-      "venue": "Transactions of the American Mathematical Society 376 (2023), 5281–5306."
+      "venue": "Trans. AMS, 376 (2023), 5281 - 5306.",
+      "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+      "first_online": "2020-02-07",
+      "first_online_source": "https://arxiv.org/abs/2002.02738v1",
+      "first_online_note": "Initial arXiv submission, version 1."
     }
   ],
   "citations": [
+    {
+      "title": "The modular torus maximizes the Mahler product",
+      "authors": "Hu Tan; Ying Zhang",
+      "platform": "zenodo",
+      "id": "23603543",
+      "doi": "10.5281/zenodo.23603543",
+      "zenodo_concept": "23603542",
+      "url": "https://zenodo.org/records/23603543",
+      "venue": "Zenodo, 2026-10-23.",
+      "first_online": "2026-10-23",
+      "first_online_source": "https://zenodo.org/records/23603543",
+      "target": "DDD",
+      "verified": true,
+      "source": "Verified in Zenodo PDF bibliography",
+      "pdf_url": "https://zenodo.org/api/records/23603543/files/The%20modular%20torus%20maximizes%20the%20Mahler%20product%20--%20Tan-Zhang.pdf/content",
+      "evidence_url": "https://zenodo.org/api/records/23603543/files/The%20modular%20torus%20maximizes%20the%20Mahler%20product%20--%20Tan-Zhang.pdf/content",
+      "evidence_sha256": "cfd513a7625a0bed3440a2ff410a50b72993daca8e944651a24d86afde56b965",
+      "evidence_version": "v1",
+      "evidence_excerpt": "[2] P. T. Dang, T. T. Dao, and N. M. Doan. The torus with asymptotically the fewest simple closed geodesics. Hexagon preprint 2610.00159v1, 2026. 8 October 2026.",
+      "checked_utc": "2026-11-07T03:46:19+00:00",
+      "work_id": "doi:10.5281/zenodo.23603543",
+      "identifiers": [
+        "doi:10.5281/zenodo.23603543",
+        "zenodo-concept:23603542",
+        "zenodo:23603543"
+      ],
+      "evidence": [
+        {
+          "source": "Verified in Zenodo PDF bibliography",
+          "url": "https://zenodo.org/records/23603543",
+          "evidence_url": "https://zenodo.org/api/records/23603543/files/The%20modular%20torus%20maximizes%20the%20Mahler%20product%20--%20Tan-Zhang.pdf/content",
+          "evidence_excerpt": "[2] P. T. Dang, T. T. Dao, and N. M. Doan. The torus with asymptotically the fewest simple closed geodesics. Hexagon preprint 2610.00159v1, 2026. 8 October 2026.",
+          "checked_utc": "2026-11-07T03:46:19+00:00"
+        }
+      ],
+      "independence": "independent",
+      "self_citation": false
+    },
     {
       "title": "Almost all simple lengths are unique up to isometry",
       "authors": "Nhat Minh Doan",
@@ -241,14 +337,19 @@
           "source": "Manually inspected bibliography (2026-11-07)"
         }
       ],
-      "independence": "overlap"
+      "venue": "hexagon:2610.00298v1.",
+      "first_online": "2026-10-17",
+      "first_online_source": "https://hexagonmath.org/2610.00298v1",
+      "first_online_note": "Publication of HexagonMath version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "target": "DLN",
       "title": "Counting Markov Triples and Simple Geodesics",
       "id": "2610.36069",
       "platform": "arxiv",
-      "authors": "Morten S. Risager",
+      "authors": "Risager, Morten S.",
       "verified": true,
       "source": "Verified in arXiv PDF bibliography",
       "work_id": "arxiv:2610.36069",
@@ -272,14 +373,18 @@
       "evidence_url": "https://arxiv.org/pdf/2610.36069",
       "evidence_excerpt": "5. Harvey Cohn,Approach to Markoff’s Minimal Forms Through Modular Functions, Annals of Mathe- matics61(1955), no. 1, 1–12. MR0067935 6. Charles de la Vall´ ee Poussin,Sur la fonctionζ(s)de Riemann et le nombre des nombres premiers inf´ erieurs ` a une limite donn´ ee, M´ emoires de l’Acad´ emie royale de Belgique59(1899), no. 1, 1–74. 7. Nhat Minh Doan, Xiaobin Li, and Van Nguyen,Stable-norm boundary geometry on once-punctured tori, October 2026, arXiv:2605.14574v3.",
       "checked_utc": "2026-11-07T02:47:21+00:00",
-      "independence": "independent"
+      "venue": "arXiv:2610.36069.",
+      "first_online": "2026-10-26",
+      "first_online_source": "https://arxiv.org/abs/2610.36069v1",
+      "independence": "independent",
+      "self_citation": false
     },
     {
       "target": "DLN",
       "title": "Patterns in the Markov Numbers and Their Generalizations",
       "id": "2609.14149",
       "platform": "arxiv",
-      "authors": "Cormac O'Sullivan",
+      "authors": "O'Sullivan, Cormac",
       "verified": true,
       "source": "Verified in arXiv PDF bibliography",
       "work_id": "doi:10.48550/arxiv.2609.14149",
@@ -310,7 +415,49 @@
       "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.",
       "checked_utc": "2026-11-07T02:47:20+00:00",
       "doi": "10.48550/arxiv.2609.14149",
-      "independence": "independent"
+      "venue": "arXiv:2609.14149.",
+      "first_online": "2026-09-12",
+      "first_online_source": "https://arxiv.org/abs/2609.14149v1",
+      "independence": "independent",
+      "self_citation": false
+    },
+    {
+      "title": "Density of Triple Coincidences in the Simple Length Spectrum of One-holed Tori",
+      "authors": "Hu Tan; Ying Zhang",
+      "platform": "zenodo",
+      "id": "22998822",
+      "doi": "10.5281/zenodo.22998822",
+      "zenodo_concept": "22998821",
+      "url": "https://zenodo.org/records/22998822",
+      "venue": "Zenodo, 2026-09-27.",
+      "first_online": "2026-09-27",
+      "first_online_source": "https://zenodo.org/records/22998822",
+      "target": "DLN",
+      "verified": true,
+      "source": "Verified in Zenodo PDF bibliography",
+      "pdf_url": "https://zenodo.org/api/records/22998822/files/Density%20of%20Triple%20Coincidences%20in%20the%20Simple%20Length%20Spectrum%20of%20One-holed%20Tori%20--%20Tan-Zhang.pdf/content",
+      "evidence_url": "https://zenodo.org/api/records/22998822/files/Density%20of%20Triple%20Coincidences%20in%20the%20Simple%20Length%20Spectrum%20of%20One-holed%20Tori%20--%20Tan-Zhang.pdf/content",
+      "evidence_sha256": "91168d758b67399cbe0dabea517e851ac57e7d8789c70b721ff6afd80b3f35f0",
+      "evidence_version": "v1",
+      "evidence_excerpt": "[3] N. M. Doan, X. Li, and V . Nguyen, McShane–Rivin norm balls and simple-length multi- plicities. 2026, arXiv:2605.14574",
+      "checked_utc": "2026-11-07T03:46:45+00:00",
+      "work_id": "doi:10.5281/zenodo.22998822",
+      "identifiers": [
+        "doi:10.5281/zenodo.22998822",
+        "zenodo-concept:22998821",
+        "zenodo:22998822"
+      ],
+      "evidence": [
+        {
+          "source": "Verified in Zenodo PDF bibliography",
+          "url": "https://zenodo.org/records/22998822",
+          "evidence_url": "https://zenodo.org/api/records/22998822/files/Density%20of%20Triple%20Coincidences%20in%20the%20Simple%20Length%20Spectrum%20of%20One-holed%20Tori%20--%20Tan-Zhang.pdf/content",
+          "evidence_excerpt": "[3] N. M. Doan, X. Li, and V . Nguyen, McShane–Rivin norm balls and simple-length multi- plicities. 2026, arXiv:2605.14574",
+          "checked_utc": "2026-11-07T03:46:45+00:00"
+        }
+      ],
+      "independence": "independent",
+      "self_citation": false
     },
     {
       "title": "The torus with asymptotically the fewest simple closed geodesics",
@@ -342,7 +489,12 @@
           "source": "Manually inspected bibliography (2026-11-07)"
         }
       ],
-      "independence": "overlap"
+      "venue": "hexagon:2610.00159v1.",
+      "first_online": "2026-10-08",
+      "first_online_source": "https://hexagonmath.org/2610.00159v1",
+      "first_online_note": "Publication of HexagonMath version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "title": "Almost all Markoff numbers are unique.",
@@ -374,7 +526,9 @@
           "source": "Manually inspected bibliography (2026-11-07)"
         }
       ],
-      "independence": "independent"
+      "venue": "HexagonMath, hexagon:2610.00281.",
+      "independence": "independent",
+      "self_citation": false
     },
     {
       "title": "Almost all simple lengths are unique up to isometry",
@@ -406,7 +560,12 @@
           "source": "Manually inspected bibliography (2026-11-07)"
         }
       ],
-      "independence": "overlap"
+      "venue": "hexagon:2610.00298v1.",
+      "first_online": "2026-10-17",
+      "first_online_source": "https://hexagonmath.org/2610.00298v1",
+      "first_online_note": "Publication of HexagonMath version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "title": "PARAMETER MONOTONICITY FOR GENERALIZED k-MARKOV NUMBERS",
@@ -452,7 +611,10 @@
           "source": "Manually inspected bibliography (2026-11-07)"
         }
       ],
-      "independence": "independent"
+      "display_title": "Parameter monotonicity for generalized k-Markov numbers",
+      "venue": "HexagonMath, hexagon:2611.00023.",
+      "independence": "independent",
+      "self_citation": false
     },
     {
       "target": "arcs",
@@ -478,7 +640,9 @@
           "url": "https://doi.org/10.1112/blms.13080"
         }
       ],
-      "independence": "unknown"
+      "venue": "Bulletin of the London Mathematical Society 57 (7) (2025), Article blms.13080.",
+      "independence": "unknown",
+      "self_citation": null
     },
     {
       "id": "2112.10694",
@@ -492,7 +656,7 @@
       "year": 2025,
       "section": "papers",
       "display_number": 3,
-      "venue": "Advances in Mathematics 466 (2025), Article 110162.",
+      "venue": "Adv. Math., Volume 466, April 2025, 110162.",
       "platform": "arxiv",
       "target": "arithmetic",
       "verified": true,
@@ -524,7 +688,11 @@
           "checked_utc": "2026-11-07T03:31:07+00:00"
         }
       ],
-      "independence": "overlap"
+      "first_online": "2021-12-20",
+      "first_online_source": "https://arxiv.org/abs/2112.10694v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "id": "2407.17750",
@@ -538,7 +706,7 @@
       ],
       "section": "papers",
       "display_number": 5,
-      "venue": "Bulletin of the London Mathematical Society 57 (2025), 2190–2209.",
+      "venue": "Bull. LMS, 57 (2025), 2190 - 2209.",
       "platform": "arxiv",
       "target": "filling",
       "verified": true,
@@ -583,7 +751,42 @@
           "url": "https://doi.org/10.1112/blms.70088"
         }
       ],
-      "independence": "overlap"
+      "display_title": "Self-intersection of arcs on a pair of pants",
+      "first_online": "2024-07-25",
+      "first_online_source": "https://arxiv.org/abs/2407.17750v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
+      "independence": "overlap",
+      "self_citation": true
+    },
+    {
+      "target": "filling",
+      "title": "Quantifying some properties of curves and arcs on hyperbolic surfaces",
+      "authors": "Nhat Minh Doan",
+      "platform": "thesis",
+      "id": "10993/50710",
+      "url": "https://orbilu.uni.lu/handle/10993/50710",
+      "venue": "Ph.D. thesis, University of Luxembourg, 2022.",
+      "first_online": "2022-03-30",
+      "first_online_source": "https://orbilu.uni.lu/handle/10993/50710",
+      "verified": false,
+      "listing_confirmed": true,
+      "source": "Google Scholar citing-results screenshot supplied by the author on 7 November 2026",
+      "evidence_type": "user_supplied_scholar_citing_list",
+      "bibliography_status": "Listed in the supplied Google Scholar citing results. The institutional PDF host is unreachable; the bibliography entry has not been inspected.",
+      "checked_utc": "2026-11-07",
+      "work_id": "thesis:10993/50710",
+      "identifiers": [
+        "thesis:10993/50710"
+      ],
+      "evidence": [
+        {
+          "source": "Google Scholar citing-results screenshot supplied by the author on 7 November 2026",
+          "url": "https://orbilu.uni.lu/handle/10993/50710",
+          "checked_utc": "2026-11-07"
+        }
+      ],
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "id": "2504.09403",
@@ -594,7 +797,7 @@
       "year": 2026,
       "section": "papers",
       "display_number": 7,
-      "venue": "Transactions of the American Mathematical Society 379 (2026), 6365–6392.",
+      "venue": "Trans. AMS, 379 (2026), 6365 - 6392.",
       "platform": "arxiv",
       "target": "ortho",
       "verified": true,
@@ -645,7 +848,11 @@
           "url": "https://doi.org/10.1090/tran/9657"
         }
       ],
-      "independence": "overlap"
+      "first_online": "2025-04-13",
+      "first_online_source": "https://arxiv.org/abs/2504.09403v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "id": "2407.17750",
@@ -659,7 +866,7 @@
       ],
       "section": "papers",
       "display_number": 5,
-      "venue": "Bulletin of the London Mathematical Society 57 (2025), 2190–2209.",
+      "venue": "Bull. LMS, 57 (2025), 2190 - 2209.",
       "platform": "arxiv",
       "target": "ortho",
       "verified": true,
@@ -718,7 +925,12 @@
           "url": "https://doi.org/10.1112/blms.70088"
         }
       ],
-      "independence": "overlap"
+      "display_title": "Self-intersection of arcs on a pair of pants",
+      "first_online": "2024-07-25",
+      "first_online_source": "https://arxiv.org/abs/2407.17750v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "id": "2601.03876",
@@ -728,7 +940,7 @@
       "year": 2026,
       "section": "papers",
       "display_number": 9,
-      "venue": "Preprint, 2026. Submitted.",
+      "venue": "arXiv:2601.03876. Submitted.",
       "platform": "arxiv",
       "target": "ortho",
       "verified": true,
@@ -773,7 +985,11 @@
         }
       ],
       "doi": "10.48550/arxiv.2601.03876",
-      "independence": "overlap"
+      "first_online": "2026-01-07",
+      "first_online_source": "https://arxiv.org/abs/2601.03876v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "id": "2504.09403",
@@ -784,7 +1000,7 @@
       "year": 2026,
       "section": "papers",
       "display_number": 7,
-      "venue": "Transactions of the American Mathematical Society 379 (2026), 6365–6392.",
+      "venue": "Trans. AMS, 379 (2026), 6365 - 6392.",
       "platform": "arxiv",
       "target": "pants",
       "verified": true,
@@ -835,7 +1051,11 @@
           "url": "https://doi.org/10.1090/tran/9657"
         }
       ],
-      "independence": "overlap"
+      "first_online": "2025-04-13",
+      "first_online_source": "https://arxiv.org/abs/2504.09403v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "id": "2601.03876",
@@ -845,7 +1065,7 @@
       "year": 2026,
       "section": "papers",
       "display_number": 9,
-      "venue": "Preprint, 2026. Submitted.",
+      "venue": "arXiv:2601.03876. Submitted.",
       "platform": "arxiv",
       "target": "pants",
       "verified": true,
@@ -890,11 +1110,15 @@
         }
       ],
       "doi": "10.48550/arxiv.2601.03876",
-      "independence": "overlap"
+      "first_online": "2026-01-07",
+      "first_online_source": "https://arxiv.org/abs/2601.03876v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "title": "The entropy spectrum of hyperbolic surfaces",
-      "authors": "Ara Basmajian; Hugo Parlier",
+      "authors": "Basmajian, Ara; Parlier, Hugo",
       "arxiv": "2608.20143",
       "doi": "10.48550/arxiv.2608.20143",
       "platform": "arxiv",
@@ -934,7 +1158,74 @@
           "url": "https://doi.org/10.48550/arxiv.2608.20143"
         }
       ],
-      "independence": "overlap"
+      "venue": "arXiv:2608.20143.",
+      "first_online": "2026-08-20",
+      "first_online_source": "https://arxiv.org/abs/2608.20143v1",
+      "independence": "overlap",
+      "self_citation": false
+    },
+    {
+      "target": "pants",
+      "title": "Quantifying some properties of curves and arcs on hyperbolic surfaces",
+      "authors": "Nhat Minh Doan",
+      "platform": "thesis",
+      "id": "10993/50710",
+      "url": "https://orbilu.uni.lu/handle/10993/50710",
+      "venue": "Ph.D. thesis, University of Luxembourg, 2022.",
+      "first_online": "2022-03-30",
+      "first_online_source": "https://orbilu.uni.lu/handle/10993/50710",
+      "verified": false,
+      "listing_confirmed": true,
+      "source": "Google Scholar citing-results screenshot supplied by the author on 7 November 2026",
+      "evidence_type": "user_supplied_scholar_citing_list",
+      "bibliography_status": "Listed in the supplied Google Scholar citing results. The institutional PDF host is unreachable; the bibliography entry has not been inspected.",
+      "checked_utc": "2026-11-07",
+      "work_id": "thesis:10993/50710",
+      "identifiers": [
+        "thesis:10993/50710"
+      ],
+      "evidence": [
+        {
+          "source": "Google Scholar citing-results screenshot supplied by the author on 7 November 2026",
+          "url": "https://orbilu.uni.lu/handle/10993/50710",
+          "checked_utc": "2026-11-07"
+        }
+      ],
+      "independence": "overlap",
+      "self_citation": true
+    },
+    {
+      "title": "On the Geometry of the Thurston Metric on Teichmüller Spaces: Geodesics that Disobey an Analogue of Masur’s Criterion",
+      "authors": "Ivan Telpukhovskiy",
+      "platform": "thesis",
+      "id": "1807/108584",
+      "url": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07",
+      "pdf_url": "https://utoronto.scholaris.ca/server/api/core/bitstreams/3d8d6773-46d4-4673-b0f1-779175233016/content",
+      "venue": "Ph.D. thesis, University of Toronto, 2021.",
+      "first_online": "2021-11-30",
+      "first_online_source": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07",
+      "target": "pants",
+      "verified": true,
+      "source": "Verified in institutional doctoral-thesis PDF bibliography",
+      "evidence_url": "https://utoronto.scholaris.ca/server/api/core/bitstreams/3d8d6773-46d4-4673-b0f1-779175233016/content",
+      "evidence_sha256": "8486bf6e0b033089354664a74a87362afd0ee3679cae64d7d3501c907d0d2330",
+      "evidence_excerpt": "[12] N. Doan, H. Parlier, and S. Tan.Measuring pants. arXiv:2002.02738, (2020).",
+      "checked_utc": "2026-11-07T03:54:26+00:00",
+      "work_id": "thesis:1807/108584",
+      "identifiers": [
+        "thesis:1807/108584"
+      ],
+      "evidence": [
+        {
+          "source": "Verified in institutional doctoral-thesis PDF bibliography",
+          "url": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07",
+          "evidence_url": "https://utoronto.scholaris.ca/server/api/core/bitstreams/3d8d6773-46d4-4673-b0f1-779175233016/content",
+          "evidence_excerpt": "[12] N. Doan, H. Parlier, and S. Tan.Measuring pants. arXiv:2002.02738, (2020).",
+          "checked_utc": "2026-11-07T03:54:26+00:00"
+        }
+      ],
+      "independence": "independent",
+      "self_citation": false
     },
     {
       "id": "2601.01324",
@@ -944,7 +1235,7 @@
       "year": 2026,
       "section": "papers",
       "display_number": 8,
-      "venue": "Preprint, 2026. Submitted.",
+      "venue": "arXiv:2601.01324. Submitted.",
       "display_title": "Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)",
       "platform": "arxiv",
       "target": "polygons",
@@ -976,12 +1267,16 @@
           "checked_utc": "2026-11-07T03:04:49+00:00"
         }
       ],
-      "independence": "overlap"
+      "first_online": "2026-01-04",
+      "first_online_source": "https://arxiv.org/abs/2601.01324v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
+      "independence": "overlap",
+      "self_citation": true
     },
     {
       "target": "polygons",
       "title": "Concentration of closed geodesics in the homology of modular curves",
-      "authors": "Asbjørn Christian Nordentoft",
+      "authors": "Nordentoft, Asbjørn Christian",
       "doi": "10.1017/fms.2023.85",
       "arxiv": "2203.06446",
       "platform": "openalex",
@@ -1022,11 +1317,15 @@
       "evidence_url": "https://arxiv.org/pdf/2203.06446",
       "evidence_excerpt": "[DKLP22] Nhat Minh Doan, Sang-hyun Kim, Mong Lung Lang, and S er Peow Tan. Optimal independent gener- ating system for the congruence subgroups Γ 0(p). arXiv e-prints , page arXiv:2209.13937, September 2022.",
       "checked_utc": "2026-11-07T02:47:22+00:00",
-      "independence": "independent"
+      "venue": "Forum of Mathematics, Sigma 11 (2023), Article e91.",
+      "first_online": "2022-03-12",
+      "first_online_source": "https://arxiv.org/abs/2203.06446v1",
+      "independence": "independent",
+      "self_citation": false
     },
     {
       "title": "Equidistribution of $q$-orbits of closed geodesics",
-      "authors": "Asbjørn Christian Nordentoft",
+      "authors": "Nordentoft, Asbjørn Christian",
       "arxiv": "2305.18625",
       "doi": "10.4171/cmh/621",
       "platform": "arxiv",
@@ -1066,11 +1365,16 @@
           "url": "https://doi.org/10.4171/cmh/621"
         }
       ],
-      "independence": "independent"
+      "display_title": "Equidistribution of q-orbits of closed geodesics",
+      "venue": "Commentarii Mathematici Helvetici 101 (4) (2026), 685-753.",
+      "first_online": "2023-05-29",
+      "first_online_source": "https://arxiv.org/abs/2305.18625v1",
+      "independence": "independent",
+      "self_citation": false
     },
     {
       "title": "Sparse equidistribution of geometric invariants of real quadratic fields",
-      "authors": "Peter Humphries; Asbjørn Christian Nordentoft",
+      "authors": "Humphries, Peter; Nordentoft, Asbjørn Christian",
       "arxiv": "2211.05890",
       "doi": "10.4171/jems/1691",
       "platform": "doi",
@@ -1111,11 +1415,15 @@
           "url": "https://doi.org/10.4171/jems/1691"
         }
       ],
-      "independence": "independent"
+      "venue": "Journal of the European Mathematical Society 28 (12) (2025), 5113-5192.",
+      "first_online": "2022-11-10",
+      "first_online_source": "https://arxiv.org/abs/2211.05890v1",
+      "independence": "independent",
+      "self_citation": false
     },
     {
       "title": "On the Burau representation of $B_3$ modulo $p$",
-      "authors": "Donsung Lee",
+      "authors": "Lee, Donsung",
       "arxiv": "2406.14538",
       "doi": "10.48550/arxiv.2406.14538",
       "platform": "arxiv",
@@ -1155,10 +1463,15 @@
           "url": "https://doi.org/10.48550/arxiv.2406.14538"
         }
       ],
-      "independence": "independent"
+      "display_title": "On the Burau representation of B₃ modulo p",
+      "venue": "arXiv:2406.14538.",
+      "first_online": "2024-06-20",
+      "first_online_source": "https://arxiv.org/abs/2406.14538v1",
+      "independence": "independent",
+      "self_citation": false
     }
   ],
-  "generated_utc": "2026-11-07T03:40:54+00:00",
+  "generated_utc": "2026-11-07T03:58:34+00:00",
   "collection_status": "partial",
   "sources": {
     "publisher_bibliographies": {
@@ -1198,6 +1511,17 @@
     "zenodo": {
       "status": "completed_requests",
       "verified_records": 0
+    },
+    "zenodo_author_audit": {
+      "status": "completed_requests",
+      "distinct_works": 16,
+      "pdfs_checked": 17,
+      "verified_records": 2
+    },
+    "institutional_thesis_audit": {
+      "status": "partial",
+      "verified_records": 1,
+      "scholar_listed_records_awaiting_fulltext": 2
     }
   },
   "errors": [

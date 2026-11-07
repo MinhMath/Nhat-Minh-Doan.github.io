@@ -1,0 +1,286 @@
+{
+  "checked_utc": "2026-11-07T03:57:37+00:00",
+  "search_date_range": "2026-04-30 to 2026-11-07",
+  "author_identities": [
+    {
+      "name": "Ying Zhang",
+      "orcid": "0000-0002-2543-6818",
+      "affiliation": "Soochow University"
+    },
+    {
+      "name": "Hu Tan",
+      "affiliation": "Chinese Academy of Sciences"
+    }
+  ],
+  "distinct_records_checked": 16,
+  "pdfs_checked": 17,
+  "verified_relationships": 2,
+  "records": [
+    {
+      "id": "23670834",
+      "concept": "23670833",
+      "title": "A computational verification of the Markov Uniqueness Conjecture for z ≤ 10^500000",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23670834",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23670834/files/A%20Computational%20Verification%20of%20the%20Markov%20Uniqueness%20Conjecture%20for%20z%20%E2%89%A4%2010%5E%7B500000%7D%20--%20Tan-Zhang.pdf/content",
+          "pages": 7,
+          "bibliography_characters": 661,
+          "sha256": "879bbe313e308d935ac920358c28f226dd600e68c62cf9148000be0e539eae63"
+        }
+      ]
+    },
+    {
+      "id": "23377324",
+      "concept": "23377323",
+      "title": "A 24 point Atiyah singular configuration in hyperbolic 3-space",
+      "authors": "Yingjie Lyu; Jiming Ma; Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23377324",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23377324/files/A%2024%20point%20Atiyah%20singular%20configuration%20in%20hyperbolic%203-space%20--%20Lyu-Ma-Tan-Zhang.pdf/content",
+          "pages": 10,
+          "bibliography_characters": 926,
+          "sha256": "b0bda33e83e1682f02a01cce9458f93896021b202abdc439823f456ebfcfdb41"
+        }
+      ]
+    },
+    {
+      "id": "23566811",
+      "concept": "23566810",
+      "title": "A certified 5225-digit odd GM number",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23566811",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23566811/files/A%20certified%205225-digit%20odd%20GM%20number%20--%20Tan-Zhang.pdf/content",
+          "pages": 11,
+          "bibliography_characters": 1238,
+          "sha256": "72262e881fb2578117748f13a6d4042b9cd14fb298ce79782874eb98952aee56"
+        }
+      ]
+    },
+    {
+      "id": "23603543",
+      "concept": "23603542",
+      "title": "The modular torus maximizes the Mahler product",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23603543",
+      "targets": [
+        "DDD"
+      ],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23603543/files/The%20modular%20torus%20maximizes%20the%20Mahler%20product%20--%20Tan-Zhang.pdf/content",
+          "pages": 45,
+          "bibliography_characters": 1499,
+          "sha256": "cfd513a7625a0bed3440a2ff410a50b72993daca8e944651a24d86afde56b965"
+        }
+      ]
+    },
+    {
+      "id": "23190175",
+      "concept": "23190174",
+      "title": "The one-small-trace case of Bowditch's conjecture",
+      "authors": "Yaomingyuan Zhang; Ying Zhang",
+      "url": "https://zenodo.org/records/23190175",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23190175/files/The%20one-small-trace%20case%20of%20Bowditch's%20conjecture%20--%20Zhang-Zhang.pdf/content",
+          "pages": 11,
+          "bibliography_characters": 1152,
+          "sha256": "feb28bc56945bfbdec8bb3e7a5f71f87ead03bc3d3cf71551dd56d2851768250"
+        }
+      ]
+    },
+    {
+      "id": "23189211",
+      "concept": "23189210",
+      "title": "A dual-cubic proof of the four-point hyperbolic Atiyah conjecture",
+      "authors": "Yingjie Lyu; Jiming Ma; Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23189211",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23189211/files/A%20dual-cubic%20proof%20of%20the%20four-point%20hyperbolic%20Atiyah%20conjecture%20--%20Lyu-Ma-Tan-Zhang.pdf/content",
+          "pages": 13,
+          "bibliography_characters": 2065,
+          "sha256": "9bb8c90255501ea6975f9abe7c9184b3ee51356470e1e824f1a1551cf24ee05e"
+        }
+      ]
+    },
+    {
+      "id": "23376954",
+      "concept": "23376953",
+      "title": "Uniqueness of Markov numbers with a large prime-power divisor",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23376954",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23376954/files/Uniqueness%20of%20Markov%20numbers%20with%20a%20large%20prime-power%20divisor%20--%20Tan-Zhang.pdf/content",
+          "pages": 10,
+          "bibliography_characters": 1982,
+          "sha256": "c5acd8cbd4a018ac5497c349ea5e375e495c5d9745c1c7fb10ca84c3eaeade7a"
+        }
+      ]
+    },
+    {
+      "id": "23247332",
+      "concept": "23247331",
+      "title": "Uniform cubic bounds for irrational values of the dilogarithm",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23247332",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23247332/files/Uniform%20cubic%20bounds%20for%20irrational%20values%20of%20the%20dilogarithm%20--%20Tan-Zhang.pdf/content",
+          "pages": 13,
+          "bibliography_characters": 1500,
+          "sha256": "bed86ad31197734b50617df31e73ea17541956615c8154f6bae12f57ad264fc8"
+        }
+      ]
+    },
+    {
+      "id": "23140753",
+      "concept": "23140752",
+      "title": "Counterexamples to the Knaster problem in all remaining dimensions",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23140753",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23140753/files/Counterexamples%20to%20the%20Knaster%20problem%20in%20all%20remaining%20dimensions%20--%20Tan-Zhang.pdf/content",
+          "pages": 9,
+          "bibliography_characters": 1783,
+          "sha256": "36483fc988b3dc4f31c279ed817430c4c31602dba5bab3b279d911a2a58951aa"
+        }
+      ]
+    },
+    {
+      "id": "23142909",
+      "concept": "23142908",
+      "title": "The Atiyah-Sutcliffe determinant at five points: positivity and failure of the deletion inequality",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23142909",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23142909/files/The%20Atiyah-Sutcliffe%20determinant%20at%20five%20points%EF%BC%9Apositivity%20and%20failure%20of%20the%20deletion%20inequality%20--%20Tan-Zhang.pdf/content",
+          "pages": 17,
+          "bibliography_characters": 1915,
+          "sha256": "abf62f0ec1f860f5cdd024bbaf68e423173b97c44fa70dd61c984aae23c7ceb1"
+        }
+      ]
+    },
+    {
+      "id": "23045765",
+      "concept": "23045764",
+      "title": "The Coefficientwise Order on Markov Numerators",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/23045765",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/23045765/files/The%20Coefficientwise%20Order%20on%20Markov%20Numerators%20--%20Tan-Zhang.pdf/content",
+          "pages": 22,
+          "bibliography_characters": 2646,
+          "sha256": "79c45ddd506add9bda9162c375f6cb9b15bfa57803022125bfa53157a6d4cd49"
+        }
+      ]
+    },
+    {
+      "id": "22999004",
+      "concept": "22999003",
+      "title": "Cohn Trace Polynomials: Root Localization, Strict Log-Concavity, and Rearrangement Inequalities",
+      "authors": "Xiangfei Li; Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/22999004",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/22999004/files/Cohn%20Trace%20Polynomials%EF%BC%9ARoot%20Localization,%20Strict%20Log-Concavity,%20and%20Rearrangement%20Inequalities%20--%20Li-Tan-Zhang.pdf/content",
+          "pages": 33,
+          "bibliography_characters": 2323,
+          "sha256": "38c9abb6a6956267d3e2e5f67c276b074fedd78992051edfc2b4ed2b45508004"
+        }
+      ]
+    },
+    {
+      "id": "22998822",
+      "concept": "22998821",
+      "title": "Density of Triple Coincidences in the Simple Length Spectrum of One-holed Tori",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/22998822",
+      "targets": [
+        "DLN"
+      ],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/22998822/files/Density%20of%20Triple%20Coincidences%20in%20the%20Simple%20Length%20Spectrum%20of%20One-holed%20Tori%20--%20Tan-Zhang.pdf/content",
+          "pages": 15,
+          "bibliography_characters": 1594,
+          "sha256": "91168d758b67399cbe0dabea517e851ac57e7d8789c70b721ff6afd80b3f35f0"
+        }
+      ]
+    },
+    {
+      "id": "22858426",
+      "concept": "22858425",
+      "title": "Fuglede's conjecture for cyclic groups of square-free order",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/22858426",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/22858426/files/Fuglede%E2%80%99s%20conjecture%20for%20cyclic%20groups%20of%20square-free%20order%20--%20Tan-Zhang.pdf/content",
+          "pages": 6,
+          "bibliography_characters": 3940,
+          "sha256": "714393dc1b43c093732f359cc0f56bf382c356add2357b5015d0ece378b70bda"
+        }
+      ]
+    },
+    {
+      "id": "22858201",
+      "concept": "22858200",
+      "title": "Periodic joint co-tiles of independent tiles",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/22858201",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/22858201/files/Periodic%20joint%20co-tiles%20of%20independent%20tiles%20--%20Tan-Zhang.pdf/content",
+          "pages": 18,
+          "bibliography_characters": 983,
+          "sha256": "de7b6108d830c0bc36406162fd96cac7b38135a7fda14224e0f2c8d3a9889b56"
+        }
+      ]
+    },
+    {
+      "id": "22904483",
+      "concept": "22904482",
+      "title": "A 24-Point Atiyah Singular Configuration",
+      "authors": "Hu Tan; Ying Zhang",
+      "url": "https://zenodo.org/records/22904483",
+      "targets": [],
+      "pdfs": [
+        {
+          "url": "https://zenodo.org/api/records/22904483/files/A%2024-Point%20Atiyah%20Singular%20Configuration%20--%20Tan-Zhang%20--.pdf/content",
+          "pages": 7,
+          "bibliography_characters": 1946,
+          "sha256": "ddc0de1a3f09f36391a7b7ee3f18ca4db069d65f7d241b4d53b12a10d288ee30"
+        },
+        {
+          "url": "https://zenodo.org/api/records/22904483/files/A%2024-Point%20Atiyah%20Singular%20Configuration%20--%20Tan-Zhang.pdf/content",
+          "pages": 7,
+          "bibliography_characters": 1946,
+          "sha256": "ddc0de1a3f09f36391a7b7ee3f18ca4db069d65f7d241b4d53b12a10d288ee30"
+        }
+      ]
+    }
+  ]
+}

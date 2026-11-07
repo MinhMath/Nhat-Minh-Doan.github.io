@@ -1,12 +1,12 @@
 # Papers and citation sources
 
-The [public page](https://minhmath.github.io/Nhat-Minh-Doan.github.io/) contains only paper title links and a Sources column. Each number opens the list of verified citing papers. The document and iframe title are `Papers`.
+The [public page](https://minhmath.github.io/Nhat-Minh-Doan.github.io/) lists papers, authors, publication details, First online dates, and a Cited by column. Each number opens the citing works, including authors and publication details. Paper details follow the author’s homepage. The First online column links to the earliest documented public posting, and the list runs from newest to oldest. Citation totals appear at the bottom. The document and iframe title are `Papers`.
 
-The [citation report](CITATIONS.md) and [normalized ledger](docs/ledger.json) contain counts, evidence, and collection limitations. These are verified lower bounds. Missing coverage does not establish zero citations.
+The [citation report](CITATIONS.md) and [normalized ledger](docs/ledger.json) contain counts, evidence, and collection limitations. The bibliography-verified count is a lower bound; separately marked Google Scholar listings await full-text verification. Missing coverage does not establish zero citations.
 
 ## Discovery and verification
 
-The collector searches OpenAlex, Semantic Scholar, OpenCitations, HexagonMath, Zenodo, and known arXiv bibliographies. Full-text search can reveal citing papers whose citation edges are absent from an index. Search matches remain unverified candidates until a bibliography confirms the relationship. ResearchGate and Google Scholar totals are comparison data rather than evidence of individual references.
+The collector searches OpenAlex, Semantic Scholar, OpenCitations, HexagonMath, Zenodo, and known arXiv bibliographies. Zenodo author monitoring uses Ying Zhang’s ORCID and Hu Tan’s affiliation to reject homonyms; unchanged PDF versions are cached. Full-text search can reveal citing papers whose citation edges are absent from an index. Search matches remain unverified candidates until a bibliography confirms the relationship. ResearchGate and Google Scholar aggregate totals are comparison data. The two author-supplied Google Scholar citing-list screenshots are recorded separately in docs/listed.json; these listings are not labelled as inspected bibliography entries.
 
 Verification uses public PDFs, HexagonMath HTML bibliographies, and publisher-deposited Crossref reference entries. Published references can differ from the arXiv version. Verified records retain the reference excerpt, evidence URL, date, and available version or hash. Exact identifiers and title/author matches merge versions of the same citing work. A work citing two target papers contributes two relationships and one distinct citing work.
 
@@ -33,3 +33,5 @@ python citation_agent.py
 python generate_report.py
 python -m http.server 8000 --directory docs
 ```
+
+Self citations count citing works that include Nhat Minh Doan. Citations by collaborators without him count as non-self. Each distinct citing work counts once per target paper, including across Zenodo versions.

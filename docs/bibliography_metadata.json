@@ -1,0 +1,188 @@
+[
+  {
+    "title": "Counting Markov Triples and Simple Geodesics",
+    "arxiv": "2610.36069",
+    "platform": "arxiv",
+    "id": "2610.36069",
+    "authors": [
+      "Risager, Morten S."
+    ],
+    "venue": "arXiv:2610.36069.",
+    "first_online": "2026-10-26",
+    "first_online_source": "https://arxiv.org/abs/2610.36069v1",
+    "metadata_source": "https://arxiv.org/abs/2610.36069"
+  },
+  {
+    "title": "Patterns in the Markov Numbers and Their Generalizations",
+    "arxiv": "2609.14149",
+    "doi": "10.48550/arxiv.2609.14149",
+    "platform": "arxiv",
+    "id": "2609.14149",
+    "authors": [
+      "O'Sullivan, Cormac"
+    ],
+    "venue": "arXiv:2609.14149.",
+    "first_online": "2026-09-12",
+    "first_online_source": "https://arxiv.org/abs/2609.14149v1",
+    "metadata_source": "https://arxiv.org/abs/2609.14149"
+  },
+  {
+    "title": "The entropy spectrum of hyperbolic surfaces",
+    "arxiv": "2608.20143",
+    "doi": "10.48550/arxiv.2608.20143",
+    "platform": "arxiv",
+    "id": "2608.20143",
+    "authors": [
+      "Basmajian, Ara",
+      "Parlier, Hugo"
+    ],
+    "venue": "arXiv:2608.20143.",
+    "first_online": "2026-08-20",
+    "first_online_source": "https://arxiv.org/abs/2608.20143v1",
+    "metadata_source": "https://arxiv.org/abs/2608.20143"
+  },
+  {
+    "title": "Concentration of closed geodesics in the homology of modular curves",
+    "arxiv": "2203.06446",
+    "doi": "10.1017/fms.2023.85",
+    "platform": "openalex",
+    "id": "W4387367731",
+    "authors": [
+      "Nordentoft, Asbjørn Christian"
+    ],
+    "venue": "arXiv:2203.06446.",
+    "first_online": "2022-03-12",
+    "first_online_source": "https://arxiv.org/abs/2203.06446v1",
+    "metadata_source": "https://arxiv.org/abs/2203.06446"
+  },
+  {
+    "title": "Equidistribution of $q$-orbits of closed geodesics",
+    "arxiv": "2305.18625",
+    "doi": "10.4171/cmh/621",
+    "platform": "arxiv",
+    "id": "2305.18625",
+    "authors": [
+      "Nordentoft, Asbjørn Christian"
+    ],
+    "venue": "arXiv:2305.18625.",
+    "first_online": "2023-05-29",
+    "first_online_source": "https://arxiv.org/abs/2305.18625v1",
+    "metadata_source": "https://arxiv.org/abs/2305.18625",
+    "display_title": "Equidistribution of q-orbits of closed geodesics"
+  },
+  {
+    "title": "Sparse equidistribution of geometric invariants of real quadratic fields",
+    "arxiv": "2211.05890",
+    "doi": "10.4171/jems/1691",
+    "platform": "doi",
+    "id": "10.4171/jems/1691",
+    "authors": [
+      "Humphries, Peter",
+      "Nordentoft, Asbjørn Christian"
+    ],
+    "venue": "arXiv:2211.05890.",
+    "first_online": "2022-11-10",
+    "first_online_source": "https://arxiv.org/abs/2211.05890v1",
+    "metadata_source": "https://arxiv.org/abs/2211.05890"
+  },
+  {
+    "title": "On the Burau representation of $B_3$ modulo $p$",
+    "arxiv": "2406.14538",
+    "doi": "10.48550/arxiv.2406.14538",
+    "platform": "arxiv",
+    "id": "2406.14538",
+    "authors": [
+      "Lee, Donsung"
+    ],
+    "venue": "arXiv:2406.14538.",
+    "first_online": "2024-06-20",
+    "first_online_source": "https://arxiv.org/abs/2406.14538v1",
+    "metadata_source": "https://arxiv.org/abs/2406.14538",
+    "display_title": "On the Burau representation of B₃ modulo p"
+  },
+  {
+    "doi": "10.1016/j.aim.2025.110162",
+    "venue": "Advances in Mathematics 466 (2025), 110162.",
+    "metadata_source": "https://api.crossref.org/works/10.1016/j.aim.2025.110162"
+  },
+  {
+    "doi": "10.1017/fms.2023.85",
+    "venue": "Forum of Mathematics, Sigma 11 (2023), Article e91.",
+    "metadata_source": "https://api.crossref.org/works/10.1017/fms.2023.85"
+  },
+  {
+    "doi": "10.1090/tran/9657",
+    "venue": "Transactions of the American Mathematical Society 379 (9) (2026), 6365-6392.",
+    "metadata_source": "https://api.crossref.org/works/10.1090/tran/9657"
+  },
+  {
+    "doi": "10.1112/blms.13080",
+    "venue": "Bulletin of the London Mathematical Society 57 (7) (2025), Article blms.13080.",
+    "metadata_source": "https://api.crossref.org/works/10.1112/blms.13080"
+  },
+  {
+    "doi": "10.1112/blms.70088",
+    "venue": "Bulletin of the London Mathematical Society 57 (7) (2025), 2190-2209.",
+    "metadata_source": "https://api.crossref.org/works/10.1112/blms.70088"
+  },
+  {
+    "doi": "10.4171/cmh/621",
+    "venue": "Commentarii Mathematici Helvetici 101 (4) (2026), 685-753.",
+    "metadata_source": "https://api.crossref.org/works/10.4171/cmh/621"
+  },
+  {
+    "doi": "10.4171/jems/1691",
+    "venue": "Journal of the European Mathematical Society 28 (12) (2025), 5113-5192.",
+    "metadata_source": "https://api.crossref.org/works/10.4171/jems/1691"
+  },
+  {
+    "title": "Almost all simple lengths are unique up to isometry",
+    "platform": "hexagon",
+    "id": "2610.00298",
+    "authors": "Nhat Minh Doan",
+    "venue": "HexagonMath, hexagon:2610.00298.",
+    "metadata_source": "https://hexagonmath.org/2610.00298v1"
+  },
+  {
+    "title": "The torus with asymptotically the fewest simple closed geodesics",
+    "platform": "hexagon",
+    "id": "2610.00159",
+    "authors": "Phuc Thinh Dang; Trong Toan Dao; Nhat Minh Doan",
+    "venue": "HexagonMath, hexagon:2610.00159.",
+    "metadata_source": "https://hexagonmath.org/2610.00159v1"
+  },
+  {
+    "title": "Almost all Markoff numbers are unique.",
+    "platform": "hexagon",
+    "id": "2610.00281",
+    "authors": "William Y. Chen",
+    "venue": "HexagonMath, hexagon:2610.00281.",
+    "metadata_source": "https://hexagonmath.org/2610.00281v2"
+  },
+  {
+    "title": "Almost all simple lengths are unique up to isometry",
+    "platform": "hexagon",
+    "id": "2610.00298",
+    "authors": "Nhat Minh Doan",
+    "venue": "HexagonMath, hexagon:2610.00298.",
+    "metadata_source": "https://hexagonmath.org/2610.00298v1"
+  },
+  {
+    "title": "PARAMETER MONOTONICITY FOR GENERALIZED k-MARKOV NUMBERS",
+    "platform": "hexagon",
+    "id": "2611.00023",
+    "authors": "Qiyue Tang",
+    "venue": "HexagonMath, hexagon:2611.00023.",
+    "metadata_source": "https://hexagonmath.org/2611.00023v1",
+    "display_title": "Parameter monotonicity for generalized k-Markov numbers"
+  },
+  {
+    "title": "On the Geometry of the Thurston Metric on Teichmüller Spaces: Geodesics that Disobey an Analogue of Masur’s Criterion",
+    "authors": "Ivan Telpukhovskiy",
+    "platform": "thesis",
+    "id": "1807/108584",
+    "venue": "Ph.D. thesis, University of Toronto, 2021.",
+    "first_online": "2021-11-30",
+    "first_online_source": "https://utoronto.scholaris.ca/items/a709f272-8f01-42ef-8d59-a84c9426cb07"
+  }
+]

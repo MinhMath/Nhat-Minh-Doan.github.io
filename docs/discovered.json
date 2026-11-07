@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-07T03:40:54+00:00",
+  "generated_utc": "2026-11-07T03:58:34+00:00",
   "collection_status": "partial",
   "sources": {
     "publisher_bibliographies": {
@@ -39,6 +39,17 @@
     "zenodo": {
       "status": "completed_requests",
       "verified_records": 0
+    },
+    "zenodo_author_audit": {
+      "status": "completed_requests",
+      "distinct_works": 16,
+      "pdfs_checked": 17,
+      "verified_records": 2
+    },
+    "institutional_thesis_audit": {
+      "status": "partial",
+      "verified_records": 1,
+      "scholar_listed_records_awaiting_fulltext": 2
     }
   },
   "citations": [

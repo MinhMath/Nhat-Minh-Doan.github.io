@@ -15,7 +15,11 @@
     "year": 2026,
     "section": "papers",
     "display_number": 10,
-    "venue": "Preprint, 2026. Submitted."
+    "venue": "arXiv:2605.14574. Submitted.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2026-05-14",
+    "first_online_source": "https://arxiv.org/abs/2605.14574v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   },
   {
     "id": "DDD",
@@ -29,7 +33,11 @@
     "year": 2026,
     "section": "other",
     "display_number": 2,
-    "venue": "Preprint, 2026."
+    "venue": "hexagon:2610.00159v1.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2026-10-08",
+    "first_online_source": "https://hexagonmath.org/2610.00159v1",
+    "first_online_note": "Publication of HexagonMath version 1."
   },
   {
     "id": "SSC",
@@ -41,7 +49,11 @@
     "year": 2026,
     "section": "other",
     "display_number": 1,
-    "venue": "Preprint, 2026."
+    "venue": "hexagon:2610.00298v1.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2026-10-17",
+    "first_online_source": "https://hexagonmath.org/2610.00298v1",
+    "first_online_note": "Publication of HexagonMath version 1."
   },
   {
     "id": "density",
@@ -54,7 +66,11 @@
     "year": 2026,
     "section": "papers",
     "display_number": 11,
-    "venue": "Preprint, 2026."
+    "venue": "arXiv:2610.24700.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2026-10-17",
+    "first_online_source": "https://arxiv.org/abs/2610.24700v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   },
   {
     "id": "graded",
@@ -69,7 +85,11 @@
     "year": 2026,
     "section": "papers",
     "display_number": 9,
-    "venue": "Preprint, 2026. Submitted."
+    "venue": "arXiv:2601.03876. Submitted.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2026-01-07",
+    "first_online_source": "https://arxiv.org/abs/2601.03876v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   },
   {
     "id": "farey",
@@ -84,8 +104,12 @@
     "year": 2026,
     "section": "papers",
     "display_number": 8,
-    "venue": "Preprint, 2026. Submitted.",
-    "display_title": "Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)"
+    "venue": "arXiv:2601.01324. Submitted.",
+    "display_title": "Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2026-01-04",
+    "first_online_source": "https://arxiv.org/abs/2601.01324v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   },
   {
     "id": "arithmetic",
@@ -99,7 +123,11 @@
     "year": 2026,
     "section": "papers",
     "display_number": 7,
-    "venue": "Transactions of the American Mathematical Society 379 (2026), 6365–6392."
+    "venue": "Trans. AMS, 379 (2026), 6365 - 6392.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2025-04-13",
+    "first_online_source": "https://arxiv.org/abs/2504.09403v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   },
   {
     "id": "free",
@@ -112,7 +140,11 @@
     "year": 2026,
     "section": "papers",
     "display_number": 6,
-    "venue": "Vietnam Journal of Mathematics 54 (2026), 715–728."
+    "venue": "Vietnam J. Math., 54, 715 - 728 (2026).",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2025-01-24",
+    "first_online_source": "https://www.researchgate.net/publication/388324381_SOME_REMARKS_ON_SUBGROUPS_OF_FREE-BY-CYCLIC_GROUPS",
+    "first_online_note": "Earliest documented public posting: author-uploaded ResearchGate preprint, 24 January 2025. The manuscript date is not a public posting date."
   },
   {
     "id": "arcs",
@@ -129,7 +161,12 @@
     ],
     "section": "papers",
     "display_number": 5,
-    "venue": "Bulletin of the London Mathematical Society 57 (2025), 2190–2209."
+    "venue": "Bull. LMS, 57 (2025), 2190 - 2209.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "display_title": "Self-intersection of arcs on a pair of pants",
+    "first_online": "2024-07-25",
+    "first_online_source": "https://arxiv.org/abs/2407.17750v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   },
   {
     "id": "polygons",
@@ -149,11 +186,15 @@
     ],
     "section": "papers",
     "display_number": 4,
-    "venue": "Journal of Geometric Analysis 35 (2025), Article 216.",
+    "venue": "J. Geom. Anal., Volume 35, 216 (2025).",
     "display_title": "Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)",
     "reference_title_prefixes": [
       "Optimal special polygons for the congruence subgroups"
-    ]
+    ],
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2022-09-28",
+    "first_online_source": "https://arxiv.org/abs/2209.13937v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   },
   {
     "id": "ortho",
@@ -169,7 +210,11 @@
     "year": 2025,
     "section": "papers",
     "display_number": 3,
-    "venue": "Advances in Mathematics 466 (2025), Article 110162."
+    "venue": "Adv. Math., Volume 466, April 2025, 110162.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2021-12-20",
+    "first_online_source": "https://arxiv.org/abs/2112.10694v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   },
   {
     "id": "filling",
@@ -182,7 +227,11 @@
     "year": 2023,
     "section": "papers",
     "display_number": 2,
-    "venue": "Glasgow Mathematical Journal 65 (2023), 383–400."
+    "venue": "Glasgow Math. J., Volume 65, Issue 2, May 2023, pp. 383 - 400.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2020-12-04",
+    "first_online_source": "https://arxiv.org/abs/2012.02461v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   },
   {
     "id": "pants",
@@ -197,6 +246,10 @@
     "year": 2023,
     "section": "papers",
     "display_number": 1,
-    "venue": "Transactions of the American Mathematical Society 376 (2023), 5281–5306."
+    "venue": "Trans. AMS, 376 (2023), 5281 - 5306.",
+    "bibliography_source": "https://sites.google.com/view/dnminh/homepage",
+    "first_online": "2020-02-07",
+    "first_online_source": "https://arxiv.org/abs/2002.02738v1",
+    "first_online_note": "Initial arXiv submission, version 1."
   }
 ]

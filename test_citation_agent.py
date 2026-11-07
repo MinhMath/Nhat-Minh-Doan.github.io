@@ -169,6 +169,44 @@ class CitationLedgerTests(unittest.TestCase):
                   "title":["Measuring pants"],"reference":[]}
         self.assertEqual(agent.crossref_reference_findings(source,metadata),[])
 
+    def test_zenodo_versions_are_one_citing_work(self):
+        rows=[{"target":"DLN","title":"A citing paper","authors":"Hu Tan; Ying Zhang",
+               "platform":"zenodo","id":"101","zenodo_concept":"100","doi":"10.5281/zenodo.101","verified":True},
+              {"target":"DLN","title":"A citing paper, revised","authors":"Hu Tan; Ying Zhang",
+               "platform":"zenodo","id":"102","zenodo_concept":"100","doi":"10.5281/zenodo.102","verified":True}]
+        self.assertEqual(len(merged(rows)),1)
+
+    def test_collaborator_citation_without_doan_is_not_personal_self_citation(self):
+        p=next(p for p in PAPERS if p["id"]=="pants")
+        rows=[{"target":"pants","title":"The entropy spectrum of hyperbolic surfaces",
+               "authors":"Ara Basmajian; Hugo Parlier","verified":True}]
+        ledger=build_ledger([p],rows,{})
+        self.assertEqual(ledger["counts"]["self_citations"],0)
+        self.assertEqual(ledger["counts"]["non_self_citations"],1)
+        self.assertEqual(ledger["counts"]["overlap"],1)
+
+    def test_zenodo_author_identity_rejects_homonyms(self):
+        author={"name":"Zhang, Ying","orcid":"0000-0002-2543-6818"}
+        other={"metadata":{"creators":[{"name":"Zhang, Ying","orcid":"0000-0000-0000-0000"}]}}
+        actual={"metadata":{"creators":[{"name":"Zhang, Ying","orcid":author["orcid"]}]}}
+        self.assertFalse(agent.zenodo_author_matches(other,author))
+        self.assertTrue(agent.zenodo_author_matches(actual,author))
+
+    def test_scholar_listing_is_separate_and_upgrades_without_double_counting(self):
+        p=next(p for p in PAPERS if p["id"]=="pants")
+        listing={"target":"pants","title":"A doctoral thesis","authors":"Nhat Minh Doan",
+                 "platform":"thesis","id":"10993/50710","verified":False,"listing_confirmed":True}
+        ledger=build_ledger([p],[],{},listed=[listing])
+        self.assertEqual(ledger["counts"]["verified"],0)
+        self.assertEqual(ledger["counts"]["scholar_listed"],1)
+        self.assertEqual(ledger["counts"]["total_citations"],1)
+        self.assertEqual(ledger["counts"]["self_citations"],1)
+        verified={**listing,"verified":True,"source":"Inspected PDF bibliography"}
+        ledger=build_ledger([p],[verified],{},listed=[listing])
+        self.assertEqual(ledger["counts"]["verified"],1)
+        self.assertEqual(ledger["counts"]["scholar_listed"],0)
+        self.assertEqual(ledger["counts"]["total_citations"],1)
+
 if __name__=="__main__":
     unittest.main()
 
