@@ -1,0 +1,345 @@
+{
+  "updated": "7 November 2026",
+  "source_note": "Retained biographical and service information from the author’s public CV of 25 June 2026. Publications use docs/papers.json checked 7 November 2026. Hebei talk title and event verified against the organiser’s programme; the user confirmed the talk in the update request.",
+  "education": [
+    {
+      "title": "PhD in Mathematics",
+      "institution": "University of Luxembourg, Luxembourg",
+      "date": "2018 - 2022",
+      "detail": [
+        "Advisor: Prof. Hugo Parlier",
+        "Thesis: Quantifying some properties of curves and arcs on hyperbolic surfaces"
+      ]
+    },
+    {
+      "title": "MSc in Mathematics",
+      "institution": "University of Nice Sophia Antipolis, France",
+      "date": "2016 - 2017",
+      "detail": [
+        "Advisor: Prof. François Labourie",
+        "Thesis: Arithmetic and ergodic theory of hyperbolic surfaces"
+      ]
+    },
+    {
+      "title": "BA in Mathematics",
+      "institution": "University of Education, Ho Chi Minh City, Vietnam",
+      "date": "2013 - 2015",
+      "detail": []
+    }
+  ],
+  "positions": [
+    {
+      "number": 3,
+      "title": "Researcher",
+      "institution": "Institute of Mathematics, VAST, Vietnam",
+      "date": "2022 - present"
+    },
+    {
+      "number": 2,
+      "title": "SASEA Research Fellow",
+      "institution": "National University of Singapore, Singapore",
+      "date": "2024 - 2026",
+      "detail": [
+        "Mentor: Prof. Ser Peow Tan"
+      ]
+    },
+    {
+      "number": 1,
+      "title": "Doctoral Researcher",
+      "institution": "University of Luxembourg, Luxembourg",
+      "date": "2018 - 2022"
+    }
+  ],
+  "referee_work": [
+    "International Mathematics Research Notices",
+    "Proceedings of the American Mathematical Society",
+    "Mathematische Annalen",
+    "Transactions of the American Mathematical Society",
+    "Conformal Geometry and Dynamics"
+  ],
+  "talks": [
+    {
+      "number": 28,
+      "text": "The McShane-Rivin norm ball and some applications",
+      "detail": "Remarkable Developments on Hyperbolic Geometry, Hebei Normal University, Shijiazhuang, China",
+      "date": "Aug-Sep 2026",
+      "url": "https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract",
+      "date_note": "The public programme is labelled tentative and places the talk on 31 August. The CV gives the conference month range, not an unconfirmed exact delivery date."
+    },
+    {
+      "number": 27,
+      "text": "Seminar, TIMAS, Thang Long University, Vietnam",
+      "date": "June 2026"
+    },
+    {
+      "number": 26,
+      "text": "Topology and Geometry Seminar, NUS, Singapore",
+      "date": "May 2026"
+    },
+    {
+      "number": 25,
+      "text": "Topology and Geometry Seminar, Southwest Jiaotong University, China",
+      "date": "March 2026"
+    },
+    {
+      "number": 24,
+      "text": "Workshop on Geometry and related topics, Phu Tho, Vietnam",
+      "date": "Jul 2025"
+    },
+    {
+      "number": 23,
+      "text": "Grad Student Seminar, NUS, Singapore",
+      "date": "Apr 2025"
+    },
+    {
+      "number": 22,
+      "text": "Teichmüller Theory and Flat Structures, Matrix, Creswick, Australia",
+      "date": "Mar 2025"
+    },
+    {
+      "number": 21,
+      "text": "Workshop on Dynamics and Related Topics, IMS, NUS, Singapore",
+      "date": "Mar 2025"
+    },
+    {
+      "number": 20,
+      "text": "Workshop on Geometry and Dynamics in Low Dimensions, IMVAST, Hanoi",
+      "date": "Jan 2025"
+    },
+    {
+      "number": 19,
+      "text": "Scientific workshop for young researchers, Vinh Phuc, Vietnam",
+      "date": "Sep 2024"
+    },
+    {
+      "number": 18,
+      "text": "IMVAST-OCAMI Joint Conference, Osaka Metropolitan University, Japan",
+      "date": "May 2024"
+    },
+    {
+      "number": 17,
+      "text": "Geometry and Topology Seminar, KIAS, Korea",
+      "date": "Mar 2024"
+    },
+    {
+      "number": 16,
+      "text": "Workshop on Hyperbolic Geometry of Numbers, HCMC, KIAS, Korea",
+      "date": "Dec 2023"
+    },
+    {
+      "number": 15,
+      "text": "JSPS-VAST Workshop, FPT University Quy Nhon, Vietnam",
+      "date": "Sep 2023"
+    },
+    {
+      "number": 14,
+      "text": "Mathematics workshop and related fields, Ha Tinh University, Vietnam",
+      "date": "Apr 2023"
+    },
+    {
+      "number": 13,
+      "text": "JSPS-VAST Bilateral Joint Research Project Workshop, IMVAST",
+      "date": "Dec 2022"
+    },
+    {
+      "number": 12,
+      "text": "Algebra and Number Theory Seminar, IMVAST",
+      "date": "Nov 2022"
+    },
+    {
+      "number": 11,
+      "text": "Scientific conference on Geometry, Analysis and Applications, Phu Tho, Vietnam",
+      "date": "Oct 2022"
+    },
+    {
+      "number": 10,
+      "text": "Topology and Geometry Seminar, NUS, Singapore",
+      "date": "Sep 2022"
+    },
+    {
+      "number": 9,
+      "text": "Scientific workshop for young researchers, Vinh Phuc, Vietnam",
+      "date": "Aug 2022"
+    },
+    {
+      "number": 8,
+      "text": "Japan-Vietnam Singularity Seminar (Online), IMVAST",
+      "date": "Apr 2022"
+    },
+    {
+      "number": 7,
+      "text": "Mostly Teichmüller Spaces Seminar (Online), Queens College, USA",
+      "date": "Mar 2022"
+    },
+    {
+      "number": 6,
+      "text": "Ph.D. Defense, Geometry Winter Workshop, Luxembourg",
+      "date": "Jan 2022"
+    },
+    {
+      "number": 5,
+      "text": "Topology and Geometry Seminar (Online), IMVAST",
+      "date": "Nov 2021"
+    },
+    {
+      "number": 4,
+      "text": "Topology and Geometry Seminar (Online), VNU, Ho Chi Minh City, Vietnam",
+      "date": "Oct 2021"
+    },
+    {
+      "number": 3,
+      "text": "PhD Away Days (Online), University of Luxembourg, Luxembourg",
+      "date": "Oct 2020"
+    },
+    {
+      "number": 2,
+      "text": "PhD Seminar (Online), University of Luxembourg, Luxembourg",
+      "date": "May 2020"
+    },
+    {
+      "number": 1,
+      "text": "School on Geometry and Dynamics on Hyperbolic Surfaces, Switzerland",
+      "date": "Aug 2018"
+    }
+  ],
+  "services": [
+    {
+      "number": 3,
+      "text": "Co-organizing Geometry and Dynamics in Low Dimensions Workshop, Hanoi",
+      "date": "Jan 2025",
+      "detail": [
+        "With S. Kim, T. Koberda, C. Leininger, S. P. Tan, T. T. Nguyen, T. D. Do, and V. T. Tran"
+      ]
+    },
+    {
+      "number": 2,
+      "text": "Co-organizing Geometry, Topology & Dynamics Seminar, National University of Singapore",
+      "date": "2024 - 2026",
+      "detail": [
+        "With Tengren Zhang and Daren Wei"
+      ]
+    },
+    {
+      "number": 1,
+      "text": "Co-writing a short comic story: Maths, Magic and Maryam",
+      "date": "2020"
+    }
+  ],
+  "advising": [
+    {
+      "number": 3,
+      "text": "Undergraduate student: Phuc Thinh Dang",
+      "date": "2026 - present"
+    },
+    {
+      "number": 2,
+      "text": "PhD student: Van Nguyen",
+      "date": "2025 - present"
+    },
+    {
+      "number": 1,
+      "text": "Vietnamese REU students: Trong Toan Dao and Anh Tuan Nguyen",
+      "date": "2023 - 2024",
+      "detail": [
+        "Co-supervised with Ser Peow Tan"
+      ]
+    }
+  ],
+  "teaching": [
+    {
+      "number": 5,
+      "text": "Modern Geometry, Master program, Institute of Mathematics, VAST",
+      "date": "2023"
+    },
+    {
+      "number": 4,
+      "text": "Probability, Applied Mathematics and Data Science students, Vietnam France University",
+      "date": "2022"
+    },
+    {
+      "number": 3,
+      "text": "Linear Algebra (teaching assistant), University of Engineering and Technology",
+      "date": "2022"
+    },
+    {
+      "number": 2,
+      "text": "Analysis for Applications (teaching assistant), University of Luxembourg",
+      "date": "2018 - 2020"
+    },
+    {
+      "number": 1,
+      "text": "Elementary Mathematics, children aged 5-10, Mathnasium Vietnam",
+      "date": "2012 - 2013"
+    }
+  ],
+  "awards": [
+    {
+      "number": 1,
+      "text": "Excellent Doctoral Thesis Award, University of Luxembourg",
+      "date": "2022"
+    }
+  ],
+  "grants": [
+    {
+      "number": 5,
+      "text": "Singapore Academies South-East Asia Fellowship, hosted at the National University of Singapore",
+      "date": "2024 - 2026"
+    },
+    {
+      "number": 4,
+      "text": "NAFOSTED, Vietnam (2 years)",
+      "date": "2024 - 2026"
+    },
+    {
+      "number": 3,
+      "text": "Research Grant, Institute of Mathematics, VAST, Vietnam (2 years)",
+      "date": "2022 - 2024"
+    },
+    {
+      "number": 2,
+      "text": "PRIDE Grant, Fonds National de la Recherche, Luxembourg (4 years)",
+      "date": "2018 - 2022"
+    },
+    {
+      "number": 1,
+      "text": "Master 2 Excellence Scholarship (10 months)",
+      "detail": [
+        "J. A. Dieudonné Mathematics Laboratory, Nice, France"
+      ],
+      "date": "2016 - 2017"
+    }
+  ],
+  "references": [
+    {
+      "name": "Prof. Ara Basmajian",
+      "institution": "Hunter College, CUNY",
+      "email": "abasmajian@gc.cuny.edu"
+    },
+    {
+      "name": "Prof. François Labourie",
+      "institution": "EPFL, Institute of Mathematics",
+      "email": "francois.labourie@epfl.ch"
+    },
+    {
+      "name": "Prof. Martin Bridgeman",
+      "institution": "Boston College",
+      "email": "bridgem@bc.edu"
+    },
+    {
+      "name": "Prof. Hugo Parlier",
+      "institution": "University of Fribourg",
+      "email": "hugo.parlier@unifr.ch"
+    },
+    {
+      "name": "Prof. Sang-Hyun Kim",
+      "institution": "Korea Institute for Advanced Study",
+      "email": "kimsh@kias.re.kr"
+    },
+    {
+      "name": "Prof. Ser Peow Tan",
+      "institution": "National University of Singapore",
+      "email": "mattansp@nus.edu.sg"
+    }
+  ],
+  "hobbies": "Table tennis, badminton, hiking"
+}

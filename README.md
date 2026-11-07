@@ -37,6 +37,12 @@ python scripts/build_site.py
 python -m http.server 8000 --directory docs
 ```
 
+## Updating the CV and portrait
+
+The CV uses the shared publication catalogue and [cv/details.json](cv/details.json). Its source generator is [scripts/build_cv.py](scripts/build_cv.py); it requires ReportLab and the Liberation Serif font family. To rebuild it, run `python -m pip install reportlab`, then `python scripts/build_cv.py` and `python scripts/build_site.py`. The November 2026 revision retains the earlier CV’s education, employment, talks, service, advising, teaching, awards, grants, and references, adds the Hebei conference talk, and updates all 13 works. The programme URL and date precision are recorded in the talk metadata.
+
+The original 712 × 716 uploaded portrait is retained in `docs/assets/portrait.png`. A CSS frame crops it for the navigation without altering the image. Content hashes on the portrait, stylesheet, and CV links ensure returning visitors receive revised assets. The homepage and Papers page share the same generated navigation.
+
 Self citations count citing works that include Nhat Minh Doan. Citations by collaborators without him count as non-self. Each distinct citing work counts once per target paper, including across Zenodo versions.
 
 The title column takes most of the page width. Authors, publication details, and abstracts open under a “more details” control for each paper and each citing work. Citing lists open across the table width and follow the same newest-first order by first online appearance. External abstracts are concise summaries labelled accordingly; original abstracts are retained for Doan’s papers. Mathematical formulas are typeset when their details panel opens.
