@@ -4,7 +4,7 @@
 
 **Verified relationships:** 15 | **Independent verified:** 5 | **Distinct verified citing works:** 11 | **Indexed-only candidates:** 0 | **Papers tracked:** 13
 
-Collection status: **partial**. Last saved discovery: 2026-11-07T02:47:42+00:00.
+Collection status: **partial**. Last saved discovery: 2026-11-07T03:07:41+00:00.
 
 | Canonical paper | Verified citations | Indexed candidates |
 |---|---:|---:|
@@ -49,12 +49,12 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T02:47:42+00:00.
 
 ### Ortho-integral surfaces
 
-- [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) — Ara Basmajian; Nhat Minh Doan; Hugo Parlier; Ser Peow Tan; shared author. Manually checked primary-source bibliography.
-  Reference excerpt: [Doa25] Nhat Minh Doan. Ortho-integral surfaces. Advances in Mathematics, 466:110162, 2025.
-- [Self‐intersections of arcs on a pair of pants](https://arxiv.org/abs/2407.17750) — Nhat Minh Doan; Hanh Nguyen Vo; shared author. Verified in arXiv PDF bibliography.
+- [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) — Ara Basmajian; Nhat Minh Doan; Hugo Parlier; Ser Peow Tan; shared author. Verified by direct bibliography inspection.
+  Reference excerpt: [Doa25] Nhat Minh Doan. Ortho-integral surfaces.Advances in Mathematics, 466:110162, 2025.
+- [Self-intersections of arcs on a pair of pants](https://arxiv.org/abs/2407.17750) — Nhat Minh Doan; Hanh Vo; shared author. Verified by direct bibliography inspection.
   Reference excerpt: [20] Nhat Minh Doan. Ortho-integral surfaces.arXiv preprint arXiv:2112.10694, 2021. 16 NHAT MINH DOAN, HANH VO
-- [Some arithmetic aspects of ortho-integral surfaces](https://arxiv.org/abs/2504.09403) — Nhat Minh Doan; Khanh Le; shared author. Manually checked primary-source bibliography.
-  Reference excerpt: [Doa25] Nhat Minh Doan. Ortho-integral surfaces. Advances in Mathematics, 466:110162, 2025.
+- [Some arithmetic aspects of ortho-integral surfaces](https://arxiv.org/abs/2504.09403) — Nhat Minh Doan; Khanh Le; shared author. Verified by direct bibliography inspection.
+  Reference excerpt: [Doa25] Nhat Minh Doan. Ortho-integral surfaces.Advances in Mathematics, 466:110162, 2025.
 
 ### Geometric filling curves on punctured surfaces
 
@@ -63,15 +63,16 @@ Collection status: **partial**. Last saved discovery: 2026-11-07T02:47:42+00:00.
 
 ### Measuring pants
 
-- [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) — Ara Basmajian; Nhat Minh Doan; Hugo Parlier; Ser Peow Tan; shared author. Manually checked primary-source bibliography.
-  Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants. Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.
-- [Some arithmetic aspects of ortho-integral surfaces](https://arxiv.org/abs/2504.09403) — Nhat Minh Doan; Khanh Le; shared author. Manually checked primary-source bibliography.
-  Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants. Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.
+- [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) — Ara Basmajian; Nhat Minh Doan; Hugo Parlier; Ser Peow Tan; shared author. Verified by direct bibliography inspection.
+  Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Mathematical Society, 376(08):5281–5306, 2023.
+- [Some arithmetic aspects of ortho-integral surfaces](https://arxiv.org/abs/2504.09403) — Nhat Minh Doan; Khanh Le; shared author. Verified by direct bibliography inspection.
+  Reference excerpt: [DPT23] Nhat Minh Doan, Hugo Parlier, and Ser Peow Tan. Measuring pants.Transactions of the American Math- ematical Society, 376(08):5281–5306, 2023.
 
 ## Collection status
 
 | Source | Status |
 |---|---|
+| known_bibliographies | completed_requests |
 | openalex | completed_requests |
 | semantic | deferred_after_error |
 | opencitations | completed_requests |
