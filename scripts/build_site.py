@@ -44,7 +44,7 @@ def main():
 <title>Nhat Minh Doan (Đoàn Nhật Minh)</title>
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="{BASE}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/portrait.png">
+<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/vietnam-banner.jpg">
 <link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
 <script defer src="assets/site.js" data-catalogue="papers.json" data-papers="papers/"></script>
@@ -52,6 +52,7 @@ def main():
 <body>
 {header('home')}
 <main id="main">
+ <figure class="home-banner content-width"><img src="assets/vietnam-banner.jpg?v={asset_revision('vietnam-banner.jpg')}" width="1489" height="596" alt="Hạ Long Bay, Vietnam" fetchpriority="high"></figure>
  <section class="intro content-width" aria-label="About Minh">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
   <p>Hello! I am Minh, a researcher at the {external('https://vast.gov.vn/web/vietnam-academy-of-science-and-technology/institutes1','Institute of Mathematics, VAST')}. I was a {external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} at the {external('https://www.math.nus.edu.sg/','National University of Singapore')} under Prof. {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}. My {external('https://orbilu.uni.lu/handle/10993/50710','PhD thesis')} was completed at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')} under Prof. {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} in 2022.</p>
