@@ -107,7 +107,7 @@ def main():
  seminars=f'''<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Online Seminars — Nhat Minh Doan</title>
-<meta name="description" content="The Hyperbolic Geometry and Related Topics Online Seminar: a forum for researchers and graduate students, organised by Nhat Minh Doan.">
+<meta name="description" content="Hyperbolic Geometry and Related Topics Online Seminar, organized by Nhat Minh Doan. Researchers and graduate students are welcome to give a talk.">
 <link rel="canonical" href="{BASE}seminars/"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css?v={asset_revision('site.css')}">
 <script defer src="../assets/site.js" data-catalogue="../papers.json" data-papers="../papers/"></script>
@@ -115,11 +115,8 @@ def main():
 <main id="main">
  <div class="section-heading"><div class="content-width"><h1 class="seminars-title">Online Seminars</h1></div></div>
  <section class="seminar-copy content-width" aria-labelledby="seminar-name">
-  <h2 id="seminar-name">Hyperbolic Geometry &amp; Related Topics Online Seminar</h2>
-  <p>I organize this online seminar for researchers and graduate students to share current work, discuss new ideas, and build connections across institutions. Topics include hyperbolic geometry, Teichmüller theory, low-dimensional topology, geometric group theory, and dynamics.</p>
-  <p>If you would like to give a talk, please email me a title, a short abstract, and your availability, including your time zone.</p>
-  <p>Contact: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
-  <div class="seminar-links">{external('https://sites.google.com/view/nhatminhdoan/upcoming-talks','Talk announcements')}{external('https://sites.google.com/view/nhatminhdoan','Seminar website')}</div>
+  <h2 id="seminar-name">{external('https://sites.google.com/view/nhatminhdoan','Hyperbolic Geometry & Related Topics Online Seminar')}</h2>
+  <p>I organize this seminar and welcome talks from researchers and graduate students. To give a talk, please email <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>.</p>
  </section>
 </main></body></html>'''
  (DOCS/'seminars').mkdir(exist_ok=True)
