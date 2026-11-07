@@ -180,67 +180,130 @@ def inspect_arxiv_pdf(p,c):
     return None
 
 def hexagon_scan(papers):
-    """Walk public HexagonMath listing and check HTML reference lists.
-    The HTML parser is deliberately strict: ambiguous references are not verified.
+    """Check Hexagon HTML reference lists, plus a rotating queue of PDF bibliographies.
+
+    HTML bibliography references are often missing, even if a PDF cites a paper.
+    Successful scans are checkpointed so daily runs prioritize new versions.
     """
+    from io import BytesIO
+    from pypdf import PdfReader
+    from urllib.parse import urljoin
     new=[]
-    url="https://hexagonmath.org/search?per_page=100"
-    seen=set()
+    base="https://hexagonmath.org"
+    listing=base+"/search?per_page=100"
+    seen_pages=set()
     try:
         state=json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
     except ValueError:
         state={}
     completed=set(state.get("hexagon_pages_checked",[]))
-    visited=set(completed)
-    successes=set(completed)
-    from urllib.parse import urljoin
-    for page in range(20):
-        if url in seen:break
-        seen.add(url)
+    pdf_done=set(state.get("hexagon_pdf_checked",[]))
+    pending={r["href"]:r for r in state.get("hexagon_pdf_pending",[]) if isinstance(r,dict) and r.get("href")}
+    checked=set(completed)
+    for _ in range(20):
+        if listing in seen_pages:break
+        seen_pages.add(listing)
         try:
-            r=session.get(url,timeout=25)
-            if r.status_code!=200:break
+            r=session.get(listing,timeout=25)
+            if r.status_code!=200:
+                errors.append("Hexagon catalog HTTP "+str(r.status_code))
+                break
             soup=BeautifulSoup(r.text,"html.parser")
         except requests.RequestException as exc:
-            errors.append("Hexagon listing "+str(exc)[:140]);break
+            errors.append("Hexagon catalog: "+str(exc)[:160])
+            break
         for a in soup.select("a[href]"):
             href=a.get("href","")
-            match=re.fullmatch(r"/(\d{4}\.\d{5})(?:v\d+)?",href)
-            if not match or href in visited:continue
-            visited.add(href)
+            m=re.fullmatch(r"/(\d{4}\.\d{5})(?:v\d+)?",href)
+            if not m or href in completed:continue
             try:
-                page_resp=session.get(urljoin(url,href),timeout=25)
-                if page_resp.status_code!=200:continue
-                doc=BeautifulSoup(page_resp.text,"html.parser")
-                successes.add(href)
-                headings=[h for h in doc.find_all(["h2","h3"]) if clean(h.get_text(" ",strip=True))=="references"]
-                if not headings:continue
-                h=headings[-1];refitems=[]
-                for element in h.next_elements:
-                    if getattr(element,"name",None) in ("h2","h3"):break
-                    if getattr(element,"name",None)=="li":
-                        refitems.append(element.get_text(" ",strip=True))
-                if not refitems:continue
-                label=doc.find("h1")
-                title=label.get_text(" ",strip=True) if label else href
-                full=doc.get_text(" ",strip=True)
-                author_match=re.search(r"Contributed by\s+(.{3,160}?)(?:\s+Abstract|\s+Download|\s+Published)",full,re.I)
-                authors=author_match.group(1) if author_match else ""
-                for p in papers:
-                    if p.get("hexagon")==match.group(1):continue
-                    if any(matches_target(ref,p) for ref in refitems):
-                        new.append({"target":p["id"],"title":title,"id":match.group(1),
-                                    "platform":"hexagon","authors":authors,
-                                    "verified":True,"source":"Verified in HexagonMath HTML bibliography",
-                                    "url":"https://hexagonmath.org/"+match.group(1)})
-                time.sleep(.12)
-            except requests.RequestException:continue
-        nxt=next((a for a in soup.select("a[href]") if "next 100 works" in clean(a.get_text(" ",strip=True))),None)
-        if nxt is None:break
-        url=urljoin(url,nxt.get("href",""))
-    STATE.write_text(json.dumps({"hexagon_pages_checked":sorted(successes),"last_checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")},indent=2)+"\n",encoding="utf-8")
+                resp=session.get(urljoin(base,href),timeout=25)
+                if resp.status_code!=200:continue
+                doc=BeautifulSoup(resp.text,"html.parser")
+            except requests.RequestException:
+                continue
+            checked.add(href)
+            title=doc.find("h1").get_text(" ",strip=True) if doc.find("h1") else href
+            text=doc.get_text("\n",strip=True)
+            names=re.search(r"Contributed by\s*\n([^\n]+)",text)
+            authors=names.group(1) if names else ""
+            headings=[h for h in doc.find_all(["h2","h3"]) if clean(h.get_text(" ",strip=True))=="references"]
+            refs=[]
+            if headings:
+                for node in headings[-1].next_elements:
+                    if getattr(node,"name",None) in ("h2","h3"):break
+                    if getattr(node,"name",None)=="li":
+                        entry=node.get_text(" ",strip=True)
+                        if len(entry)>15:refs.append(entry)
+            for p in papers:
+                if p.get("hexagon")==m.group(1):continue
+                if any(matches_target(ref,p) for ref in refs):
+                    new.append({"target":p["id"],"title":title,"authors":authors,
+                                "platform":"hexagon","id":m.group(1),"verified":True,
+                                "source":"Verified in HexagonMath HTML bibliography",
+                                "url":urljoin(base,href)})
+            # The HTML bibliography may be empty despite citations in the PDF.
+            pdf_links=[link for link in doc.select("a[href]")
+                       if ("pdf"==clean(link.get_text(" ",strip=True))
+                           or "download pdf" in clean(link.get_text(" ",strip=True)))]
+            if pdf_links and href not in pdf_done:
+                pending[href]={"href":href,"pdf_url":urljoin(base,pdf_links[0]["href"]),
+                               "title":title,"authors":authors}
+            time.sleep(.12)
+        nxt=next((a for a in soup.select("a[href]")
+                  if "next 100 works" in clean(a.get_text(" ",strip=True))),None)
+        if not nxt:break
+        listing=urljoin(base,nxt.get("href",""))
+    def priority(item):
+        title=clean(item["title"])
+        score=sum(w in title for w in ("markov","markoff","geodesic","hyperbolic",
+              "simple length","norm ball","farey","ortho","dilogarithm","topograph"))
+        return (score,item["href"])
+    todo=sorted(pending.values(),key=priority,reverse=True)
+    checked_pdf=0
+    for entry in todo:
+        if checked_pdf>=40:break
+        href=entry["href"]
+        try:
+            with session.get(entry["pdf_url"],timeout=35,stream=True) as response:
+                if response.status_code!=200:continue
+                chunks=[];size=0
+                for block in response.iter_content(chunk_size=131072):
+                    size+=len(block)
+                    if size>18_000_000:break
+                    chunks.append(block)
+            if size>18_000_000:
+                errors.append("Hexagon PDF too large: "+href)
+                pdf_done.add(href)
+                pending.pop(href,None)
+                continue
+            data=b"".join(chunks)
+            if not data.startswith(b"%PDF"):continue
+            reader=PdfReader(BytesIO(data),strict=False)
+            tail="\n".join(page.extract_text() or "" for page in
+                           list(reader.pages)[-min(18,len(reader.pages)):])
+            references=bibliography(tail)
+            for p in papers:
+                if p.get("hexagon")==re.search(r"(\d{4}\.\d{5})",href).group(1):continue
+                if references and matches_target(references,p):
+                    new.append({"target":p["id"],"title":entry["title"],
+                                "authors":entry.get("authors",""),"platform":"hexagon",
+                                "id":re.search(r"(\d{4}\.\d{5})",href).group(1),
+                                "verified":True,"source":"Verified in HexagonMath PDF bibliography",
+                                "url":urljoin(base,href)})
+            pdf_done.add(href)
+            pending.pop(href,None)
+            checked_pdf+=1
+        except (requests.RequestException,ValueError,KeyError,Exception) as exc:
+            # Preserve unscanned items for the next run.
+            errors.append("Hexagon PDF "+href+": "+str(exc)[:140])
+            continue
+    STATE.write_text(json.dumps({"hexagon_pages_checked":sorted(checked),
+                                "hexagon_pdf_checked":sorted(pdf_done),
+                                "hexagon_pdf_pending":list(pending.values()),
+                                "last_checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")},
+                                indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     return new
-
 
 def opencitations(p):
     """OpenCitations incoming DOI edges; independent bibliographic index."""
