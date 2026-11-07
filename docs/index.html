@@ -1,65 +1,44 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Papers</title>
-<style>
-*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;color:#25282c;background:#fff;max-width:1600px;margin:0 auto;padding:12px 16px;line-height:1.55}table{width:100%;border-collapse:collapse;table-layout:fixed}th,td{text-align:left;vertical-align:top;padding:14px 10px;border-bottom:1px solid #e7e8ea}th{font-size:13px;font-weight:500;color:#646b73}th:first-child{width:78%}th:nth-child(2){width:15%;text-align:right}th:last-child{width:7%;text-align:right}a{color:#245c9d;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid #245c9d;outline-offset:3px}.paper{font-size:16px}.authors,.venue{font-size:13px;color:#59616a;margin-top:4px}.date{font-size:13px;white-space:nowrap;text-align:right}.citation-count{text-align:right}.citation-toggle{border:0;background:none;color:#245c9d;font:inherit;font-size:14px;padding:0;cursor:pointer}.citation-toggle:before{content:'▸';display:inline-block;margin-right:6px;font-size:12px}.citation-toggle[aria-expanded="true"]:before{content:'▾'}.more-details{margin-top:5px;font-size:13px}.more-details>summary{cursor:pointer;color:#646b73;font-size:12px;width:fit-content}.detail-content{margin:8px 0 2px;max-width:100ch}.abstract{font-size:13px;margin-top:12px;line-height:1.65}.abstract-label{font-size:12px;margin-bottom:4px}.abstract-text{white-space:pre-line;overflow-wrap:anywhere}.abstract-text mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.empty{color:#9a9fa5;font-size:14px}.citing-row[hidden]{display:none}.citing-row>td{padding:2px 10px 18px}.citation-list{padding-left:22px;margin:4px 0 0;font-size:14px}.citation-list>li{margin:0 0 16px;padding-left:3px}.citation-list>li:last-child{margin-bottom:0}.citing-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:start}.citing-title{overflow-wrap:anywhere}.citing-date{font-size:12px;white-space:nowrap;text-align:right;color:#59616a}.totals{padding:17px 10px;font-size:13px;color:#59616a}.totals strong{color:#25282c;font-weight:500}@media(max-width:650px){body{padding:4px}th,td{padding:11px 5px}th:first-child{width:69%}th:nth-child(2){width:20%}th:last-child{width:11%}.paper{font-size:14px}.date{font-size:11px;white-space:normal}.authors,.venue,.abstract{font-size:12px}.more-details>summary{font-size:11px}.citation-toggle{font-size:13px}.citation-toggle:before{margin-right:3px}.citing-row>td{padding:2px 5px 14px}.citation-list{font-size:13px;padding-left:18px}.citing-heading{gap:12px;grid-template-columns:minmax(0,1fr) 78px}.citing-date{font-size:11px;white-space:normal}.totals{padding:14px 5px}}
-</style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nhat Minh Doan (Đoàn Nhật Minh)</title>
+<meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
+<link rel="canonical" href="https://minhmath.github.io/Nhat-Minh-Doan.github.io/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="https://minhmath.github.io/Nhat-Minh-Doan.github.io/"><meta property="og:image" content="https://minhmath.github.io/Nhat-Minh-Doan.github.io/assets/ha-long-bay.jpg">
+<link rel="stylesheet" href="assets/site.css">
+<script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
+<script defer src="assets/site.js" data-catalogue="papers.json" data-papers="papers/"></script>
 </head>
 <body>
-<table aria-label="Papers"><thead><tr><th aria-label="Paper"></th><th title="Earliest documented public posting, rather than the journal issue date">First online</th><th>Cited by</th></tr></thead><tbody id="papers"></tbody></table>
-<div class="totals" id="totals" aria-label="Citation totals"></div>
-<script>
-const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const safe=value=>{try{const url=new URL(value);return ['https:','http:'].includes(url.protocol)?url.href:'#'}catch{return '#'}};
-const link=(url,label,attributes='')=>'<a href="'+esc(safe(url))+'" target="_blank" rel="noopener noreferrer" '+attributes+'>'+esc(label)+'</a>';
-const paperUrl=p=>p.doi?'https://doi.org/'+p.doi:p.arxiv?'https://arxiv.org/abs/'+p.arxiv:p.hexagon?'https://hexagonmath.org/'+p.hexagon:'#';
-const sourceUrl=c=>c.url||(c.arxiv?'https://arxiv.org/abs/'+c.arxiv:c.hexagon?'https://hexagonmath.org/'+c.hexagon:c.platform==='arxiv'?'https://arxiv.org/abs/'+c.id:c.platform==='hexagon'?'https://hexagonmath.org/'+c.id:c.doi?'https://doi.org/'+c.doi:'#');
-const authors=value=>Array.isArray(value)?value.join(', '):String(value||'').split(';').map(s=>s.trim()).filter(Boolean).join(', ');
-const dateText=value=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return '—';return new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(value+'T00:00:00Z'))};
-const newestFirst=(a,b)=>(b.first_online||'').localeCompare(a.first_online||'')||(a.display_title||a.title).localeCompare(b.display_title||b.title);
-const dateLink=p=>p.first_online?link(p.first_online_source||sourceUrl(p),dateText(p.first_online),'title="'+esc(p.first_online_note||'First documented public posting')+'"'):'—';
-const moreDetails=p=>{
- const byline=authors(p.authors);
- const abstract=p.abstract?'<div class="abstract"><div class="abstract-label">'+link(p.abstract_source||sourceUrl(p),p.abstract_kind==='summary'?'Abstract summary':'Abstract')+'</div><div class="abstract-text">'+esc(p.abstract)+'</div></div>':'<div class="abstract">'+link(p.abstract_source||sourceUrl(p),'Abstract')+'</div>';
- return '<details class="more-details"><summary>more details</summary><div class="detail-content">'+(byline?'<div class="authors">'+esc(byline)+'.</div>':'')+(p.venue?'<div class="venue">'+esc(p.venue)+'</div>':'')+abstract+'</div></details>';
-};
-// Mathematics is loaded only when an opened details panel needs it.
-let mathReady,mathQueue=Promise.resolve();
-function loadMath(){
- if(!mathReady)mathReady=new Promise((resolve,reject)=>{
-  window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},startup:{typeset:false}};
-  const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js';script.async=true;
-  script.onload=()=>window.MathJax.startup.promise.then(resolve,reject);script.onerror=reject;document.head.appendChild(script);
- });
- return mathReady;
-}
-const tableBody=document.getElementById('papers');
-tableBody.addEventListener('click',event=>{
- const button=event.target.closest('.citation-toggle');if(!button)return;
- const row=document.getElementById(button.getAttribute('aria-controls'));
- const opening=button.getAttribute('aria-expanded')!=='true';row.hidden=!opening;button.setAttribute('aria-expanded',String(opening));
-});
-tableBody.addEventListener('toggle',event=>{
- const panel=event.target;
- if(!panel.matches('.more-details')||!panel.open||panel.dataset.mathDone)return;
- const abstract=panel.querySelector('.abstract-text');if(!abstract||!/[\$\\]/.test(abstract.textContent))return;
- mathQueue=mathQueue.then(()=>loadMath()).then(()=>window.MathJax.typesetPromise([abstract])).then(()=>{panel.dataset.mathDone='true'}).catch(()=>{});
-},true);
-fetch('ledger.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error();return r.json()}).then(data=>{
- const papers=[...data.papers].sort(newestFirst);
- tableBody.innerHTML=papers.map(p=>{
-  const citations=data.citations.filter(c=>c.target===p.id&&(c.verified||c.listing_confirmed)).sort(newestFirst);
-  const id='cited-'+p.id;
-  const control=citations.length?'<button type="button" class="citation-toggle" aria-expanded="false" aria-controls="'+esc(id)+'" aria-label="'+citations.length+' citing works">'+citations.length+'</button>':'<span class="empty">—</span>';
-  const main='<tr><td><div class="paper">'+link(paperUrl(p),p.display_title||p.title)+'</div>'+moreDetails(p)+'</td><td class="date">'+dateLink(p)+'</td><td class="citation-count">'+control+'</td></tr>';
-  const list=citations.length?'<tr class="citing-row" id="'+esc(id)+'" hidden><td colspan="3"><ol class="citation-list">'+citations.map(c=>'<li><div class="citing-heading"><div class="citing-title">'+link(sourceUrl(c),c.display_title||c.title,'title="'+esc(c.bibliography_status||'Bibliography reference verified')+'"')+'</div><div class="citing-date">'+dateLink(c)+'</div></div>'+moreDetails(c)+'</li>').join('')+'</ol></td></tr>':'';
-  return main+list;
- }).join('');
- document.getElementById('totals').innerHTML='<span>Total citations: <strong>'+data.counts.total_citations+'</strong></span>';
-}).catch(()=>{});
-</script>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+ <a class="site-name" href="./"><img class="site-portrait" src="assets/portrait.png" width="33" height="41" alt="">Nhat Minh Doan (Đoàn Nhật Minh)</a>
+ <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
+ <nav id="site-navigation" class="site-navigation" aria-label="Main navigation">
+  <a href="./" aria-current="page">Homepage</a>
+  <a href="papers/" >Papers</a>
+  <button class="search-open" type="button" aria-label="Search this site"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
+ </nav>
+</header>
+<dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search this site</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label for="site-search-input">Search papers</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>
+<div class="hero" role="img" aria-label="Boats among the limestone islands of Hạ Long Bay"></div>
+<main id="main">
+ <section class="intro content-width" aria-label="About Minh">
+  <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
+  <p>Hello! I am Minh, a researcher at the <a href="https://vast.gov.vn/web/vietnam-academy-of-science-and-technology/institutes1" target="_blank" rel="noopener noreferrer">Institute of Mathematics, VAST</a>. I was a <a href="https://snas.org.sg/saseaffellows" target="_blank" rel="noopener noreferrer">SASEA Research Fellow</a> at the <a href="https://www.math.nus.edu.sg/" target="_blank" rel="noopener noreferrer">National University of Singapore</a> under Prof. <a href="https://sites.google.com/view/serpeowtan/home" target="_blank" rel="noopener noreferrer">Ser Peow Tan</a>. My <a href="https://orbilu.uni.lu/handle/10993/50710" target="_blank" rel="noopener noreferrer">PhD thesis</a> was completed at the <a href="https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/" target="_blank" rel="noopener noreferrer">University of Luxembourg</a> under Prof. <a href="https://homeweb.unifr.ch/parlierh/pub/index.html" target="_blank" rel="noopener noreferrer">Hugo Parlier</a> in 2022.</p>
+  <p>My research focuses on hyperbolic surfaces, length spectra, and related topics. I was introduced to hyperbolic geometry during my Master’s (M2) at the <a href="https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis" target="_blank" rel="noopener noreferrer">University of Nice Sophia Antipolis</a> in 2017, where Prof. <a href="https://flab.perso.math.cnrs.fr/" target="_blank" rel="noopener noreferrer">François Labourie</a> supervised my master’s thesis.</p>
+  <p>Here is my <a href="assets/cv.pdf" target="_blank" rel="noopener">CV</a> and my email address: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
+ </section>
+ <section aria-labelledby="papers-heading">
+  <div class="section-heading"><div class="content-width"><h2 id="papers-heading">Papers</h2></div></div>
+  <div class="content-width publications"><ol reversed start="11"><li value="11" id="paper-density"><div class="publication-title"><a href="https://arxiv.org/abs/2610.24700" target="_blank" rel="noopener noreferrer">Density of length ratios on Teichmüller space</a>.</div><div class="publication-authors">Nhat Minh Doan, <a href="https://hanhv.github.io/" target="_blank" rel="noopener noreferrer">Hanh Vo</a>.</div><div class="publication-venue">arXiv:2610.24700.</div></li><li value="10" id="paper-DLN"><div class="publication-title"><a href="https://arxiv.org/abs/2605.14574" target="_blank" rel="noopener noreferrer">Stable-norm boundary geometry on once-punctured tori</a>.</div><div class="publication-authors">Nhat Minh Doan, Xiaobin Li, Van Nguyen.</div><div class="publication-venue">arXiv:2605.14574. Submitted.</div></li><li value="9" id="paper-graded"><div class="publication-title"><a href="https://arxiv.org/abs/2601.03876" target="_blank" rel="noopener noreferrer">Graded Bridgeman dilogarithm identities on hyperbolic surfaces</a>.</div><div class="publication-authors">Ara Basmajian, Nhat Minh Doan, <a href="https://homeweb.unifr.ch/parlierh/pub/index.html" target="_blank" rel="noopener noreferrer">Hugo Parlier</a>, <a href="https://sites.google.com/view/serpeowtan/home" target="_blank" rel="noopener noreferrer">Ser Peow Tan</a>.</div><div class="publication-venue">arXiv:2601.03876. Submitted.</div></li><li value="8" id="paper-farey"><div class="publication-title"><a href="https://arxiv.org/abs/2601.01324" target="_blank" rel="noopener noreferrer">Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)</a>.</div><div class="publication-authors">Nhat Minh Doan, <a href="https://cayley.kr/" target="_blank" rel="noopener noreferrer">Sang-hyun Kim</a>, <a href="https://arxiv.org/search/?searchtype=author&amp;query=Lang%2C+M+L" target="_blank" rel="noopener noreferrer">Mong Lung Lang</a>, <a href="https://sites.google.com/view/serpeowtan/home" target="_blank" rel="noopener noreferrer">Ser Peow Tan</a>.</div><div class="publication-venue">arXiv:2601.01324. Submitted.</div></li><li value="7" id="paper-arithmetic"><div class="publication-title"><a href="https://doi.org/10.1090/tran/9657" target="_blank" rel="noopener noreferrer">Some arithmetic aspects of ortho-integral surfaces</a>.</div><div class="publication-authors">Nhat Minh Doan, <a href="https://sites.google.com/view/khanhqle" target="_blank" rel="noopener noreferrer">Khanh Le</a>.</div><div class="publication-venue">Trans. AMS, 379 (2026), 6365 - 6392.</div></li><li value="6" id="paper-free"><div class="publication-title"><a href="https://doi.org/10.1007/s10013-025-00762-x" target="_blank" rel="noopener noreferrer">Some remarks on subgroups of free-by-cyclic groups</a>.</div><div class="publication-authors">Nhat Minh Doan, <a href="https://sites.google.com/site/nthoangmath/home" target="_blank" rel="noopener noreferrer">Hoang Thanh Nguyen</a>.</div><div class="publication-venue">Vietnam J. Math., 54, 715 - 728 (2026).</div></li><li value="5" id="paper-arcs"><div class="publication-title"><a href="https://doi.org/10.1112/blms.70088" target="_blank" rel="noopener noreferrer">Self-intersection of arcs on a pair of pants</a>.</div><div class="publication-authors">Nhat Minh Doan, <a href="https://hanhv.github.io/" target="_blank" rel="noopener noreferrer">Hanh Vo</a>.</div><div class="publication-venue">Bull. LMS, 57 (2025), 2190 - 2209.</div></li><li value="4" id="paper-polygons"><div class="publication-title"><a href="https://doi.org/10.1007/s12220-025-02051-y" target="_blank" rel="noopener noreferrer">Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)</a>.</div><div class="publication-authors">Nhat Minh Doan, <a href="https://cayley.kr/" target="_blank" rel="noopener noreferrer">Sang-hyun Kim</a>, <a href="https://arxiv.org/search/?searchtype=author&amp;query=Lang%2C+M+L" target="_blank" rel="noopener noreferrer">Mong Lung Lang</a>, <a href="https://sites.google.com/view/serpeowtan/home" target="_blank" rel="noopener noreferrer">Ser Peow Tan</a>.</div><div class="publication-venue">J. Geom. Anal., Volume 35, 216 (2025).</div></li><li value="3" id="paper-ortho"><div class="publication-title"><a href="https://doi.org/10.1016/j.aim.2025.110162" target="_blank" rel="noopener noreferrer">Ortho-integral surfaces</a>.</div><div class="publication-authors">Nhat Minh Doan.</div><div class="publication-venue">Adv. Math., Volume 466, April 2025, 110162.</div></li><li value="2" id="paper-filling"><div class="publication-title"><a href="https://doi.org/10.1017/S0017089522000404" target="_blank" rel="noopener noreferrer">Geometric filling curves on punctured surfaces</a>.</div><div class="publication-authors">Nhat Minh Doan.</div><div class="publication-venue">Glasgow Math. J., Volume 65, Issue 2, May 2023, pp. 383 - 400.</div></li><li value="1" id="paper-pants"><div class="publication-title"><a href="https://doi.org/10.1090/tran/8893" target="_blank" rel="noopener noreferrer">Measuring pants</a>.</div><div class="publication-authors">Nhat Minh Doan, <a href="https://homeweb.unifr.ch/parlierh/pub/index.html" target="_blank" rel="noopener noreferrer">Hugo Parlier</a>, <a href="https://sites.google.com/view/serpeowtan/home" target="_blank" rel="noopener noreferrer">Ser Peow Tan</a>.</div><div class="publication-venue">Trans. AMS, 376 (2023), 5281 - 5306.</div></li></ol></div>
+ </section>
+ <section aria-labelledby="other-heading">
+  <div class="section-heading"><div class="content-width"><h2 id="other-heading">Other writings</h2></div></div>
+  <div class="content-width publications"><ol><li value="1" id="paper-SSC"><div class="publication-title"><a href="https://hexagonmath.org/2610.00298" target="_blank" rel="noopener noreferrer">Almost all simple lengths are unique up to isometry</a>.</div><div class="publication-authors">Nhat Minh Doan.</div><div class="publication-venue">hexagon:2610.00298v1.</div></li><li value="2" id="paper-DDD"><div class="publication-title"><a href="https://hexagonmath.org/2610.00159" target="_blank" rel="noopener noreferrer">The torus with asymptotically the fewest simple closed geodesics</a>.</div><div class="publication-authors">Phuc Thinh Dang, Trong Toan Dao, Nhat Minh Doan.</div><div class="publication-venue">hexagon:2610.00159v1.</div></li></ol></div>
+ </section>
+</main>
+<footer class="content-width"><a href="https://sites.google.com/view/nhatminhdoan" target="_blank" rel="noopener noreferrer">Online Seminar</a></footer>
 </body>
 </html>

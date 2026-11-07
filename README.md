@@ -1,6 +1,8 @@
-# Papers and citation sources
+# Nhat Minh Doan — personal website
 
-The [public page](https://minhmath.github.io/Nhat-Minh-Doan.github.io/) lists papers, authors, publication details, First online dates, and a Cited by column. Each number opens the citing works, including authors and publication details. Paper details follow the author’s homepage. The First online column links to the earliest documented public posting, and the list runs from newest to oldest. Citation totals appear at the bottom. The document and iframe title are `Papers`.
+The [personal homepage](https://minhmath.github.io/Nhat-Minh-Doan.github.io/) preserves the Google Site’s blue navigation, Hạ Long Bay banner, serif typography, biography, paper lists, and seminar link. The public CV is hosted in [docs/assets/cv.pdf](docs/assets/cv.pdf). `scripts/build_site.py` rebuilds the homepage from the shared publication catalogue during every deployment. Search, navigation, and layouts work on desktop and mobile.
+
+The [Papers page](https://minhmath.github.io/Nhat-Minh-Doan.github.io/papers/) lists papers, authors, publication details, First online dates, and a Cited by column. Each number opens the citing works, including authors and publication details. Paper details follow the author’s homepage. The First online column links to the earliest documented public posting, and the list runs from newest to oldest. Citation totals appear at the bottom. The standalone [embed](https://minhmath.github.io/Nhat-Minh-Doan.github.io/embed.html) retains the minimal `Papers` view. Existing embeds of the root URL are redirected to that view when opened inside an iframe.
 
 The [citation report](CITATIONS.md) and [normalized ledger](docs/ledger.json) contain counts, evidence, and collection limitations. The bibliography-verified count is a lower bound; separately marked Google Scholar listings await full-text verification. Missing coverage does not establish zero citations.
 
@@ -21,7 +23,7 @@ Optional API keys can be stored as repository secrets named `OPENALEX_API_KEY`, 
 ## Google Sites embed
 
 ```html
-<iframe src="https://minhmath.github.io/Nhat-Minh-Doan.github.io/" title="Papers" width="100%" height="900" style="border:0;"></iframe>
+<iframe src="https://minhmath.github.io/Nhat-Minh-Doan.github.io/embed.html" title="Papers" width="100%" height="1500" style="border:0;"></iframe>
 ```
 
 ## Local checks
@@ -31,6 +33,7 @@ python -m pip install -r requirements.txt
 python -m unittest -v test_citation_agent
 python citation_agent.py
 python generate_report.py
+python scripts/build_site.py
 python -m http.server 8000 --directory docs
 ```
 

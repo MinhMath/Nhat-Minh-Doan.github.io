@@ -1,9 +1,10 @@
-name: Publish citation dashboard
+name: Publish personal website
 on:
   push:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'scripts/build_site.py'
       - '.github/workflows/publish.yml'
   workflow_run:
     workflows: ["Daily citation audit"]
@@ -33,13 +34,15 @@ jobs:
           python-version: "3.12"
       - name: Build normalized citation ledger
         run: python generate_report.py
+      - name: Build personal homepage
+        run: python scripts/build_site.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Package static dashboard
+      - name: Package personal website
         uses: actions/upload-pages-artifact@v4
         with:
           path: docs
-      - name: Deploy dashboard
+      - name: Deploy personal website
         id: deploy
         uses: actions/deploy-pages@v4
 

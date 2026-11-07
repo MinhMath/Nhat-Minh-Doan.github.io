@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://minhmath.github.io/Nhat-Minh-Doan.github.io/sitemap.xml
