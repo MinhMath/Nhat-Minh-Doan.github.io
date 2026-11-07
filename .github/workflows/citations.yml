@@ -17,6 +17,8 @@ jobs:
           python-version: "3.12"
       - name: Install Python packages
         run: python -m pip install -r requirements.txt
+      - name: Check collector syntax
+        run: python -m py_compile citation_agent.py
       - name: Refresh indexed citation candidates
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
