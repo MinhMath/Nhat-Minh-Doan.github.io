@@ -113,7 +113,12 @@
       "Mong Lung Lang",
       "Ser Peow Tan"
     ],
-    "year": 2025
+    "year": 2025,
+    "arxiv": "2209.13937",
+    "aliases": [
+      "Optimal independent generating system for the congruence subgroups Γ_0(p) and Γ_0(p^2)",
+      "Optimal independent generating system for the congruence subgroups Gamma_0(p) and Gamma_0(p^2)"
+    ]
   },
   {
     "id": "ortho",
