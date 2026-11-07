@@ -34,5 +34,42 @@
     "doi": "10.1007/s00208-022-02365-0",
     "platform": "arxiv",
     "id": "1909.09829"
+  },
+  {
+    "title": "Equidistribution of $q$-orbits of closed geodesics",
+    "authors": "Asbjørn Christian Nordentoft",
+    "arxiv": "2305.18625",
+    "doi": "10.4171/cmh/621",
+    "platform": "arxiv",
+    "id": "2305.18625",
+    "url": "https://arxiv.org/abs/2305.18625"
+  },
+  {
+    "title": "The entropy spectrum of hyperbolic surfaces",
+    "authors": "Ara Basmajian; Hugo Parlier",
+    "arxiv": "2608.20143",
+    "doi": "10.48550/arxiv.2608.20143",
+    "platform": "arxiv",
+    "id": "2608.20143",
+    "url": "https://arxiv.org/abs/2608.20143"
+  },
+  {
+    "title": "On the Burau representation of $B_3$ modulo $p$",
+    "authors": "Donsung Lee",
+    "arxiv": "2406.14538",
+    "doi": "10.48550/arxiv.2406.14538",
+    "platform": "arxiv",
+    "id": "2406.14538",
+    "url": "https://arxiv.org/abs/2406.14538"
+  },
+  {
+    "title": "Sparse equidistribution of geometric invariants of real quadratic fields",
+    "authors": "Peter Humphries; Asbjørn Christian Nordentoft",
+    "arxiv": "2211.05890",
+    "doi": "10.4171/jems/1691",
+    "platform": "doi",
+    "id": "10.4171/jems/1691",
+    "url": "https://doi.org/10.4171/jems/1691",
+    "pdf_url": "https://ems.press/content/serial-article-files/54050"
   }
 ]

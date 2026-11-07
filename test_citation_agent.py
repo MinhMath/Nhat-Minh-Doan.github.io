@@ -130,6 +130,45 @@ class CitationLedgerTests(unittest.TestCase):
         filling=next(x for x in PAPERS if x["id"]=="filling")
         self.assertTrue(matches_target("[20] N. M. Doan. Geometric filling curves on punc-\ntured surfaces. Glasgow Mathematical Journal, 2023.",filling))
 
+    def test_publisher_math_glyph_loss_keeps_distinctive_prose(self):
+        p={**next(x for x in PAPERS if x["id"]=="polygons"),
+           "reference_title_prefixes":["Optimal special polygons for the congruence subgroups"]}
+        self.assertTrue(matches_target("[15] Doan, N. M., Kim, S.-h., Lang, M. L., Tan, S. P.: Optimal special polygons for the congruence subgroups\x800.p/ and\x800.pq/. J. Geom. Anal. 35, 216 (2025)",p))
+
+    def test_hexagon_view_pdf_and_metadata_are_recognized(self):
+        from bs4 import BeautifulSoup
+        html=BeautifulSoup('<a href="/pdf/2610.00159v1">View PDF</a>','html.parser')
+        self.assertEqual(agent.hexagon_pdf_url(html),"https://hexagonmath.org/pdf/2610.00159v1")
+        html=BeautifulSoup('<meta name="citation_pdf_url" content="https://hexagonmath.org/pdf/2610.00159v1">','html.parser')
+        self.assertEqual(agent.hexagon_pdf_url(html),"https://hexagonmath.org/pdf/2610.00159v1")
+
+    def test_fulltext_match_does_not_require_an_indexed_citation_edge(self):
+        p=next(x for x in PAPERS if x["id"]=="pants")
+        work={"id":"https://openalex.org/W7203875419","display_name":"The entropy spectrum of hyperbolic surfaces",
+              "doi":"https://doi.org/10.48550/arxiv.2608.20143","authorships":[{"author":{"display_name":"Ara Basmajian"}}],
+              "locations":[{"landing_page_url":"https://arxiv.org/abs/2608.20143","pdf_url":"https://arxiv.org/pdf/2608.20143"}]}
+        candidate=agent.openalex_search_candidate(p,work)
+        self.assertEqual(candidate["arxiv"],"2608.20143")
+        self.assertFalse(candidate["verified"])
+        self.assertEqual(candidate["candidate_type"],"fulltext_search")
+
+    def test_publisher_reference_to_unpublished_arithmetic_work(self):
+        source={"title":"Ortho-integral surfaces","authors":"Nhat Minh Doan",
+                "doi":"10.1016/j.aim.2025.110162","arxiv":"2112.10694"}
+        metadata={"DOI":source["doi"],"reference":[{
+            "key":"10.1016/j.aim.2025.110162_br0200",
+            "unstructured":"N.M. Doan, K. Le, Some arithmetic aspects of ortho-integral surfaces, in preparation."}]}
+        findings=agent.crossref_reference_findings(source,metadata)
+        self.assertEqual([r["target"] for r in findings],["arithmetic"])
+        self.assertTrue(findings[0]["verified"])
+        self.assertEqual(findings[0]["evidence_locator"],metadata["reference"][0]["key"])
+
+    def test_publisher_counts_and_recommendations_do_not_verify_references(self):
+        source={"title":"A related paper","authors":"Another Author","doi":"10.1234/example"}
+        metadata={"DOI":source["doi"],"is-referenced-by-count":5,
+                  "title":["Measuring pants"],"reference":[]}
+        self.assertEqual(agent.crossref_reference_findings(source,metadata),[])
+
 if __name__=="__main__":
     unittest.main()
 

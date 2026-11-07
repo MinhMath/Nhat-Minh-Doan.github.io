@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-07T03:07:41+00:00",
+  "generated_utc": "2026-11-07T03:39:23+00:00",
   "collection_status": "partial",
   "sources": {
     "known_bibliographies": {
@@ -29,11 +29,40 @@
     "zenodo": {
       "status": "completed_requests",
       "verified_records": 0
+    },
+    "manual_reference_audit": {
+      "status": "completed_targeted_search",
+      "new_verified_records": 5,
+      "checked_utc": "2026-11-07T03:39:23+00:00",
+      "platforms": [
+        "arXiv",
+        "HexagonMath",
+        "Zenodo",
+        "ResearchGate",
+        "publisher PDFs",
+        "publisher-deposited Crossref references"
+      ],
+      "note": "Five additional bibliography relationships verified. Two Measuring pants references and one Geometric filling curves reference visible in the supplied Scholar totals remain unresolved."
+    },
+    "hexagon_catalogue_audit": {
+      "status": "partial_pdf_parsing",
+      "catalogue_works": 751,
+      "html_pages_checked": 751,
+      "pdfs_checked": 25,
+      "pdf_bibliographies_parsed": 22,
+      "pending_pdf_parsing": 3,
+      "checked_utc": "2026-11-07T03:39:23+00:00"
+    },
+    "manual_zenodo_search": {
+      "status": "completed_targeted_search",
+      "queries": 5,
+      "new_verified_records": 0,
+      "note": "The sole text-search hit was an unrelated gait paper and was excluded."
     }
   },
   "citations": [],
   "errors": [
     "api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run"
   ],
-  "warning": "Indexed edges are candidates. Partial or failed coverage is not evidence of zero citations."
+  "warning": "Verified references are lower bounds. Search matches and platform totals are not accepted as bibliography evidence."
 }

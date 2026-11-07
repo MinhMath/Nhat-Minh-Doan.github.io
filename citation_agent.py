@@ -126,6 +126,49 @@ def openalex(p):
             time.sleep(.15)
     return out
 
+
+def openalex_search_candidate(p,work):
+    title=work.get("display_name") or work.get("title")
+    if not title:return None
+    doi=(work.get("doi") or "").removeprefix("https://doi.org/")
+    locations=work.get("locations") or []
+    aid=""
+    for location in locations:
+        for url in (location.get("landing_page_url"),location.get("pdf_url")):
+            match=re.search(r"arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})",url or "")
+            if match:aid=match.group(1);break
+        if aid:break
+    if not aid:
+        match=re.match(r"10\.48550/arxiv\.(\d{4}\.\d{4,5})",doi,re.I)
+        if match:aid=match.group(1)
+    pdf=next((loc.get("pdf_url") for loc in locations if loc.get("pdf_url")),"")
+    candidate={"target":p["id"],"title":title,
+               "authors":"; ".join(a.get("author",{}).get("display_name","") for a in work.get("authorships",[])),
+               "doi":doi,"arxiv":aid,"pdf_url":pdf,"platform":"openalex",
+               "id":work.get("id","").split("/")[-1],"url":work.get("doi") or work.get("id"),
+               "source":"OpenAlex full-text search match; bibliography not yet checked",
+               "candidate_type":"fulltext_search","verified":False}
+    return None if same_as_target(p,candidate) else candidate
+
+
+def openalex_fulltext(p):
+    """A full-text mention can reveal references missing from citation graphs."""
+    headers={"Authorization":"Bearer "+os.environ["OPENALEX_API_KEY"]} if os.getenv("OPENALEX_API_KEY") else {}
+    queries=[p["title"]]+p.get("aliases",[])[:2]
+    if p["id"]=="polygons":queries.append("Optimal independent generating system")
+    start_year=min(p.get("year",2100),2000+int(p["arxiv"][:2]) if p.get("arxiv") else 2100)
+    out=[]
+    for title in queries:
+        if not within_budget():break
+        query='"'+title+'"'+(" Doan" if len(clean(title))<=40 else "")
+        data=get("https://api.openalex.org/works",{"search":query,"per_page":25},headers)
+        if not isinstance(data,dict):continue
+        for work in data.get("results",[]):
+            if work.get("publication_year",0)<start_year:continue
+            candidate=openalex_search_candidate(p,work)
+            if candidate:out.append(candidate)
+    return merged(out)
+
 def semantic(p):
     out=[]
     ids=(["ARXIV:"+p["arxiv"]] if p.get("arxiv") else [])+(["DOI:"+p["doi"]] if p.get("doi") else [])
@@ -180,6 +223,13 @@ def matches_target(text,p):
             identifier=p.get(key)
             suffix=r"(?:v\d+)?(?![a-z0-9])" if key in ("arxiv","hexagon") else r"(?![a-z0-9])"
             if identifier and re.search(r"(?<![a-z0-9])"+re.escape(clean(identifier))+suffix,compact):
+                return True
+        # Mathematical glyphs in publisher PDFs can be missing or corrupt.
+        # A curated distinctive prose prefix plus the author keeps these
+        # references identifiable without fuzzy matching whole bibliographies.
+        for prefix in p.get("reference_title_prefixes",[]):
+            normalized=clean(prefix)
+            if len(normalized)>=40 and normalized.replace(" ","") in joined and re.search(r"\bdoan\b",compact):
                 return True
         for variant in [p["title"]]+p.get("aliases",[]):
             normalized=clean(variant)
@@ -278,12 +328,57 @@ def inspect_arxiv_pdf(p,c):
 def bibliography_sources():
     sources=[]
     for paper in PAPERS:
-        if paper.get("arxiv"):
-            sources.append({**paper,"platform":"arxiv","id":paper["arxiv"],
+        if paper.get("arxiv") or paper.get("doi"):
+            sources.append({**paper,"platform":"arxiv" if paper.get("arxiv") else "doi","id":paper.get("arxiv") or paper["doi"],
                             "authors":"; ".join(paper.get("authors",[]))})
     extra=DIR/"citing_sources.json"
     if extra.exists():sources.extend(json.loads(extra.read_text(encoding="utf-8")))
     return sources
+
+
+def crossref_reference_findings(source,metadata):
+    """Inspect publisher-deposited references, rather than citation counts."""
+    from hashlib import sha256
+    doi=metadata.get("DOI") or source.get("doi")
+    if not doi:return []
+    out=[]
+    for reference in metadata.get("reference",[]):
+        # Preserve fields within one reference; never combine adjacent entries.
+        excerpt=reference.get("unstructured") or "; ".join(
+            str(reference[key]) for key in ("author","article-title","series-title","journal-title","year","volume","first-page","DOI")
+            if reference.get(key))
+        for paper in PAPERS:
+            if same_as_target(paper,source) or not matches_target(excerpt,paper):continue
+            out.append({**source,"target":paper["id"],"doi":doi,"verified":True,
+                        "url":source.get("url") or "https://doi.org/"+doi,
+                        "source":"Verified in publisher-deposited Crossref bibliography",
+                        "evidence_url":"https://api.crossref.org/works/"+doi,
+                        "evidence_locator":reference.get("key",""),
+                        "evidence_excerpt":excerpt,
+                        "evidence_sha256":sha256(json.dumps(reference,sort_keys=True).encode()).hexdigest(),
+                        "checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")})
+    return merged(out)
+
+
+def scan_publisher_bibliographies(candidates,verified):
+    status=sources.setdefault("publisher_bibliographies",{"status":"running","papers_checked":0,"verified_records":0})
+    seen=set()
+    for source in bibliography_sources():
+        doi=source.get("doi","")
+        if not doi or doi.lower().startswith("10.48550/") or doi.lower() in seen:continue
+        if not within_budget():
+            status["status"]="deferred_time_budget"
+            break
+        seen.add(doi.lower())
+        response=get("https://api.crossref.org/works/"+quote(doi,safe="/"))
+        metadata=response.get("message",{}) if isinstance(response,dict) else {}
+        if not metadata.get("reference"):continue
+        status["papers_checked"]+=1
+        findings=crossref_reference_findings(source,metadata)
+        verified.extend(findings)
+        status["verified_records"]+=len(findings)
+        checkpoint(candidates,verified,"running")
+    else:status["status"]="completed_requests"
 
 
 def scan_known_bibliographies(candidates,verified):
@@ -310,6 +405,16 @@ def scan_known_bibliographies(candidates,verified):
         checkpoint(candidates,verified,"running")
     else:status["status"]="completed_requests"
 
+
+def hexagon_pdf_url(document,base="https://hexagonmath.org"):
+    from urllib.parse import urljoin
+    meta=document.select_one('meta[name="citation_pdf_url"]')
+    if meta and meta.get("content"):return urljoin(base,meta["content"])
+    for link in document.select("a[href]"):
+        if clean(link.get_text(" ",strip=True)) in ("pdf","view pdf","download pdf"):
+            return urljoin(base,link["href"])
+    return ""
+
 def hexagon_scan(papers):
     """Check Hexagon HTML reference lists, plus a rotating queue of PDF bibliographies.
 
@@ -327,7 +432,8 @@ def hexagon_scan(papers):
         state=json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
     except ValueError:
         state={}
-    completed=set(state.get("hexagon_pages_checked",[]))
+    completed=set(state.get("hexagon_pages_checked",[])) if state.get("hexagon_html_schema")==2 else set()
+    listing=state.get("hexagon_catalog_next") or listing
     pdf_done=set(state.get("hexagon_pdf_checked",[]))
     pending={r["href"]:r for r in state.get("hexagon_pdf_pending",[]) if isinstance(r,dict) and r.get("href")}
     checked=set(completed)
@@ -347,7 +453,7 @@ def hexagon_scan(papers):
             if not within_budget():break
             href=a.get("href","")
             m=re.fullmatch(r"/(\d{4}\.\d{5})(?:v\d+)?",href)
-            if not m or href in completed:continue
+            if not m or href in completed or href in checked:continue
             try:
                 resp=session.get(urljoin(base,href),timeout=25)
                 if resp.status_code!=200:continue
@@ -357,16 +463,9 @@ def hexagon_scan(papers):
             checked.add(href)
             title=doc.find("h1").get_text(" ",strip=True) if doc.find("h1") else href
             text=doc.get_text("\n",strip=True)
-            names=re.search(r"Contributed by\s*\n([^\n]+)",text)
-            authors=names.group(1) if names else ""
-            headings=[h for h in doc.find_all(["h2","h3"]) if clean(h.get_text(" ",strip=True))=="references"]
-            refs=[]
-            if headings:
-                for node in headings[-1].next_elements:
-                    if getattr(node,"name",None) in ("h2","h3"):break
-                    if getattr(node,"name",None)=="li":
-                        entry=node.get_text(" ",strip=True)
-                        if len(entry)>15:refs.append(entry)
+            names=[meta.get("content","") for meta in doc.select('meta[name="citation_author"]')]
+            authors="; ".join(names)
+            refs=[node.get_text(" ",strip=True) for node in doc.select("#bibliography li")]
             for p in papers:
                 if p.get("hexagon")==m.group(1):continue
                 if any(matches_target(ref,p) for ref in refs):
@@ -378,16 +477,15 @@ def hexagon_scan(papers):
                                 "evidence_excerpt":next((ref[:650] for ref in refs if matches_target(ref,p)),""),
                                 "checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")})
             # The HTML bibliography may be empty despite citations in the PDF.
-            pdf_links=[link for link in doc.select("a[href]")
-                       if ("pdf"==clean(link.get_text(" ",strip=True))
-                           or "download pdf" in clean(link.get_text(" ",strip=True)))]
-            if pdf_links and href not in pdf_done:
-                pending[href]={"href":href,"pdf_url":urljoin(base,pdf_links[0]["href"]),
-                               "title":title,"authors":authors}
+            pdf_url=hexagon_pdf_url(doc,base)
+            if pdf_url and not refs and href not in pdf_done:
+                pending[href]={"href":href,"pdf_url":pdf_url,"title":title,"authors":authors}
             time.sleep(.12)
         nxt=next((a for a in soup.select("a[href]")
                   if "next 100 works" in clean(a.get_text(" ",strip=True))),None)
-        if not nxt:break
+        if not nxt:
+            listing=None
+            break
         listing=urljoin(base,nxt.get("href",""))
     def priority(item):
         title=clean(item["title"])
@@ -446,7 +544,8 @@ def hexagon_scan(papers):
             # Preserve unscanned items for the next run.
             record_error("Hexagon PDF "+href+": "+str(exc)[:140])
             continue
-    STATE.write_text(json.dumps({"hexagon_pages_checked":sorted(checked),
+    STATE.write_text(json.dumps({"hexagon_html_schema":2,"hexagon_catalog_next":listing,
+                                "hexagon_pages_checked":sorted(checked),
                                 "hexagon_pdf_checked":sorted(pdf_done),
                                 "hexagon_pdf_pending":list(pending.values()),
                                 "last_checked_utc":datetime.now(timezone.utc).isoformat(timespec="seconds")},
@@ -495,7 +594,7 @@ def zenodo_pdf_scan(papers):
                 title=meta.get("title","")
                 if not title or clean(title)==clean(p["title"]):continue
                 description=BeautifulSoup(meta.get("description",""),"html.parser").get_text(" ",strip=True)
-                if not matches_target(description,p):continue
+                # A matching record can cite the target only inside its PDF.
                 for file in item.get("files",[]):
                     if count>=5:break
                     if not str(file.get("key","")).lower().endswith(".pdf"):continue
@@ -538,7 +637,7 @@ def checkpoint(candidates,verified,status):
     atomic_json(DEST,{"generated_utc":datetime.now(timezone.utc).isoformat(timespec="seconds"),
                      "collection_status":status,"sources":sources,
                      "citations":candidates,"errors":errors[-100:],
-                     "warning":"Indexed edges are candidates. Partial or failed coverage is not evidence of zero citations."})
+                     "warning":"Search matches and indexed edges remain candidates until a bibliography is checked. Partial or failed coverage is not evidence of zero citations."})
 
 
 def main():
@@ -561,13 +660,14 @@ def main():
     ordered=PAPERS[offset:]+PAPERS[:offset]
     last_offset=offset
     try:
+        scan_publisher_bibliographies(candidates,verified)
         scan_known_bibliographies(candidates,verified)
         for number,p in enumerate(ordered):
             if not within_budget():break
             last_offset=(offset+number+1)%len(PAPERS)
-            for func in (openalex,semantic,opencitations):
+            for func in (openalex,openalex_fulltext,semantic,opencitations):
                 if not within_budget():break
-                host={"openalex":"api.openalex.org","semantic":"api.semanticscholar.org","opencitations":"api.opencitations.net"}[func.__name__]
+                host={"openalex":"api.openalex.org","openalex_fulltext":"api.openalex.org","semantic":"api.semanticscholar.org","opencitations":"api.opencitations.net"}[func.__name__]
                 status=sources.setdefault(func.__name__,{"papers_attempted":0,"new_records":0,"status":"running"})
                 if host in failed_hosts:
                     status["status"]="deferred_after_error"
@@ -591,11 +691,19 @@ def main():
                             and not matches_target(c.get("evidence_excerpt",""),p)]
             for c in merged(c for c in candidates+retry_evidence if c.get("target")==p["id"]):
                 if not within_budget():break
-                if (c.get("arxiv") or c.get("platform")=="arxiv") and attempted<12:
+                if attempted>=12:break
+                if c.get("arxiv") or c.get("platform")=="arxiv":
                     attempted+=1
                     if not c.get("arxiv"):c["arxiv"]=c["id"]
                     finding=inspect_arxiv_pdf(p,c)
                     if finding:verified.append(finding)
+                elif c.get("pdf_url"):
+                    attempted+=1
+                    document=pdf_bibliography(c["pdf_url"])
+                    if document and matches_target(document["references"],p):
+                        verified.append({**c,**{k:v for k,v in document.items() if k!="references"},
+                                         "verified":True,"source":"Verified in public PDF bibliography",
+                                         "evidence_excerpt":evidence_excerpt(document["references"],p)})
             checkpoint(candidates,verified,"running")
         for label,func in (("hexagon",hexagon_scan),("zenodo",zenodo_pdf_scan)):
             if not within_budget():

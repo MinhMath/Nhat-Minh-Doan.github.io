@@ -38,10 +38,10 @@ def main():
     verified=[r for r in rows if r["verified"]]
     candidates=[r for r in rows if not r["verified"]]
     lines=["# Citation evidence — Nhat Minh Doan","",
-           "> **Verified lower bound, not an exact worldwide total.** Inspected references and indexed candidates are counted separately. A missing or failed source is not evidence of zero citations.","",
-           f"**Verified relationships:** {counts['verified']} | **Independent verified:** {counts['independent']} | **Distinct verified citing works:** {counts['unique_citing_works']} | **Indexed-only candidates:** {counts['candidates']} | **Papers tracked:** {counts['papers']}","",
+           "> **Verified lower bound, not an exact worldwide total.** Verified references and unverified discoveries are recorded separately. A missing or failed source is not evidence of zero citations.","",
+           f"**Verified relationships:** {counts['verified']} | **Independent verified:** {counts['independent']} | **Distinct verified citing works:** {counts['unique_citing_works']} | **Unverified candidates:** {counts['candidates']} | **Papers tracked:** {counts['papers']}","",
            f"Collection status: **{ledger['collection_status']}**. Last saved discovery: {ledger['generated_utc'] or 'not yet completed'}.","",
-           "| Canonical paper | Verified citations | Indexed candidates |","|---|---:|---:|"]
+           "| Canonical paper | Verified citations | Unverified candidates |","|---|---:|---:|"]
     for p in sorted(papers,key=lambda p:sum(r["target"]==p["id"] for r in verified),reverse=True):
         label=name(p["title"])
         url=link(p)

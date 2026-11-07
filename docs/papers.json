@@ -150,7 +150,10 @@
     "section": "papers",
     "display_number": 4,
     "venue": "Journal of Geometric Analysis 35 (2025), Article 216.",
-    "display_title": "Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)"
+    "display_title": "Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)",
+    "reference_title_prefixes": [
+      "Optimal special polygons for the congruence subgroups"
+    ]
   },
   {
     "id": "ortho",

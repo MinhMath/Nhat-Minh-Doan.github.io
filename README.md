@@ -1,62 +1,35 @@
-# Nhat Minh Doan — automatic citation evidence audit
+# Papers and citation sources
 
-This repository contains an immediately accessible [citation report](CITATIONS.md), a minimal [papers list](docs/index.html), and a daily GitHub Actions collector for the mathematical publications of Nhat Minh Doan. This is an evidence-backed **lower bound**, not a claim to know an exact worldwide citation total.
+The [public page](https://minhmath.github.io/Nhat-Minh-Doan.github.io/) contains only paper title links and a Sources column. Each number opens the list of verified citing papers. The document and iframe title are `Papers`.
 
-## What is monitored
+The [citation report](CITATIONS.md) and [normalized ledger](docs/ledger.json) contain counts, evidence, and collection limitations. These are verified lower bounds. Missing coverage does not establish zero citations.
 
-- Canonical publications and aliases: [docs/papers.json](docs/papers.json)
-- Human-readable GitHub report: [CITATIONS.md](CITATIONS.md)
-- Verified citation relationships with source links: [docs/verified.json](docs/verified.json)
-- Indexed-only discoveries and errors: [docs/discovered.json](docs/discovered.json)
-- Collector: [citation_agent.py](citation_agent.py)
-- Scheduled GitHub Action: [.github/workflows/citations.yml](.github/workflows/citations.yml)
+## Discovery and verification
 
-The collector checks **OpenAlex, Semantic Scholar, OpenCitations, HexagonMath and targeted Zenodo and arXiv PDF bibliographies**. Indexed links are candidates until their bibliography is checked. Shared identifiers and exact long title/author matches merge publisher and preprint versions transitively. Changed titles or incomplete metadata can still require manual review. Google Scholar and ResearchGate are not automatically scraped.
+The collector searches OpenAlex, Semantic Scholar, OpenCitations, HexagonMath, Zenodo, and known arXiv bibliographies. Full-text search can reveal citing papers whose citation edges are absent from an index. Search matches remain unverified candidates until a bibliography confirms the relationship. ResearchGate and Google Scholar totals are comparison data rather than evidence of individual references.
 
-There are **13 provisional canonical works** and **7 manually verified citation relationships** in the starter ledger (DLN 6, DDD 1). The starting count is not a completed live census, and further papers and alias corrections may be necessary.
+Verification uses public PDFs, HexagonMath HTML bibliographies, and publisher-deposited Crossref reference entries. Published references can differ from the arXiv version. Verified records retain the reference excerpt, evidence URL, date, and available version or hash. Exact identifiers and title/author matches merge versions of the same citing work. A work citing two target papers contributes two relationships and one distinct citing work.
 
-## Activate daily scans
+The target catalogue and title aliases are in [docs/papers.json](docs/papers.json). Known citing manuscripts are in [docs/citing_sources.json](docs/citing_sources.json). New relationships are saved in [docs/verified.json](docs/verified.json); unverified discoveries and errors are in [docs/discovered.json](docs/discovered.json). The HexagonMath scan continues through catalogue pages across runs and checks PDF links when HTML references are absent.
 
-1. Basic OpenAlex requests are attempted without a key. A free key stored as `OPENALEX_API_KEY` at **Repository Settings → Secrets and variables → Actions** raises the available request budget. A Semantic Scholar key can be stored as `SEMANTIC_SCHOLAR_API_KEY`. Authentication failures and rate limits are reported as missing coverage.
-2. At **Actions → Daily citation audit**, enable workflows if necessary and choose **Run workflow** for the first scan. The collector also attempts to start on source-code changes. The scheduled run is **08:23 Vietnam time** every day (01:23 UTC). GitHub does not guarantee exact scheduled-start times.
-3. Enable **Settings → Pages → Build and deployment → Source: GitHub Actions** and save. The separate `Publish citation dashboard` workflow deploys the `/docs` folder after changes or a completed audit. The expected address, once Pages has published, is https://minhmath.github.io/Nhat-Minh-Doan.github.io/
-4. Embed the published URL into https://sites.google.com/view/dnminh/homepage using **Insert → Embed**.
+## Scheduled updates
 
-## Definitions
+The GitHub audit runs daily at 08:23 Vietnam time, subject to GitHub scheduling delays. Each run has a seven-minute discovery budget, saves partial results, and rotates the starting target. API failures are recorded as incomplete coverage. The separate publishing workflow updates GitHub Pages after changes and completed audits.
 
-A verified citation relationship is a distinct citing work mentioning a given target paper in its bibliography. If a citing paper references two of your papers, it contributes **two relationships**, not one. References in different versions of the same citing paper should count once. The dashboard shows independent verified citations separately from papers authored by Doan.
+Optional API keys can be stored as repository secrets named `OPENALEX_API_KEY`, `SEMANTIC_SCHOLAR_API_KEY`. No Google account credentials are needed.
 
-A plain-text citation report is also generated after each scan and remains accessible in GitHub even before Pages is enabled. The HexagonMath scan records successfully checked versions in `docs/scan_state.json` so later runs concentrate on newly added versions. The automated collector is a **best-effort supplementary discovery system**: APIs can rate-limit, HTML layouts can change, and full-text coverage is incomplete. Inspect any unexpected discoveries before treating the counts as definitive.
+## Google Sites embed
 
-## Manual correction
+```html
+<iframe src="https://minhmath.github.io/Nhat-Minh-Doan.github.io/" title="Papers" width="100%" height="900" style="border:0;"></iframe>
+```
 
-Edit `docs/papers.json` to add or correct target works; record old titles under `aliases`. Edit `docs/verified.json` only after checking a real bibliography or underlying reference data. Each entry should contain `target`, `title`, `authors`, `platform`, `id`, `source`, `verified: true`, and ideally `url`.
-
-## Local run
+## Local checks
 
 ```bash
 python -m pip install -r requirements.txt
-python -m py_compile citation_agent.py
+python -m unittest -v test_citation_agent
 python citation_agent.py
+python generate_report.py
 python -m http.server 8000 --directory docs
 ```
-
-Open http://localhost:8000. This repository is distinct from the more extensive downloadable prototype supplied in the ChatGPT conversation.
-
-
-
-## Reliability and counting
-
-The collector saves atomic checkpoints after each source/target request. Each scheduled run has a seven-minute discovery budget and rotates the first target paper to avoid starving older publications. Failed hosts are deferred until the next run. The report and dashboard both use `docs/ledger.json`, generated by `generate_report.py` with shared identity rules in `citation_identity.py`. New automatic verifications retain a reference excerpt and evidence URL. Interrupted runs preserve partial results, and the workflow uploads an audit snapshot even when committing the results fails.
-
-The verified seed contains seven relationships across six citing works: four independent relationships and three with shared authors. This seed was inherited from the preceding manual audit; it is not a fresh, exhaustive census. Missing authorship is reported as unknown. Duplicate references inside one bibliography count once per target paper.
-
-The dashboard is published at https://minhmath.github.io/Nhat-Minh-Doan.github.io/. The first revised audit completed successfully on 7 November 2026 and recorded nine verified relationships, five independent relationships, eight distinct citing works, and one indexed candidate. Semantic Scholar rate-limited the scan, so coverage remains partial. The Google Sites embed still requires a signed-in editor session.
-
-OpenAlex authentication documentation: https://help.openalex.org/api/authentication/
-
-## Public page
-
-The embedded page contains only paper titles and a Sources column. Sources expand into links to checked citing papers. Counts, collection diagnostics, candidates, and provenance remain in the repository report and JSON records. The iframe title is `Papers`.
-
-The collector now checks known paper bibliographies directly before searching indexes. Short titles require the target author in the same reference entry, related longer titles are disambiguated, and PDF line wrapping and numbered reference headings are handled. Six omitted relationships were checked against primary bibliographies on 7 November 2026.
