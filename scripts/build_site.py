@@ -70,7 +70,6 @@ def header(active, prefix=''):
   <a href="{prefix}papers/" {'aria-current="page"' if active=='papers' else ''}>Papers</a>
   <a href="{prefix}cv/" {'aria-current="page"' if active=='cv' else ''}>CV</a>
   <a href="{prefix}seminars/" {'aria-current="page"' if active=='seminars' else ''}>Online Seminars</a>
-  <button class="statistics-open" type="button" aria-haspopup="dialog" aria-label="Visitor statistics"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V11M12 19V5M20 19V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Statistics</span></button>
   <button class="search-open" type="button" aria-label="Search this site"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
  </nav>
 </header>
@@ -173,4 +172,5 @@ def main():
  print('Built Homepage, Papers, CV, and Online Seminars')
 
 if __name__=='__main__':main()
+
 
