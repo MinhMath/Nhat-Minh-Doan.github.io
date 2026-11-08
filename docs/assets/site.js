@@ -1,6 +1,38 @@
 'use strict';
 (()=>{
  const script=document.currentScript;
+
+ // This browser preference reveals a shortcut; the private Site enforces report access.
+ function setupPrivateShortcut(){
+  const ownerKey='nhat-minh-doan:private-dashboard';
+  const current=new URL(window.location.href);
+  const preference=current.searchParams.get('owner_dashboard');
+  let enabled=preference==='1';
+  try{
+   if(preference==='1'){
+    localStorage.setItem(ownerKey,'1');
+    localStorage.setItem('nhat-minh-doan:analytics-excluded','1');
+    window.nhatMinhAnalyticsExcluded=true;
+    window['ga-disable-G-0R548MHC6P']=true;
+   }else if(preference==='0')localStorage.removeItem(ownerKey);
+   enabled=enabled||localStorage.getItem(ownerKey)==='1';
+  }catch(error){}
+  if(preference!==null){current.searchParams.delete('owner_dashboard');window.history.replaceState(null,'',current.pathname+current.search+current.hash)}
+  if(!enabled)return;
+  const style=document.createElement('style');
+  style.textContent='.private-dashboard-shortcut{position:fixed;right:14px;bottom:14px;z-index:30;display:grid;place-items:center;width:27px;height:27px;border:1px solid #dce3eb;border-radius:50%;color:#60758c;background:#fff;opacity:.6;box-shadow:0 1px 5px #0000000a}.private-dashboard-shortcut:hover,.private-dashboard-shortcut:focus-visible{opacity:1;color:#1155cc;outline:2px solid #1155cc;outline-offset:3px}.private-dashboard-shortcut svg{display:block}';
+  document.head.appendChild(style);
+  const link=document.createElement('a');
+  link.className='private-dashboard-shortcut';
+  link.href='https://minh-paper-statistics.minhminhminh.chatgpt.site';
+  link.target='_blank';link.rel='noopener noreferrer';
+  link.setAttribute('aria-label','Private paper statistics');
+  link.title='Private paper statistics';
+  link.innerHTML='<svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4" y="9" width="12" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M6 9V6a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>';
+  document.body.appendChild(link);
+ }
+ setupPrivateShortcut();
+
  const toggle=document.querySelector('.nav-toggle');
  const nav=document.querySelector('.site-navigation');
  toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');nav.classList.toggle('is-open',open)});
