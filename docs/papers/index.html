@@ -123,7 +123,7 @@ function renderPaperInsights(data){
    if(!works.has(key))works.set(key,{citation,targets:[]});
    works.get(key).targets.push(paperTitles.get(citation.target)||citation.target);
   }
-  const items=[...works.values()].map(({citation,targets})=>'<li>'+link(sourceUrl(citation),citation.display_title||citation.title)+'<span class="citation-work-count"> — '+targets.length+' citation'+(targets.length===1?'':'s')+'</span><small>Cites: '+targets.map(esc).join('; ')+'. '+(citation.listing_confirmed&&!citation.verified?'Scholar-listed; full text pending.':'')+'</small></li>').join('');
+  const items=[...works.values()].map(({citation,targets})=>'<li>'+link(sourceUrl(citation),citation.display_title||citation.title)+'<span class="citation-work-count"> — '+targets.length+' citation'+(targets.length===1?'':'s')+'</span><small>Cites: '+targets.map(esc).join('; ')+'. '+'</small></li>').join('');
   return '<section class="citation-year-audit"><h3>'+year+': '+records.length+' citation'+(records.length===1?'':'s')+' from '+works.size+' citing paper'+(works.size===1?'':'s')+'</h3><ol>'+items+'</ol></section>';
  }).join('');
  const collaborators=new Map();
