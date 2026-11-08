@@ -15,9 +15,10 @@ GOOGLE_TAG = '''<!-- Google tag -->
   var excluded=window['ga-disable-G-0R548MHC6P']===true;
   var url=new URL(window.location.href);
   var preference=url.searchParams.get('exclude_me');
-  if(preference==='1')excluded=true;
+  var ownerActivation=url.searchParams.get('owner_dashboard')==='1';
+  if(preference==='1'||ownerActivation)excluded=true;
   try{
-   if(preference==='1')localStorage.setItem('nhat-minh-doan:analytics-excluded','1');
+   if(preference==='1'||ownerActivation)localStorage.setItem('nhat-minh-doan:analytics-excluded','1');
    if(preference==='0')localStorage.removeItem('nhat-minh-doan:analytics-excluded');
    excluded=excluded||localStorage.getItem('nhat-minh-doan:analytics-excluded')==='1';
   }catch(error){}
