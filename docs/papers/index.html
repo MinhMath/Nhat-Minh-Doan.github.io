@@ -43,6 +43,8 @@
 @media(max-width:650px){.paper-insights{grid-template-columns:1fr;max-width:430px;gap:14px;margin:10px auto 12px}.insight-box{padding:16px 18px}.insight-box h2{font-size:18px;margin-bottom:14px}.coauthor-list{font-size:12px;gap:0 16px}}
 
 .citation-audit{margin-top:10px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.5}.citation-audit[hidden],.citation-year-audit[hidden]{display:none}.citation-year-audit{border-top:1px solid #e1e4e7;margin-top:14px;padding-top:12px}.citation-year-audit h3{font-size:13px;font-weight:500;margin:0 0 8px;color:#424a52}.citation-year-audit ol{margin:0;padding-left:18px}.citation-year-audit li{margin:0 0 10px;padding-left:2px}.citation-work-count{color:#646b73;white-space:nowrap}.citation-year-audit small{display:block;color:#646b73;font-size:11px;line-height:1.5}
+
+.paper-sort{display:inline-flex;align-items:center;gap:3px;border:0;background:transparent;padding:0;color:inherit;font:inherit;cursor:pointer;white-space:nowrap}.paper-sort:hover{color:#1155cc}.sort-indicator{display:inline-block;min-width:.75em;font-size:10px;line-height:1}.sort-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 <link rel="stylesheet" href="../assets/site.css?v=cd4c5e3a650d">
 <script defer src="../assets/site.js?v=8c400b82e06d" data-catalogue="../papers.json" data-papers="./"></script>
@@ -196,6 +198,78 @@ function loadMath(){
  return mathReady;
 }
 const tableBody=document.getElementById('papers');
+
+function installPaperSorting(data){
+ const table=tableBody.closest('table');
+ const headers=[...table.querySelectorAll('thead th')];
+ const columns=[{key:'date',header:headers[1],label:'First online'},{key:'citations',header:headers[2],label:'Cited by'}];
+ const papersById=new Map(data.papers.map(paper=>[paper.id,paper]));
+ const citationCounts=new Map();
+ for(const citation of data.citations){
+  if(citation.verified||citation.listing_confirmed)citationCounts.set(citation.target,(citationCounts.get(citation.target)||0)+1);
+ }
+ let group={heading:null,entries:[]};
+ const groups=[group];
+ for(const row of [...tableBody.children]){
+  if(row.classList.contains('paper-section')){
+   group={heading:row,entries:[]};groups.push(group);
+  }else if(row.id.startsWith('paper-')){
+   const id=row.id.slice(6);
+   group.entries.push({row,paper:papersById.get(id),citingRow:document.getElementById('cited-'+id)});
+  }
+ }
+ let sortKey='date',sortDirection='descending';
+ const status=document.createElement('p');
+ status.className='sort-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');
+ table.after(status);
+ function updateHeaders(){
+  for(const column of columns){
+   const active=column.key===sortKey;
+   if(active)column.header.setAttribute('aria-sort',sortDirection);
+   else column.header.removeAttribute('aria-sort');
+   const icon=column.button.querySelector('.sort-indicator');
+   icon.textContent=active?(sortDirection==='descending'?'↓':'↑'):'↕';
+   const next=active&&sortDirection==='descending'?'ascending':'descending';
+   column.button.title=column.key==='date'?(next==='descending'?'Sort newest first':'Sort oldest first'):(next==='descending'?'Sort highest citation count first':'Sort lowest citation count first');
+  }
+ }
+ function compare(a,b){
+  let difference;
+  if(sortKey==='citations'){
+   difference=(citationCounts.get(a.id)||0)-(citationCounts.get(b.id)||0);
+  }else{
+   const dateA=/^\d{4}-\d{2}-\d{2}$/.test(a.first_online||'')?a.first_online:'';
+   const dateB=/^\d{4}-\d{2}-\d{2}$/.test(b.first_online||'')?b.first_online:'';
+   if(!dateA||!dateB)return dateA?-1:dateB?1:newestFirst(a,b);
+   difference=dateA.localeCompare(dateB);
+  }
+  return (sortDirection==='descending'?-difference:difference)||newestFirst(a,b)||a.id.localeCompare(b.id);
+ }
+ for(const column of columns){
+  const button=document.createElement('button');
+  button.type='button';button.className='paper-sort';button.setAttribute('aria-controls','papers');
+  button.append(document.createTextNode(column.label+' '));
+  const icon=document.createElement('span');icon.className='sort-indicator';icon.setAttribute('aria-hidden','true');button.append(icon);
+  column.header.replaceChildren(button);column.button=button;
+  button.addEventListener('click',()=>{
+   sortDirection=sortKey===column.key&&sortDirection==='descending'?'ascending':'descending';
+   sortKey=column.key;
+   const fragment=document.createDocumentFragment();
+   for(const section of groups){
+    if(section.heading)fragment.append(section.heading);
+    for(const entry of [...section.entries].sort((a,b)=>compare(a.paper,b.paper))){
+     fragment.append(entry.row);
+     if(entry.citingRow)fragment.append(entry.citingRow);
+    }
+   }
+   tableBody.append(fragment);
+   updateHeaders();
+   status.textContent='Papers sorted by '+(sortKey==='date'?'first online date, '+(sortDirection==='descending'?'newest first.':'oldest first.'):'citation count, '+(sortDirection==='descending'?'highest first.':'lowest first.'));
+  });
+ }
+ updateHeaders();
+}
+
 tableBody.addEventListener('click',event=>{
  const button=event.target.closest('.citation-toggle');if(!button)return;
  const row=document.getElementById(button.getAttribute('aria-controls'));
@@ -223,6 +297,7 @@ fetch('../ledger.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error();r
   {title:'Papers',papers:allPapers.filter(p=>p.section!=='other')},
   {title:'Other writings',papers:allPapers.filter(p=>p.section==='other')}
  ].filter(section=>section.papers.length).map(section=>(section.title==='Papers'?'':'<tr class="paper-section"><td colspan="3"><h2>'+esc(section.title)+'</h2></td></tr>')+section.papers.map(renderPaper).join('')).join(''):allPapers.map(renderPaper).join('');
+ installPaperSorting(data);
  document.getElementById('totals').innerHTML='<span>Total citations: <strong>'+data.counts.total_citations+'</strong></span>';
  renderPaperInsights(data);
  selectPaperFromHash();
