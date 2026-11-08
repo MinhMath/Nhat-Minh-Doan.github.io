@@ -9,6 +9,25 @@ ROOT=Path(__file__).resolve().parents[1]
 DOCS=ROOT/'docs'
 BASE='https://minhmath.github.io/Nhat-Minh-Doan.github.io/'
 
+GOOGLE_TAG = '''<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NMHRF7PC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<!-- End Google tag -->'''
+
+def add_google_tag(page):
+ # Redirect aliases are measured on their destination page.
+ if re.search(r"""<meta\b[^>]*http-equiv=["']refresh["']""",page,re.I):
+  return page
+ if 'GTM-NMHRF7PC' in page:
+  return page
+ tagged,count=re.subn(r'(<head\b[^>]*>)',lambda match:match[1]+'\n'+GOOGLE_TAG,page,count=1,flags=re.I)
+ if count!=1:raise ValueError('Cannot find the page head for Google Analytics')
+ return tagged
+
 def escape(value):return html.escape(str(value),quote=True)
 
 def asset_revision(name):return hashlib.sha256((DOCS/'assets'/name).read_bytes()).hexdigest()[:12]
@@ -121,6 +140,10 @@ def main():
 </main></body></html>'''
  (DOCS/'seminars').mkdir(exist_ok=True)
  (DOCS/'seminars/index.html').write_text(seminars,encoding='utf-8')
+ for page_path in DOCS.rglob('*.html'):
+  page=page_path.read_text(encoding='utf-8')
+  tagged=add_google_tag(page)
+  if tagged!=page:page_path.write_text(tagged,encoding='utf-8')
  print('Built Homepage, Papers, CV, and Online Seminars')
 
 if __name__=='__main__':main()
