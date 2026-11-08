@@ -1,9 +1,31 @@
-<!doctype html><html lang="en"><head>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NMHRF7PC"></script>
 <script>
+ (function(){
+  var excluded=window['ga-disable-G-0R548MHC6P']===true;
+  var url=new URL(window.location.href);
+  var preference=url.searchParams.get('exclude_me');
+  if(preference==='1')excluded=true;
+  try{
+   if(preference==='1')localStorage.setItem('nhat-minh-doan:analytics-excluded','1');
+   if(preference==='0')localStorage.removeItem('nhat-minh-doan:analytics-excluded');
+   excluded=excluded||localStorage.getItem('nhat-minh-doan:analytics-excluded')==='1';
+  }catch(error){}
+  if(preference!==null){
+   url.searchParams.delete('exclude_me');
+   window.history.replaceState(null,'',url.pathname+url.search+url.hash);
+  }
+  window.nhatMinhAnalyticsExcluded=excluded;
+  window['ga-disable-G-0R548MHC6P']=excluded;
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  window.gtag=function(){window.dataLayer.push(arguments);};
+  if(excluded)return;
   gtag('js', new Date());
+  var tag=document.createElement('script');
+  tag.async=true;
+  tag.src='https://www.googletagmanager.com/gtm.js?id=GTM-NMHRF7PC';
+  document.head.appendChild(tag);
+ })();
 </script>
-<!-- End Google tag --><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found — Nhat Minh Doan</title><link rel="stylesheet" href="/Nhat-Minh-Doan.github.io/assets/site.css"></head><body><main class="content-width" style="padding:60px 0"><h1>Page not found</h1><p><a href="/Nhat-Minh-Doan.github.io/">Homepage</a> · <a href="/Nhat-Minh-Doan.github.io/papers/">Papers</a></p></main></body></html>
+<!-- End Google tag --><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found — Nhat Minh Doan</title><link rel="stylesheet" href="/Nhat-Minh-Doan.github.io/assets/site.css"></head><body><main class="content-width" style="padding:60px 0"><h1>Page not found</h1><p><a href="/Nhat-Minh-Doan.github.io/">Homepage</a> · <a href="/Nhat-Minh-Doan.github.io/papers/">Papers</a></p></main></body></html>
+

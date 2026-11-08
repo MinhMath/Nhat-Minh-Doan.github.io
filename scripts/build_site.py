@@ -10,11 +10,32 @@ DOCS=ROOT/'docs'
 BASE='https://minhmath.github.io/Nhat-Minh-Doan.github.io/'
 
 GOOGLE_TAG = '''<!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NMHRF7PC"></script>
 <script>
+ (function(){
+  var excluded=window['ga-disable-G-0R548MHC6P']===true;
+  var url=new URL(window.location.href);
+  var preference=url.searchParams.get('exclude_me');
+  if(preference==='1')excluded=true;
+  try{
+   if(preference==='1')localStorage.setItem('nhat-minh-doan:analytics-excluded','1');
+   if(preference==='0')localStorage.removeItem('nhat-minh-doan:analytics-excluded');
+   excluded=excluded||localStorage.getItem('nhat-minh-doan:analytics-excluded')==='1';
+  }catch(error){}
+  if(preference!==null){
+   url.searchParams.delete('exclude_me');
+   window.history.replaceState(null,'',url.pathname+url.search+url.hash);
+  }
+  window.nhatMinhAnalyticsExcluded=excluded;
+  window['ga-disable-G-0R548MHC6P']=excluded;
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  window.gtag=function(){window.dataLayer.push(arguments);};
+  if(excluded)return;
   gtag('js', new Date());
+  var tag=document.createElement('script');
+  tag.async=true;
+  tag.src='https://www.googletagmanager.com/gtm.js?id=GTM-NMHRF7PC';
+  document.head.appendChild(tag);
+ })();
 </script>
 <!-- End Google tag -->'''
 
@@ -22,9 +43,9 @@ def add_google_tag(page):
  # Redirect aliases are measured on their destination page.
  if re.search(r"""<meta\b[^>]*http-equiv=["']refresh["']""",page,re.I):
   return page
- if 'GTM-NMHRF7PC' in page:
-  return page
- tagged,count=re.subn(r'(<head\b[^>]*>)',lambda match:match[1]+'\n'+GOOGLE_TAG,page,count=1,flags=re.I)
+ page=re.sub(r'\n?<!-- Google tag -->.*?<!-- End Google tag -->', '', page, flags=re.S)
+ anchor=r'(<meta\b[^>]*charset=[^>]*>)' if re.search(r'<meta\b[^>]*charset=',page,re.I) else r'(<head\b[^>]*>)'
+ tagged,count=re.subn(anchor,lambda match:match[1]+'\n'+GOOGLE_TAG,page,count=1,flags=re.I)
  if count!=1:raise ValueError('Cannot find the page head for Google Analytics')
  return tagged
 
@@ -49,6 +70,7 @@ def header(active, prefix=''):
   <a href="{prefix}papers/" {'aria-current="page"' if active=='papers' else ''}>Papers</a>
   <a href="{prefix}cv/" {'aria-current="page"' if active=='cv' else ''}>CV</a>
   <a href="{prefix}seminars/" {'aria-current="page"' if active=='seminars' else ''}>Online Seminars</a>
+  <button class="statistics-open" type="button" aria-haspopup="dialog" aria-label="Visitor statistics"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V11M12 19V5M20 19V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Statistics</span></button>
   <button class="search-open" type="button" aria-label="Search this site"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
  </nav>
 </header>
@@ -66,7 +88,7 @@ def main():
 <meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/vietnam-banner.jpg">
 <link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
-<script defer src="assets/site.js" data-catalogue="papers.json" data-papers="papers/"></script>
+<script defer src="assets/site.js?v={asset_revision('site.js')}" data-catalogue="papers.json" data-papers="papers/"></script>
 </head>
 <body>
 {header('home')}
@@ -116,7 +138,7 @@ def main():
 <title>CV — Nhat Minh Doan</title><meta name="description" content="Curriculum vitae of Nhat Minh Doan: publications, talks, education, teaching, and academic activities.">
 <link rel="canonical" href="{BASE}cv/"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css?v={asset_revision('site.css')}">
-<script defer src="../assets/site.js" data-catalogue="../papers.json" data-papers="../papers/"></script>
+<script defer src="../assets/site.js?v={asset_revision('site.js')}" data-catalogue="../papers.json" data-papers="../papers/"></script>
 </head><body class="cv-page">{header('cv','../')}
 <main id="main" class="cv-content"><h1 class="visually-hidden">Curriculum vitae — Nhat Minh Doan</h1>
 <div class="cv-toolbar"><a href="../assets/cv.pdf?v={asset_revision('cv.pdf')}" target="_blank" rel="noopener" download="Nhat_Minh_Doan_CV.pdf">Download PDF</a></div>
@@ -129,7 +151,7 @@ def main():
 <meta name="description" content="Hyperbolic Geometry and Related Topics Online Seminar, organized by Nhat Minh Doan. Researchers and graduate students are welcome to give a talk.">
 <link rel="canonical" href="{BASE}seminars/"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css?v={asset_revision('site.css')}">
-<script defer src="../assets/site.js" data-catalogue="../papers.json" data-papers="../papers/"></script>
+<script defer src="../assets/site.js?v={asset_revision('site.js')}" data-catalogue="../papers.json" data-papers="../papers/"></script>
 </head><body>{header('seminars','../')}
 <main id="main">
  <div class="section-heading"><div class="content-width"><h1 class="seminars-title">Online Seminars</h1></div></div>
@@ -141,9 +163,14 @@ def main():
  (DOCS/'seminars').mkdir(exist_ok=True)
  (DOCS/'seminars/index.html').write_text(seminars,encoding='utf-8')
  for page_path in DOCS.rglob('*.html'):
-  page=page_path.read_text(encoding='utf-8')
+  original=page_path.read_text(encoding='utf-8')
+  page=original
+  if page_path==DOCS/'embed.html' and 'assets/site.js' not in page:
+   page=page.replace('</head>',f'<script defer src="assets/site.js?v={asset_revision("site.js")}" data-catalogue="papers.json" data-papers="papers/"></script>\n</head>',1)
+  page=re.sub(r'(?<=src=")((?:\.\./)?assets/site\.js)(?:\?[^" ]*)?',lambda match:match[1]+'?v='+asset_revision('site.js'),page)
   tagged=add_google_tag(page)
-  if tagged!=page:page_path.write_text(tagged,encoding='utf-8')
+  if tagged!=original:page_path.write_text(tagged,encoding='utf-8')
  print('Built Homepage, Papers, CV, and Online Seminars')
 
 if __name__=='__main__':main()
+
