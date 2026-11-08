@@ -87,6 +87,29 @@
  }
  document.addEventListener('click',countPaperClick);
  document.addEventListener('auxclick',countPaperClick);
+ // Count deliberate abstract openings, excluding closes and automatic deep-link opens.
+ document.addEventListener('click',event=>{
+  if(!event.isTrusted||event.button!==0)return;
+  const summary=event.target.closest?.('summary');
+  const details=summary?.parentElement;
+  if(!details?.matches('details.abstract-details')||details.open)return;
+  const row=details.closest('tr[id^="paper-"]');
+  if(!row)return;
+  const paperId=row.id.slice(6);
+  setTimeout(()=>{
+   if(event.defaultPrevented||!details.open||window.nhatMinhAnalyticsExcluded===true||window['ga-disable-'+analyticsId]===true)return;
+   getPapers().then(papers=>{
+    const paper=papers.find(item=>item.id.toLowerCase()===paperId.toLowerCase());
+    if(!paper||typeof window.gtag!=='function'||window.nhatMinhAnalyticsExcluded===true||window['ga-disable-'+analyticsId]===true)return;
+    window.gtag('event','paper_abstract_'+paper.id.toLowerCase().replace(/[^a-z0-9_]/g,'_'),{
+     send_to:analyticsId,
+     paper_id:paper.id,
+     paper_title:(paper.display_title||paper.title).slice(0,100),
+     interaction_type:'abstract_open'
+    });
+   }).catch(()=>{});
+  },0);
+ });
  document.querySelector('.search-open')?.addEventListener('click',()=>{dialog.showModal();input.focus();showResults()});
  document.querySelector('.search-close')?.addEventListener('click',()=>dialog.close());
  dialog?.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close()}});
@@ -105,5 +128,6 @@
  }
  input?.addEventListener('input',showResults);
 })();
+
 
 
