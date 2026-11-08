@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-08T05:06:30+00:00",
+  "generated_utc": "2026-11-08T07:31:28+00:00",
   "collection_status": "partial",
   "sources": {
     "publisher_bibliographies": {
@@ -14,7 +14,7 @@
     },
     "zenodo_authors": {
       "status": "completed_requests",
-      "records_checked": 1,
+      "records_checked": 0,
       "verified_records": 0
     },
     "openalex": {

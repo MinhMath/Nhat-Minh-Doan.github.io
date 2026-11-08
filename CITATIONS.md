@@ -4,7 +4,7 @@
 
 **Total citation records:** 25 | **Bibliography verified:** 23 | **Scholar-listed, full text pending:** 2 | **Self citations:** 13 | **Non-self citations:** 12
 
-Collection status: **partial**. Last saved discovery: 2026-11-08T05:06:30+00:00.
+Collection status: **partial**. Last saved discovery: 2026-11-08T07:31:28+00:00.
 
 | Canonical paper | Verified citations | Scholar-listed | Unverified candidates |
 |---|---:|---:|---:|
