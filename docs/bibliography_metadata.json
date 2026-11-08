@@ -147,8 +147,11 @@
   },
   {
     "doi": "10.4171/jems/1691",
-    "venue": "Journal of the European Mathematical Society 28 (12) (2025), 5113-5192.",
-    "metadata_source": "https://api.crossref.org/works/10.4171/jems/1691"
+    "venue": "Journal of the European Mathematical Society 28 (12) (2026), 5113-5192.",
+    "metadata_source": "https://ems.press/journals/jems/articles/14299062",
+    "year": 2025,
+    "citation_year_source": "https://ems.press/journals/jems/articles/14299062",
+    "citation_year_note": "First published online 25 August 2025; the journal issue is volume 28 (2026), no. 12. The citation chart uses the online publication year."
   },
   {
     "title": "Almost all simple lengths are unique up to isometry",

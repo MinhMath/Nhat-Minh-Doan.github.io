@@ -144,7 +144,7 @@ def build_ledger(papers, verified, discovered, metadata=None, listed=None):
     for row in rows:
         for description in descriptions:
             if not identifiers(row).intersection(identifiers(description)):continue
-            for key in ("display_title","venue","first_online","first_online_source","first_online_note","abstract","abstract_kind","abstract_source","abstract_version","abstract_checked_utc"):
+            for key in ("year","citation_year_source","citation_year_note","display_title","venue","first_online","first_online_source","first_online_note","abstract","abstract_kind","abstract_source","abstract_version","abstract_checked_utc"):
                 value=description.get(key)
                 if value:row[key]=value
             if description.get("authors"):
@@ -173,3 +173,4 @@ def build_ledger(papers, verified, discovered, metadata=None, listed=None):
             "collection_status": discovered.get("collection_status", "not_run"),
             "sources": discovered.get("sources", {}), "errors": discovered.get("errors", []),
             "warning": "Verified lower bounds; missing coverage is not a zero-citation claim."}
+

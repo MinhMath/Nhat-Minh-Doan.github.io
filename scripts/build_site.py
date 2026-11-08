@@ -95,9 +95,9 @@ def main():
  <figure class="home-banner content-width"><img src="assets/vietnam-banner.jpg?v={asset_revision('vietnam-banner.jpg')}" width="1489" height="596" alt="Hạ Long Bay, Vietnam" fetchpriority="high"></figure>
  <section class="intro content-width" aria-label="About Minh">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
-  <p>Hello! I am Minh, a researcher at the {external('https://vast.gov.vn/web/vietnam-academy-of-science-and-technology/institutes1','Institute of Mathematics, VAST')}. I was a {external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} at the {external('https://www.math.nus.edu.sg/','National University of Singapore')} under Prof. {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}. My {external('https://orbilu.uni.lu/handle/10993/50710','PhD thesis')} was completed at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')} under Prof. {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} in 2022.</p>
+  <p>Hello! I am Minh, a researcher at the {external('https://math.ac.vn/en','Institute of Mathematics, VAST')}. I was a {external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} at the {external('https://www.math.nus.edu.sg/','National University of Singapore')} under Prof. {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}. My {external('https://orbilu.uni.lu/handle/10993/50710','PhD thesis')} was completed at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')} under Prof. {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} in 2022.</p>
   <p>My research focuses on hyperbolic surfaces, length spectra, and related topics. I was introduced to hyperbolic geometry during my Master’s (M2) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')} in 2017, where Prof. {external('https://flab.perso.math.cnrs.fr/','François Labourie')} supervised my master’s thesis.</p>
-  <p>Here is my <a href="papers/">papers</a>, <a href="cv/">CV</a>, and my email address: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
+  <p>Here are my <a href="papers/">papers</a> and <a href="cv/">CV</a>. Email: <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
  </section>
 </main>
 </body>
@@ -172,5 +172,6 @@ def main():
  print('Built Homepage, Papers, CV, and Online Seminars')
 
 if __name__=='__main__':main()
+
 
 
