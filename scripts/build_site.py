@@ -4,10 +4,12 @@ import html
 import json
 import hashlib
 import re
+from shutil import copyfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 DOCS=ROOT/'docs'
-BASE='https://minhmath.github.io/Nhat-Minh-Doan.github.io/'
+BASE='https://minhmath.github.io/'
+LEGACY=DOCS/'Nhat-Minh-Doan.github.io'
 
 GOOGLE_TAG = '''<!-- Google tag -->
 <script>
@@ -60,6 +62,27 @@ def url(p):
  for field,base in [('doi','https://doi.org/'),('arxiv','https://arxiv.org/abs/'),('hexagon','https://hexagonmath.org/')]:
   if p.get(field):return base+p[field]
  return '#'
+
+def build_legacy_paths():
+ for source in DOCS.rglob('*'):
+  if LEGACY in source.parents or not source.is_file() or source==DOCS/'404.html':
+   continue
+  relative=source.relative_to(DOCS)
+  destination=LEGACY/relative
+  destination.parent.mkdir(parents=True,exist_ok=True)
+  if source.suffix!='.html':
+   copyfile(source,destination)
+   continue
+  path=relative.as_posix()
+  target=BASE+path.removesuffix('index.html')
+  if path=='homepage/index.html':target=BASE
+  destination.write_text(f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Nhat Minh Doan</title>
+<link rel="canonical" href="{escape(target)}">
+<script>location.replace({json.dumps(target)} + location.search + location.hash);</script>
+<noscript><meta http-equiv="refresh" content="0;url={escape(target)}"></noscript>
+</head><body><a href="{escape(target)}">Continue to the new address</a></body></html>
+''',encoding='utf-8')
 
 def header(active, prefix=''):
  return f'''<a class="skip-link" href="#main">Skip to main content</a>
@@ -163,6 +186,7 @@ def main():
  (DOCS/'seminars').mkdir(exist_ok=True)
  (DOCS/'seminars/index.html').write_text(seminars,encoding='utf-8')
  for page_path in DOCS.rglob('*.html'):
+  if LEGACY in page_path.parents:continue
   original=page_path.read_text(encoding='utf-8')
   page=original
   if page_path==DOCS/'embed.html' and 'assets/site.js' not in page:
@@ -170,6 +194,7 @@ def main():
   page=re.sub(r'(?<=src=")((?:\.\./)?assets/site\.js)(?:\?[^" ]*)?',lambda match:match[1]+'?v='+asset_revision('site.js'),page)
   tagged=add_google_tag(page)
   if tagged!=original:page_path.write_text(tagged,encoding='utf-8')
+ build_legacy_paths()
  print('Built Homepage, Papers, CV, and Online Seminars')
 
 if __name__=='__main__':main()
