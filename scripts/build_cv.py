@@ -14,6 +14,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_CENTER, TA_RIGHT
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, LongTable, Table, TableStyle
 from reportlab.lib.pagesizes import letter
+from build_site import BASE
 from render_cv_pages import render_cv_pages
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -79,7 +80,7 @@ def entries(label,items):
   row(label if i==0 else '',text,item.get('date',''))
  gap()
 
-row('Affiliation','Institute of Mathematics, Vietnam Academy of Science and Technology<br/>Email: '+a('mailto:dnminh@math.ac.vn','dnminh@math.ac.vn')+'<br/>Homepage: '+a('https://minhmath.github.io/Nhat-Minh-Doan.github.io/','minhmath.github.io/Nhat-Minh-Doan.github.io'),wide=True);gap()
+row('Affiliation','Institute of Mathematics, Vietnam Academy of Science and Technology<br/>Email: '+a('mailto:dnminh@math.ac.vn','dnminh@math.ac.vn')+'<br/>Homepage: '+a(BASE,BASE.removeprefix('https://').rstrip('/')),wide=True);gap()
 row('Research area','Hyperbolic geometry and low-dimensional topology. My current research concerns the multiplicity of simple closed geodesics on hyperbolic surfaces.',wide=True);gap()
 entries('Education',DETAILS['education'])
 entries('Academic positions',DETAILS['positions'])
