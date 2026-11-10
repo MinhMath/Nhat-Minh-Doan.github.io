@@ -127,7 +127,13 @@ def main():
    <li>Master’s (2016–2017) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')}, supervised by {external('https://flab.perso.math.cnrs.fr/','François Labourie')}.</li>
    <li>BA in Mathematics (2013–2015) at the University of Education, Ho Chi Minh City, Vietnam.</li>
   </ul>
-  <p><a href="papers/">Papers</a> · <a href="cv/">CV</a> · <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a></p>
+  <div style="margin-bottom:24px">
+   <a href="papers/">Papers</a> · <a href="cv/">CV</a> ·
+   <details style="display:inline-block;vertical-align:top">
+    <summary style="color:var(--link);cursor:pointer">Email</summary>
+    <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
+   </details>
+  </div>
  </section>
 </main>
 </body>
