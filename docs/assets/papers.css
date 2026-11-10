@@ -21,19 +21,12 @@
   font-weight: 600;
 }
 .paper-copy .paper-meta {
-  display: inline-block;
-  max-width: calc(100% - 72px);
-  vertical-align: top;
   color: #565e66;
   font-size: 13px;
 }
-.abstract-details {
-  display: inline;
-}
 .abstract-details > summary {
-  display: inline-block;
-  vertical-align: top;
-  margin-inline-start: 8px;
+  display: block;
+  width: fit-content;
   white-space: nowrap;
   cursor: pointer;
   color: #1155cc;
@@ -53,13 +46,6 @@
   .paper-copy:has(.abstract-details[open]) :is(.paper, .paper-meta) {
     white-space: normal;
     overflow-wrap: anywhere;
-  }
-  .paper-copy:has(.abstract-details[open]) .paper-meta {
-    display: block;
-    max-width: none;
-  }
-  .abstract-details[open] > summary {
-    margin-inline-start: 0;
   }
 }
 
