@@ -73,6 +73,17 @@
     <summary class="email-toggle">Email</summary>
     <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
    </details>
+   <script>
+    const emailDisclosure = document.querySelector('.email-disclosure');
+    const emailSummary = emailDisclosure.querySelector('summary');
+    const emailAddress = emailDisclosure.querySelector('a');
+    emailSummary.addEventListener('click', () => {
+     if (emailDisclosure.open || !navigator.clipboard) return;
+     navigator.clipboard.writeText(emailAddress.textContent.trim()).catch(() => {
+      // The revealed address is still available to copy manually.
+     });
+    });
+   </script>
   </div>
  </section>
 </main>
