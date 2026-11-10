@@ -122,7 +122,7 @@
      window.dispatchEvent(new HashChangeEvent('hashchange'));
     }
    });results.append(a)}
-  }catch{if(current===queryId){results.textContent='Search is unavailable. Please open the Papers section on Bio.'}}
+  }catch{if(current===queryId){results.textContent='Search is unavailable. Please open List of papers on Bio.'}}
  }
  input?.addEventListener('input',showResults);
 })();

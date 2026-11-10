@@ -92,10 +92,12 @@ def header():
 </header>
 <dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search this site</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label for="site-search-input">Search papers</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>'''
 
+PAPERS_TABLE = '''<table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col"><h2>List of papers</h2></th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>'''
+
 def papers_panel():
  return f'''<div class="papers-content">
 <figure class="papers-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
-<table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col"><h2>List of papers</h2></th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>
+{PAPERS_TABLE}
 <section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
  <section class="insight-box" aria-labelledby="coauthors-heading">
   <h2 id="coauthors-heading">Co-authors</h2>
@@ -109,12 +111,28 @@ def papers_panel():
 </section>
 </div>'''
 
+def papers_embed():
+ return f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>List of papers — Nhat Minh Doan</title>
+<link rel="canonical" href="{BASE}">
+<link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
+<link rel="stylesheet" href="assets/papers.css?v={asset_revision('papers.css')}">
+<script defer src="assets/site.js?v={asset_revision('site.js')}" data-catalogue="papers.json" data-papers="./"></script>
+<script defer src="assets/papers.js?v={asset_revision('papers.js')}"></script>
+</head><body class="papers-embed"><main class="papers-content">
+{PAPERS_TABLE}
+<div class="totals" id="totals" aria-label="Citation totals"></div>
+</main></body></html>
+'''
+
 def meetings_panel():
  meetings=[
   ('August–September 2026', 'Shijiazhuang, China', 'Hyperbolic 2026 at Hebei Normal University', 'https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract'),
   ('July–August 2026', 'Jeju, South Korea', '2K-GATE Conference III', 'https://sites.google.com/view/2k-gate-workshop-3/home'),
   ('June 2026', 'Hanoi, Vietnam', 'Seminar, Thang Long Institute of Mathematics and Applied Sciences', None),
-  ('May 2026', 'Singapore', 'Topology, Geometry and Dynamics Seminar, NUS', 'https://www.math.nus.edu.sg/category/events/colloquia-seminars/topology-geometry-dynamics/page/2/'),
+  ('May 2026', 'Singapore', 'McShane–Rivin Norm Balls and Simple-Length Multiplicities, NUS Topology, Geometry and Dynamics Seminar', 'https://www.math.nus.edu.sg/category/events/colloquia-seminars/topology-geometry-dynamics/page/2/'),
   ('April 2026', 'Lausanne, Switzerland', 'Geometry and Spectra of Compact Riemann Surfaces, EPFL', 'https://bernoulli.epfl.ch/programs/the-geometry-and-spectra-of-hyperbolic-surfaces-and-other-manifolds/'),
   ('April 2026', 'Hefei, China', 'Teichmüller Theory and Related Topics', 'https://shinpeibaba.com/Teichmueller2026/main.php'),
   ('March 2026', 'Chengdu, China', 'Geometry and Topology Seminar, Southwest Jiaotong University', 'https://faculty.swjtu.edu.cn/lixiaobin1/zh_CN/article/363471/content/1862.htm'),
@@ -138,7 +156,7 @@ def meetings_panel():
   ('December 2022', 'Hanoi, Vietnam', 'JSPS–VAST Joint Research Workshop', 'https://sites.google.com/keio.jp/jv2021-2024/jv2022-workshop-in-hanoi'),
   ('November 2022', 'Hanoi, Vietnam', 'Algebra and Number Theory Seminar, Institute of Mathematics, VAST', None),
   ('October 2022', 'Phú Thọ, Vietnam', 'Geometry, Analysis and Applications', 'https://math.ac.vn/en/conference/hoi-thao-khoa-hoc-hinh-hoc-giai-tich-va-ung-dung'),
-  ('September 2022', 'Singapore', 'Topology and Geometry Seminar, NUS', 'https://www.math.nus.edu.sg/category/events/colloquia-seminars/topology-geometry-dynamics/page/14/'),
+  ('September 2022', 'Singapore', 'Measuring Pants, NUS Topology and Geometry Seminar', 'https://www.math.nus.edu.sg/category/events/colloquia-seminars/topology-geometry-dynamics/page/14/'),
   ('August 2022', 'Vĩnh Phúc, Vietnam', 'Gặp gỡ Toán học 2022, workshop for early-career researchers', 'https://maths.hpu2.edu.vn/hoi-thao-khoa-hoc-cap-khoa--gap-go-toan-hoc-2022--hoi-thao-khoa-hoc-cac-nha-nghien-cuu-tre--thanh-cong-ruc-ro.html'),
   ('January 2022', 'Luxembourg', 'Geometry Winter Workshop and PhD defence, University of Luxembourg', None),
   ('October 2019', 'Bordeaux, France', 'PhD Away Days, University of Luxembourg and University of Bordeaux', 'https://math.uni.lu/docsem/f/away_days2019/2019-PhDAwayDays_Abstracts.pdf'),
@@ -285,17 +303,21 @@ def main():
 </html>
 '''
  (DOCS/'index.html').write_text(content,encoding='utf-8')
+ (DOCS/'embed.html').write_text(papers_embed(),encoding='utf-8')
  for section,label in [('papers','List of papers'),('cv','CV'),('seminars','Online Seminars')]:
   directory=DOCS/section
   directory.mkdir(exist_ok=True)
   (directory/'index.html').write_text(redirect_section(section,label),encoding='utf-8')
- (DOCS/'homepage/index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nhat Minh Doan</title><meta http-equiv="refresh" content="0;url=../"><link rel="canonical" href="'+BASE+'"></head><body><a href="../">Bio</a></body></html>')
+ (DOCS/'homepage/index.html').write_text(f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Nhat Minh Doan</title>
+<link rel="canonical" href="{BASE}">
+<script>location.replace('../' + location.search + location.hash);</script>
+<noscript><meta http-equiv="refresh" content="0;url=../"></noscript>
+</head><body><a href="../">Bio</a></body></html>''',encoding='utf-8')
  for page_path in DOCS.rglob('*.html'):
   if LEGACY in page_path.parents:continue
   original=page_path.read_text(encoding='utf-8')
   page=original
-  if page_path==DOCS/'embed.html' and 'assets/site.js' not in page:
-   page=page.replace('</head>',f'<script defer src="assets/site.js?v={asset_revision("site.js")}" data-catalogue="papers.json" data-papers="papers/"></script>\n</head>',1)
   page=re.sub(r'(?<=src=")((?:\.\./)?assets/site\.js)(?:\?[^" ]*)?',lambda match:match[1]+'?v='+asset_revision('site.js'),page)
   tagged=add_google_tag(page)
   if tagged!=original:page_path.write_text(tagged,encoding='utf-8')

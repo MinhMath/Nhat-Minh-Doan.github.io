@@ -1,5 +1,5 @@
 {
-  "updated": "8 November 2026",
+  "updated": "10 November 2026",
   "source_note": "Retained biographical and service information from the author’s public CV of 25 June 2026. Publications use docs/papers.json checked 8 November 2026. Hebei talk title and event verified against the organiser’s programme; the user confirmed the talk in the update request.",
   "education": [
     {
@@ -74,7 +74,7 @@
     },
     {
       "number": 26,
-      "text": "Topology and Geometry Seminar, NUS, Singapore",
+      "text": "Topology, Geometry and Dynamics Seminar, NUS, Singapore",
       "date": "May 2026"
     },
     {
@@ -94,7 +94,7 @@
     },
     {
       "number": 22,
-      "text": "Teichmüller Theory and Flat Structures, Matrix, Creswick, Australia",
+      "text": "Teichmüller Theory and Flat Structures, MATRIX, Creswick, Australia",
       "date": "Mar 2025"
     },
     {
@@ -124,8 +124,10 @@
     },
     {
       "number": 16,
-      "text": "Workshop on Hyperbolic Geometry of Numbers, HCMC, KIAS, Korea",
-      "date": "Dec 2023"
+      "text": "Hyperbolic Geometry of Numbers, KIAS, Seoul, South Korea",
+      "date": "Dec 2023",
+      "url": "https://sites.google.com/view/hygen2023",
+      "link_text": "Hyperbolic Geometry of Numbers"
     },
     {
       "number": 15,

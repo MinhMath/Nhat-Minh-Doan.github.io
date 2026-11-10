@@ -1,16 +1,15 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
+<html lang="en"><head><meta charset="utf-8">
 <!-- Google tag -->
 <script>
  (function(){
   var excluded=window['ga-disable-G-0R548MHC6P']===true;
   var url=new URL(window.location.href);
   var preference=url.searchParams.get('exclude_me');
-  if(preference==='1')excluded=true;
+  var ownerActivation=url.searchParams.get('owner_dashboard')==='1';
+  if(preference==='1'||ownerActivation)excluded=true;
   try{
-   if(preference==='1')localStorage.setItem('nhat-minh-doan:analytics-excluded','1');
+   if(preference==='1'||ownerActivation)localStorage.setItem('nhat-minh-doan:analytics-excluded','1');
    if(preference==='0')localStorage.removeItem('nhat-minh-doan:analytics-excluded');
    excluded=excluded||localStorage.getItem('nhat-minh-doan:analytics-excluded')==='1';
   }catch(error){}
@@ -32,159 +31,13 @@
 </script>
 <!-- End Google tag -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Papers</title>
-<style>
-*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;color:#141414;background:#fff;max-width:1600px;margin:0 auto;padding:12px 16px;line-height:1.45}table{width:100%;border-collapse:collapse;table-layout:fixed}th,td{text-align:left;vertical-align:top;padding:18px 12px;border-bottom:1px solid #e7e8ea}th{font-size:13px;font-weight:500;color:#646b73}th:first-child{width:78%}th:nth-child(2){width:15%;text-align:right}th:last-child{width:7%;text-align:right}a{color:#1155cc;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid #1155cc;outline-offset:3px}.paper-copy{font-family:"Times New Roman",Times,serif;font-size:18px;line-height:1.3;min-width:0}.paper,.authors,.venue{font-size:inherit;margin:0;color:#141414;overflow-wrap:anywhere}.paper a{color:#1155cc}.venue{font-weight:700}.date{font-size:13px;white-space:nowrap;text-align:right}.citation-count{text-align:right}.citation-toggle{border:0;background:none;color:#1155cc;font:inherit;font-size:14px;padding:0;cursor:pointer}.citation-toggle:before{content:'▸';display:inline-block;margin-right:6px;font-size:12px}.citation-toggle[aria-expanded="true"]:before{content:'▾'}.abstract-details{margin-top:6px;font-size:16px}.abstract-details>summary{cursor:pointer;color:#1155cc;font-size:14px;width:fit-content}.detail-content{margin:10px 0 3px;padding:14px 18px;max-width:100ch;background:#fafafa;border:1px solid #e4e6e8;border-radius:2px}.citing-row .detail-content{background:#fff}.abstract-text{white-space:normal;overflow-wrap:break-word;font-size:16px;line-height:1.6;text-align:justify;text-align-last:left;hyphens:auto}.abstract-source{font-size:12px;margin-top:7px}.abstract-text mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.empty{color:#9a9fa5;font-size:14px}.paper-section>td{background:#f0f0f0;padding:19px 12px;border-bottom:0}.paper-section h2{font-family:"Times New Roman",Times,serif;font-weight:700;font-size:22px;line-height:1.2;color:#1155cc;margin:0}.citing-row[hidden]{display:none}.citing-row>td{padding:0 12px 22px}.citation-list{list-style:none;padding:18px 20px;margin:5px 0 0 32px;background:#f4f4f4;font-family:"Times New Roman",Times,serif;font-size:18px;line-height:1.3}.citation-list>li{margin:0 0 22px;padding-left:3px}.citation-list>li:last-child{margin-bottom:0}.citing-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:start}.citing-date{font-family:Arial,Helvetica,sans-serif;font-size:12px;white-space:nowrap;text-align:right;color:#59616a}.totals{padding:18px 12px;font-size:13px;color:#59616a}.totals strong{color:#25282c;font-weight:500}@media(max-width:650px){body{padding:4px}th,td{padding:15px 5px}th:first-child{width:69%}th:nth-child(2){width:20%}th:last-child{width:11%}.paper-copy,.citation-list{font-size:16px}.date{font-size:11px;white-space:normal}.abstract-text{font-size:15px;line-height:1.6}.detail-content{padding:11px 9px}.abstract-details>summary{font-size:13px}.citation-toggle{font-size:13px}.citation-toggle:before{margin-right:3px}.citing-row>td{padding:0 5px 18px}.citation-list{padding:14px 12px;margin-left:10px}.citing-heading{gap:12px;grid-template-columns:minmax(0,1fr) 72px}.citing-date{font-size:11px;white-space:normal}.paper-section>td{padding:17px 5px}.paper-section h2{font-size:21px}.totals{padding:15px 5px}}
-
-.paper-sort{display:inline-flex;align-items:center;gap:3px;border:0;background:transparent;padding:0;color:inherit;font:inherit;cursor:pointer;white-space:nowrap}.paper-sort:hover{color:#1155cc}.sort-indicator{display:inline-block;min-width:.75em;font-size:10px;line-height:1}.sort-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-</style>
-<script defer src="assets/site.js?v=8c400b82e06d" data-catalogue="papers.json" data-papers="papers/"></script>
-</head>
-<body>
-<table aria-label="Papers"><thead><tr><th aria-label="Paper"></th><th title="Earliest documented public posting, rather than the journal issue date">First online</th><th>Cited by</th></tr></thead><tbody id="papers"></tbody></table>
+<title>List of papers — Nhat Minh Doan</title>
+<link rel="canonical" href="https://minhmath.github.io/">
+<link rel="stylesheet" href="assets/site.css?v=8ed9d68dfaaf">
+<link rel="stylesheet" href="assets/papers.css?v=ca42146056f3">
+<script defer src="assets/site.js?v=765fc30be8a7" data-catalogue="papers.json" data-papers="./"></script>
+<script defer src="assets/papers.js?v=0a37ad8bde89"></script>
+</head><body class="papers-embed"><main class="papers-content">
+<table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col"><h2>List of papers</h2></th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>
 <div class="totals" id="totals" aria-label="Citation totals"></div>
-<script>
-const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const safe=value=>{try{const url=new URL(value);return ['https:','http:'].includes(url.protocol)?url.href:'#'}catch{return '#'}};
-const link=(url,label,attributes='')=>'<a href="'+esc(safe(url))+'" target="_blank" rel="noopener noreferrer" '+attributes+'>'+esc(label)+'</a>';
-const paperUrl=p=>p.doi?'https://doi.org/'+p.doi:p.arxiv?'https://arxiv.org/abs/'+p.arxiv:p.hexagon?'https://hexagonmath.org/'+p.hexagon:'#';
-const sourceUrl=c=>c.url||(c.arxiv?'https://arxiv.org/abs/'+c.arxiv:c.hexagon?'https://hexagonmath.org/'+c.hexagon:c.platform==='arxiv'?'https://arxiv.org/abs/'+c.id:c.platform==='hexagon'?'https://hexagonmath.org/'+c.id:c.doi?'https://doi.org/'+c.doi:'#');
-const authors=value=>(Array.isArray(value)?value:String(value||'').split(';')).map(name=>{
- const parts=String(name).split(',').map(part=>part.trim());
- return parts.length===2?parts[1]+' '+parts[0]:String(name).trim();
-}).filter(Boolean).join(', ');
-const dateText=value=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return '—';return new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(value+'T00:00:00Z'))};
-const newestFirst=(a,b)=>(b.first_online||'').localeCompare(a.first_online||'')||(a.display_title||a.title).localeCompare(b.display_title||b.title);
-const dateLink=p=>p.first_online?link(p.first_online_source||sourceUrl(p),dateText(p.first_online),'title="'+esc(p.first_online_note||'First documented public posting')+'"'):'—';
-const punctuate=value=>{const text=String(value||'').trim();return text&&!/[.!?]$/.test(text)?text+'.':text};
-const abstractDetails=p=>{
- const text=p.abstract?'<div class="abstract-text">'+esc(p.abstract)+'</div>':'';
- const source=link(p.abstract_source||sourceUrl(p),p.abstract_kind==='summary'?'Abstract summary':'Source');
- return '<details class="abstract-details"><summary>Abstract</summary><div class="detail-content">'+text+'<div class="abstract-source">'+source+'</div></div></details>';
-};
-const bibliography=(p,url,attributes='')=>{
- const byline=authors(p.authors);
- const venue=String(p.venue||'').replace(/^HexagonMath\s*[,;:]?\s*/i,'');
- return '<div class="paper">'+link(url,punctuate(p.display_title||p.title),attributes)+'</div>'+(byline?'<div class="authors">'+esc(punctuate(byline))+'</div>':'')+(venue?'<div class="venue">'+esc(punctuate(venue))+'</div>':'')+abstractDetails(p);
-};
-// Mathematics is loaded only when an opened details panel needs it.
-let mathReady,mathQueue=Promise.resolve();
-function loadMath(){
- if(!mathReady)mathReady=new Promise((resolve,reject)=>{
-  window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},startup:{typeset:false}};
-  const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js';script.async=true;
-  script.onload=()=>window.MathJax.startup.promise.then(resolve,reject);script.onerror=reject;document.head.appendChild(script);
- });
- return mathReady;
-}
-const tableBody=document.getElementById('papers');
-
-function installPaperSorting(data){
- const table=tableBody.closest('table');
- const headers=[...table.querySelectorAll('thead th')];
- const columns=[{key:'date',header:headers[1],label:'First online'},{key:'citations',header:headers[2],label:'Cited by'}];
- const papersById=new Map(data.papers.map(paper=>[paper.id,paper]));
- const citationCounts=new Map();
- for(const citation of data.citations){
-  if(citation.verified||citation.listing_confirmed)citationCounts.set(citation.target,(citationCounts.get(citation.target)||0)+1);
- }
- let group={heading:null,entries:[]};
- const groups=[group];
- for(const row of [...tableBody.children]){
-  if(row.classList.contains('paper-section')){
-   group={heading:row,entries:[]};groups.push(group);
-  }else if(row.id.startsWith('paper-')){
-   const id=row.id.slice(6);
-   group.entries.push({row,paper:papersById.get(id),citingRow:document.getElementById('cited-'+id)});
-  }
- }
- let sortKey='citations',sortDirection='descending';
- const status=document.createElement('p');
- status.className='sort-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');
- table.after(status);
- function updateHeaders(){
-  for(const column of columns){
-   const active=column.key===sortKey;
-   if(active)column.header.setAttribute('aria-sort',sortDirection);
-   else column.header.removeAttribute('aria-sort');
-   const icon=column.button.querySelector('.sort-indicator');
-   icon.textContent=active?(sortDirection==='descending'?'↓':'↑'):'↕';
-   const next=active&&sortDirection==='descending'?'ascending':'descending';
-   column.button.title=column.key==='date'?(next==='descending'?'Sort newest first':'Sort oldest first'):(next==='descending'?'Sort highest citation count first':'Sort lowest citation count first');
-  }
- }
- function compare(a,b){
-  let difference;
-  if(sortKey==='citations'){
-   difference=(citationCounts.get(a.id)||0)-(citationCounts.get(b.id)||0);
-  }else{
-   const dateA=/^\d{4}-\d{2}-\d{2}$/.test(a.first_online||'')?a.first_online:'';
-   const dateB=/^\d{4}-\d{2}-\d{2}$/.test(b.first_online||'')?b.first_online:'';
-   if(!dateA||!dateB)return dateA?-1:dateB?1:newestFirst(a,b);
-   difference=dateA.localeCompare(dateB);
-  }
-  return (sortDirection==='descending'?-difference:difference)||newestFirst(a,b)||a.id.localeCompare(b.id);
- }
- function sortRows(){
-   const fragment=document.createDocumentFragment();
-   for(const section of groups){
-    if(section.heading)fragment.append(section.heading);
-    for(const entry of [...section.entries].sort((a,b)=>compare(a.paper,b.paper))){
-     fragment.append(entry.row);
-     if(entry.citingRow)fragment.append(entry.citingRow);
-    }
-   }
-   tableBody.append(fragment);
- }
- for(const column of columns){
-  const button=document.createElement('button');
-  button.type='button';button.className='paper-sort';button.setAttribute('aria-controls','papers');
-  button.append(document.createTextNode(column.label+' '));
-  const icon=document.createElement('span');icon.className='sort-indicator';icon.setAttribute('aria-hidden','true');button.append(icon);
-  column.header.replaceChildren(button);column.button=button;
-  button.addEventListener('click',()=>{
-   sortDirection=sortKey===column.key&&sortDirection==='descending'?'ascending':'descending';
-   sortKey=column.key;
-   sortRows();
-   updateHeaders();
-   status.textContent='Papers sorted by '+(sortKey==='date'?'first online date, '+(sortDirection==='descending'?'newest first.':'oldest first.'):'citation count, '+(sortDirection==='descending'?'highest first.':'lowest first.'));
-  });
- }
- sortRows();
- updateHeaders();
-}
-
-tableBody.addEventListener('click',event=>{
- const button=event.target.closest('.citation-toggle');if(!button)return;
- const row=document.getElementById(button.getAttribute('aria-controls'));
- const opening=button.getAttribute('aria-expanded')!=='true';row.hidden=!opening;button.setAttribute('aria-expanded',String(opening));
-});
-tableBody.addEventListener('toggle',event=>{
- const panel=event.target;
- if(!panel.matches('.abstract-details')||!panel.open||panel.dataset.mathDone)return;
- const abstract=panel.querySelector('.abstract-text');if(!abstract||!/[\$\\]/.test(abstract.textContent))return;
- mathQueue=mathQueue.then(()=>loadMath()).then(()=>window.MathJax.typesetPromise([abstract])).then(()=>{panel.dataset.mathDone='true'}).catch(()=>{});
-},true);
-fetch('ledger.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error();return r.json()}).then(data=>{
- const allPapers=[...data.papers].sort(newestFirst);
- const grouped=document.body.classList.contains('papers-page');
- const renderPaper=(p,index)=>{
-  const citations=data.citations.filter(c=>c.target===p.id&&(c.verified||c.listing_confirmed)).sort(newestFirst);
-  const id='cited-'+p.id;
-  const control=citations.length?'<button type="button" class="citation-toggle" aria-expanded="false" aria-controls="'+esc(id)+'" aria-label="'+citations.length+' citing works">'+citations.length+'</button>':'<span class="empty">—</span>';
-  const main='<tr id="paper-'+esc(p.id)+'"><td><div class="paper-copy">'+bibliography(p,paperUrl(p))+'</div></td><td class="date">'+dateLink(p)+'</td><td class="citation-count">'+control+'</td></tr>';
-  const list=citations.length?'<tr class="citing-row" id="'+esc(id)+'" hidden><td colspan="3"><ul class="citation-list">'+citations.map(c=>'<li><div class="citing-heading"><div class="paper-copy">'+bibliography(c,sourceUrl(c),'title="'+esc(c.bibliography_status||'Bibliography reference verified')+'"')+'</div><div class="citing-date">'+dateLink(c)+'</div></div></li>').join('')+'</ul></td></tr>':'';
-  return main+list;
- };
- tableBody.innerHTML=grouped?[
-  {title:'Papers',papers:allPapers.filter(p=>p.section!=='other')},
-  {title:'Other writings',papers:allPapers.filter(p=>p.section==='other')}
- ].filter(section=>section.papers.length).map(section=>'<tr class="paper-section"><td colspan="3"><h2>'+esc(section.title)+'</h2></td></tr>'+section.papers.map(renderPaper).join('')).join(''):allPapers.map(renderPaper).join('');
- installPaperSorting(data);
- document.getElementById('totals').innerHTML='<span>Total citations: <strong>'+data.counts.total_citations+'</strong></span>';
-}).catch(()=>{});
-</script>
-</body>
-</html>
-
-
+</main></body></html>

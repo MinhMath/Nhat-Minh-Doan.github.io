@@ -5,9 +5,10 @@
   var excluded=window['ga-disable-G-0R548MHC6P']===true;
   var url=new URL(window.location.href);
   var preference=url.searchParams.get('exclude_me');
-  if(preference==='1')excluded=true;
+  var ownerActivation=url.searchParams.get('owner_dashboard')==='1';
+  if(preference==='1'||ownerActivation)excluded=true;
   try{
-   if(preference==='1')localStorage.setItem('nhat-minh-doan:analytics-excluded','1');
+   if(preference==='1'||ownerActivation)localStorage.setItem('nhat-minh-doan:analytics-excluded','1');
    if(preference==='0')localStorage.removeItem('nhat-minh-doan:analytics-excluded');
    excluded=excluded||localStorage.getItem('nhat-minh-doan:analytics-excluded')==='1';
   }catch(error){}
@@ -27,6 +28,6 @@
   document.head.appendChild(tag);
  })();
 </script>
-<!-- End Google tag --><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found — Nhat Minh Doan</title><link rel="stylesheet" href="/assets/site.css"></head><body><main class="content-width" style="padding:60px 0"><h1>Page not found</h1><p><a href="/">Homepage</a> · <a href="/papers/">Papers</a></p></main></body></html>
+<!-- End Google tag --><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found — Nhat Minh Doan</title><link rel="stylesheet" href="/assets/site.css"></head><body><main class="content-width" style="padding:60px 0"><h1>Page not found</h1><p><a href="/">Bio</a> · <a href="/#papers">List of papers</a></p></main></body></html>
 
 

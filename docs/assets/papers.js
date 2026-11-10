@@ -100,11 +100,11 @@ function toggleCitationYear(button){
  panel.querySelectorAll('[data-citation-year-records]').forEach(section=>{section.hidden=!opening||section.dataset.citationYearRecords!==year});
  panel.hidden=!opening;
 }
-citationChart.addEventListener('click',event=>{
+citationChart?.addEventListener('click',event=>{
  const button=event.target.closest('[data-citation-year]');
  if(button)toggleCitationYear(button);
 });
-citationChart.addEventListener('keydown',event=>{
+citationChart?.addEventListener('keydown',event=>{
  if(event.key!=='Enter'&&event.key!==' ')return;
  const button=event.target.closest('[data-citation-year]');
  if(!button)return;
@@ -225,14 +225,17 @@ function loadPapers(){
    const list=citations.length?'<tr class="citing-row" id="'+esc(id)+'" hidden><td colspan="3"><ul class="citation-list">'+citations.map(c=>'<li><div class="citing-heading"><div class="paper-copy">'+bibliography(c,sourceUrl(c),'title="'+esc(c.bibliography_status||'Bibliography reference verified')+'"')+'</div><div class="citing-date">'+dateLink(c)+'</div></div></li>').join('')+'</ul></td></tr>':'';
    return main+list;
   };
-  tableBody.innerHTML=[
-   {title:'Papers',papers:allPapers.filter(p=>p.section!=='other')},
+  const sections=papersPanel?[
+   {papers:allPapers.filter(p=>p.section!=='other')},
    {title:'Other writings',papers:allPapers.filter(p=>p.section==='other')}
-  ].filter(section=>section.papers.length).map(section=>(section.title==='Papers'?'':'<tr class="paper-section"><td colspan="3"><h2>'+esc(section.title)+'</h2></td></tr>')+section.papers.map(renderPaper).join('')).join('');
+  ]:[{papers:allPapers}];
+  tableBody.innerHTML=sections.filter(section=>section.papers.length).map(section=>
+   (section.title?'<tr class="paper-section"><td colspan="3"><h2>'+esc(section.title)+'</h2></td></tr>':'')+section.papers.map(renderPaper).join('')
+  ).join('');
   installPaperSorting(data);
   document.getElementById('totals').innerHTML='<span>Total citations: <strong>'+data.counts.total_citations+'</strong></span>';
-  renderPaperInsights(data);
-  if(papersPanel.open)selectPaperFromHash();
+  if(citationChart)renderPaperInsights(data);
+  if(!papersPanel||papersPanel.open)selectPaperFromHash();
 }).catch(()=>{const error=document.createElement('p');error.setAttribute('role','alert');error.textContent='Papers could not be loaded. Please refresh the page.';tableBody.closest('table').after(error)});
 }
 function selectPaperFromHash(){
@@ -240,13 +243,13 @@ function selectPaperFromHash(){
  try{id=decodeURIComponent(location.hash.slice(1))}catch{return}
  document.querySelectorAll('.paper-selected').forEach(row=>row.classList.remove('paper-selected'));
  if(!id.startsWith('paper-'))return;
- papersPanel.open=true;
+ if(papersPanel)papersPanel.open=true;
  loadPapers();
  const row=document.getElementById(id);if(!row)return;
  row.classList.add('paper-selected');const details=row.querySelector('.abstract-details');if(details)details.open=true;row.scrollIntoView({block:'start'});
 }
-papersPanel.addEventListener('toggle',()=>{if(papersPanel.open)loadPapers()});
-if(papersPanel.open)loadPapers();
+papersPanel?.addEventListener('toggle',()=>{if(papersPanel.open)loadPapers()});
+if(!papersPanel||papersPanel.open)loadPapers();
 selectPaperFromHash();
 window.addEventListener('hashchange',selectPaperFromHash);
 })();
