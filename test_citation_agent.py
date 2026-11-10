@@ -142,6 +142,15 @@ class CitationLedgerTests(unittest.TestCase):
         html=BeautifulSoup('<meta name="citation_pdf_url" content="https://hexagonmath.org/pdf/2610.00159v1">','html.parser')
         self.assertEqual(agent.hexagon_pdf_url(html),"https://hexagonmath.org/pdf/2610.00159v1")
 
+    def test_hexagon_title_prefers_metadata_to_repeated_math_text(self):
+        from bs4 import BeautifulSoup
+        html=BeautifulSoup(
+            '<meta name="citation_title" content="Almost all $k$-Markov numbers are unique">'
+            '<h1>Almost all <span>k</span><span>k</span><span>k</span>-Markov numbers are unique</h1>',
+            'html.parser',
+        )
+        self.assertEqual(agent.hexagon_title(html,"Fallback"),"Almost all k-Markov numbers are unique")
+
     def test_fulltext_match_does_not_require_an_indexed_citation_edge(self):
         p=next(x for x in PAPERS if x["id"]=="pants")
         work={"id":"https://openalex.org/W7203875419","display_name":"The entropy spectrum of hyperbolic surfaces",

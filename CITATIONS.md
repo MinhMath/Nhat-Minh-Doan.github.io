@@ -50,7 +50,7 @@ Collection status: **partial**. Last saved discovery: 2026-11-10T08:31:56+00:00.
 
 ### Almost all simple lengths are unique up to isometry
 
-- [Almost all k k k -Markov numbers are unique](https://hexagonmath.org/2611.00216v1) — Qiyue Tang; independent. Verified in HexagonMath HTML bibliography.
+- [Almost all k-Markov numbers are unique](https://hexagonmath.org/2611.00216v1) — Qiyue Tang; independent. Verified in HexagonMath HTML bibliography.
   Reference excerpt: N. M. Doan, Almost all simple lengths are unique up to isometry , preprint (2026), Hexagon:2610.00298v1 (https://hexagonmath.org/2610.00298v1). hexagon
 
 ### Some arithmetic aspects of ortho-integral surfaces

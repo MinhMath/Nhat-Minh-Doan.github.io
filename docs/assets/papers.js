@@ -14,7 +14,9 @@ const newestFirst=(a,b)=>(b.first_online||'').localeCompare(a.first_online||'')|
 const dateLink=p=>p.first_online?link(p.first_online_source||sourceUrl(p),dateText(p.first_online),'title="'+esc(p.first_online_note||'First documented public posting')+'"'):'—';
 const punctuate=value=>{const text=String(value||'').trim();return text&&!/[.!?]$/.test(text)?text+'.':text};
 const abstractDetails=p=>{
- const text=p.abstract?'<div class="abstract-text">'+esc(p.abstract)+'</div>':'';
+ const abstract=p.abstract?.trim();
+ if(!abstract)return '';
+ const text='<div class="abstract-text">'+esc(abstract)+'</div>';
  const source=link(p.abstract_source||sourceUrl(p),p.abstract_kind==='summary'?'Abstract summary':'Source');
  return '<details class="abstract-details"><summary>Abstract</summary><div class="detail-content">'+text+'<div class="abstract-source">'+source+'</div></div></details>';
 };

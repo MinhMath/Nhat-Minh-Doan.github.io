@@ -253,6 +253,23 @@
     "first_online_source": "https://hexagonmath.org/2611.00023v1"
   },
   {
+    "platform": "hexagon",
+    "id": "2611.00216",
+    "title": "Almost all k-Markov numbers are unique",
+    "display_title": "Almost all k-Markov numbers are unique",
+    "authors": "Qiyue Tang",
+    "venue": "HexagonMath, hexagon:2611.00216v1.",
+    "year": 2026,
+    "first_online": "2026-11-10",
+    "first_online_source": "https://hexagonmath.org/2611.00216v1",
+    "first_online_note": "HexagonMath public posting of version 1, distinct from the initial deposit on 8 November 2026.",
+    "abstract": "Fix a nonnegative integer $k$. Among positive integer solutions of the generalized Markov equation with largest coordinate at most $X$, the proportion determined by that coordinate up to permutation tends to one as $X$ grows. The equation is $$x^2+y^2+z^2+k(xy+xz+yz)=3(k+1)xyz.$$",
+    "abstract_kind": "summary",
+    "abstract_source": "https://hexagonmath.org/2611.00216v1",
+    "abstract_version": "HexagonMath v1",
+    "abstract_checked_utc": "2026-11-10"
+  },
+  {
     "arxiv": "2203.06446",
     "abstract": "For closed geodesics arising from subgroups of real quadratic narrow class groups, the paper shows concentration of their homology near the Eisenstein direction. It also considers variation of the modular level and a homological supremum-norm problem, with applications to modular forms and group theory.",
     "abstract_kind": "summary",

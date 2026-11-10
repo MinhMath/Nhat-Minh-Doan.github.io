@@ -415,6 +415,14 @@ def hexagon_pdf_url(document,base="https://hexagonmath.org"):
             return urljoin(base,link["href"])
     return ""
 
+def hexagon_title(document, fallback):
+    meta = document.select_one('meta[name="citation_title"]')
+    title = (meta.get("content") or "").strip() if meta else ""
+    if not title:
+        heading = document.find("h1")
+        title = heading.get_text(" ", strip=True) if heading else fallback
+    return re.sub(r"\$([A-Za-z])\$", r"\1", title)
+
 def hexagon_scan(papers):
     """Check Hexagon HTML reference lists, plus a rotating queue of PDF bibliographies.
 
@@ -461,7 +469,7 @@ def hexagon_scan(papers):
             except requests.RequestException:
                 continue
             checked.add(href)
-            title=doc.find("h1").get_text(" ",strip=True) if doc.find("h1") else href
+            title=hexagon_title(doc,href)
             text=doc.get_text("\n",strip=True)
             names=[meta.get("content","") for meta in doc.select('meta[name="citation_author"]')]
             authors="; ".join(names)
