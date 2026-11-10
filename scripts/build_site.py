@@ -155,7 +155,7 @@ def meetings_panel():
   f'    <li>{escape(date)} · <strong>{escape(place)}</strong> — {external(href,event) if href else escape(event)}</li>'
   for date,place,event,href in meetings
  ]
- return '\n'.join(['   <ul style="margin:8px 0 0;padding-left:2em;line-height:1.55">', *rows, '   </ul>'])
+ return '\n'.join(['   <ul class="meeting-list">', *rows, '   </ul>'])
 
 def cv_panel(papers):
  manifest=json.loads((DOCS/'assets/cv-pages.json').read_text())

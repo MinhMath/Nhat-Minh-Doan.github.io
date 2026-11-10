@@ -12,3 +12,11 @@
 
 
 .bio-section{margin-bottom:12px}.bio-section>summary{cursor:pointer}.bio-section .cv-content{padding-inline:0}.bio-section .seminar-copy{padding:12px 0 0}.bio-section .seminar-copy p{margin-bottom:12px;text-align:left}
+
+.meeting-list {
+  margin: 8px 0 0;
+  padding-inline-start: 2em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+}
