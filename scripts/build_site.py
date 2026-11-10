@@ -119,8 +119,8 @@ def main():
 <main id="main">
  <section class="intro content-width" aria-label="About Minh" style="max-width:860px">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
-  <p>Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
-  <div style="margin-bottom:8px">
+  <p style="margin-bottom:12px">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
+  <div style="margin-bottom:12px">
    <a href="papers/">Papers</a> · <a href="cv/">CV</a> ·
    <details class="email-disclosure" style="display:inline-block;vertical-align:top">
     <summary class="email-toggle">Email</summary>
