@@ -118,16 +118,9 @@ def main():
 {header('home')}
 <main id="main">
  <figure class="home-banner content-width"><img src="assets/vietnam-banner.jpg?v={asset_revision('vietnam-banner.jpg')}" width="1489" height="596" alt="Hạ Long Bay, Vietnam" fetchpriority="high"></figure>
- <section class="intro content-width" aria-label="About Minh">
+ <section class="intro content-width" aria-label="About Minh" style="max-width:860px">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
   <p>Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
-  <ul>
-   <li>Researcher (2022–present) at the {external('https://math.ac.vn/en','Institute of Mathematics, VAST')}.</li>
-   <li>{external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} (2024–2026) at the {external('https://www.math.nus.edu.sg/','National University of Singapore')}, where I worked with {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}.</li>
-   <li>PhD (2018–2022) at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')}, where {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} supervised my {external('https://orbilu.uni.lu/handle/10993/50710','thesis')}.</li>
-   <li>Master’s (2016–2017) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')}, supervised by {external('https://flab.perso.math.cnrs.fr/','François Labourie')}.</li>
-   <li>BA in Mathematics (2013–2015) at the University of Education, Ho Chi Minh City, Vietnam.</li>
-  </ul>
   <div style="margin-bottom:24px">
    <a href="papers/">Papers</a> · <a href="cv/">CV</a> ·
    <details class="email-disclosure" style="display:inline-block;vertical-align:top">
@@ -152,6 +145,21 @@ def main():
     }});
    </script>
   </div>
+  <figure style="margin:0 0 16px">
+   <a href="assets/minh-academic-path.webp" aria-label="Open the academic timeline at full size" style="display:block">
+    <img src="assets/minh-academic-path.webp" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
+   </a>
+  </figure>
+  <details>
+   <summary>Academic background and links</summary>
+   <ul>
+    <li>Researcher (2022–present) at the {external('https://math.ac.vn/en','Institute of Mathematics, VAST')}.</li>
+    <li>{external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} (2024–2026) at the {external('https://www.math.nus.edu.sg/','National University of Singapore')}, where I worked with {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}.</li>
+    <li>PhD (2018–2022) at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')}, where {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} supervised my {external('https://orbilu.uni.lu/handle/10993/50710','thesis')}.</li>
+    <li>Master’s (2016–2017) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')}, supervised by {external('https://flab.perso.math.cnrs.fr/','François Labourie')}.</li>
+    <li>BA in Mathematics (2013–2015) at the University of Education, Ho Chi Minh City, Vietnam.</li>
+   </ul>
+  </details>
  </section>
 </main>
 </body>
