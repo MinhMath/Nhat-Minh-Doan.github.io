@@ -90,7 +90,7 @@ def header(active, prefix=''):
  <a class="site-name" href="{prefix or './'}"><span class="site-avatar"><img class="site-portrait" src="{prefix}assets/portrait.png?v={asset_revision('portrait.png')}" width="33" height="41" alt=""></span>Nhat Minh Doan (Đoàn Nhật Minh)</a>
  <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
  <nav id="site-navigation" class="site-navigation" aria-label="Main navigation">
-  <a href="{prefix or './'}" {'aria-current="page"' if active=='home' else ''}>Homepage</a>
+  <a href="{prefix or './'}" {'aria-current="page"' if active=='home' else ''}>Bio</a>
   <a href="{prefix}papers/" {'aria-current="page"' if active=='papers' else ''}>Papers</a>
   <a href="{prefix}cv/" {'aria-current="page"' if active=='cv' else ''}>CV</a>
   <a href="{prefix}seminars/" {'aria-current="page"' if active=='seminars' else ''}>Online Seminars</a>
@@ -161,7 +161,7 @@ def main():
   page,count=re.subn(r'(<main id="main" class="papers-content">)(?:\s*<figure class="papers-illustration">.*?</figure>)?',lambda match:match[1]+'\n'+illustration,page,count=1,flags=re.S)
   if count!=1:raise ValueError('Cannot find the Papers page content')
   papers_page.write_text(page,encoding='utf-8')
- (DOCS/'homepage/index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nhat Minh Doan</title><meta http-equiv="refresh" content="0;url=../"><link rel="canonical" href="'+BASE+'"></head><body><a href="../">Homepage</a></body></html>')
+ (DOCS/'homepage/index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nhat Minh Doan</title><meta http-equiv="refresh" content="0;url=../"><link rel="canonical" href="'+BASE+'"></head><body><a href="../">Bio</a></body></html>')
  manifest=json.loads((DOCS/'assets/cv-pages.json').read_text())
  if manifest['pdf_sha256']!=hashlib.sha256((DOCS/'assets/cv.pdf').read_bytes()).hexdigest():
   raise ValueError('Render the CV pages again after changing the PDF')
