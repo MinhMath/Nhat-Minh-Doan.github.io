@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-08T07:31:28+00:00",
+  "generated_utc": "2026-11-10T08:31:56+00:00",
   "collection_status": "partial",
   "sources": {
     "publisher_bibliographies": {
@@ -28,8 +28,8 @@
       "status": "completed_requests"
     },
     "semantic": {
-      "papers_attempted": 1,
-      "new_records": 0,
+      "papers_attempted": 4,
+      "new_records": 2,
       "status": "deferred_after_error"
     },
     "opencitations": {
@@ -38,11 +38,11 @@
       "status": "completed_requests"
     },
     "hexagon": {
-      "status": "completed_requests",
-      "verified_records": 0
+      "status": "partial",
+      "verified_records": 1
     },
     "zenodo": {
-      "status": "partial",
+      "status": "completed_requests",
       "verified_records": 0
     }
   },
@@ -76,7 +76,9 @@
   "errors": [
     "api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run",
     "PDF HTTP 403: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1112/blms.13080",
-    "zenodo.org: HTTP 429; remaining requests to this host deferred until the next run"
+    "Hexagon PDF too large: /2611.00259v1",
+    "Hexagon PDF too large: /2611.00237v1",
+    "Hexagon PDF too large: /2611.00208v1"
   ],
   "warning": "Search matches and indexed edges remain candidates until a bibliography is checked. Partial or failed coverage is not evidence of zero citations."
 }

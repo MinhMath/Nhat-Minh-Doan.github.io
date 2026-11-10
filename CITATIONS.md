@@ -2,9 +2,9 @@
 
 > **Verified lower bound, not an exact worldwide total.** Verified references and unverified discoveries are recorded separately. A missing or failed source is not evidence of zero citations.
 
-**Total citation records:** 25 | **Bibliography verified:** 23 | **Scholar-listed, full text pending:** 2 | **Self citations:** 13 | **Non-self citations:** 12
+**Total citation records:** 26 | **Bibliography verified:** 24 | **Scholar-listed, full text pending:** 2 | **Self citations:** 13 | **Non-self citations:** 13
 
-Collection status: **partial**. Last saved discovery: 2026-11-08T07:31:28+00:00.
+Collection status: **partial**. Last saved discovery: 2026-11-10T08:31:56+00:00.
 
 | Canonical paper | Verified citations | Scholar-listed | Unverified candidates |
 |---|---:|---:|---:|
@@ -13,9 +13,9 @@ Collection status: **partial**. Last saved discovery: 2026-11-08T07:31:28+00:00.
 | [Measuring pants](https://doi.org/10.1090/tran/8893) | 4 | 1 | 0 |
 | [Ortho-integral surfaces](https://doi.org/10.1016/j.aim.2025.110162) | 3 | 0 | 0 |
 | [The torus with asymptotically the fewest simple closed geodesics](https://hexagonmath.org/2610.00159) | 2 | 0 | 0 |
+| [Almost all simple lengths are unique up to isometry](https://hexagonmath.org/2610.00298) | 1 | 0 | 0 |
 | [Some arithmetic aspects of ortho-integral surfaces](https://doi.org/10.1090/tran/9657) | 1 | 0 | 0 |
 | [Geometric filling curves on punctured surfaces](https://doi.org/10.1017/S0017089522000404) | 1 | 1 | 0 |
-| [Almost all simple lengths are unique up to isometry](https://hexagonmath.org/2610.00298) | 0 | 0 | 0 |
 | [Density of length ratios on Teichmüller space](https://arxiv.org/abs/2610.24700) | 0 | 0 | 0 |
 | [Graded Bridgeman dilogarithm identities on hyperbolic surfaces](https://arxiv.org/abs/2601.03876) | 0 | 0 | 0 |
 | [Optimal Farey sequence for the congruence subgroup Gamma_0(2^n)](https://arxiv.org/abs/2601.01324) | 0 | 0 | 0 |
@@ -47,6 +47,11 @@ Collection status: **partial**. Last saved discovery: 2026-11-08T07:31:28+00:00.
   Reference excerpt: P. T. Dang, T. T. Dao and N. M. Doan, The torus with asymptotically the fewest simple closed geodesics , Hexagon preprint 2610.00159v1 (2026). https://hexagonmath.org/pdf/2610.00159v1. link
 - [The modular torus maximizes the Mahler product](https://zenodo.org/records/23603543) — Hu Tan; Ying Zhang; independent. Verified in Zenodo PDF bibliography.
   Reference excerpt: [2] P. T. Dang, T. T. Dao, and N. M. Doan. The torus with asymptotically the fewest simple closed geodesics. Hexagon preprint 2610.00159v1, 2026. 8 October 2026.
+
+### Almost all simple lengths are unique up to isometry
+
+- [Almost all k k k -Markov numbers are unique](https://hexagonmath.org/2611.00216v1) — Qiyue Tang; independent. Verified in HexagonMath HTML bibliography.
+  Reference excerpt: N. M. Doan, Almost all simple lengths are unique up to isometry , preprint (2026), Hexagon:2610.00298v1 (https://hexagonmath.org/2610.00298v1). hexagon
 
 ### Some arithmetic aspects of ortho-integral surfaces
 
@@ -107,14 +112,16 @@ Collection status: **partial**. Last saved discovery: 2026-11-08T07:31:28+00:00.
 | openalex_fulltext | completed_requests |
 | semantic | deferred_after_error |
 | opencitations | completed_requests |
-| hexagon | completed_requests |
-| zenodo | partial |
+| hexagon | partial |
+| zenodo | completed_requests |
 
 Collection limitations:
 
 - api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run
 - PDF HTTP 403: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1112/blms.13080
-- zenodo.org: HTTP 429; remaining requests to this host deferred until the next run
+- Hexagon PDF too large: /2611.00259v1
+- Hexagon PDF too large: /2611.00237v1
+- Hexagon PDF too large: /2611.00208v1
 
 The dashboard and this report use [the same normalized ledger](docs/ledger.json).
 Independent citations exclude identified shared authors; incomplete or ambiguous author names are recorded separately.
