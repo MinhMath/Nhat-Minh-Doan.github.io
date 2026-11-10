@@ -125,6 +125,7 @@ def main():
    <li>{external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} (2024–2026) at the {external('https://www.math.nus.edu.sg/','National University of Singapore')}, where I worked with {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}.</li>
    <li>PhD (2018–2022) at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')}, where {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} supervised my {external('https://orbilu.uni.lu/handle/10993/50710','thesis')}.</li>
    <li>Master’s (2017) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')}, supervised by {external('https://flab.perso.math.cnrs.fr/','François Labourie')}.</li>
+   <li>BA in Mathematics (2013–2015) at the University of Education, Ho Chi Minh City, Vietnam.</li>
   </ul>
   <p><a href="papers/">Papers</a> · <a href="cv/">CV</a> · <a href="mailto:dnminh@math.ac.vn">Email</a></p>
  </section>
