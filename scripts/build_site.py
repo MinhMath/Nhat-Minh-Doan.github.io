@@ -144,6 +144,7 @@ def meetings_panel():
   ('October 2019', 'Bordeaux, France', 'PhD Away Days, University of Luxembourg and University of Bordeaux', 'https://math.uni.lu/docsem/f/away_days2019/2019-PhDAwayDays_Abstracts.pdf'),
   ('July 2019', 'Chiang Mai, Thailand', 'Combinatorial and Algebraic Aspects of Geometric Structures, Chiang Mai University', 'https://www.math.science.cmu.ac.th/lst/Poster2019-05-13.pdf'),
   ('July 2019', 'Luxembourg', 'Interactions between Hyperbolic Geometry and Number Theory, University of Luxembourg', 'https://gaati.org/rahm/InteractionsConference/'),
+  ('May 2019', 'Barcelona, Spain', 'Advanced Course on Geometry, Topology and Algebra, Centre de Recerca Matemàtica', 'https://www.crm.cat/wp-content/uploads/2020/07/Memoria2019web.pdf#page=62'),
   ('August 2018', 'Les Diablerets, Switzerland', 'Geometry and Dynamics on Hyperbolic Surfaces, CUSO', 'https://www.cuso.ch/fileadmin/cuso/rapports_annuels/Rapport_CUSO_2018.pdf'),
   ('June 2018', 'Luxembourg', 'QUANTMOD2, Quantization and Moduli Spaces', 'https://math.uni.lu/quantmod/part.html'),
   ('May 2018', 'Heidelberg, Germany', 'PhD Away Days, University of Luxembourg', 'https://math.uni.lu/docsem/away_days/2018.html'),
