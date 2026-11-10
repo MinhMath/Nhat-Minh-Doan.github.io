@@ -220,7 +220,9 @@ function loadPapers(){
   const renderPaper=p=>{
    const citations=data.citations.filter(c=>c.target===p.id&&(c.verified||c.listing_confirmed)).sort(newestFirst);
    const id='cited-'+p.id;
-   const control=citations.length?'<button type="button" class="citation-toggle" aria-expanded="false" aria-controls="'+esc(id)+'" aria-label="'+citations.length+' citing works">'+citations.length+'</button>':'<span class="empty">—</span>';
+   const count=citations.length;
+   const label=count+' citing '+(count===1?'work':'works');
+   const control=count?'<button type="button" class="citation-toggle" aria-expanded="false" aria-controls="'+esc(id)+'" aria-label="'+label+'">'+count+'</button>':'<span class="empty">—</span>';
    const main='<tr id="paper-'+esc(p.id)+'"><td><div class="paper-copy">'+bibliography(p,paperUrl(p))+'</div></td><td class="date">'+dateLink(p)+'</td><td class="citation-count">'+control+'</td></tr>';
    const list=citations.length?'<tr class="citing-row" id="'+esc(id)+'" hidden><td colspan="3"><ul class="citation-list">'+citations.map(c=>'<li><div class="citing-heading"><div class="paper-copy">'+bibliography(c,sourceUrl(c),'title="'+esc(c.bibliography_status||'Bibliography reference verified')+'"')+'</div><div class="citing-date">'+dateLink(c)+'</div></div></li>').join('')+'</ul></td></tr>':'';
    return main+list;
