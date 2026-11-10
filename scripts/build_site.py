@@ -132,6 +132,7 @@ def meetings_panel():
   ('December 2023', 'Seoul, South Korea', 'Hyperbolic Geometry of Numbers, KIAS', 'https://sites.google.com/view/hygen2023'),
   ('September 2023', 'Quy Nhơn, Vietnam', 'Topology of Singularities and Related Topics, JSPS–VAST', 'https://sites.google.com/keio.jp/jv2021-2024/jv2023-workshop'),
   ('August 2023', 'Hạ Long, Vietnam', 'Topics in Contemporary Differential Geometry, VIASM–ICTP Summer School workshop', 'https://indico.ictp.it/event/10196/session/7/'),
+  ('August 2023', 'Hanoi, Vietnam', 'VIASM–ICTP Summer School on Differential Geometry', 'https://indico.ictp.it/event/10196/'),
   ('April 2023', 'Hà Tĩnh, Vietnam', 'Mathematics and Related Fields, Hà Tĩnh University', 'https://htu.edu.vn/tin-t%E1%BB%A9c-s%E1%BB%B1-ki%E1%BB%87n/1500-h%E1%BB%99i-th%E1%BA%A3o-khoa-h%E1%BB%8Dc-%E2%80%9Cto%C3%A1n-h%E1%BB%8Dc-v%C3%A0-c%C3%A1c-ng%C3%A0nh-li%C3%AAn-quan%E2%80%9D?highlight=WyJ2aVx1MWVjN3QiXQ%3D%3D'),
   ('December 2022', 'Hanoi, Vietnam', 'JSPS–VAST Joint Research Workshop', 'https://sites.google.com/keio.jp/jv2021-2024/jv2022-workshop-in-hanoi'),
   ('November 2022', 'Hanoi, Vietnam', 'Algebra and Number Theory Seminar, Institute of Mathematics, VAST', None),
@@ -145,6 +146,7 @@ def meetings_panel():
   ('August 2018', 'Les Diablerets, Switzerland', 'Geometry and Dynamics on Hyperbolic Surfaces, CUSO', 'https://www.cuso.ch/fileadmin/cuso/rapports_annuels/Rapport_CUSO_2018.pdf'),
   ('June 2018', 'Luxembourg', 'QUANTMOD2, Quantization and Moduli Spaces', 'https://math.uni.lu/quantmod/part.html'),
   ('May 2018', 'Heidelberg, Germany', 'PhD Away Days, University of Luxembourg', 'https://math.uni.lu/docsem/away_days/2018.html'),
+  ('May 2018', 'Nancy, France', 'Structures on Surfaces (SoS) Kick-off Meeting, Inria–LORIA', 'https://sos.loria.fr/kickoff.html'),
   ('September 2015', 'Hanoi, Vietnam', 'Number Theory from Classical to Modern, VIASM Summer School', 'https://www.viasm.edu.vn/hdkh/sm-lts?userkey=danh-sach-dai-bieu'),
  ]
  rows=[
