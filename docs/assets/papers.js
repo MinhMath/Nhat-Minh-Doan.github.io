@@ -21,7 +21,13 @@ const abstractDetails=p=>{
 const bibliography=(p,url,attributes='')=>{
  const byline=authors(p.authors);
  const venue=String(p.venue||'').replace(/^HexagonMath\s*[,;:]?\s*/i,'');
- return '<div class="paper">'+link(url,punctuate(p.display_title||p.title),attributes)+'</div>'+(byline?'<div class="authors">'+esc(punctuate(byline))+'</div>':'')+(venue?'<div class="venue">'+esc(punctuate(venue))+'</div>':'')+abstractDetails(p);
+ const title=punctuate(p.display_title||p.title);
+ const separator=byline&&venue?', ':'';
+ const publication=punctuate(venue);
+ const metadata=esc(byline)+separator+(publication?'<em>'+esc(publication)+'</em>':'');
+ return '<div class="paper" title="'+esc(title)+'">'+link(url,title,attributes)+'</div>'
+  +'<div class="paper-meta" title="'+esc(byline+separator+publication)+'">'+metadata+'</div>'
+  +abstractDetails(p);
 };
 
 function citationYear(citation){
