@@ -113,21 +113,32 @@ def meetings_panel():
  meetings=[
   ('August–September 2026', 'Shijiazhuang, China', 'Hyperbolic 2026 at Hebei Normal University', 'https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract'),
   ('July–August 2026', 'Jeju, South Korea', '2K-GATE Conference III', 'https://sites.google.com/view/2k-gate-workshop-3/home'),
-  ('April 2026', 'Fribourg, Switzerland', 'Research visit to the University of Fribourg', 'https://www.unifr.ch/math/en/'),
+  ('June 2026', 'Hanoi, Vietnam', 'Seminar, Thang Long Institute of Mathematics and Applied Sciences', None),
+  ('May 2026', 'Singapore', 'Topology, Geometry and Dynamics Seminar, NUS', 'https://www.math.nus.edu.sg/category/events/colloquia-seminars/topology-geometry-dynamics/page/2/'),
   ('April 2026', 'Lausanne, Switzerland', 'Geometry and Spectra of Compact Riemann Surfaces, EPFL', 'https://bernoulli.epfl.ch/programs/the-geometry-and-spectra-of-hyperbolic-surfaces-and-other-manifolds/'),
   ('April 2026', 'Hefei, China', 'Teichmüller Theory and Related Topics', 'https://shinpeibaba.com/Teichmueller2026/main.php'),
   ('March 2026', 'Chengdu, China', 'Geometry and Topology Seminar, Southwest Jiaotong University', 'https://faculty.swjtu.edu.cn/lixiaobin1/zh_CN/article/363471/content/1862.htm'),
+  ('July 2025', 'Phú Thọ, Vietnam', 'Workshop on Geometry and Related Topics', None),
+  ('April 2025', 'Singapore', 'Graduate Student Seminar, NUS', None),
   ('March 2025', 'Creswick, Australia', 'Teichmüller Theory and Flat Structures, MATRIX', 'https://www.matrix-inst.org.au/events/teichmuller-theory-and-flat-structures/'),
   ('March 2025', 'Singapore', 'Workshop on Dynamics and Related Topics, IMS–NUS', 'https://ims.nus.edu.sg/events/dynamicstopics/'),
   ('January 2025', 'Hanoi, Vietnam', 'Geometry and Dynamics in Low Dimensions', 'https://math.ac.vn/conference/gdld2025'),
+  ('September 2024', 'Vĩnh Phúc, Vietnam', 'Gặp gỡ Toán học 2024, workshop for early-career researchers', 'https://math.ac.vn/conference/GGTH2024'),
   ('May 2024', 'Osaka, Japan', 'IMVAST–OCAMI Joint Conference on Selected Areas in Mathematics', 'https://math.ac.vn/en/conference/imvastocami2024'),
   ('March 2024', 'Seoul, South Korea', 'Geometry and Topology Seminar, KIAS', 'https://www.kias.re.kr/kias/activities/seminars/view.do?edate=&menuNo=402021&mjrcdnm=&pageIndex=1&schoolsCd=M&sdate=2024-03-09&seqno=PGN1720240318-0001'),
+  ('December 2023', 'Seoul, South Korea', 'Hyperbolic Geometry of Numbers, KIAS', 'https://sites.google.com/view/hygen2023'),
   ('September 2023', 'Quy Nhơn, Vietnam', 'Topology of Singularities and Related Topics, JSPS–VAST', 'https://sites.google.com/keio.jp/jv2021-2024/jv2023-workshop'),
+  ('April 2023', 'Hà Tĩnh, Vietnam', 'Mathematics and Related Fields, Hà Tĩnh University', 'https://htu.edu.vn/tin-t%E1%BB%A9c-s%E1%BB%B1-ki%E1%BB%87n/1500-h%E1%BB%99i-th%E1%BA%A3o-khoa-h%E1%BB%8Dc-%E2%80%9Cto%C3%A1n-h%E1%BB%8Dc-v%C3%A0-c%C3%A1c-ng%C3%A0nh-li%C3%AAn-quan%E2%80%9D?highlight=WyJ2aVx1MWVjN3QiXQ%3D%3D'),
+  ('December 2022', 'Hanoi, Vietnam', 'JSPS–VAST Joint Research Workshop', 'https://sites.google.com/keio.jp/jv2021-2024/jv2022-workshop-in-hanoi'),
+  ('November 2022', 'Hanoi, Vietnam', 'Algebra and Number Theory Seminar, Institute of Mathematics, VAST', None),
   ('October 2022', 'Phú Thọ, Vietnam', 'Geometry, Analysis and Applications', 'https://math.ac.vn/en/conference/hoi-thao-khoa-hoc-hinh-hoc-giai-tich-va-ung-dung'),
+  ('September 2022', 'Singapore', 'Topology and Geometry Seminar, NUS', 'https://www.math.nus.edu.sg/category/events/colloquia-seminars/topology-geometry-dynamics/page/14/'),
+  ('August 2022', 'Vĩnh Phúc, Vietnam', 'Gặp gỡ Toán học 2022, workshop for early-career researchers', 'https://maths.hpu2.edu.vn/hoi-thao-khoa-hoc-cap-khoa--gap-go-toan-hoc-2022--hoi-thao-khoa-hoc-cac-nha-nghien-cuu-tre--thanh-cong-ruc-ro.html'),
+  ('January 2022', 'Luxembourg', 'Geometry Winter Workshop and PhD defence, University of Luxembourg', None),
   ('August 2018', 'Les Diablerets, Switzerland', 'Geometry and Dynamics on Hyperbolic Surfaces, CUSO', 'https://www.cuso.ch/fileadmin/cuso/rapports_annuels/Rapport_CUSO_2018.pdf'),
  ]
  rows=[
-  f'    <li>{escape(date)} · <strong>{escape(place)}</strong> — {external(href,event)}</li>'
+  f'    <li>{escape(date)} · <strong>{escape(place)}</strong> — {external(href,event) if href else escape(event)}</li>'
   for date,place,event,href in meetings
  ]
  return '\n'.join(['   <ul style="margin:8px 0 0;padding-left:2em;line-height:1.55">', *rows, '   </ul>'])
