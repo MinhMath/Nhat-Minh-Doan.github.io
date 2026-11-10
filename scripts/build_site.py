@@ -119,6 +119,7 @@ def meetings_panel():
   ('April 2026', 'Hefei, China', 'Teichmüller Theory and Related Topics', 'https://shinpeibaba.com/Teichmueller2026/main.php'),
   ('March 2026', 'Chengdu, China', 'Geometry and Topology Seminar, Southwest Jiaotong University', 'https://faculty.swjtu.edu.cn/lixiaobin1/zh_CN/article/363471/content/1862.htm'),
   ('July 2025', 'Phú Thọ, Vietnam', 'Workshop on Geometry and Related Topics', None),
+  ('June 2025', 'Phú Quốc, Vietnam', 'Conference on Quantum Topology and Hyperbolic Geometry, VIASM–Clay', 'https://viasm.edu.vn/en/hdkh/Conf-Topo-Geo-2025'),
   ('April 2025', 'Singapore', 'Graduate Student Seminar, NUS', None),
   ('March 2025', 'Creswick, Australia', 'Teichmüller Theory and Flat Structures, MATRIX', 'https://www.matrix-inst.org.au/events/teichmuller-theory-and-flat-structures/'),
   ('March 2025', 'Singapore', 'Workshop on Dynamics and Related Topics, IMS–NUS', 'https://ims.nus.edu.sg/events/dynamicstopics/'),
@@ -135,7 +136,11 @@ def meetings_panel():
   ('September 2022', 'Singapore', 'Topology and Geometry Seminar, NUS', 'https://www.math.nus.edu.sg/category/events/colloquia-seminars/topology-geometry-dynamics/page/14/'),
   ('August 2022', 'Vĩnh Phúc, Vietnam', 'Gặp gỡ Toán học 2022, workshop for early-career researchers', 'https://maths.hpu2.edu.vn/hoi-thao-khoa-hoc-cap-khoa--gap-go-toan-hoc-2022--hoi-thao-khoa-hoc-cac-nha-nghien-cuu-tre--thanh-cong-ruc-ro.html'),
   ('January 2022', 'Luxembourg', 'Geometry Winter Workshop and PhD defence, University of Luxembourg', None),
+  ('October 2019', 'Bordeaux, France', 'PhD Away Days, University of Luxembourg and University of Bordeaux', 'https://math.uni.lu/docsem/f/away_days2019/2019-PhDAwayDays_Abstracts.pdf'),
+  ('July 2019', 'Luxembourg', 'Interactions between Hyperbolic Geometry and Number Theory, University of Luxembourg', 'https://gaati.org/rahm/InteractionsConference/'),
   ('August 2018', 'Les Diablerets, Switzerland', 'Geometry and Dynamics on Hyperbolic Surfaces, CUSO', 'https://www.cuso.ch/fileadmin/cuso/rapports_annuels/Rapport_CUSO_2018.pdf'),
+  ('May 2018', 'Heidelberg, Germany', 'PhD Away Days, University of Luxembourg', 'https://math.uni.lu/docsem/away_days/2018.html'),
+  ('September 2015', 'Hanoi, Vietnam', 'Number Theory from Classical to Modern, VIASM Summer School', 'https://www.viasm.edu.vn/hdkh/sm-lts?userkey=danh-sach-dai-bieu'),
  ]
  rows=[
   f'    <li>{escape(date)} · <strong>{escape(place)}</strong> — {external(href,event) if href else escape(event)}</li>'
