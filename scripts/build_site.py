@@ -215,10 +215,7 @@ def main():
   </details>
   <details class="bio-section" name="bio-section" id="seminars">
    <summary>Online Seminars</summary>
- <section class="seminar-copy" aria-labelledby="seminar-name">
-  <h2 id="seminar-name">{external('https://sites.google.com/view/nhatminhdoan','Hyperbolic Geometry & Related Topics Online Seminar')}</h2>
-  <p>I organize this seminar and welcome talks from researchers and graduate students. To give a talk, please email <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>.</p>
- </section>
+   <div style="margin:6px 0 0 1em">{external('https://sites.google.com/view/nhatminhdoan','Hyperbolic Geometry & Related Topics Online Seminar')}</div>
   </details>
   <script>
    function openBioSectionFromHash() {{
