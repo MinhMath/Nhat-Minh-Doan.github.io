@@ -108,7 +108,7 @@ def main():
 <title>Nhat Minh Doan (Đoàn Nhật Minh)</title>
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="{BASE}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/vietnam-banner.jpg">
+<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/minh-academic-path.webp">
 <link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
 <style>.email-toggle{{display:block;color:var(--link);cursor:pointer}}.email-toggle::-webkit-details-marker{{display:none}}.email-disclosure{{white-space:nowrap}}.email-disclosure[open]>.email-toggle{{float:left;margin-inline-end:2em}}</style>
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
@@ -117,7 +117,11 @@ def main():
 <body>
 {header('home')}
 <main id="main">
- <figure class="home-banner content-width"><img src="assets/vietnam-banner.jpg?v={asset_revision('vietnam-banner.jpg')}" width="1489" height="596" alt="Hạ Long Bay, Vietnam" fetchpriority="high"></figure>
+ <figure class="home-banner content-width" style="max-width:860px">
+  <a href="assets/minh-academic-path.webp" aria-label="Open the academic timeline at full size" style="display:block">
+   <img src="assets/minh-academic-path.webp" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" fetchpriority="high" decoding="async">
+  </a>
+ </figure>
  <section class="intro content-width" aria-label="About Minh" style="max-width:860px">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
   <p>Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
@@ -145,11 +149,6 @@ def main():
     }});
    </script>
   </div>
-  <figure style="margin:0 0 16px">
-   <a href="assets/minh-academic-path.webp" aria-label="Open the academic timeline at full size" style="display:block">
-    <img src="assets/minh-academic-path.webp" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
-   </a>
-  </figure>
   <details>
    <summary>Academic background and links</summary>
    <ul>
