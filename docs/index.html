@@ -73,15 +73,21 @@
     <summary class="email-toggle">Email</summary>
     <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
    </details>
+   <span id="email-copy-status" role="status" style="margin-inline-start:.5em"></span>
    <script>
     const emailDisclosure = document.querySelector('.email-disclosure');
     const emailSummary = emailDisclosure.querySelector('summary');
     const emailAddress = emailDisclosure.querySelector('a');
-    emailSummary.addEventListener('click', () => {
+    const emailCopyStatus = document.getElementById('email-copy-status');
+    emailSummary.addEventListener('click', async () => {
+     emailCopyStatus.textContent = '';
      if (emailDisclosure.open || !navigator.clipboard) return;
-     navigator.clipboard.writeText(emailAddress.textContent.trim()).catch(() => {
+     try {
+      await navigator.clipboard.writeText(emailAddress.textContent.trim());
+      if (emailDisclosure.open) emailCopyStatus.textContent = 'Copied';
+     } catch {
       // The revealed address is still available to copy manually.
-     });
+     }
     });
    </script>
   </div>
