@@ -120,7 +120,7 @@ def main():
  <section class="intro content-width" aria-label="About Minh" style="max-width:860px">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
   <p>Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
-  <div style="margin-bottom:24px">
+  <div style="margin-bottom:8px">
    <a href="papers/">Papers</a> · <a href="cv/">CV</a> ·
    <details class="email-disclosure" style="display:inline-block;vertical-align:top">
     <summary class="email-toggle">Email</summary>
@@ -144,11 +144,11 @@ def main():
     }});
    </script>
   </div>
-  <figure style="margin:0 0 16px">
-   <img src="assets/minh-academic-path.webp?v={asset_revision('minh-academic-path.webp')}" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
-  </figure>
   <details>
-   <summary>Academic background and links</summary>
+   <summary style="cursor:pointer">Academic background and links</summary>
+   <figure style="margin:12px 0 16px">
+    <img src="assets/minh-academic-path.webp?v={asset_revision('minh-academic-path.webp')}" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
+   </figure>
    <ul>
     <li>Researcher (2022–present) at the {external('https://math.ac.vn/en','Institute of Mathematics, VAST')}.</li>
     <li>{external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} (2024–2026) at the {external('https://www.math.nus.edu.sg/','National University of Singapore')}, where I worked with {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}.</li>
