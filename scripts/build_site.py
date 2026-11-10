@@ -95,7 +95,7 @@ def header():
 def papers_panel():
  return f'''<div class="papers-content">
 <figure class="papers-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
-<table aria-label="Papers"><thead><tr class="paper-section"><th scope="col"><h2>Papers</h2></th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>
+<table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col"><h2>List of papers</h2></th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>
 <section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
  <section class="insight-box" aria-labelledby="coauthors-heading">
   <h2 id="coauthors-heading">Co-authors</h2>
@@ -254,7 +254,7 @@ def main():
    </ul>
   </details>
   <details class="bio-section" name="bio-section" id="papers">
-   <summary>Papers</summary>
+   <summary>List of papers</summary>
    {papers_panel()}
   </details>
   <details class="bio-section" name="bio-section" id="cv">
@@ -285,7 +285,7 @@ def main():
 </html>
 '''
  (DOCS/'index.html').write_text(content,encoding='utf-8')
- for section,label in [('papers','Papers'),('cv','CV'),('seminars','Online Seminars')]:
+ for section,label in [('papers','List of papers'),('cv','CV'),('seminars','Online Seminars')]:
   directory=DOCS/section
   directory.mkdir(exist_ok=True)
   (directory/'index.html').write_text(redirect_section(section,label),encoding='utf-8')
