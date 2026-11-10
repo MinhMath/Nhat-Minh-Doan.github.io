@@ -109,6 +109,29 @@ def papers_panel():
 </section>
 </div>'''
 
+def meetings_panel():
+ meetings=[
+  ('August–September 2026', 'Shijiazhuang, China', 'Hyperbolic 2026 at Hebei Normal University', 'https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract'),
+  ('July–August 2026', 'Jeju, South Korea', '2K-GATE Conference III', 'https://sites.google.com/view/2k-gate-workshop-3/home'),
+  ('April 2026', 'Fribourg, Switzerland', 'Research visit to the University of Fribourg', 'https://www.unifr.ch/math/en/'),
+  ('April 2026', 'Lausanne, Switzerland', 'Geometry and Spectra of Compact Riemann Surfaces, EPFL', 'https://bernoulli.epfl.ch/programs/the-geometry-and-spectra-of-hyperbolic-surfaces-and-other-manifolds/'),
+  ('April 2026', 'Hefei, China', 'Teichmüller Theory and Related Topics', 'https://shinpeibaba.com/Teichmueller2026/main.php'),
+  ('March 2026', 'Chengdu, China', 'Geometry and Topology Seminar, Southwest Jiaotong University', 'https://faculty.swjtu.edu.cn/lixiaobin1/zh_CN/article/363471/content/1862.htm'),
+  ('March 2025', 'Creswick, Australia', 'Teichmüller Theory and Flat Structures, MATRIX', 'https://www.matrix-inst.org.au/events/teichmuller-theory-and-flat-structures/'),
+  ('March 2025', 'Singapore', 'Workshop on Dynamics and Related Topics, IMS–NUS', 'https://ims.nus.edu.sg/events/dynamicstopics/'),
+  ('January 2025', 'Hanoi, Vietnam', 'Geometry and Dynamics in Low Dimensions', 'https://math.ac.vn/conference/gdld2025'),
+  ('May 2024', 'Osaka, Japan', 'IMVAST–OCAMI Joint Conference on Selected Areas in Mathematics', 'https://math.ac.vn/en/conference/imvastocami2024'),
+  ('March 2024', 'Seoul, South Korea', 'Geometry and Topology Seminar, KIAS', 'https://www.kias.re.kr/kias/activities/seminars/view.do?edate=&menuNo=402021&mjrcdnm=&pageIndex=1&schoolsCd=M&sdate=2024-03-09&seqno=PGN1720240318-0001'),
+  ('September 2023', 'Quy Nhơn, Vietnam', 'Topology of Singularities and Related Topics, JSPS–VAST', 'https://sites.google.com/keio.jp/jv2021-2024/jv2023-workshop'),
+  ('October 2022', 'Phú Thọ, Vietnam', 'Geometry, Analysis and Applications', 'https://math.ac.vn/en/conference/hoi-thao-khoa-hoc-hinh-hoc-giai-tich-va-ung-dung'),
+  ('August 2018', 'Les Diablerets, Switzerland', 'Geometry and Dynamics on Hyperbolic Surfaces, CUSO', 'https://www.cuso.ch/fileadmin/cuso/rapports_annuels/Rapport_CUSO_2018.pdf'),
+ ]
+ rows=[
+  f'    <li>{escape(date)} · <strong>{escape(place)}</strong> — {external(href,event)}</li>'
+  for date,place,event,href in meetings
+ ]
+ return '\n'.join(['   <ul style="margin:8px 0 0;padding-left:2em;line-height:1.55">', *rows, '   </ul>'])
+
 def cv_panel(papers):
  manifest=json.loads((DOCS/'assets/cv-pages.json').read_text())
  if manifest['pdf_sha256']!=hashlib.sha256((DOCS/'assets/cv.pdf').read_bytes()).hexdigest():
@@ -212,6 +235,10 @@ def main():
   <details class="bio-section" name="bio-section" id="cv">
    <summary>CV</summary>
    {cv_panel(papers)}
+  </details>
+  <details class="bio-section" name="bio-section" id="where-we-may-have-met">
+   <summary>Where we may have met</summary>
+{meetings_panel()}
   </details>
   <details class="bio-section" name="bio-section" id="seminars">
    <summary>Online Seminars</summary>
