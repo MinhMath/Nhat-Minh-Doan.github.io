@@ -110,7 +110,7 @@ def main():
 <link rel="canonical" href="{BASE}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/vietnam-banner.jpg">
 <link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
-<style>.email-toggle{{display:block;color:var(--link);cursor:pointer}}.email-toggle::-webkit-details-marker{{display:none}}</style>
+<style>.email-toggle{{display:block;color:var(--link);cursor:pointer}}.email-toggle::-webkit-details-marker{{display:none}}.email-disclosure{{white-space:nowrap}}.email-disclosure[open]>.email-toggle{{float:left;margin-inline-end:2em}}</style>
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
 <script defer src="assets/site.js?v={asset_revision('site.js')}" data-catalogue="papers.json" data-papers="papers/"></script>
 </head>
@@ -130,7 +130,7 @@ def main():
   </ul>
   <div style="margin-bottom:24px">
    <a href="papers/">Papers</a> · <a href="cv/">CV</a> ·
-   <details style="display:inline-block;vertical-align:top">
+   <details class="email-disclosure" style="display:inline-block;vertical-align:top">
     <summary class="email-toggle">Email</summary>
     <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
    </details>
