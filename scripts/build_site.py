@@ -145,9 +145,7 @@ def main():
    </script>
   </div>
   <figure style="margin:0 0 16px">
-   <a href="assets/minh-academic-path.webp?v={asset_revision('minh-academic-path.webp')}" aria-label="Open the academic timeline at full size" style="display:block">
-    <img src="assets/minh-academic-path.webp?v={asset_revision('minh-academic-path.webp')}" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
-   </a>
+   <img src="assets/minh-academic-path.webp?v={asset_revision('minh-academic-path.webp')}" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
   </figure>
   <details>
    <summary>Academic background and links</summary>
