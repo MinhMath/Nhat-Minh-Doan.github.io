@@ -36,7 +36,7 @@
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="https://minhmath.github.io/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="https://minhmath.github.io/"><meta property="og:image" content="https://minhmath.github.io/assets/portrait.png">
-<link rel="stylesheet" href="assets/site.css?v=49f20f652ced">
+<link rel="stylesheet" href="assets/site.css?v=692072d666cd">
 <link rel="stylesheet" href="assets/papers.css?v=49d158e0c9f0">
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
 <script defer src="assets/site.js?v=2222997c5bc2" data-catalogue="papers.json" data-papers="./"></script>
@@ -55,14 +55,14 @@
   <p class="intro-copy">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
   <div class="email-row">
    <details class="email-disclosure" name="bio-section">
-    <summary class="email-toggle">Email</summary>
-    <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
+    <summary class="email-toggle" aria-controls="email-address">Email</summary>
    </details>
+   <a id="email-address" class="email-address" href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
    <span id="email-copy-status" role="status"></span>
    <script>
     const emailDisclosure = document.querySelector('.email-disclosure');
     const emailSummary = emailDisclosure.querySelector('summary');
-    const emailAddress = emailDisclosure.querySelector('a');
+    const emailAddress = document.getElementById('email-address');
     const emailCopyStatus = document.getElementById('email-copy-status');
     emailDisclosure.addEventListener('toggle', () => {
      if (!emailDisclosure.open) emailCopyStatus.textContent = '';

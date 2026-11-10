@@ -234,14 +234,14 @@ def main():
   <p class="intro-copy">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
   <div class="email-row">
    <details class="email-disclosure" name="bio-section">
-    <summary class="email-toggle">Email</summary>
-    <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
+    <summary class="email-toggle" aria-controls="email-address">Email</summary>
    </details>
+   <a id="email-address" class="email-address" href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
    <span id="email-copy-status" role="status"></span>
    <script>
     const emailDisclosure = document.querySelector('.email-disclosure');
     const emailSummary = emailDisclosure.querySelector('summary');
-    const emailAddress = emailDisclosure.querySelector('a');
+    const emailAddress = document.getElementById('email-address');
     const emailCopyStatus = document.getElementById('email-copy-status');
     emailDisclosure.addEventListener('toggle', () => {{
      if (!emailDisclosure.open) emailCopyStatus.textContent = '';

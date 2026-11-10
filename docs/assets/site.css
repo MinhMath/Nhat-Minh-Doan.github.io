@@ -57,10 +57,9 @@ button, input { font: inherit; }
 .bio-section, .email-row { margin-bottom: 12px; }
 .bio-section > summary, .email-toggle { cursor: pointer; }
 .email-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .5em; }
-.email-disclosure { max-width: 100%; }
 .email-toggle { list-style-position: inside; }
-.email-disclosure[open] > .email-toggle { float: left; margin-inline-end: 2em; }
-.email-disclosure a { overflow-wrap: anywhere; }
+.email-address { display: none; margin-inline-start: 1.5em; white-space: nowrap; }
+.email-disclosure[open] + .email-address { display: inline-block; }
 .background-list, .meeting-list, .seminar-link {
   font-size: var(--entry-size);
   line-height: 1.55;
