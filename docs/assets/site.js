@@ -110,7 +110,7 @@
   const current=++queryId;
   const query=input.value.trim().toLocaleLowerCase();
   results.replaceChildren();
-  if(!query){const p=document.createElement('p');p.className='search-message';p.textContent='Search by title, author, or journal.';results.append(p);return}
+  if(!query)return;
   try{
    const papers=await getPapers();if(current!==queryId)return;
    const matches=papers.filter(p=>[p.title,p.display_title,...p.authors,p.venue].filter(Boolean).join(' ').toLocaleLowerCase().includes(query));

@@ -88,11 +88,11 @@ def header():
  return f'''<a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
  <a class="site-name" href="./"><span class="site-avatar"><img class="site-portrait" src="assets/portrait.png?v={asset_revision('portrait.png')}" width="33" height="41" alt=""></span>Nhat Minh Doan (Đoàn Nhật Minh)</a>
- <button class="search-open" type="button" aria-label="Search this site"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
+ <button class="search-open" type="button" aria-label="Search papers"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
 </header>
-<dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search this site</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label for="site-search-input">Search papers</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>'''
+<dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search papers</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label class="visually-hidden" for="site-search-input">Title, author, or journal</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>'''
 
-PAPERS_TABLE = '''<table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col"><h2>List of papers</h2></th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>'''
+PAPERS_TABLE = '''<table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col">Paper</th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>'''
 
 def papers_panel():
  return f'''<div class="papers-content">
@@ -122,6 +122,7 @@ def papers_embed():
 <script defer src="assets/site.js?v={asset_revision('site.js')}" data-catalogue="papers.json" data-papers="./"></script>
 <script defer src="assets/papers.js?v={asset_revision('papers.js')}"></script>
 </head><body class="papers-embed"><main class="papers-content">
+<h1 class="paper-list-heading">List of papers</h1>
 {PAPERS_TABLE}
 <div class="totals" id="totals" aria-label="Citation totals"></div>
 </main></body></html>
@@ -218,10 +219,9 @@ def main():
 <title>Nhat Minh Doan (Đoàn Nhật Minh)</title>
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="{BASE}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/vietnam-banner.jpg">
+<meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}assets/portrait.png">
 <link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
 <link rel="stylesheet" href="assets/papers.css?v={asset_revision('papers.css')}">
-<style>.email-toggle{{display:list-item;list-style-position:inside;cursor:pointer}}.email-disclosure{{white-space:nowrap}}.email-disclosure[open]>.email-toggle{{float:left;margin-inline-end:2em}}</style>
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
 <script defer src="assets/site.js?v={asset_revision('site.js')}" data-catalogue="papers.json" data-papers="./"></script>
 <script defer src="assets/papers.js?v={asset_revision('papers.js')}"></script>
@@ -229,15 +229,15 @@ def main():
 <body>
 {header()}
 <main id="main">
- <section class="intro content-width" aria-label="About Minh" style="max-width:860px">
+ <section class="intro content-width" aria-label="About Minh">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
-  <p style="margin-bottom:12px">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
-  <div style="margin-bottom:12px">
-   <details class="email-disclosure" name="bio-section" style="display:inline-block;vertical-align:top">
+  <p class="intro-copy">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
+  <div class="email-row">
+   <details class="email-disclosure" name="bio-section">
     <summary class="email-toggle">Email</summary>
     <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
    </details>
-   <span id="email-copy-status" role="status" style="margin-inline-start:.5em"></span>
+   <span id="email-copy-status" role="status"></span>
    <script>
     const emailDisclosure = document.querySelector('.email-disclosure');
     const emailSummary = emailDisclosure.querySelector('summary');
@@ -263,7 +263,7 @@ def main():
    <figure style="margin:12px 0 16px">
     <img src="assets/minh-academic-path.webp?v={asset_revision('minh-academic-path.webp')}" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
    </figure>
-   <ul>
+   <ul class="background-list">
     <li>Researcher (2022–present) at the {external('https://math.ac.vn/en','Institute of Mathematics, VAST')}.</li>
     <li>{external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} (2024–2026) at the {external('https://www.math.nus.edu.sg/','National University of Singapore')}, where I worked with {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}.</li>
     <li>PhD (2018–2022) at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')}, where {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} supervised my {external('https://orbilu.uni.lu/handle/10993/50710','thesis')}.</li>
@@ -284,8 +284,8 @@ def main():
 {meetings_panel()}
   </details>
   <details class="bio-section" name="bio-section" id="seminars">
-   <summary>Online Seminars</summary>
-   <div style="margin:6px 0 0 1em">{external('https://sites.google.com/view/nhatminhdoan','Hyperbolic Geometry & Related Topics Online Seminar')}</div>
+   <summary>Online seminars</summary>
+   <div class="seminar-link">{external('https://sites.google.com/view/nhatminhdoan','Hyperbolic Geometry & Related Topics Online Seminar')}</div>
   </details>
   <script>
    function openBioSectionFromHash() {{
@@ -304,7 +304,7 @@ def main():
 '''
  (DOCS/'index.html').write_text(content,encoding='utf-8')
  (DOCS/'embed.html').write_text(papers_embed(),encoding='utf-8')
- for section,label in [('papers','List of papers'),('cv','CV'),('seminars','Online Seminars')]:
+ for section,label in [('papers','List of papers'),('cv','CV'),('seminars','Online seminars')]:
   directory=DOCS/section
   directory.mkdir(exist_ok=True)
   (directory/'index.html').write_text(redirect_section(section,label),encoding='utf-8')
