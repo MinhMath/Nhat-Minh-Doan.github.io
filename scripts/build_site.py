@@ -120,6 +120,7 @@ def meetings_panel():
   ('March 2026', 'Chengdu, China', 'Geometry and Topology Seminar, Southwest Jiaotong University', 'https://faculty.swjtu.edu.cn/lixiaobin1/zh_CN/article/363471/content/1862.htm'),
   ('August 2025', 'Singapore', 'Arithmetic Dynamics and Diophantine Geometry, IMS–NUS', 'https://ims.nus.edu.sg/events/arithmeticdynamics/'),
   ('July 2025', 'Phú Thọ, Vietnam', 'Workshop on Geometry and Related Topics', None),
+  ('June 2025', 'Hanoi, Vietnam', 'VIASM–ICTP Summer School on Quantum Topology and Hyperbolic Geometry', 'https://www.viasm.edu.vn/en/hdkh/School-Topo-Geo-2025?userkey=program'),
   ('June 2025', 'Phú Quốc, Vietnam', 'Conference on Quantum Topology and Hyperbolic Geometry, VIASM–Clay', 'https://viasm.edu.vn/en/hdkh/Conf-Topo-Geo-2025'),
   ('April 2025', 'Singapore', 'Graduate Student Seminar, NUS', None),
   ('March 2025', 'Creswick, Australia', 'Teichmüller Theory and Flat Structures, MATRIX', 'https://www.matrix-inst.org.au/events/teichmuller-theory-and-flat-structures/'),
