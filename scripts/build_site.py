@@ -288,9 +288,22 @@ def main():
    <div class="seminar-link">{external('https://sites.google.com/view/nhatminhdoan','Hyperbolic Geometry & Related Topics Online Seminar')}</div>
   </details>
   <script>
+   const bioSections = document.querySelectorAll('details[name="bio-section"]');
+   function closeOtherBioSections(activeSection) {{
+    for (const section of bioSections) {{
+     if (section !== activeSection && section.open) section.open = false;
+    }}
+   }}
+   // Older browsers support details but ignore the name attribute.
+   for (const section of bioSections) {{
+    section.addEventListener('toggle', () => {{
+     if (section.open) closeOtherBioSections(section);
+    }});
+   }}
    function openBioSectionFromHash() {{
     const section = document.getElementById(location.hash.slice(1));
     if (!section?.matches('details.bio-section')) return;
+    closeOtherBioSections(section);
     section.open = true;
     requestAnimationFrame(() => section.scrollIntoView({{block: 'start'}}));
    }}
