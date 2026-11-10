@@ -10,3 +10,5 @@
 
 .home-banner{margin-top:8px;margin-bottom:0}.home-banner img{display:block;width:100%;height:clamp(150px,20vw,230px);object-fit:cover;object-position:50% 43%;border-radius:2px}
 
+
+.bio-section{margin-bottom:12px}.bio-section>summary{cursor:pointer}.bio-section .cv-content{padding-inline:0}.bio-section .seminar-copy{padding:12px 0 0}.bio-section .seminar-copy p{margin-bottom:12px;text-align:left}

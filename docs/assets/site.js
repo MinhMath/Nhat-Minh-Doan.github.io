@@ -28,9 +28,6 @@
  }
  setupPrivateShortcut();
 
- const toggle=document.querySelector('.nav-toggle');
- const nav=document.querySelector('.site-navigation');
- toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');nav.classList.toggle('is-open',open)});
  const dialog=document.querySelector('.site-search');
  const input=document.getElementById('site-search-input');
  const results=document.getElementById('search-results');
@@ -118,8 +115,14 @@
    const papers=await getPapers();if(current!==queryId)return;
    const matches=papers.filter(p=>[p.title,p.display_title,...p.authors,p.venue].filter(Boolean).join(' ').toLocaleLowerCase().includes(query));
    if(!matches.length){const p=document.createElement('p');p.className='search-message';p.textContent='No papers found.';results.append(p)}
-   for(const p of matches){const a=document.createElement('a');a.className='search-result';a.href=script.dataset.papers+'#paper-'+encodeURIComponent(p.id);a.append(document.createTextNode(p.display_title||p.title));const detail=document.createElement('small');detail.textContent=p.authors.join(', ');a.append(detail);a.addEventListener('click',()=>dialog.close());results.append(a)}
-  }catch{if(current===queryId){results.textContent='Search is unavailable. Please open the Papers page.'}}
+   for(const p of matches){const a=document.createElement('a');a.className='search-result';a.href=script.dataset.papers+'#paper-'+encodeURIComponent(p.id);a.append(document.createTextNode(p.display_title||p.title));const detail=document.createElement('small');detail.textContent=p.authors.join(', ');a.append(detail);a.addEventListener('click',event=>{
+    dialog.close();
+    if(event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey&&a.href===location.href){
+     event.preventDefault();
+     window.dispatchEvent(new HashChangeEvent('hashchange'));
+    }
+   });results.append(a)}
+  }catch{if(current===queryId){results.textContent='Search is unavailable. Please open the Papers section on Bio.'}}
  }
  input?.addEventListener('input',showResults);
 })();

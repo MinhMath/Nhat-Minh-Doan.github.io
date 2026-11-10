@@ -36,23 +36,18 @@
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="https://minhmath.github.io/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="https://minhmath.github.io/"><meta property="og:image" content="https://minhmath.github.io/assets/vietnam-banner.jpg">
-<link rel="stylesheet" href="assets/site.css?v=cd4c5e3a650d">
+<link rel="stylesheet" href="assets/site.css?v=ad75457f8119">
+<link rel="stylesheet" href="assets/papers.css?v=7eac97a6674c">
 <style>.email-toggle{display:block;color:var(--link);cursor:pointer}.email-toggle::-webkit-details-marker{display:none}.email-disclosure{white-space:nowrap}.email-disclosure[open]>.email-toggle{float:left;margin-inline-end:2em}</style>
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
-<script defer src="assets/site.js?v=8157389a883c" data-catalogue="papers.json" data-papers="papers/"></script>
+<script defer src="assets/site.js?v=b8e492ea479a" data-catalogue="papers.json" data-papers="./"></script>
+<script defer src="assets/papers.js?v=800241ed9b9d"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
  <a class="site-name" href="./"><span class="site-avatar"><img class="site-portrait" src="assets/portrait.png?v=c06f4d04a8ff" width="33" height="41" alt=""></span>Nhat Minh Doan (Đoàn Nhật Minh)</a>
- <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
- <nav id="site-navigation" class="site-navigation" aria-label="Main navigation">
-  <a href="./" aria-current="page">Bio</a>
-  <a href="papers/" >Papers</a>
-  <a href="cv/" >CV</a>
-  <a href="seminars/" >Online Seminars</a>
-  <button class="search-open" type="button" aria-label="Search this site"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
- </nav>
+ <button class="search-open" type="button" aria-label="Search this site"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
 </header>
 <dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search this site</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label for="site-search-input">Search papers</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>
 <main id="main">
@@ -60,7 +55,6 @@
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
   <p style="margin-bottom:12px">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra.</p>
   <div style="margin-bottom:12px">
-   <a href="papers/">Papers</a> · <a href="cv/">CV</a> ·
    <details class="email-disclosure" style="display:inline-block;vertical-align:top">
     <summary class="email-toggle">Email</summary>
     <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
@@ -83,8 +77,8 @@
     });
    </script>
   </div>
-  <details>
-   <summary style="cursor:pointer">Academic background and links</summary>
+  <details class="bio-section" name="bio-section" id="academic-background">
+   <summary>Academic background and links</summary>
    <figure style="margin:12px 0 16px">
     <img src="assets/minh-academic-path.webp?v=de99f80f1b09" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
    </figure>
@@ -96,6 +90,201 @@
     <li>BA in Mathematics (2013–2015) at the University of Education, Ho Chi Minh City, Vietnam.</li>
    </ul>
   </details>
+  <details class="bio-section" name="bio-section" id="papers">
+   <summary>Papers</summary>
+   <div class="papers-content">
+<figure class="papers-illustration"><img src="assets/surfaces-banner.png?v=8888a01d218e" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
+<table aria-label="Papers"><thead><tr class="paper-section"><th scope="col"><h2>Papers</h2></th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>
+<section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
+ <section class="insight-box" aria-labelledby="coauthors-heading">
+  <h2 id="coauthors-heading">Co-authors</h2>
+  <ul class="coauthor-list" id="coauthor-list"></ul>
+ </section>
+ <section class="insight-box" aria-labelledby="citation-chart-heading">
+  <div class="insight-heading"><h2 id="citation-chart-heading">Citations by year</h2><div class="totals" id="totals" aria-label="Citation totals"></div></div>
+  <div id="citation-chart"></div>
+  <div class="citation-audit" id="citation-year-records" hidden></div>
+ </section>
+</section>
+</div>
+  </details>
+  <details class="bio-section" name="bio-section" id="cv">
+   <summary>CV</summary>
+   <div class="cv-content">
+<div class="cv-toolbar"><a href="assets/cv.pdf?v=ce1836933c97" target="_blank" rel="noopener" download="Nhat_Minh_Doan_CV.pdf">Download PDF</a></div>
+<section class="cv-sheet" aria-label="CV page 1 of 3"><img src="assets/cv-page-1.svg?v=68f6f47e618c" width="612" height="792" alt="" aria-hidden="true" loading="lazy"><div class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)
+
+
+ Affiliation          Institute of Mathematics, Vietnam Academy of Science and Technology
+                      Email: dnminh@math.ac.vn
+                      Homepage: minhmath.github.io
+
+ Research area        Hyperbolic geometry and low-dimensional topology. My current research concerns the multiplicity of
+                      simple closed geodesics on hyperbolic surfaces.
+
+ Education            PhD in Mathematics, University of Luxembourg, Luxembourg                                  2018 - 2022
+                      Advisor: Prof. Hugo Parlier
+                      Thesis: Quantifying some properties of curves and arcs on hyperbolic surfaces
+                      MSc in Mathematics, University of Nice Sophia Antipolis, France                           2016 - 2017
+                      Advisor: Prof. François Labourie
+                      Thesis: Arithmetic and ergodic theory of hyperbolic surfaces
+                      BA in Mathematics, University of Education, Ho Chi Minh City, Vietnam                     2013 - 2015
+
+
+ Academic             [3] Researcher, Institute of Mathematics, VAST, Vietnam                                 2022 - present
+ positions
+                      [2] SASEA Research Fellow, National University of Singapore, Singapore                    2024 - 2026
+                      Advisor: Prof. Ser Peow Tan
+                      [1] Doctoral Researcher, University of Luxembourg, Luxembourg                             2018 - 2022
+
+
+ Papers               [11] Density of length ratios on Teichmüller space                                               2026
+                      (with Hanh Vo)
+                      arXiv:2610.24700.
+                      [10] Stable-norm boundary geometry on once-punctured tori                                        2026
+                      (with Xiaobin Li and Van Nguyen)
+                      arXiv:2605.14574. Submitted.
+                      [9] Graded Bridgeman dilogarithm identities on hyperbolic surfaces                               2026
+                      (with Ara Basmajian, Hugo Parlier and Ser Peow Tan)
+                      arXiv:2601.03876. Submitted.
+                      [8] Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)                                    2026
+                      (with Sang-hyun Kim, Mong Lung Lang and Ser Peow Tan)
+                      arXiv:2601.01324. Submitted.
+                      [7] Some arithmetic aspects of ortho-integral surfaces                                           2026
+                      (with Khanh Le)
+                      Trans. AMS, 379 (2026), 6365 - 6392. arXiv:2504.09403
+                      [6] Some remarks on subgroups of free-by-cyclic groups                                           2026
+                      (with Hoang Thanh Nguyen)
+                      Vietnam J. Math., 54, 715 - 728 (2026).
+                      [5] Self-intersections of arcs on a pair of pants                                                2025
+                      (with Hanh Vo)
+                      Bull. LMS, 57 (2025), 2190 - 2209. arXiv:2407.17750
+                      [4] Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)                       2025
+                      (with Sang-hyun Kim, Mong Lung Lang and Ser Peow Tan)
+                      J. Geom. Anal., Volume 35, 216 (2025). arXiv:2209.13937
+
+
+Nhat Minh Doan | Updated 8 November 2026                                                                                   1</div><a class="cv-link" href="mailto:dnminh@math.ac.vn" title="dnminh@math.ac.vn" aria-label="dnminh@math.ac.vn" target="_blank" rel="noopener noreferrer" style="left:25.52310%;top:14.00253%;width:14.62292%;height:1.62121%"></a><a class="cv-link" href="https://minhmath.github.io/" title="https://minhmath.github.io/" aria-label="https://minhmath.github.io/" target="_blank" rel="noopener noreferrer" style="left:28.92080%;top:15.63131%;width:13.79229%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2610.24700" title="arXiv version: Density of length ratios on Teichmüller space" aria-label="arXiv version: Density of length ratios on Teichmüller space" target="_blank" rel="noopener noreferrer" style="left:23.77474%;top:50.66919%;width:31.94694%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2605.14574" title="arXiv version: Stable-norm boundary geometry on once-punctured tori" aria-label="arXiv version: Stable-norm boundary geometry on once-punctured tori" target="_blank" rel="noopener noreferrer" style="left:23.77474%;top:55.93434%;width:39.08382%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2601.03876" title="arXiv version: Graded Bridgeman dilogarithm identities on hyperbolic surfaces" aria-label="arXiv version: Graded Bridgeman dilogarithm identities on hyperbolic surfaces" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:61.19949%;width:45.05627%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2601.01324" title="arXiv version: Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)" aria-label="arXiv version: Optimal Farey sequence for the congruence subgroup Γ₀(2ⁿ)" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:66.46465%;width:42.12639%;height:1.62121%"></a><a class="cv-link" href="https://doi.org/10.1090/tran/9657" title="Some arithmetic aspects of ortho-integral surfaces" aria-label="Some arithmetic aspects of ortho-integral surfaces" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:71.72980%;width:35.10049%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2504.09403" title="arXiv version: Some arithmetic aspects of ortho-integral surfaces" aria-label="arXiv version: Some arithmetic aspects of ortho-integral surfaces" target="_blank" rel="noopener noreferrer" style="left:47.86257%;top:74.98737%;width:12.77127%;height:1.62121%"></a><a class="cv-link" href="https://doi.org/10.1007/s10013-025-00762-x" title="Some remarks on subgroups of free-by-cyclic groups" aria-label="Some remarks on subgroups of free-by-cyclic groups" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:76.99495%;width:37.19119%;height:1.62121%"></a><a class="cv-link" href="https://doi.org/10.1112/blms.70088" title="Self-intersections of arcs on a pair of pants" aria-label="Self-intersections of arcs on a pair of pants" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:82.26010%;width:29.95528%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2407.17750" title="arXiv version: Self-intersections of arcs on a pair of pants" aria-label="arXiv version: Self-intersections of arcs on a pair of pants" target="_blank" rel="noopener noreferrer" style="left:45.82480%;top:85.51768%;width:12.77127%;height:1.62121%"></a><a class="cv-link" href="https://doi.org/10.1007/s12220-025-02051-y" title="Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)" aria-label="Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:87.52525%;width:51.06542%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2209.13937" title="arXiv version: Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)" aria-label="arXiv version: Optimal special polygons for the congruence subgroups Γ₀(p) and Γ₀(pq)" target="_blank" rel="noopener noreferrer" style="left:49.12348%;top:90.78283%;width:12.77126%;height:1.62121%"></a></section><section class="cv-sheet" aria-label="CV page 2 of 3"><img src="assets/cv-page-2.svg?v=b49ceea80bf8" width="612" height="792" alt="" aria-hidden="true" loading="lazy"><div class="visually-hidden">[3] Ortho-integral surfaces                                                                     2025
+                      Adv. Math., Volume 466, April 2025, 110162. arXiv:2112.10694
+                      [2] Geometric filling curves on punctured surfaces                                              2023
+                      Glasgow Math. J., Volume 65, Issue 2, May 2023, pp. 383 - 400. arXiv:2012.02461
+                      [1] Measuring pants                                                                             2023
+                      (with Hugo Parlier and Ser Peow Tan)
+                      Trans. AMS, 376 (2023), 5281 - 5306. arXiv:2002.02738
+
+ Other                [1] Almost all simple lengths are unique up to isometry                                         2026
+ writings             hexagon:2610.00298v1.
+                      [2] The torus with asymptotically the fewest simple closed geodesics                            2026
+                      (with Phuc Thinh Dang and Trong Toan Dao)
+                      hexagon:2610.00159v1.
+
+ Referee work         International Mathematics Research Notices; Proceedings of the American Mathematical Society;
+                      Mathematische Annalen; Transactions of the American Mathematical Society; Conformal Geometry
+                      and Dynamics.
+
+ Talks                [28] McShane birthday conference, Hebei Normal University, China                    Aug-Sep 2026
+                      [27] Seminar, TIMAS, Thang Long University, Vietnam                                     June 2026
+                      [26] Topology and Geometry Seminar, NUS, Singapore                                      May 2026
+                      [25] Topology and Geometry Seminar, Southwest Jiaotong University, China              March 2026
+                      [24] Workshop on Geometry and related topics, Phu Tho, Vietnam                           Jul 2025
+                      [23] Grad Student Seminar, NUS, Singapore                                                Apr 2025
+                      [22] Teichmüller Theory and Flat Structures, Matrix, Creswick, Australia                Mar 2025
+                      [21] Workshop on Dynamics and Related Topics, IMS, NUS, Singapore                       Mar 2025
+                      [20] Workshop on Geometry and Dynamics in Low Dimensions, IMVAST, Hanoi                  Jan 2025
+                      [19] Scientific workshop for young researchers, Vinh Phuc, Vietnam                       Sep 2024
+                      [18] IMVAST-OCAMI Joint Conference, Osaka Metropolitan University, Japan                May 2024
+                      [17] Geometry and Topology Seminar, KIAS, Korea                                         Mar 2024
+                      [16] Workshop on Hyperbolic Geometry of Numbers, HCMC, KIAS, Korea                      Dec 2023
+                      [15] JSPS-VAST Workshop, FPT University Quy Nhon, Vietnam                                Sep 2023
+                      [14] Mathematics workshop and related fields, Ha Tinh University, Vietnam                Apr 2023
+                      [13] JSPS-VAST Bilateral Joint Research Project Workshop, IMVAST                        Dec 2022
+                      [12] Algebra and Number Theory Seminar, IMVAST                                          Nov 2022
+                      [11] Scientific conference on Geometry, Analysis and Applications, Phu Tho,              Oct 2022
+                      Vietnam
+                      [10] Topology and Geometry Seminar, NUS, Singapore                                       Sep 2022
+                      [9] Scientific workshop for young researchers, Vinh Phuc, Vietnam                       Aug 2022
+                      [8] Japan-Vietnam Singularity Seminar (Online), IMVAST                                   Apr 2022
+                      [7] Mostly Teichmüller Spaces Seminar (Online), Queens College, USA                     Mar 2022
+                      [6] Ph.D. Defense, Geometry Winter Workshop, Luxembourg                                  Jan 2022
+                      [5] Topology and Geometry Seminar (Online), IMVAST                                      Nov 2021
+                      [4] Topology and Geometry Seminar (Online), VNU, Ho Chi Minh City, Vietnam               Oct 2021
+                      [3] PhD Away Days (Online), University of Luxembourg, Luxembourg                         Oct 2020
+                      [2] PhD Seminar (Online), University of Luxembourg, Luxembourg                          May 2020
+
+
+Nhat Minh Doan | Updated 8 November 2026                                                                                2</div><a class="cv-link" href="https://doi.org/10.1016/j.aim.2025.110162" title="Ortho-integral surfaces" aria-label="Ortho-integral surfaces" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:5.30303%;width:16.16556%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2112.10694" title="arXiv version: Ortho-integral surfaces" aria-label="arXiv version: Ortho-integral surfaces" target="_blank" rel="noopener noreferrer" style="left:53.49609%;top:6.93182%;width:12.77127%;height:1.62121%"></a><a class="cv-link" href="https://doi.org/10.1017/S0017089522000404" title="Geometric filling curves on punctured surfaces" aria-label="Geometric filling curves on punctured surfaces" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:8.93939%;width:32.86722%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2012.02461" title="arXiv version: Geometric filling curves on punctured surfaces" aria-label="arXiv version: Geometric filling curves on punctured surfaces" target="_blank" rel="noopener noreferrer" style="left:66.31603%;top:10.56818%;width:12.77127%;height:1.62121%"></a><a class="cv-link" href="https://doi.org/10.1090/tran/8893" title="Measuring pants" aria-label="Measuring pants" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:12.57576%;width:11.60511%;height:1.62121%"></a><a class="cv-link" href="https://arxiv.org/abs/2002.02738" title="arXiv version: Measuring pants" aria-label="arXiv version: Measuring pants" target="_blank" rel="noopener noreferrer" style="left:47.86257%;top:15.83333%;width:12.77127%;height:1.62121%"></a><a class="cv-link" href="https://hexagonmath.org/2610.00298" title="Almost all simple lengths are unique up to isometry" aria-label="Almost all simple lengths are unique up to isometry" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:19.73485%;width:36.22480%;height:1.62121%"></a><a class="cv-link" href="https://hexagonmath.org/2610.00159" title="The torus with asymptotically the fewest simple closed geodesics" aria-label="The torus with asymptotically the fewest simple closed geodesics" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:23.37121%;width:45.73838%;height:1.62121%"></a><a class="cv-link" href="https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract" title="https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract" aria-label="https://ahdoc.github.io/hyperbolic2026shijiazhuang/abstract" target="_blank" rel="noopener noreferrer" style="left:23.77474%;top:37.68939%;width:44.66614%;height:1.62121%"></a></section><section class="cv-sheet" aria-label="CV page 3 of 3"><img src="assets/cv-page-3.svg?v=9faa42f6a5be" width="612" height="792" alt="" aria-hidden="true" loading="lazy"><div class="visually-hidden">[1] School on Geometry and Dynamics on Hyperbolic Surfaces, Switzerland                   Aug 2018
+
+
+ Services             [3] Co-organizing Geometry and Dynamics in Low Dimensions Workshop, Hanoi                  Jan 2025
+                      With S. Kim, T. Koberda, C. Leininger, S. P. Tan, T. T. Nguyen, T. D. Do, and V. T.
+                      Tran
+                      [2] Co-organizing Geometry, Topology &amp; Dynamics Seminar, National University            2024 - 2026
+                      of Singapore
+                      With Tengren Zhang and Daren Wei
+                      [1] Co-writing a short comic story: Maths, Magic and Maryam                                    2020
+
+
+ Advising             [3] Undergraduate student: Phuc Thinh Dang                                            2026 - present
+                      [2] PhD student: Van Nguyen                                                           2025 - present
+                      [1] Vietnamese REU students: Trong Toan Dao and Anh Tuan Nguyen                         2023 - 2024
+                      Co-supervised with Ser Peow Tan
+
+ Teaching             [5] Modern Geometry, Master program, Institute of Mathematics, VAST                            2023
+                      [4] Probability, Applied Mathematics and Data Science students, Vietnam France                 2022
+                      University
+                      [3] Linear Algebra (teaching assistant), University of Engineering and Technology              2022
+                      [2] Analysis for Applications (teaching assistant), University of Luxembourg            2018 - 2020
+                      [1] Elementary Mathematics, children aged 5-10, Mathnasium Vietnam                      2012 - 2013
+
+
+ Awards               [1] Excellent Doctoral Thesis Award, University of Luxembourg                                  2022
+
+
+ Grants               [5] Singapore Academies South-East Asia Fellowship, hosted at the National              2024 - 2026
+                      University of Singapore
+                      [4] NAFOSTED, Vietnam (2 years)                                                         2024 - 2026
+                      [3] Research Grant, Institute of Mathematics, VAST, Vietnam (2 years)                   2022 - 2024
+                      [2] PRIDE Grant, Fonds National de la Recherche, Luxembourg (4 years)                   2018 - 2022
+                      [1] Master 2 Excellence Scholarship (10 months)                                         2016 - 2017
+                      J. A. Dieudonné Mathematics Laboratory, Nice, France
+
+ References           Prof. Ara Basmajian                                Prof. François Labourie
+                      Hunter College, CUNY                               EPFL, Institute of Mathematics
+                      abasmajian@gc.cuny.edu                             francois.labourie@epfl.ch
+
+                      Prof. Martin Bridgeman                             Prof. Hugo Parlier
+                      Boston College                                     University of Fribourg
+                      bridgem@bc.edu                                     hugo.parlier@unifr.ch
+
+                      Prof. Sang-Hyun Kim                                Prof. Ser Peow Tan
+                      Korea Institute for Advanced Study                 National University of Singapore
+                      kimsh@kias.re.kr                                   mattansp@nus.edu.sg
+
+
+ Hobbies              Table tennis, badminton, hiking
+
+
+
+
+Nhat Minh Doan | Updated 8 November 2026                                                                               3</div><a class="cv-link" href="https://sciencecomics.uni.lu/math-magic-and-maryam/" title="https://sciencecomics.uni.lu/math-magic-and-maryam/" aria-label="https://sciencecomics.uni.lu/math-magic-and-maryam/" target="_blank" rel="noopener noreferrer" style="left:45.28613%;top:19.73485%;width:19.03310%;height:1.62121%"></a><a class="cv-link" href="https://www.uni.lu/fstm-fr/news/excellent-doctoral-thesis-awards-2022-in-science/" title="https://www.uni.lu/fstm-fr/news/excellent-doctoral-thesis-awards-2022-in-science/" aria-label="https://www.uni.lu/fstm-fr/news/excellent-doctoral-thesis-awards-2022-in-science/" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:46.74242%;width:23.35194%;height:1.62121%"></a><a class="cv-link" href="https://snas.org.sg/saseaffellows" title="https://snas.org.sg/saseaffellows" aria-label="https://snas.org.sg/saseaffellows" target="_blank" rel="noopener noreferrer" style="left:22.90056%;top:50.64394%;width:35.25330%;height:1.62121%"></a><a class="cv-link" href="mailto:abasmajian@gc.cuny.edu" title="abasmajian@gc.cuny.edu" aria-label="abasmajian@gc.cuny.edu" target="_blank" rel="noopener noreferrer" style="left:20.42484%;top:69.09091%;width:17.92160%;height:1.62121%"></a><a class="cv-link" href="mailto:francois.labourie@epfl.ch" title="francois.labourie@epfl.ch" aria-label="francois.labourie@epfl.ch" target="_blank" rel="noopener noreferrer" style="left:57.27124%;top:69.09091%;width:18.21186%;height:1.62121%"></a><a class="cv-link" href="mailto:bridgem@bc.edu" title="bridgem@bc.edu" aria-label="bridgem@bc.edu" target="_blank" rel="noopener noreferrer" style="left:20.42484%;top:75.11364%;width:12.04819%;height:1.62121%"></a><a class="cv-link" href="mailto:hugo.parlier@unifr.ch" title="hugo.parlier@unifr.ch" aria-label="hugo.parlier@unifr.ch" target="_blank" rel="noopener noreferrer" style="left:57.27124%;top:75.11364%;width:15.59188%;height:1.62121%"></a><a class="cv-link" href="mailto:kimsh@kias.re.kr" title="kimsh@kias.re.kr" aria-label="kimsh@kias.re.kr" target="_blank" rel="noopener noreferrer" style="left:20.42484%;top:81.13636%;width:12.38967%;height:1.62121%"></a><a class="cv-link" href="mailto:mattansp@nus.edu.sg" title="mattansp@nus.edu.sg" aria-label="mattansp@nus.edu.sg" target="_blank" rel="noopener noreferrer" style="left:57.27124%;top:81.13636%;width:15.30418%;height:1.62121%"></a></section></div>
+  </details>
+  <details class="bio-section" name="bio-section" id="seminars">
+   <summary>Online Seminars</summary>
+ <section class="seminar-copy" aria-labelledby="seminar-name">
+  <h2 id="seminar-name"><a href="https://sites.google.com/view/nhatminhdoan" target="_blank" rel="noopener noreferrer">Hyperbolic Geometry &amp; Related Topics Online Seminar</a></h2>
+  <p>I organize this seminar and welcome talks from researchers and graduate students. To give a talk, please email <a href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>.</p>
+ </section>
+  </details>
+  <script>
+   function openBioSectionFromHash() {
+    const section = document.getElementById(location.hash.slice(1));
+    if (!section?.matches('details.bio-section')) return;
+    section.open = true;
+    requestAnimationFrame(() => section.scrollIntoView({block: 'start'}));
+   }
+   openBioSectionFromHash();
+   window.addEventListener('hashchange', openBioSectionFromHash);
+  </script>
  </section>
 </main>
 </body>
