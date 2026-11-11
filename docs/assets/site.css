@@ -101,14 +101,21 @@ button, input { font: inherit; }
 .featured-action { margin-top: auto; color: var(--link); font-size: 13px; font-weight: 600; }
 .featured-paper:is(:hover, :focus-visible) { background: #f4f8fc; text-decoration: none; }
 .featured-paper:is(:hover, :focus-visible) .featured-action { text-decoration: underline; }
-.bio-section { border-top: 1px solid #e4ebf0; }
-.bio-section > summary { min-height: 44px; padding: 11px 0; }
+.bio-section, .email-row { border-top: 1px solid #e4ebf0; }
+.bio-section > summary, .email-toggle {
+  min-height: 44px;
+  padding: 11px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  list-style-position: inside;
+  cursor: pointer;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 #academic-background:not([open]),
 #papers:not([open]) { display: none; }
-.email-row { margin-bottom: 12px; }
-.bio-section > summary, .email-toggle { cursor: pointer; font-weight: 600; }
 .email-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .5em; }
-.email-toggle { list-style-position: inside; }
+.email-disclosure:not([open]) { flex-basis: 100%; }
 .email-address { display: none; margin-inline-start: 1.5em; white-space: nowrap; }
 .email-disclosure[open] + .email-address { display: inline-block; }
 .background-list, .meeting-list, .seminar-link {
