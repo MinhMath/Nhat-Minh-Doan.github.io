@@ -263,8 +263,7 @@ def main():
 <main id="main" tabindex="-1">
  <div class="intro content-width">
   <section class="home-intro" aria-labelledby="home-title">
-   <h1 id="home-title">Nhat Minh Doan</h1>
-   <p class="research-question">What can lengths tell us about a surface?</p>
+   <h1 id="home-title" class="research-question">What can lengths tell us about a surface?</h1>
    <p class="intro-copy">I’m Minh, a researcher at the Institute of Mathematics, VAST. I study hyperbolic surfaces and their length spectra.</p>
    <div class="home-actions">
     <a class="home-primary homepage-jump" href="#papers">Browse all papers <span aria-hidden="true">↓</span></a>
