@@ -108,9 +108,11 @@ button, input { font: inherit; }
 .featured-paper:is(:hover, :focus-visible) { background: #f4f8fc; text-decoration: none; }
 .featured-paper:is(:hover, :focus-visible) .featured-action { text-decoration: underline; }
 .bio-section { border-top: 1px solid #e4ebf0; }
-.bio-section > summary { min-height: 44px; padding: 11px 0; font-weight: 600; }
+.bio-section > summary { min-height: 44px; padding: 11px 0; }
+#academic-background:not([open]),
+#papers:not([open]) { display: none; }
 .email-row { margin-bottom: 12px; }
-.bio-section > summary, .email-toggle { cursor: pointer; }
+.bio-section > summary, .email-toggle { cursor: pointer; font-weight: 600; }
 .email-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .5em; }
 .email-toggle { list-style-position: inside; }
 .email-address { display: none; margin-inline-start: 1.5em; white-space: nowrap; }
