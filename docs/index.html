@@ -36,10 +36,10 @@
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="https://minhmath.github.io/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="https://minhmath.github.io/"><meta property="og:image" content="https://minhmath.github.io/assets/portrait.png">
-<link rel="stylesheet" href="assets/site.css?v=692072d666cd">
+<link rel="stylesheet" href="assets/site.css?v=b2bb9a85b2fe">
 <link rel="stylesheet" href="assets/papers.css?v=b415db73f400">
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
-<script defer src="assets/site.js?v=2222997c5bc2" data-catalogue="papers.json" data-papers="./"></script>
+<script defer src="assets/site.js?v=d92ddf682cb9" data-catalogue="papers.json" data-papers="./"></script>
 <script defer src="assets/papers.js?v=63755e5df0ed"></script>
 </head>
 <body>
@@ -50,9 +50,34 @@
 </header>
 <dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search papers</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label class="visually-hidden" for="site-search-input">Title, author, or journal</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>
 <main id="main">
- <section class="intro content-width" aria-label="About Minh">
-  <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
-  <p class="intro-copy">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra. I used to tweak this website whenever I got stuck on a proof. This time, I asked an AI agent to procrastinate for me. I’m still responsible for everything here, including this joke.</p>
+ <div class="intro content-width">
+  <section class="home-intro" aria-labelledby="home-title">
+   <h1 id="home-title">Nhat Minh Doan</h1>
+   <p class="research-question">What can lengths tell us about a surface?</p>
+   <p class="intro-copy">I’m Minh, a researcher at the Institute of Mathematics, VAST. I study hyperbolic surfaces and their length spectra.</p>
+   <div class="home-actions">
+    <a class="home-primary homepage-jump" href="#papers">Browse all papers <span aria-hidden="true">↓</span></a>
+    <button class="search-open home-search" type="button">Search papers</button>
+   </div>
+  </section>
+  <section class="featured-papers" aria-labelledby="featured-heading">
+  <h2 id="featured-heading">Selected papers</h2>
+  <div class="featured-grid">
+   <a class="featured-paper homepage-jump" href="#paper-DDD" data-paper-abstract="DDD" aria-labelledby="featured-title-DDD featured-action-DDD">
+    <h3 id="featured-title-DDD">The torus with asymptotically the fewest simple closed geodesics</h3>
+    <p>Which punctured torus has the fewest simple closed geodesics as the length cutoff grows?</p>
+    <span id="featured-action-DDD" class="featured-action">Read abstract <span aria-hidden="true">→</span></span>
+   </a><a class="featured-paper homepage-jump" href="#paper-density" data-paper-abstract="density" aria-labelledby="featured-title-density featured-action-density">
+    <h3 id="featured-title-density">Density of length ratios on Teichmüller space</h3>
+    <p>Can we prescribe ratios between geodesic lengths by changing the surface a little?</p>
+    <span id="featured-action-density" class="featured-action">Read abstract <span aria-hidden="true">→</span></span>
+   </a><a class="featured-paper homepage-jump" href="#paper-DLN" data-paper-abstract="DLN" aria-labelledby="featured-title-DLN featured-action-DLN">
+    <h3 id="featured-title-DLN">Stable-norm boundary geometry on once-punctured tori</h3>
+    <p>How many simple closed geodesics can have exactly the same length?</p>
+    <span id="featured-action-DLN" class="featured-action">Read abstract <span aria-hidden="true">→</span></span>
+   </a>
+  </div>
+ </section>
   <div class="email-row">
    <details class="email-disclosure" name="bio-section">
     <summary class="email-toggle" aria-controls="email-address">Email</summary>
@@ -95,8 +120,8 @@
   <details class="bio-section" name="bio-section" id="papers">
    <summary>List of papers</summary>
    <div class="papers-content">
-<figure class="papers-illustration"><img src="assets/surfaces-banner.png?v=8888a01d218e" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
 <table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col">Paper</th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>
+<figure class="papers-illustration"><img src="assets/surfaces-banner.png?v=8888a01d218e" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
 <section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
  <section class="insight-box" aria-labelledby="coauthors-heading">
   <h2 id="coauthors-heading">Co-authors</h2>
@@ -341,7 +366,7 @@ Nhat Minh Doan | Updated 10 November 2026                                       
    openBioSectionFromHash();
    window.addEventListener('hashchange', openBioSectionFromHash);
   </script>
- </section>
+ </div>
 </main>
 </body>
 </html>

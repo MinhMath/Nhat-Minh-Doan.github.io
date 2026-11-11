@@ -79,7 +79,23 @@
  }
  document.addEventListener('click',countPaperClick);
  document.addEventListener('auxclick',countPaperClick);
- // Count deliberate abstract openings, excluding closes and automatic deep-link opens.
+ function analyticsExcluded(){
+  return window.nhatMinhAnalyticsExcluded===true||window['ga-disable-'+analyticsId]===true;
+ }
+ function countAbstractOpen(paperId){
+  if(analyticsExcluded())return;
+  getPapers().then(papers=>{
+   const paper=papers.find(item=>item.id.toLowerCase()===paperId.toLowerCase());
+   if(!paper||typeof window.gtag!=='function'||analyticsExcluded())return;
+   window.gtag('event','paper_abstract_'+paper.id.toLowerCase().replace(/[^a-z0-9_]/g,'_'),{
+    send_to:analyticsId,
+    paper_id:paper.id,
+    paper_title:(paper.display_title||paper.title).slice(0,100),
+    interaction_type:'abstract_open'
+   });
+  }).catch(()=>{});
+ }
+ // Count deliberate abstract openings from the table and the selected papers.
  document.addEventListener('click',event=>{
   if(!event.isTrusted||event.button!==0)return;
   const summary=event.target.closest?.('summary');
@@ -87,22 +103,30 @@
   if(!details?.matches('details.abstract-details')||details.open)return;
   const row=details.closest('tr[id^="paper-"]');
   if(!row)return;
-  const paperId=row.id.slice(6);
   setTimeout(()=>{
-   if(event.defaultPrevented||!details.open||window.nhatMinhAnalyticsExcluded===true||window['ga-disable-'+analyticsId]===true)return;
-   getPapers().then(papers=>{
-    const paper=papers.find(item=>item.id.toLowerCase()===paperId.toLowerCase());
-    if(!paper||typeof window.gtag!=='function'||window.nhatMinhAnalyticsExcluded===true||window['ga-disable-'+analyticsId]===true)return;
-    window.gtag('event','paper_abstract_'+paper.id.toLowerCase().replace(/[^a-z0-9_]/g,'_'),{
-     send_to:analyticsId,
-     paper_id:paper.id,
-     paper_title:(paper.display_title||paper.title).slice(0,100),
-     interaction_type:'abstract_open'
-    });
-   }).catch(()=>{});
+   if(!event.defaultPrevented&&details.open)countAbstractOpen(row.id.slice(6));
   },0);
  });
- document.querySelector('.search-open')?.addEventListener('click',()=>{dialog.showModal();input.focus();showResults()});
+ function isSameTabClick(event){
+  return event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey;
+ }
+ function reopenHashLink(event,link){
+  if(isSameTabClick(event)&&link.href===location.href){
+   event.preventDefault();
+   window.dispatchEvent(new HashChangeEvent('hashchange'));
+  }
+ }
+ for(const link of document.querySelectorAll('.homepage-jump')){
+  link.addEventListener('click',event=>{
+   if(event.isTrusted&&isSameTabClick(event)&&link.dataset.paperAbstract){
+    countAbstractOpen(link.dataset.paperAbstract);
+   }
+   reopenHashLink(event,link);
+  });
+ }
+ for(const button of document.querySelectorAll('.search-open')){
+  button.addEventListener('click',()=>{dialog.showModal();input.focus();showResults()});
+ }
  document.querySelector('.search-close')?.addEventListener('click',()=>dialog.close());
  dialog?.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close()}});
  let queryId=0;
@@ -117,10 +141,7 @@
    if(!matches.length){const p=document.createElement('p');p.className='search-message';p.textContent='No papers found.';results.append(p)}
    for(const p of matches){const a=document.createElement('a');a.className='search-result';a.href=script.dataset.papers+'#paper-'+encodeURIComponent(p.id);a.append(document.createTextNode(p.display_title||p.title));const detail=document.createElement('small');detail.textContent=p.authors.join(', ');a.append(detail);a.addEventListener('click',event=>{
     dialog.close();
-    if(event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey&&a.href===location.href){
-     event.preventDefault();
-     window.dispatchEvent(new HashChangeEvent('hashchange'));
-    }
+    reopenHashLink(event,a);
    });results.append(a)}
   }catch{if(current===queryId){results.textContent='Search is unavailable. Please open List of papers on Bio.'}}
  }

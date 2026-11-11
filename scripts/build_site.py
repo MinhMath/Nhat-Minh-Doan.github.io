@@ -96,8 +96,8 @@ PAPERS_TABLE = '''<table aria-label="List of papers"><thead><tr class="paper-sec
 
 def papers_panel():
  return f'''<div class="papers-content">
-<figure class="papers-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
 {PAPERS_TABLE}
+<figure class="papers-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
 <section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
  <section class="insight-box" aria-labelledby="coauthors-heading">
   <h2 id="coauthors-heading">Co-authors</h2>
@@ -110,6 +110,34 @@ def papers_panel():
  </section>
 </section>
 </div>'''
+
+def featured_papers(papers):
+ selected=[
+  ('DDD', 'Which punctured torus has the fewest simple closed geodesics as the length cutoff grows?'),
+  ('density', 'Can we prescribe ratios between geodesic lengths by changing the surface a little?'),
+  ('DLN', 'How many simple closed geodesics can have exactly the same length?'),
+ ]
+ papers_by_id={paper['id']:paper for paper in papers}
+ cards=[]
+ for paper_id,question in selected:
+  paper=papers_by_id.get(paper_id)
+  if not paper or not paper.get('abstract'):
+   continue
+  title=escape(paper.get('display_title') or paper['title'])
+  key=escape(paper_id)
+  cards.append(f'''<a class="featured-paper homepage-jump" href="#paper-{key}" data-paper-abstract="{key}" aria-labelledby="featured-title-{key} featured-action-{key}">
+    <h3 id="featured-title-{key}">{title}</h3>
+    <p>{escape(question)}</p>
+    <span id="featured-action-{key}" class="featured-action">Read abstract <span aria-hidden="true">→</span></span>
+   </a>''')
+ if not cards:
+  return ''
+ return f'''<section class="featured-papers" aria-labelledby="featured-heading">
+  <h2 id="featured-heading">Selected papers</h2>
+  <div class="featured-grid">
+   {''.join(cards)}
+  </div>
+ </section>'''
 
 def papers_embed():
  return f'''<!doctype html>
@@ -229,9 +257,17 @@ def main():
 <body>
 {header()}
 <main id="main">
- <section class="intro content-width" aria-label="About Minh">
-  <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
-  <p class="intro-copy">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra. I used to tweak this website whenever I got stuck on a proof. This time, I asked an AI agent to procrastinate for me. I’m still responsible for everything here, including this joke.</p>
+ <div class="intro content-width">
+  <section class="home-intro" aria-labelledby="home-title">
+   <h1 id="home-title">Nhat Minh Doan</h1>
+   <p class="research-question">What can lengths tell us about a surface?</p>
+   <p class="intro-copy">I’m Minh, a researcher at the Institute of Mathematics, VAST. I study hyperbolic surfaces and their length spectra.</p>
+   <div class="home-actions">
+    <a class="home-primary homepage-jump" href="#papers">Browse all papers <span aria-hidden="true">↓</span></a>
+    <button class="search-open home-search" type="button">Search papers</button>
+   </div>
+  </section>
+  {featured_papers(papers)}
   <div class="email-row">
    <details class="email-disclosure" name="bio-section">
     <summary class="email-toggle" aria-controls="email-address">Email</summary>
@@ -310,7 +346,7 @@ def main():
    openBioSectionFromHash();
    window.addEventListener('hashchange', openBioSectionFromHash);
   </script>
- </section>
+ </div>
 </main>
 </body>
 </html>
