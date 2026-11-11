@@ -92,7 +92,11 @@ def header():
 </header>
 <dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search papers</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label class="visually-hidden" for="site-search-input">Title, author, or journal</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>'''
 
-PAPERS_TABLE = '''<table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col">Paper</th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>'''
+PAPERS_TABLE = '''<div id="paper-load" class="paper-load" hidden>
+ <span id="paper-load-status" role="status"></span>
+ <button id="paper-load-retry" type="button" hidden>Try again</button>
+</div>
+<table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col">Paper</th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>'''
 
 def papers_panel():
  return f'''<div class="papers-content">
@@ -147,7 +151,7 @@ def papers_embed():
 <link rel="canonical" href="{BASE}">
 <link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
 <link rel="stylesheet" href="assets/papers.css?v={asset_revision('papers.css')}">
-<script defer src="assets/site.js?v={asset_revision('site.js')}" data-catalogue="papers.json" data-papers="./"></script>
+<script defer src="assets/site.js?v={asset_revision('site.js')}" data-catalogue="papers.json"></script>
 <script defer src="assets/papers.js?v={asset_revision('papers.js')}"></script>
 </head><body class="papers-embed"><main class="papers-content">
 <h1 class="paper-list-heading">List of papers</h1>
@@ -251,12 +255,12 @@ def main():
 <link rel="stylesheet" href="assets/site.css?v={asset_revision('site.css')}">
 <link rel="stylesheet" href="assets/papers.css?v={asset_revision('papers.css')}">
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
-<script defer src="assets/site.js?v={asset_revision('site.js')}" data-catalogue="papers.json" data-papers="./"></script>
+<script defer src="assets/site.js?v={asset_revision('site.js')}" data-catalogue="papers.json"></script>
 <script defer src="assets/papers.js?v={asset_revision('papers.js')}"></script>
 </head>
 <body>
 {header()}
-<main id="main">
+<main id="main" tabindex="-1">
  <div class="intro content-width">
   <section class="home-intro" aria-labelledby="home-title">
    <h1 id="home-title">Nhat Minh Doan</h1>
@@ -341,7 +345,11 @@ def main():
     if (!section?.matches('details.bio-section')) return;
     closeOtherBioSections(section);
     section.open = true;
-    requestAnimationFrame(() => section.scrollIntoView({{block: 'start'}}));
+    requestAnimationFrame(() => {{
+     if (!section.open) return;
+     section.querySelector('summary').focus({{preventScroll: true}});
+     section.scrollIntoView({{block: 'start'}});
+    }});
    }}
    openBioSectionFromHash();
    window.addEventListener('hashchange', openBioSectionFromHash);
@@ -364,7 +372,7 @@ def main():
 <noscript><meta http-equiv="refresh" content="0;url=../"></noscript>
 </head><body><a href="../">Bio</a></body></html>''',encoding='utf-8')
  for page_path in DOCS.rglob('*.html'):
-  if LEGACY in page_path.parents:continue
+  if LEGACY in page_path.parents or page_path==DOCS/'statistics-browser.html':continue
   original=page_path.read_text(encoding='utf-8')
   page=original
   page=re.sub(r'(?<=src=")((?:\.\./)?assets/site\.js)(?:\?[^" ]*)?',lambda match:match[1]+'?v='+asset_revision('site.js'),page)

@@ -18,7 +18,8 @@ const abstractDetails=p=>{
  if(!abstract)return '';
  const text='<div class="abstract-text">'+esc(abstract)+'</div>';
  const source=link(p.abstract_source||sourceUrl(p),p.abstract_kind==='summary'?'Abstract summary':'Source');
- const summary='<summary><span class="abstract-read">Read abstract</span><span class="abstract-hide">Hide abstract</span></summary>';
+ const title=esc(p.display_title||p.title);
+ const summary='<summary><span class="abstract-read">Read abstract</span><span class="abstract-hide">Hide abstract</span><span class="visually-hidden"> for '+title+'</span></summary>';
  return '<details class="abstract-details">'+summary+'<div class="detail-content">'+text+'<div class="abstract-source">'+source+'</div></div></details>';
 };
 const bibliography=(p,url,attributes='')=>{
@@ -214,10 +215,16 @@ tableBody.addEventListener('toggle',event=>{
  mathQueue=mathQueue.then(()=>loadMath()).then(()=>window.MathJax.typesetPromise([abstract])).then(()=>{panel.dataset.mathDone='true'}).catch(()=>{});
 },true);
 const papersPanel=document.getElementById('papers');
+const paperLoad=document.getElementById('paper-load');
+const paperLoadStatus=document.getElementById('paper-load-status');
+const paperLoadRetry=document.getElementById('paper-load-retry');
 let requestedPapers=false;
 function loadPapers(){
  if(requestedPapers)return;
  requestedPapers=true;
+ paperLoad.hidden=false;
+ paperLoadRetry.hidden=true;
+ paperLoadStatus.textContent='Loading papers…';
  fetch('ledger.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error();return r.json()}).then(data=>{
   const allPapers=[...data.papers].sort(newestFirst);
   const renderPaper=p=>{
@@ -240,8 +247,13 @@ function loadPapers(){
   installPaperSorting(data);
   document.getElementById('totals').innerHTML='<span>Total citations: <strong>'+data.counts.total_citations+'</strong></span>';
   if(citationChart)renderPaperInsights(data);
+  paperLoad.hidden=true;
   if(!papersPanel||papersPanel.open)selectPaperFromHash();
-}).catch(()=>{const error=document.createElement('p');error.setAttribute('role','alert');error.textContent='Papers could not be loaded. Please refresh the page.';tableBody.closest('table').after(error)});
+ }).catch(()=>{
+  requestedPapers=false;
+  paperLoadStatus.textContent='Papers could not be loaded.';
+  paperLoadRetry.hidden=false;
+ });
 }
 function selectPaperFromHash(){
  let id;
@@ -251,8 +263,14 @@ function selectPaperFromHash(){
  if(papersPanel)papersPanel.open=true;
  loadPapers();
  const row=document.getElementById(id);if(!row)return;
- row.classList.add('paper-selected');const details=row.querySelector('.abstract-details');if(details)details.open=true;row.scrollIntoView({block:'start'});
+ row.classList.add('paper-selected');
+ const details=row.querySelector('.abstract-details');
+ if(details)details.open=true;
+ const target=details?.querySelector('summary')||row.querySelector('.paper a');
+ target?.focus({preventScroll:true});
+ row.scrollIntoView({block:'start'});
 }
+paperLoadRetry.addEventListener('click',loadPapers);
 papersPanel?.addEventListener('toggle',()=>{if(papersPanel.open)loadPapers()});
 if(!papersPanel||papersPanel.open)loadPapers();
 selectPaperFromHash();

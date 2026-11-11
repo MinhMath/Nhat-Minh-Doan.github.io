@@ -52,7 +52,7 @@ button, input { font: inherit; }
 .search-open { display: flex; padding: 0; border: 0; background: none; color: white; cursor: pointer; }
 
 .content-width { width: calc(100% - 64px); max-width: var(--content); margin-inline: auto; }
-.intro { max-width: 860px; padding-block: 28px 34px; }
+.intro { max-width: 892px; padding-block: 28px 34px; }
 .home-intro {
   padding: clamp(20px, 5vw, 42px);
   border: 1px solid #dde9f2;

@@ -32,7 +32,15 @@
  const input=document.getElementById('site-search-input');
  const results=document.getElementById('search-results');
  let catalogue;
- const getPapers=()=>catalogue||(catalogue=fetch(script.dataset.catalogue,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Unable to load papers');return r.json()}));
+ function getPapers(){
+  return catalogue||(catalogue=fetch(script.dataset.catalogue,{cache:'no-store'}).then(r=>{
+   if(!r.ok)throw new Error('Unable to load papers');
+   return r.json();
+  }).catch(error=>{
+   catalogue=undefined;
+   throw error;
+  }));
+ }
  const analyticsId='G-0R548MHC6P';
  function publicationKey(value){
   try{
@@ -48,15 +56,21 @@
   }catch(error){}
   return null;
  }
- const publicationIndex=getPapers().then(papers=>{
-  const index=new Map();
-  for(const paper of papers){
-   for(const [field,base] of [['doi','https://doi.org/'],['arxiv','https://arxiv.org/abs/'],['hexagon','https://hexagonmath.org/']]){
-    if(paper[field])index.set(publicationKey(base+paper[field]),paper);
+ let publicationIndex;
+ function getPublicationIndex(){
+  return publicationIndex||(publicationIndex=getPapers().then(papers=>{
+   const index=new Map();
+   for(const paper of papers){
+    for(const [field,base] of [['doi','https://doi.org/'],['arxiv','https://arxiv.org/abs/'],['hexagon','https://hexagonmath.org/']]){
+     if(paper[field])index.set(publicationKey(base+paper[field]),paper);
+    }
    }
-  }
-  return index;
- }).catch(()=>new Map());
+   return index;
+  }).catch(()=>{
+   publicationIndex=undefined;
+   return new Map();
+  }));
+ }
  function countPaperClick(event){
   if(event.type==='click'&&event.button!==0)return;
   if(event.type==='auxclick'&&event.button!==1)return;
@@ -65,7 +79,7 @@
   if(!anchor)return;
   const key=publicationKey(anchor.href);
   if(!key)return;
-  publicationIndex.then(index=>{
+  getPublicationIndex().then(index=>{
    if(window.nhatMinhAnalyticsExcluded===true||window['ga-disable-'+analyticsId]===true)return;
    const paper=index.get(key);
    if(!paper||typeof window.gtag!=='function')return;
@@ -129,17 +143,24 @@
  }
  document.querySelector('.search-close')?.addEventListener('click',()=>dialog.close());
  dialog?.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close()}});
+ function searchText(value){
+  return String(value||'').normalize('NFKD').toLocaleLowerCase()
+   .replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/[‐‑‒–—-]/g,' ');
+ }
  let queryId=0;
  async function showResults(){
   const current=++queryId;
-  const query=input.value.trim().toLocaleLowerCase();
+  const words=searchText(input.value).trim().split(/\s+/).filter(Boolean);
   results.replaceChildren();
-  if(!query)return;
+  if(!words.length)return;
   try{
    const papers=await getPapers();if(current!==queryId)return;
-   const matches=papers.filter(p=>[p.title,p.display_title,...p.authors,p.venue].filter(Boolean).join(' ').toLocaleLowerCase().includes(query));
+   const matches=papers.filter(p=>{
+    const text=searchText([p.title,p.display_title,...p.authors,...(p.aliases||[]),p.venue,p.doi,p.arxiv,p.hexagon].join(' '));
+    return words.every(word=>text.includes(word));
+   });
    if(!matches.length){const p=document.createElement('p');p.className='search-message';p.textContent='No papers found.';results.append(p)}
-   for(const p of matches){const a=document.createElement('a');a.className='search-result';a.href=script.dataset.papers+'#paper-'+encodeURIComponent(p.id);a.append(document.createTextNode(p.display_title||p.title));const detail=document.createElement('small');detail.textContent=p.authors.join(', ');a.append(detail);a.addEventListener('click',event=>{
+   for(const p of matches){const a=document.createElement('a');a.className='search-result';a.href='#paper-'+encodeURIComponent(p.id);a.append(document.createTextNode(p.display_title||p.title));const detail=document.createElement('small');detail.textContent=p.authors.join(', ');a.append(detail);a.addEventListener('click',event=>{
     dialog.close();
     reopenHashLink(event,a);
    });results.append(a)}

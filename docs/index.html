@@ -36,11 +36,11 @@
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="https://minhmath.github.io/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="https://minhmath.github.io/"><meta property="og:image" content="https://minhmath.github.io/assets/portrait.png">
-<link rel="stylesheet" href="assets/site.css?v=b2bb9a85b2fe">
-<link rel="stylesheet" href="assets/papers.css?v=b415db73f400">
+<link rel="stylesheet" href="assets/site.css?v=686ee4cb4150">
+<link rel="stylesheet" href="assets/papers.css?v=5d789aa62cdc">
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
-<script defer src="assets/site.js?v=d92ddf682cb9" data-catalogue="papers.json" data-papers="./"></script>
-<script defer src="assets/papers.js?v=63755e5df0ed"></script>
+<script defer src="assets/site.js?v=e335b7c9d401" data-catalogue="papers.json"></script>
+<script defer src="assets/papers.js?v=77d99ccd320c"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -49,7 +49,7 @@
  <button class="search-open" type="button" aria-label="Search papers"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
 </header>
 <dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search papers</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label class="visually-hidden" for="site-search-input">Title, author, or journal</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>
-<main id="main">
+<main id="main" tabindex="-1">
  <div class="intro content-width">
   <section class="home-intro" aria-labelledby="home-title">
    <h1 id="home-title">Nhat Minh Doan</h1>
@@ -120,6 +120,10 @@
   <details class="bio-section" name="bio-section" id="papers">
    <summary>List of papers</summary>
    <div class="papers-content">
+<div id="paper-load" class="paper-load" hidden>
+ <span id="paper-load-status" role="status"></span>
+ <button id="paper-load-retry" type="button" hidden>Try again</button>
+</div>
 <table aria-label="List of papers"><thead><tr class="paper-section"><th scope="col">Paper</th><th scope="col" title="Earliest documented public posting, rather than the journal issue date">First online</th><th scope="col">Cited by</th></tr></thead><tbody id="paper-rows"></tbody></table>
 <figure class="papers-illustration"><img src="assets/surfaces-banner.png?v=8888a01d218e" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
 <section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
@@ -361,7 +365,11 @@ Nhat Minh Doan | Updated 10 November 2026                                       
     if (!section?.matches('details.bio-section')) return;
     closeOtherBioSections(section);
     section.open = true;
-    requestAnimationFrame(() => section.scrollIntoView({block: 'start'}));
+    requestAnimationFrame(() => {
+     if (!section.open) return;
+     section.querySelector('summary').focus({preventScroll: true});
+     section.scrollIntoView({block: 'start'});
+    });
    }
    openBioSectionFromHash();
    window.addEventListener('hashchange', openBioSectionFromHash);
