@@ -43,12 +43,36 @@
   font-size: 13px;
 }
 .abstract-details > summary {
-  display: block;
+  display: flex;
+  align-items: center;
   width: fit-content;
+  box-sizing: border-box;
+  min-height: 32px;
+  margin-top: 4px;
+  padding: 4px 9px;
+  border: 1px solid #dce5f4;
+  border-radius: 4px;
+  background: #f5f8fd;
+  color: #1155cc;
+  font-size: 13px;
+  font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
-  color: #1155cc;
-  font-size: 12px;
+}
+.abstract-details > summary:hover {
+  background: #eaf1fc;
+}
+.abstract-details .abstract-hide,
+.abstract-details[open] .abstract-read {
+  display: none;
+}
+.abstract-details[open] .abstract-hide {
+  display: inline;
+}
+@media (pointer: coarse), (max-width: 650px) {
+  .abstract-details > summary {
+    min-height: 44px;
+  }
 }
 .abstract-details > summary::-webkit-details-marker {
   display: none;

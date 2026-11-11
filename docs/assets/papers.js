@@ -18,7 +18,8 @@ const abstractDetails=p=>{
  if(!abstract)return '';
  const text='<div class="abstract-text">'+esc(abstract)+'</div>';
  const source=link(p.abstract_source||sourceUrl(p),p.abstract_kind==='summary'?'Abstract summary':'Source');
- return '<details class="abstract-details"><summary>Abstract</summary><div class="detail-content">'+text+'<div class="abstract-source">'+source+'</div></div></details>';
+ const summary='<summary><span class="abstract-read">Read abstract</span><span class="abstract-hide">Hide abstract</span></summary>';
+ return '<details class="abstract-details">'+summary+'<div class="detail-content">'+text+'<div class="abstract-source">'+source+'</div></div></details>';
 };
 const bibliography=(p,url,attributes='')=>{
  const byline=authors(p.authors);
