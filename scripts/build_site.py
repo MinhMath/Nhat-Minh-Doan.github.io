@@ -231,7 +231,7 @@ def main():
 <main id="main">
  <section class="intro content-width" aria-label="About Minh">
   <h1 class="visually-hidden">Nhat Minh Doan (Đoàn Nhật Minh)</h1>
-  <p class="intro-copy">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra. When I got stuck on a proof, I used to procrastinate by tweaking this website. This time, I outsourced the procrastination to an AI agent. I take full responsibility for everything here, including this joke. :))</p>
+  <p class="intro-copy">Hello! I’m Minh. I study hyperbolic surfaces and their length spectra. I used to tweak this website whenever I got stuck on a proof. This time, I asked an AI agent to procrastinate for me. I’m still responsible for everything here, including this joke. :))</p>
   <div class="email-row">
    <details class="email-disclosure" name="bio-section">
     <summary class="email-toggle" aria-controls="email-address">Email</summary>
