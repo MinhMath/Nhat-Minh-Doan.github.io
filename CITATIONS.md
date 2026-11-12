@@ -4,7 +4,7 @@
 
 **Total citation records:** 26 | **Bibliography verified:** 24 | **Scholar-listed, full text pending:** 2 | **Self citations:** 13 | **Non-self citations:** 13
 
-Collection status: **partial**. Last saved discovery: 2026-11-11T07:51:39+00:00.
+Collection status: **partial**. Last saved discovery: 2026-11-12T08:28:55+00:00.
 
 | Canonical paper | Verified citations | Scholar-listed | Unverified candidates |
 |---|---:|---:|---:|
@@ -113,13 +113,12 @@ Collection status: **partial**. Last saved discovery: 2026-11-11T07:51:39+00:00.
 | semantic | deferred_after_error |
 | opencitations | completed_requests |
 | hexagon | completed_requests |
-| zenodo | partial |
+| zenodo | completed_requests |
 
 Collection limitations:
 
 - api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run
 - PDF HTTP 403: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1112/blms.13080
-- zenodo.org: HTTP 429; remaining requests to this host deferred until the next run
 
 The dashboard and this report use [the same normalized ledger](docs/ledger.json).
 Independent citations exclude identified shared authors; incomplete or ambiguous author names are recorded separately.
