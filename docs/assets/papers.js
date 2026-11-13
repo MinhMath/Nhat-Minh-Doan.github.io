@@ -316,29 +316,28 @@ function syncPaperControls(){
  const showingRelated=papersPanel?.open&&papersPanel.classList.contains('showing-related-papers');
  if(browsePapers)browsePapers.setAttribute('aria-expanded',String(papersPanel.open&&!showingRelated));
  for(const link of relatedControls){
-  const expanded=Boolean(showingRelated&&link.hash===location.hash);
+  const expanded=Boolean(showingRelated&&link.hash.slice(1)===paperView);
   link.setAttribute('aria-expanded',String(expanded));
   link.firstChild.nodeValue=expanded?'Hide related papers ':'Related papers ';
  }
 }
 function closePapers(){
  papersPanel.open=false;
- history.replaceState(null,'',location.pathname+location.search);
- selectPaperFromHash();
+ selectPaperView('');
  syncPaperControls();
 }
 for(const link of relatedControls){
  link.addEventListener('click',event=>{
-  if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||link.hash!==location.hash)return;
+  if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
   event.preventDefault();
-  if(papersPanel.open)closePapers();
-  else selectPaperFromHash();
+  const view=link.hash.slice(1);
+  if(papersPanel.open&&paperView===view)closePapers();
+  else selectPaperView(view);
  });
 }
 browsePapers?.addEventListener('click',()=>{
  if(papersPanel.open&&!papersPanel.classList.contains('showing-related-papers')){
-  papersPanel.open=false;
-  syncPaperControls();
+  closePapers();
   return;
  }
  selectPaperView('papers');
