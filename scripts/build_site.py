@@ -137,7 +137,6 @@ def featured_papers(papers):
   <div class="featured-grid">
    {''.join(cards)}
   </div>
-  <p id="length-multiplicity-update"><strong>13 November 2026.</strong> On each punctured hyperbolic torus, only finitely many equal-length pairs in different isometry orbits can both meet a common simple curve at most a fixed number of times. The comparison curve may vary. For distinct Markov fractions with the same denominator <i>q</i>, the first split has denominator O(<i>q</i><sup>169/478</sup>). <a href="https://chatgpt.com/space/page_20ade07c2954819186b9bff054bfacb0">Research note and proof</a></p>
  </section>'''
 
 def papers_embed():
