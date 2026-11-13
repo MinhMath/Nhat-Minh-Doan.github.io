@@ -98,7 +98,7 @@ PAPERS_TABLE = '''<div id="paper-load" class="paper-load" hidden>
 
 def papers_panel():
  return f'''<div class="papers-content">
-<div class="related-papers-heading" hidden><h2 tabindex="-1">Related papers</h2><a class="homepage-jump" href="#papers">Browse all papers</a></div>
+<div class="related-papers-heading" hidden><h2 tabindex="-1">Related papers</h2></div>
 {PAPERS_TABLE}
 <section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
  <section class="insight-box" aria-labelledby="coauthors-heading">
@@ -264,9 +264,6 @@ def main():
    <figure class="intro-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions"></figure>
   </section>
   {featured_papers(papers)}
-  <div class="home-actions">
-   <a class="home-primary homepage-jump" href="#papers">Browse all papers <span aria-hidden="true">↓</span></a>
-  </div>
   <details class="bio-section" name="bio-section" id="academic-background">
    <summary>Academic background and links</summary>
    <figure style="margin:12px 0 16px">
@@ -280,8 +277,11 @@ def main():
     <li>BA in Mathematics (2013–2015) at the University of Education, Ho Chi Minh City, Vietnam.</li>
    </ul>
   </details>
+  <div class="home-actions">
+   <button class="home-primary" id="browse-papers" type="button" aria-expanded="false" aria-controls="papers">Browse all papers <span aria-hidden="true">↓</span></button>
+  </div>
   <details class="bio-section" name="bio-section" id="papers">
-   <summary>List of papers</summary>
+   <summary>Browse all papers</summary>
    {papers_panel()}
   </details>
   <div class="email-row">
@@ -337,7 +337,7 @@ def main():
    }}
    function openBioSectionFromHash() {{
     const section = document.getElementById(location.hash.slice(1));
-    if (!section?.matches('details.bio-section')) return;
+    if (!section?.matches('details.bio-section') || section.id === 'papers') return;
     closeOtherBioSections(section);
     section.open = true;
     requestAnimationFrame(() => {{

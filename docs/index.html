@@ -36,11 +36,11 @@
 <meta name="description" content="Nhat Minh Doan, researcher at the Institute of Mathematics, VAST. Hyperbolic surfaces, length spectra, publications, and contact information.">
 <link rel="canonical" href="https://minhmath.github.io/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Nhat Minh Doan (Đoàn Nhật Minh)"><meta property="og:type" content="website"><meta property="og:url" content="https://minhmath.github.io/"><meta property="og:image" content="https://minhmath.github.io/assets/portrait.png">
-<link rel="stylesheet" href="assets/site.css?v=f23c4211b9cb">
+<link rel="stylesheet" href="assets/site.css?v=2d1366dc6bf6">
 <link rel="stylesheet" href="assets/papers.css?v=5d789aa62cdc">
 <script>if(window.self!==window.top)location.replace('embed.html'+location.search+location.hash);</script>
 <script defer src="assets/site.js?v=710d48ef0cdf" data-catalogue="papers.json"></script>
-<script defer src="assets/papers.js?v=3b5f01880f40"></script>
+<script defer src="assets/papers.js?v=b51f58f6d024"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -69,9 +69,6 @@
    </article>
   </div>
  </section>
-  <div class="home-actions">
-   <a class="home-primary homepage-jump" href="#papers">Browse all papers <span aria-hidden="true">↓</span></a>
-  </div>
   <details class="bio-section" name="bio-section" id="academic-background">
    <summary>Academic background and links</summary>
    <figure style="margin:12px 0 16px">
@@ -85,10 +82,13 @@
     <li>BA in Mathematics (2013–2015) at the University of Education, Ho Chi Minh City, Vietnam.</li>
    </ul>
   </details>
+  <div class="home-actions">
+   <button class="home-primary" id="browse-papers" type="button" aria-expanded="false" aria-controls="papers">Browse all papers <span aria-hidden="true">↓</span></button>
+  </div>
   <details class="bio-section" name="bio-section" id="papers">
-   <summary>List of papers</summary>
+   <summary>Browse all papers</summary>
    <div class="papers-content">
-<div class="related-papers-heading" hidden><h2 tabindex="-1">Related papers</h2><a class="homepage-jump" href="#papers">Browse all papers</a></div>
+<div class="related-papers-heading" hidden><h2 tabindex="-1">Related papers</h2></div>
 <div id="paper-load" class="paper-load" hidden>
  <span id="paper-load-status" role="status"></span>
  <button id="paper-load-retry" type="button" hidden>Try again</button>
@@ -356,7 +356,7 @@ Nhat Minh Doan | Updated 10 November 2026                                       
    }
    function openBioSectionFromHash() {
     const section = document.getElementById(location.hash.slice(1));
-    if (!section?.matches('details.bio-section')) return;
+    if (!section?.matches('details.bio-section') || section.id === 'papers') return;
     closeOtherBioSections(section);
     section.open = true;
     requestAnimationFrame(() => {

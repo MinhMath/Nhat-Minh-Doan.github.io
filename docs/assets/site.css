@@ -86,6 +86,8 @@ button, input { font: inherit; }
   font-weight: 600;
 }
 .home-primary { background: #164e76; color: white; }
+button.home-primary { border: 0; cursor: pointer; }
+button.home-primary[aria-expanded="true"] span { transform: rotate(180deg); }
 .home-primary:hover { background: #123d5d; text-decoration: none; }
 .featured-papers { margin-top: 24px; }
 .featured-papers h2 { margin: 0 0 10px; color: #17364e; font-size: 19px; }
@@ -148,9 +150,9 @@ button, input { font: inherit; }
   border: 0;
 }
 .papers-content { max-width: 1600px; margin: auto; padding-block: 25px; }
-.related-papers-heading:not([hidden]) { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 12px; }
+.related-papers-heading { margin-bottom: 12px; }
 .related-papers-heading h2 { margin: 0; color: #17364e; font-size: 19px; }
-.showing-related-papers > summary { display: none; }
+#papers > summary { display: none; }
 .showing-related-papers :is(.unrelated-paper, .paper-insights) { display: none; }
 .intro-illustration { width: 100%; max-width: 700px; margin: 16px auto 0; }
 .intro-illustration img { display: block; width: 100%; height: auto; clip-path: inset(0.5% 0 0); mix-blend-mode: multiply; }
