@@ -2145,5 +2145,27 @@
         "url": "https://doi.org/10.48550/arxiv.2406.14538"
       }
     ]
+  },
+  {
+    "title": "Simple Length Multiplicity on X(n)",
+    "authors": "Jonah Gaster; Dídac Martínez-Granado; Christopher-Lloyd Simon",
+    "arxiv": "2611.16078",
+    "platform": "arxiv",
+    "id": "2611.16078",
+    "url": "https://arxiv.org/abs/2611.16078",
+    "venue": "arXiv:2611.16078.",
+    "first_online": "2026-11-11",
+    "first_online_source": "https://arxiv.org/abs/2611.16078v1",
+    "first_online_note": "Initial arXiv submission, version 1.",
+    "target": "DLN",
+    "verified": true,
+    "source": "Verified in arXiv PDF bibliography",
+    "pdf_url": "https://arxiv.org/pdf/2611.16078v1",
+    "evidence_url": "https://arxiv.org/pdf/2611.16078v1",
+    "evidence_sha256": "47a515dbb0806b73cf24232f532f43afad2a8b2d1697a0f8046b73f2ddc87b3f",
+    "evidence_version": "v1",
+    "evidence_locator": "Page 23, reference [DLN26], cited on pages 2 and 3",
+    "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and Van Nguyen. McShane-Rivin norm balls and simple-length multiplicities, 2026.",
+    "checked_utc": "2026-11-13T07:55:11+00:00"
   }
 ]

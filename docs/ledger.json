@@ -1,14 +1,14 @@
 {
   "counts": {
-    "verified": 24,
-    "independent": 12,
+    "verified": 25,
+    "independent": 13,
     "overlap": 12,
     "unknown_authorship": 0,
-    "unique_citing_works": 20,
-    "total_citations": 26,
+    "unique_citing_works": 21,
+    "total_citations": 27,
     "scholar_listed": 2,
     "self_citations": 13,
-    "non_self_citations": 13,
+    "non_self_citations": 14,
     "unclassified_citations": 0,
     "candidates": 1,
     "papers": 13
@@ -417,6 +417,43 @@
       "first_online_note": "Publication of HexagonMath version 1.",
       "independence": "overlap",
       "self_citation": true
+    },
+    {
+      "title": "Simple Length Multiplicity on X(n)",
+      "authors": "Jonah Gaster; Dídac Martínez-Granado; Christopher-Lloyd Simon",
+      "arxiv": "2611.16078",
+      "platform": "arxiv",
+      "id": "2611.16078",
+      "url": "https://arxiv.org/abs/2611.16078",
+      "venue": "arXiv:2611.16078.",
+      "first_online": "2026-11-11",
+      "first_online_source": "https://arxiv.org/abs/2611.16078v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
+      "target": "DLN",
+      "verified": true,
+      "source": "Verified in arXiv PDF bibliography",
+      "pdf_url": "https://arxiv.org/pdf/2611.16078v1",
+      "evidence_url": "https://arxiv.org/pdf/2611.16078v1",
+      "evidence_sha256": "47a515dbb0806b73cf24232f532f43afad2a8b2d1697a0f8046b73f2ddc87b3f",
+      "evidence_version": "v1",
+      "evidence_locator": "Page 23, reference [DLN26], cited on pages 2 and 3",
+      "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and Van Nguyen. McShane-Rivin norm balls and simple-length multiplicities, 2026.",
+      "checked_utc": "2026-11-13T07:55:11+00:00",
+      "work_id": "arxiv:2611.16078",
+      "identifiers": [
+        "arxiv:2611.16078"
+      ],
+      "evidence": [
+        {
+          "source": "Verified in arXiv PDF bibliography",
+          "url": "https://arxiv.org/abs/2611.16078",
+          "evidence_url": "https://arxiv.org/pdf/2611.16078v1",
+          "evidence_excerpt": "[DLN26] Nhat Minh Doan, Xiaobin Li, and Van Nguyen. McShane-Rivin norm balls and simple-length multiplicities, 2026.",
+          "checked_utc": "2026-11-13T07:55:11+00:00"
+        }
+      ],
+      "independence": "independent",
+      "self_citation": false
     },
     {
       "target": "DLN",
