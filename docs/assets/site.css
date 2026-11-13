@@ -55,6 +55,7 @@ button, input { font: inherit; }
 .home-intro {
   padding: clamp(20px, 5vw, 42px);
   container-type: inline-size;
+  isolation: isolate;
   border: 1px solid #dde9f2;
   border-radius: 12px;
   background: linear-gradient(115deg, #eff6fb, #fafcfe);
@@ -152,7 +153,7 @@ button, input { font: inherit; }
 .showing-related-papers > summary { display: none; }
 .showing-related-papers :is(.unrelated-paper, .paper-insights) { display: none; }
 .intro-illustration { width: 100%; max-width: 700px; margin: 16px auto 0; }
-.intro-illustration img { display: block; width: 100%; height: auto; clip-path: inset(0.5% 0 0); }
+.intro-illustration img { display: block; width: 100%; height: auto; clip-path: inset(0.5% 0 0); mix-blend-mode: multiply; }
 .paper-selected { background: #f4f8fc; }
 
 .cv-content { max-width: 1000px; margin: 0 auto; padding-bottom: 36px; }
