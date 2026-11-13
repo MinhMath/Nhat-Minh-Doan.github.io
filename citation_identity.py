@@ -144,7 +144,7 @@ def build_ledger(papers, verified, discovered, metadata=None, listed=None):
     for row in rows:
         for description in descriptions:
             if not identifiers(row).intersection(identifiers(description)):continue
-            for key in ("year","citation_year_source","citation_year_note","display_title","venue","first_online","first_online_source","first_online_note","abstract","abstract_kind","abstract_source","abstract_version","abstract_checked_utc"):
+            for key in ("year","citation_year_source","citation_year_note","display_title","venue","first_online","first_online_source","first_online_note","abstract","abstract_kind","abstract_source","abstract_version","abstract_license","abstract_checked_utc"):
                 value=description.get(key)
                 if value:row[key]=value
             if description.get("authors"):

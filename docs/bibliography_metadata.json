@@ -346,5 +346,16 @@
     "abstract_source": "https://orbilu.uni.lu/handle/10993/50710",
     "first_online": "2022-03-30",
     "first_online_source": "https://orbilu.uni.lu/handle/10993/50710"
+  },
+  {
+    "arxiv": "2611.16078",
+    "platform": "arxiv",
+    "id": "2611.16078",
+    "abstract": "We study multiplicity among lengths of simple closed geodesics on the principal congruence surfaces $X(n)=\\Gamma(n)\\backslash\\mathbb{H}$. We show that for every $\\varepsilon>0$ there are positive constants $n_\\varepsilon,C_{\\varepsilon}$ so that, for $n\\ge n_\\varepsilon$, there are at least $\\exp((\\frac{\\pi^2}{12}-\\varepsilon)n)$ simple closed geodesics on $X(n)$ of the same length $\\ell<C_\\varepsilon n$. We produce the same multiplicity for $\\lambda$-length of simple arcs with distinct endpoints via the McShane identity, which is immediately relevant as the size of a McShane gap around such an arc is roughly the reciprocal square of its $\\lambda$-length. Our method of proof relies on an independently interesting theorem about the McShane identity for $X(n)$: the total mass of the gaps of pants with two cusps tends to 1 as $n\\to \\infty$. We present a proof of this latter fact that relies on estimates for the speed of mixing provided by Selberg's 3/16-Theorem (discovered with the help of ChatGPT). We indicate several avenues for further investigation.",
+    "abstract_kind": "original",
+    "abstract_source": "https://arxiv.org/abs/2611.16078v1",
+    "abstract_version": "v1",
+    "abstract_license": "https://creativecommons.org/licenses/by/4.0/",
+    "abstract_checked_utc": "2026-11-13T08:00:09+00:00"
   }
 ]
