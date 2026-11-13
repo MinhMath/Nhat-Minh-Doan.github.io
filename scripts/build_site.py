@@ -98,7 +98,7 @@ PAPERS_TABLE = '''<div id="paper-load" class="paper-load" hidden>
 
 def papers_panel():
  return f'''<div class="papers-content">
-<div class="related-papers-heading" hidden><h2>Related papers</h2><a class="homepage-jump" href="#papers">Browse all papers</a></div>
+<div class="related-papers-heading" hidden><h2 tabindex="-1">Related papers</h2><a class="homepage-jump" href="#papers">Browse all papers</a></div>
 {PAPERS_TABLE}
 <figure class="papers-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
 <section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
@@ -129,7 +129,7 @@ def featured_papers(papers):
   paper_ids_attr=escape(' '.join(related))
   cards.append(f'''<article class="featured-paper" aria-labelledby="featured-question-{key}">
     <h3 id="featured-question-{key}">{escape(question)}</h3>
-    <a class="featured-action homepage-jump" href="#related-{key}" data-related-papers="{paper_ids_attr}" data-paper-abstract="{escape(related[0])}" aria-describedby="featured-question-{key}">Related papers <span aria-hidden="true">→</span></a>
+    <a class="featured-action homepage-jump" href="#related-{key}" data-related-papers="{paper_ids_attr}" aria-describedby="featured-question-{key}">Related papers <span aria-hidden="true">→</span></a>
    </article>''')
  if not cards:
   return ''

@@ -87,7 +87,7 @@
    });
   }).catch(()=>{});
  }
- // Count deliberate abstract openings from the table and the selected papers.
+ // Count deliberate abstract openings from the table.
  document.addEventListener('click',event=>{
   if(!event.isTrusted||event.button!==0)return;
   const summary=event.target.closest?.('summary');
@@ -109,11 +109,6 @@
   }
  }
  for(const link of document.querySelectorAll('.homepage-jump')){
-  link.addEventListener('click',event=>{
-   if(event.isTrusted&&isSameTabClick(event)&&link.dataset.paperAbstract){
-    countAbstractOpen(link.dataset.paperAbstract);
-   }
-   reopenHashLink(event,link);
-  });
+  link.addEventListener('click',event=>reopenHashLink(event,link));
  }
 })();

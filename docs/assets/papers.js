@@ -280,10 +280,15 @@ function selectPaperFromHash(){
   }
  }
  document.querySelectorAll('.paper-selected').forEach(row=>row.classList.remove('paper-selected'));
- if(related)id='paper-'+related[0];
- if(!id.startsWith('paper-'))return;
+ if(!related&&!id.startsWith('paper-'))return;
  if(papersPanel)papersPanel.open=true;
  loadPapers();
+ if(related){
+  closeOtherAbstracts();
+  relatedHeading.querySelector('h2').focus({preventScroll:true});
+  relatedHeading.scrollIntoView({block:'start'});
+  return;
+ }
  const row=document.getElementById(id);if(!row)return;
  row.classList.add('paper-selected');
  const details=row.querySelector('.abstract-details');
