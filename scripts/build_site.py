@@ -268,9 +268,26 @@ def main():
    </div>
   </section>
   {featured_papers(papers)}
+  <details class="bio-section" name="bio-section" id="academic-background">
+   <summary>Academic background and links</summary>
+   <figure style="margin:12px 0 16px">
+    <img src="assets/minh-academic-path.webp?v={asset_revision('minh-academic-path.webp')}" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
+   </figure>
+   <ul class="background-list">
+    <li>Researcher (2022–present) at the {external('https://math.ac.vn/en','Institute of Mathematics, VAST')}.</li>
+    <li>{external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} (2024–2026) at the {external('https://www.math.nus.edu.sg/','National University of Singapore')}, where I worked with {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}.</li>
+    <li>PhD (2018–2022) at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')}, where {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} supervised my {external('https://orbilu.uni.lu/handle/10993/50710','thesis')}.</li>
+    <li>Master’s (2016–2017) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')}, supervised by {external('https://flab.perso.math.cnrs.fr/','François Labourie')}.</li>
+    <li>BA in Mathematics (2013–2015) at the University of Education, Ho Chi Minh City, Vietnam.</li>
+   </ul>
+  </details>
+  <details class="bio-section" name="bio-section" id="papers">
+   <summary>List of papers</summary>
+   {papers_panel()}
+  </details>
   <div class="email-row">
    <details class="email-disclosure" name="bio-section">
-    <summary class="email-toggle" aria-controls="email-address">Email</summary>
+    <summary class="email-toggle" aria-controls="email-address">Email address</summary>
    </details>
    <a id="email-address" class="email-address" href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
    <span id="email-copy-status" role="status"></span>
@@ -294,23 +311,6 @@ def main():
     }});
    </script>
   </div>
-  <details class="bio-section" name="bio-section" id="academic-background">
-   <summary>Academic background and links</summary>
-   <figure style="margin:12px 0 16px">
-    <img src="assets/minh-academic-path.webp?v={asset_revision('minh-academic-path.webp')}" width="1620" height="1148" alt="Illustrated academic timeline from Ho Chi Minh City through Nice and Luxembourg to VAST, with a Singapore fellowship branching off the ongoing VAST appointment. A hyperbolic triangle says it is missing some degrees." style="display:block;width:100%;height:auto" loading="lazy" decoding="async">
-   </figure>
-   <ul class="background-list">
-    <li>Researcher (2022–present) at the {external('https://math.ac.vn/en','Institute of Mathematics, VAST')}.</li>
-    <li>{external('https://snas.org.sg/saseaffellows','SASEA Research Fellow')} (2024–2026) at the {external('https://www.math.nus.edu.sg/','National University of Singapore')}, where I worked with {external('https://sites.google.com/view/serpeowtan/home','Ser Peow Tan')}.</li>
-    <li>PhD (2018–2022) at the {external('https://www.uni.lu/fstm-en/research-departments/department-of-mathematics/','University of Luxembourg')}, where {external('https://homeweb.unifr.ch/parlierh/pub/index.html','Hugo Parlier')} supervised my {external('https://orbilu.uni.lu/handle/10993/50710','thesis')}.</li>
-    <li>Master’s (2016–2017) at the {external('https://en.wikipedia.org/wiki/Universit%C3%A9_Nice-Sophia-Antipolis','University of Nice Sophia Antipolis')}, supervised by {external('https://flab.perso.math.cnrs.fr/','François Labourie')}.</li>
-    <li>BA in Mathematics (2013–2015) at the University of Education, Ho Chi Minh City, Vietnam.</li>
-   </ul>
-  </details>
-  <details class="bio-section" name="bio-section" id="papers">
-   <summary>List of papers</summary>
-   {papers_panel()}
-  </details>
   <details class="bio-section" name="bio-section" id="cv">
    <summary>CV</summary>
    {cv_panel(papers)}

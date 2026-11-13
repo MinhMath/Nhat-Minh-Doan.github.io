@@ -71,32 +71,6 @@
    </article>
   </div>
  </section>
-  <div class="email-row">
-   <details class="email-disclosure" name="bio-section">
-    <summary class="email-toggle" aria-controls="email-address">Email</summary>
-   </details>
-   <a id="email-address" class="email-address" href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
-   <span id="email-copy-status" role="status"></span>
-   <script>
-    const emailDisclosure = document.querySelector('.email-disclosure');
-    const emailSummary = emailDisclosure.querySelector('summary');
-    const emailAddress = document.getElementById('email-address');
-    const emailCopyStatus = document.getElementById('email-copy-status');
-    emailDisclosure.addEventListener('toggle', () => {
-     if (!emailDisclosure.open) emailCopyStatus.textContent = '';
-    });
-    emailSummary.addEventListener('click', async () => {
-     emailCopyStatus.textContent = '';
-     if (emailDisclosure.open || !navigator.clipboard) return;
-     try {
-      await navigator.clipboard.writeText(emailAddress.textContent.trim());
-      if (emailDisclosure.open) emailCopyStatus.textContent = 'Copied';
-     } catch {
-      // The revealed address is still available to copy manually.
-     }
-    });
-   </script>
-  </div>
   <details class="bio-section" name="bio-section" id="academic-background">
    <summary>Academic background and links</summary>
    <figure style="margin:12px 0 16px">
@@ -133,6 +107,32 @@
 </section>
 </div>
   </details>
+  <div class="email-row">
+   <details class="email-disclosure" name="bio-section">
+    <summary class="email-toggle" aria-controls="email-address">Email address</summary>
+   </details>
+   <a id="email-address" class="email-address" href="mailto:dnminh@math.ac.vn">dnminh@math.ac.vn</a>
+   <span id="email-copy-status" role="status"></span>
+   <script>
+    const emailDisclosure = document.querySelector('.email-disclosure');
+    const emailSummary = emailDisclosure.querySelector('summary');
+    const emailAddress = document.getElementById('email-address');
+    const emailCopyStatus = document.getElementById('email-copy-status');
+    emailDisclosure.addEventListener('toggle', () => {
+     if (!emailDisclosure.open) emailCopyStatus.textContent = '';
+    });
+    emailSummary.addEventListener('click', async () => {
+     emailCopyStatus.textContent = '';
+     if (emailDisclosure.open || !navigator.clipboard) return;
+     try {
+      await navigator.clipboard.writeText(emailAddress.textContent.trim());
+      if (emailDisclosure.open) emailCopyStatus.textContent = 'Copied';
+     } catch {
+      // The revealed address is still available to copy manually.
+     }
+    });
+   </script>
+  </div>
   <details class="bio-section" name="bio-section" id="cv">
    <summary>CV</summary>
    <div class="cv-content">
