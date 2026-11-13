@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-13T07:57:53+00:00",
+  "generated_utc": "2026-11-13T08:02:18+00:00",
   "collection_status": "partial",
   "sources": {
     "publisher_bibliographies": {
@@ -42,7 +42,7 @@
       "verified_records": 0
     },
     "zenodo": {
-      "status": "completed_requests",
+      "status": "partial",
       "verified_records": 0
     }
   },
@@ -75,7 +75,8 @@
   ],
   "errors": [
     "api.semanticscholar.org: HTTP 429; remaining requests to this host deferred until the next run",
-    "PDF HTTP 403: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1112/blms.13080"
+    "PDF HTTP 403: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1112/blms.13080",
+    "zenodo.org: HTTP 429; remaining requests to this host deferred until the next run"
   ],
   "warning": "Search matches and indexed edges remain candidates until a bibliography is checked. Partial or failed coverage is not evidence of zero citations."
 }
