@@ -9,9 +9,6 @@
   window.history.replaceState(null,'',current.pathname+current.search+current.hash);
  }
 
- const dialog=document.querySelector('.site-search');
- const input=document.getElementById('site-search-input');
- const results=document.getElementById('search-results');
  let catalogue;
  function getPapers(){
   return catalogue||(catalogue=fetch(script.dataset.catalogue,{cache:'no-store'}).then(r=>{
@@ -96,22 +93,12 @@
   const summary=event.target.closest?.('summary');
   const details=summary?.parentElement;
   if(!details?.matches('details.abstract-details')||details.open)return;
-  const paperId=details.dataset.paperAbstract||details.closest('tr[id^="paper-"]')?.id.slice(6);
+  const paperId=details.closest('tr[id^="paper-"]')?.id.slice(6);
   if(!paperId)return;
   setTimeout(()=>{
    if(!event.defaultPrevented&&details.open)countAbstractOpen(paperId);
   },0);
  });
- // Older browsers support details but ignore the name attribute.
- const featuredAbstracts=document.querySelectorAll('details[name="featured-abstract"]');
- for(const details of featuredAbstracts){
-  details.addEventListener('toggle',()=>{
-   if(!details.open)return;
-   for(const other of featuredAbstracts){
-    if(other!==details&&other.open)other.open=false;
-   }
-  });
- }
  function isSameTabClick(event){
   return event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey;
  }
@@ -122,38 +109,11 @@
   }
  }
  for(const link of document.querySelectorAll('.homepage-jump')){
-  link.addEventListener('click',event=>reopenHashLink(event,link));
+  link.addEventListener('click',event=>{
+   if(event.isTrusted&&isSameTabClick(event)&&link.dataset.paperAbstract){
+    countAbstractOpen(link.dataset.paperAbstract);
+   }
+   reopenHashLink(event,link);
+  });
  }
- for(const button of document.querySelectorAll('.search-open')){
-  button.addEventListener('click',()=>{dialog.showModal();input.focus();showResults()});
- }
- document.querySelector('.search-close')?.addEventListener('click',()=>dialog.close());
- dialog?.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close()}});
- function searchText(value){
-  return String(value||'').normalize('NFKD').toLocaleLowerCase()
-   .replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/[‐‑‒–—-]/g,' ');
- }
- let queryId=0;
- async function showResults(){
-  const current=++queryId;
-  const words=searchText(input.value).trim().split(/\s+/).filter(Boolean);
-  results.replaceChildren();
-  if(!words.length)return;
-  try{
-   const papers=await getPapers();if(current!==queryId)return;
-   const matches=papers.filter(p=>{
-    const text=searchText([p.title,p.display_title,...p.authors,...(p.aliases||[]),p.venue,p.doi,p.arxiv,p.hexagon].join(' '));
-    return words.every(word=>text.includes(word));
-   });
-   if(!matches.length){const p=document.createElement('p');p.className='search-message';p.textContent='No papers found.';results.append(p)}
-   for(const p of matches){const a=document.createElement('a');a.className='search-result';a.href='#paper-'+encodeURIComponent(p.id);a.append(document.createTextNode(p.display_title||p.title));const detail=document.createElement('small');detail.textContent=p.authors.join(', ');a.append(detail);a.addEventListener('click',event=>{
-    dialog.close();
-    reopenHashLink(event,a);
-   });results.append(a)}
-  }catch{if(current===queryId){results.textContent='Search is unavailable. Please open List of papers on Bio.'}}
- }
- input?.addEventListener('input',showResults);
 })();
-
-
-

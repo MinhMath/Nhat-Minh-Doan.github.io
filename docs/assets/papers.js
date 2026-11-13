@@ -20,7 +20,7 @@ const abstractDetails=p=>{
  const source=link(p.abstract_source||sourceUrl(p),p.abstract_kind==='summary'?'Abstract summary':'Source');
  const title=esc(p.display_title||p.title);
  const summary='<summary><span class="abstract-read">Read abstract</span><span class="abstract-hide">Hide abstract</span><span class="visually-hidden"> for '+title+'</span></summary>';
- return '<details class="abstract-details">'+summary+'<div class="detail-content">'+text+'<div class="abstract-source">'+source+'</div></div></details>';
+ return '<details class="abstract-details" name="paper-abstract">'+summary+'<div class="detail-content">'+text+'<div class="abstract-source">'+source+'</div></div></details>';
 };
 const bibliography=(p,url,attributes='')=>{
  const byline=authors(p.authors);
@@ -208,9 +208,17 @@ tableBody.addEventListener('click',event=>{
  const row=document.getElementById(button.getAttribute('aria-controls'));
  const opening=button.getAttribute('aria-expanded')!=='true';row.hidden=!opening;button.setAttribute('aria-expanded',String(opening));
 });
-document.addEventListener('toggle',event=>{
+function closeOtherAbstracts(active){
+ // Older browsers ignore the name attribute on details elements.
+ for(const details of tableBody.querySelectorAll('.abstract-details[open]')){
+  if(details!==active)details.open=false;
+ }
+}
+tableBody.addEventListener('toggle',event=>{
  const panel=event.target;
- if(!panel.matches('.abstract-details')||!panel.open||panel.dataset.mathDone)return;
+ if(!panel.matches('.abstract-details')||!panel.open)return;
+ closeOtherAbstracts(panel);
+ if(panel.dataset.mathDone)return;
  const abstract=panel.querySelector('.abstract-text');if(!abstract||!/[\$\\]/.test(abstract.textContent))return;
  mathQueue=mathQueue.then(()=>loadMath()).then(()=>window.MathJax.typesetPromise([abstract])).then(()=>{panel.dataset.mathDone='true'}).catch(()=>{});
 },true);
@@ -265,7 +273,10 @@ function selectPaperFromHash(){
  const row=document.getElementById(id);if(!row)return;
  row.classList.add('paper-selected');
  const details=row.querySelector('.abstract-details');
- if(details)details.open=true;
+ if(details){
+  closeOtherAbstracts(details);
+  details.open=true;
+ }
  const target=details?.querySelector('summary')||row.querySelector('.paper a');
  target?.focus({preventScroll:true});
  row.scrollIntoView({block:'start'});

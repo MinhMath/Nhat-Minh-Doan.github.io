@@ -88,9 +88,7 @@ def header():
  return f'''<a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
  <a class="site-name" href="./"><span class="site-avatar"><img class="site-portrait" src="assets/portrait.png?v={asset_revision('portrait.png')}" width="33" height="41" alt=""></span>Nhat Minh Doan (Đoàn Nhật Minh)</a>
- <button class="search-open" type="button" aria-label="Search papers"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
-</header>
-<dialog class="site-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search papers</h2><button type="button" class="search-close" aria-label="Close search">×</button></div><label class="visually-hidden" for="site-search-input">Title, author, or journal</label><input id="site-search-input" type="search" placeholder="Title, author, or journal" autocomplete="off"><div id="search-results" aria-live="polite"></div></dialog>'''
+</header>'''
 
 PAPERS_TABLE = '''<div id="paper-load" class="paper-load" hidden>
  <span id="paper-load-status" role="status"></span>
@@ -125,17 +123,12 @@ def featured_papers(papers):
  cards=[]
  for paper_id,question in selected:
   paper=papers_by_id.get(paper_id)
-  if not paper or not (abstract:=paper.get('abstract', '').strip()):
+  if not paper or not (paper.get('abstract') or '').strip():
    continue
-  title=escape(paper.get('display_title') or paper['title'])
   key=escape(paper_id)
-  cards.append(f'''<article class="featured-paper" aria-labelledby="featured-title-{key}">
-    <h3 id="featured-title-{key}">{title}</h3>
-    <p>{escape(question)}</p>
-    <details class="abstract-details" name="featured-abstract" data-paper-abstract="{key}">
-     <summary><span class="abstract-read">Read abstract</span><span class="abstract-hide">Hide abstract</span><span class="visually-hidden"> for {title}</span></summary>
-     <div class="detail-content"><div class="abstract-text">{escape(abstract)}</div><div class="abstract-source">{external(paper.get('abstract_source') or url(paper), 'Abstract summary' if paper.get('abstract_kind')=='summary' else 'Source')}</div></div>
-    </details>
+  cards.append(f'''<article class="featured-paper" aria-labelledby="featured-question-{key}">
+    <h3 id="featured-question-{key}">{escape(question)}</h3>
+    <a class="featured-action homepage-jump" href="#paper-{key}" data-paper-abstract="{key}" aria-describedby="featured-question-{key}">Read paper <span aria-hidden="true">→</span></a>
    </article>''')
  if not cards:
   return ''
@@ -270,7 +263,6 @@ def main():
    <p class="intro-copy">I’m Minh, a researcher at the Institute of Mathematics, VAST. I study hyperbolic surfaces and their length spectra.</p>
    <div class="home-actions">
     <a class="home-primary homepage-jump" href="#papers">Browse all papers <span aria-hidden="true">↓</span></a>
-    <button class="search-open home-search" type="button">Search papers</button>
    </div>
   </section>
   {featured_papers(papers)}
