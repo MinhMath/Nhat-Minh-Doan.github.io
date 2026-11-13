@@ -262,11 +262,11 @@ def main():
    <h1 id="home-title" class="research-question">What can lengths tell us about a surface?</h1>
    <p class="intro-copy">I’m Minh, a researcher at the Institute of Mathematics, VAST. I study hyperbolic surfaces and their length spectra.</p>
    <figure class="intro-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions"></figure>
-   <div class="home-actions">
-    <a class="home-primary homepage-jump" href="#papers">Browse all papers <span aria-hidden="true">↓</span></a>
-   </div>
   </section>
   {featured_papers(papers)}
+  <div class="home-actions">
+   <a class="home-primary homepage-jump" href="#papers">Browse all papers <span aria-hidden="true">↓</span></a>
+  </div>
   <details class="bio-section" name="bio-section" id="academic-background">
    <summary>Academic background and links</summary>
    <figure style="margin:12px 0 16px">

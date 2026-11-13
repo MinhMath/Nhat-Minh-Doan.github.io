@@ -73,7 +73,7 @@ button, input { font: inherit; }
   color: #344b60;
   font-size: clamp(14px, 1.95cqi, 16px);
 }
-.home-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.home-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 16px 24px; }
 .home-actions :is(a, button) {
   display: inline-flex;
   align-items: center;
@@ -87,7 +87,7 @@ button, input { font: inherit; }
 }
 .home-primary { background: #164e76; color: white; }
 .home-primary:hover { background: #123d5d; text-decoration: none; }
-.featured-papers { margin-block: 24px; }
+.featured-papers { margin-top: 24px; }
 .featured-papers h2 { margin: 0 0 10px; color: #17364e; font-size: 19px; }
 .featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .featured-paper {
