@@ -311,7 +311,9 @@ function syncPaperControls(){
  const showingRelated=papersPanel?.open&&papersPanel.classList.contains('showing-related-papers');
  if(browsePapers)browsePapers.setAttribute('aria-expanded',String(papersPanel.open&&!showingRelated));
  for(const link of relatedControls){
-  link.setAttribute('aria-expanded',String(Boolean(showingRelated&&link.hash===location.hash)));
+  const expanded=Boolean(showingRelated&&link.hash===location.hash);
+  link.setAttribute('aria-expanded',String(expanded));
+  link.firstChild.nodeValue=expanded?'Hide related papers ':'Related papers ';
  }
 }
 function closePapers(){
