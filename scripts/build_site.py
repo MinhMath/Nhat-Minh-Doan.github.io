@@ -98,6 +98,7 @@ PAPERS_TABLE = '''<div id="paper-load" class="paper-load" hidden>
 
 def papers_panel():
  return f'''<div class="papers-content">
+<div class="related-papers-heading" hidden><h2>Related papers</h2><a class="homepage-jump" href="#papers">Browse all papers</a></div>
 {PAPERS_TABLE}
 <figure class="papers-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
 <section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
@@ -115,20 +116,21 @@ def papers_panel():
 
 def featured_papers(papers):
  selected=[
-  ('DDD', 'Which punctured torus has the fewest simple closed geodesics as the length cutoff grows?'),
-  ('density', 'Can we prescribe ratios between geodesic lengths by changing the surface a little?'),
-  ('DLN', 'How many simple closed geodesics can have exactly the same length?'),
+  ('geodesic-counts', 'Which punctured torus has the fewest simple closed geodesics as the length cutoff grows?', ('DDD',)),
+  ('length-ratios', 'Can we prescribe ratios between geodesic lengths by changing the surface a little?', ('density',)),
+  ('length-multiplicity', 'How many simple closed geodesics can have exactly the same length?', ('DLN', 'SSC')),
  ]
  papers_by_id={paper['id']:paper for paper in papers}
  cards=[]
- for paper_id,question in selected:
-  paper=papers_by_id.get(paper_id)
-  if not paper or not (paper.get('abstract') or '').strip():
+ for key,question,paper_ids in selected:
+  related=[paper_id for paper_id in paper_ids if (papers_by_id.get(paper_id, {}).get('abstract') or '').strip()]
+  if not related:
    continue
-  key=escape(paper_id)
+  paper_ids_attr=escape(' '.join(related))
+  label='Read papers' if len(related)>1 else 'Read paper'
   cards.append(f'''<article class="featured-paper" aria-labelledby="featured-question-{key}">
     <h3 id="featured-question-{key}">{escape(question)}</h3>
-    <a class="featured-action homepage-jump" href="#paper-{key}" data-paper-abstract="{key}" aria-describedby="featured-question-{key}">Read paper <span aria-hidden="true">→</span></a>
+    <a class="featured-action homepage-jump" href="#related-{key}" data-related-papers="{paper_ids_attr}" data-paper-abstract="{escape(related[0])}" aria-describedby="featured-question-{key}">{label} <span aria-hidden="true">→</span></a>
    </article>''')
  if not cards:
   return ''
@@ -230,7 +232,7 @@ def cv_panel(papers):
 def redirect_section(section, label):
  target=f'../#{section}'
  # Keep a paper deep link or tracking query from existing bookmarks.
- fragment="(location.hash.startsWith('#paper-') ? location.hash : '#papers')" if section=='papers' else json.dumps('#'+section)
+ fragment="(/^#(?:paper|related)-/.test(location.hash) ? location.hash : '#papers')" if section=='papers' else json.dumps('#'+section)
  return f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{label} — Nhat Minh Doan</title><link rel="canonical" href="{BASE}">

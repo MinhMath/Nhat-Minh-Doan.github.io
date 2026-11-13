@@ -223,6 +223,10 @@ tableBody.addEventListener('toggle',event=>{
  mathQueue=mathQueue.then(()=>loadMath()).then(()=>window.MathJax.typesetPromise([abstract])).then(()=>{panel.dataset.mathDone='true'}).catch(()=>{});
 },true);
 const papersPanel=document.getElementById('papers');
+const relatedHeading=papersPanel?.querySelector('.related-papers-heading');
+const relatedLinks=new Map(Array.from(document.querySelectorAll('[data-related-papers]'),link=>[
+ link.hash.slice(1), link.dataset.relatedPapers.split(' ')
+]));
 const paperLoad=document.getElementById('paper-load');
 const paperLoadStatus=document.getElementById('paper-load-status');
 const paperLoadRetry=document.getElementById('paper-load-retry');
@@ -266,7 +270,17 @@ function loadPapers(){
 function selectPaperFromHash(){
  let id;
  try{id=decodeURIComponent(location.hash.slice(1))}catch{return}
+ const related=relatedLinks.get(id);
+ if(relatedHeading){
+  relatedHeading.hidden=!related;
+  papersPanel.classList.toggle('showing-related-papers',Boolean(related));
+  for(const row of tableBody.children){
+   const paperId=row.id.replace(/^(paper|cited)-/,'');
+   row.classList.toggle('unrelated-paper',Boolean(related&&!related.includes(paperId)));
+  }
+ }
  document.querySelectorAll('.paper-selected').forEach(row=>row.classList.remove('paper-selected'));
+ if(related)id='paper-'+related[0];
  if(!id.startsWith('paper-'))return;
  if(papersPanel)papersPanel.open=true;
  loadPapers();
