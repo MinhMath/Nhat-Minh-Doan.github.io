@@ -99,16 +99,13 @@
    if(!event.defaultPrevented&&details.open)countAbstractOpen(paperId);
   },0);
  });
- function isSameTabClick(event){
-  return event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey;
- }
- function reopenHashLink(event,link){
-  if(isSameTabClick(event)&&link.href===location.href){
-   event.preventDefault();
-   window.dispatchEvent(new HashChangeEvent('hashchange'));
-  }
- }
- for(const link of document.querySelectorAll('.homepage-jump')){
-  link.addEventListener('click',event=>reopenHashLink(event,link));
- }
+ const skipLink=document.querySelector('.skip-link');
+ skipLink?.addEventListener('click',event=>{
+  if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  const main=document.getElementById('main');
+  if(!main)return;
+  event.preventDefault();
+  main.focus({preventScroll:true});
+  main.scrollIntoView({block:'start'});
+ });
 })();
