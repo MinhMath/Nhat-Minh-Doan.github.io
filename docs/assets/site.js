@@ -2,31 +2,12 @@
 (()=>{
  const script=document.currentScript;
 
- // The public shortcut contains no report data; password checks run on the server.
- function setupPrivateShortcut(){
-  const current=new URL(window.location.href);
-  const preference=current.searchParams.get('owner_dashboard');
-  if(preference==='1'){
-   try{localStorage.setItem('nhat-minh-doan:analytics-excluded','1')}catch(error){}
-   window.nhatMinhAnalyticsExcluded=true;
-   window['ga-disable-G-0R548MHC6P']=true;
-  }
-  if(preference!==null){current.searchParams.delete('owner_dashboard');window.history.replaceState(null,'',current.pathname+current.search+current.hash)}
-  const insights=document.getElementById('paper-insights');
-  if(!insights)return;
-  const style=document.createElement('style');
-  style.textContent='.private-dashboard-corner{display:flex;justify-content:flex-end;margin:0 0 2px auto;max-width:860px}.private-dashboard-shortcut{display:grid;place-items:center;width:29px;height:29px;border:1px solid #e0e6ef;border-radius:50%;color:#6a90d8;background:#fff;opacity:.7;box-shadow:0 1px 5px #00000006}.private-dashboard-shortcut:hover,.private-dashboard-shortcut:focus-visible{opacity:1;color:#1155cc;outline:2px solid #1155cc;outline-offset:3px}.private-dashboard-shortcut svg{display:block}';
-  document.head.appendChild(style);
-  const corner=document.createElement('div');corner.className='private-dashboard-corner';
-  const link=document.createElement('a');
-  link.className='private-dashboard-shortcut';
-  link.href='https://minh-paper-statistics.minhminhminh.chatgpt.site/login';
-  link.target='_blank';link.rel='noopener noreferrer';
-  link.setAttribute('aria-label','Private statistics');link.title='Private statistics';
-  link.innerHTML='<svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4" y="9" width="12" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M6 9V6a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>';
-  corner.appendChild(link);insights.after(corner);
+ // Keep old browser-exclusion links working.
+ const current=new URL(window.location.href);
+ if(current.searchParams.has('owner_dashboard')){
+  current.searchParams.delete('owner_dashboard');
+  window.history.replaceState(null,'',current.pathname+current.search+current.hash);
  }
- setupPrivateShortcut();
 
  const dialog=document.querySelector('.site-search');
  const input=document.getElementById('site-search-input');
