@@ -466,6 +466,10 @@
       "abstract_version": "v1",
       "abstract_license": "https://creativecommons.org/licenses/by/4.0/",
       "abstract_checked_utc": "2026-11-13T08:00:09+00:00",
+      "venue": "arXiv:2611.16078.",
+      "first_online": "2026-11-11",
+      "first_online_source": "https://arxiv.org/abs/2611.16078v1",
+      "first_online_note": "Initial arXiv submission, version 1.",
       "independence": "independent",
       "self_citation": false
     },
