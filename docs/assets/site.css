@@ -52,13 +52,13 @@ button, input { font: inherit; }
 
 .content-width { width: calc(100% - 64px); max-width: var(--content); margin-inline: auto; }
 .intro { max-width: 892px; padding-block: 28px 34px; }
+.home-intro, .featured-paper { background: linear-gradient(115deg, #eff6fb, #fafcfe); }
 .home-intro {
   padding: clamp(20px, 5vw, 42px);
   container-type: inline-size;
   isolation: isolate;
   border: 1px solid #dde9f2;
   border-radius: 12px;
-  background: linear-gradient(115deg, #eff6fb, #fafcfe);
 }
 .research-question {
   margin: 0;
