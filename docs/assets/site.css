@@ -55,19 +55,24 @@ button, input { font: inherit; }
 .intro { max-width: 892px; padding-block: 28px 34px; }
 .home-intro {
   padding: clamp(20px, 5vw, 42px);
+  container-type: inline-size;
   border: 1px solid #dde9f2;
   border-radius: 12px;
   background: linear-gradient(115deg, #eff6fb, #fafcfe);
 }
 .research-question {
-  max-width: 24ch;
   margin: 0;
   color: #17364e;
-  font-size: clamp(29px, 4.8vw, 46px);
+  font-size: clamp(13px, calc(5vw - 4px), 42px);
+  font-size: clamp(13px, 4.95cqi, 42px);
   font-weight: 700;
   line-height: 1.12;
 }
-.intro-copy { max-width: 58ch; margin: 12px 0 0; color: #344b60; }
+.intro-copy {
+  margin: 12px 0 0;
+  color: #344b60;
+  font-size: clamp(14px, 1.95cqi, 16px);
+}
 .home-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .home-actions :is(a, button) {
   display: inline-flex;
@@ -86,7 +91,7 @@ button, input { font: inherit; }
 .home-search:hover { background: #e4eff8; }
 .featured-papers { margin-block: 24px; }
 .featured-papers h2 { margin: 0 0 10px; color: #17364e; font-size: 19px; }
-.featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 10px; }
 .featured-paper {
   display: flex;
   flex-direction: column;
@@ -98,9 +103,7 @@ button, input { font: inherit; }
 }
 .featured-paper h3 { margin: 0; font-size: 16px; line-height: 1.25; }
 .featured-paper p { margin: 7px 0 12px; color: #475b6b; font-size: 14px; }
-.featured-action { margin-top: auto; color: var(--link); font-size: 13px; font-weight: 600; }
-.featured-paper:is(:hover, :focus-visible) { background: #f4f8fc; text-decoration: none; }
-.featured-paper:is(:hover, :focus-visible) .featured-action { text-decoration: underline; }
+.featured-paper .abstract-text { text-align: left; }
 .bio-section, .email-row { border-top: 1px solid #e4ebf0; }
 .bio-section > summary, .email-toggle {
   min-height: 44px;
@@ -179,6 +182,7 @@ button, input { font: inherit; }
 @media (max-width: 650px) {
   .content-width { width: calc(100% - 38px); }
   .intro { padding-block: 18px; }
+  .home-intro { padding-inline: clamp(10px, 3vw, 20px); }
   .featured-grid { grid-template-columns: 1fr; gap: 8px; }
   .site-search { padding: 20px; }
   .papers-content { padding-block: 14px; }

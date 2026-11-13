@@ -208,7 +208,7 @@ tableBody.addEventListener('click',event=>{
  const row=document.getElementById(button.getAttribute('aria-controls'));
  const opening=button.getAttribute('aria-expanded')!=='true';row.hidden=!opening;button.setAttribute('aria-expanded',String(opening));
 });
-tableBody.addEventListener('toggle',event=>{
+document.addEventListener('toggle',event=>{
  const panel=event.target;
  if(!panel.matches('.abstract-details')||!panel.open||panel.dataset.mathDone)return;
  const abstract=panel.querySelector('.abstract-text');if(!abstract||!/[\$\\]/.test(abstract.textContent))return;

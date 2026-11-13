@@ -96,12 +96,22 @@
   const summary=event.target.closest?.('summary');
   const details=summary?.parentElement;
   if(!details?.matches('details.abstract-details')||details.open)return;
-  const row=details.closest('tr[id^="paper-"]');
-  if(!row)return;
+  const paperId=details.dataset.paperAbstract||details.closest('tr[id^="paper-"]')?.id.slice(6);
+  if(!paperId)return;
   setTimeout(()=>{
-   if(!event.defaultPrevented&&details.open)countAbstractOpen(row.id.slice(6));
+   if(!event.defaultPrevented&&details.open)countAbstractOpen(paperId);
   },0);
  });
+ // Older browsers support details but ignore the name attribute.
+ const featuredAbstracts=document.querySelectorAll('details[name="featured-abstract"]');
+ for(const details of featuredAbstracts){
+  details.addEventListener('toggle',()=>{
+   if(!details.open)return;
+   for(const other of featuredAbstracts){
+    if(other!==details&&other.open)other.open=false;
+   }
+  });
+ }
  function isSameTabClick(event){
   return event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey;
  }
@@ -112,12 +122,7 @@
   }
  }
  for(const link of document.querySelectorAll('.homepage-jump')){
-  link.addEventListener('click',event=>{
-   if(event.isTrusted&&isSameTabClick(event)&&link.dataset.paperAbstract){
-    countAbstractOpen(link.dataset.paperAbstract);
-   }
-   reopenHashLink(event,link);
-  });
+  link.addEventListener('click',event=>reopenHashLink(event,link));
  }
  for(const button of document.querySelectorAll('.search-open')){
   button.addEventListener('click',()=>{dialog.showModal();input.focus();showResults()});

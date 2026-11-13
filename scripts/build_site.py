@@ -125,15 +125,18 @@ def featured_papers(papers):
  cards=[]
  for paper_id,question in selected:
   paper=papers_by_id.get(paper_id)
-  if not paper or not paper.get('abstract'):
+  if not paper or not (abstract:=paper.get('abstract', '').strip()):
    continue
   title=escape(paper.get('display_title') or paper['title'])
   key=escape(paper_id)
-  cards.append(f'''<a class="featured-paper homepage-jump" href="#paper-{key}" data-paper-abstract="{key}" aria-labelledby="featured-title-{key} featured-action-{key}">
+  cards.append(f'''<article class="featured-paper" aria-labelledby="featured-title-{key}">
     <h3 id="featured-title-{key}">{title}</h3>
     <p>{escape(question)}</p>
-    <span id="featured-action-{key}" class="featured-action">Read abstract <span aria-hidden="true">→</span></span>
-   </a>''')
+    <details class="abstract-details" name="featured-abstract" data-paper-abstract="{key}">
+     <summary><span class="abstract-read">Read abstract</span><span class="abstract-hide">Hide abstract</span><span class="visually-hidden"> for {title}</span></summary>
+     <div class="detail-content"><div class="abstract-text">{escape(abstract)}</div><div class="abstract-source">{external(paper.get('abstract_source') or url(paper), 'Abstract summary' if paper.get('abstract_kind')=='summary' else 'Source')}</div></div>
+    </details>
+   </article>''')
  if not cards:
   return ''
  return f'''<section class="featured-papers" aria-labelledby="featured-heading">
