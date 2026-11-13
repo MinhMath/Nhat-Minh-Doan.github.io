@@ -226,7 +226,8 @@ const papersPanel=document.getElementById('papers');
 const browsePapers=document.getElementById('browse-papers');
 const paperActions=browsePapers?.parentElement;
 const relatedHeading=papersPanel?.querySelector('.related-papers-heading');
-const relatedLinks=new Map(Array.from(document.querySelectorAll('[data-related-papers]'),link=>[
+const relatedControls=document.querySelectorAll('[data-related-papers]');
+const relatedLinks=new Map(Array.from(relatedControls,link=>[
  link.hash.slice(1), link.dataset.relatedPapers.split(' ')
 ]));
 const paperLoad=document.getElementById('paper-load');
@@ -286,7 +287,7 @@ function selectPaperFromHash(){
  document.querySelectorAll('.paper-selected').forEach(row=>row.classList.remove('paper-selected'));
  if(!related&&id!=='papers'&&!id.startsWith('paper-'))return;
  if(papersPanel)papersPanel.open=true;
- syncBrowseButton();
+ syncPaperControls();
  loadPapers();
  if(id==='papers')return;
  if(related){
@@ -306,14 +307,30 @@ function selectPaperFromHash(){
  target?.focus({preventScroll:true});
  row.scrollIntoView({block:'start'});
 }
-function syncBrowseButton(){
- if(browsePapers)browsePapers.setAttribute('aria-expanded',String(papersPanel.open&&!papersPanel.classList.contains('showing-related-papers')));
+function syncPaperControls(){
+ const showingRelated=papersPanel?.open&&papersPanel.classList.contains('showing-related-papers');
+ if(browsePapers)browsePapers.setAttribute('aria-expanded',String(papersPanel.open&&!showingRelated));
+ for(const link of relatedControls){
+  link.setAttribute('aria-expanded',String(Boolean(showingRelated&&link.hash===location.hash)));
+ }
+}
+function closePapers(){
+ papersPanel.open=false;
+ history.replaceState(null,'',location.pathname+location.search);
+ selectPaperFromHash();
+ syncPaperControls();
+}
+for(const link of relatedControls){
+ link.addEventListener('click',event=>{
+  if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||link.hash!==location.hash)return;
+  event.preventDefault();
+  if(papersPanel.open)closePapers();
+  else selectPaperFromHash();
+ });
 }
 browsePapers?.addEventListener('click',()=>{
  if(papersPanel.open&&!papersPanel.classList.contains('showing-related-papers')){
-  papersPanel.open=false;
-  history.replaceState(null,'',location.pathname+location.search);
-  syncBrowseButton();
+  closePapers();
   return;
  }
  if(location.hash!=='#papers')history.pushState(null,'','#papers');
@@ -321,7 +338,7 @@ browsePapers?.addEventListener('click',()=>{
 });
 paperLoadRetry.addEventListener('click',loadPapers);
 papersPanel?.addEventListener('toggle',()=>{
- syncBrowseButton();
+ syncPaperControls();
  if(papersPanel.open)loadPapers();
 });
 if(!papersPanel||papersPanel.open)loadPapers();

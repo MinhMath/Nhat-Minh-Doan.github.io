@@ -128,7 +128,7 @@ def featured_papers(papers):
   paper_ids_attr=escape(' '.join(related))
   cards.append(f'''<article class="featured-paper" aria-labelledby="featured-question-{key}">
     <h3 id="featured-question-{key}">{escape(question)}</h3>
-    <a class="featured-action homepage-jump" href="#related-{key}" data-related-papers="{paper_ids_attr}" aria-describedby="featured-question-{key}">Related papers <span aria-hidden="true">→</span></a>
+    <a class="featured-action" href="#related-{key}" data-related-papers="{paper_ids_attr}" aria-controls="papers" aria-expanded="false" aria-describedby="featured-question-{key}">Related papers <span aria-hidden="true">→</span></a>
    </article>''')
  if not cards:
   return ''
