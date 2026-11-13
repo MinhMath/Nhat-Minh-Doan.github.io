@@ -100,7 +100,6 @@ def papers_panel():
  return f'''<div class="papers-content">
 <div class="related-papers-heading" hidden><h2 tabindex="-1">Related papers</h2><a class="homepage-jump" href="#papers">Browse all papers</a></div>
 {PAPERS_TABLE}
-<figure class="papers-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions" loading="lazy"></figure>
 <section class="paper-insights" id="paper-insights" aria-label="Citation history and co-authors" hidden>
  <section class="insight-box" aria-labelledby="coauthors-heading">
   <h2 id="coauthors-heading">Co-authors</h2>
@@ -262,6 +261,7 @@ def main():
   <section class="home-intro" aria-labelledby="home-title">
    <h1 id="home-title" class="research-question">What can lengths tell us about a surface?</h1>
    <p class="intro-copy">I’m Minh, a researcher at the Institute of Mathematics, VAST. I study hyperbolic surfaces and their length spectra.</p>
+   <figure class="intro-illustration"><img src="assets/surfaces-banner.png?v={asset_revision("surfaces-banner.png")}" width="2046" height="652" alt="Illustrations of surfaces, curves, and decompositions"></figure>
    <div class="home-actions">
     <a class="home-primary homepage-jump" href="#papers">Browse all papers <span aria-hidden="true">↓</span></a>
    </div>
