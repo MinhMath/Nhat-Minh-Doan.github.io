@@ -127,10 +127,9 @@ def featured_papers(papers):
   if not related:
    continue
   paper_ids_attr=escape(' '.join(related))
-  label='Read papers' if len(related)>1 else 'Read paper'
   cards.append(f'''<article class="featured-paper" aria-labelledby="featured-question-{key}">
     <h3 id="featured-question-{key}">{escape(question)}</h3>
-    <a class="featured-action homepage-jump" href="#related-{key}" data-related-papers="{paper_ids_attr}" data-paper-abstract="{escape(related[0])}" aria-describedby="featured-question-{key}">{label} <span aria-hidden="true">→</span></a>
+    <a class="featured-action homepage-jump" href="#related-{key}" data-related-papers="{paper_ids_attr}" data-paper-abstract="{escape(related[0])}" aria-describedby="featured-question-{key}">Related papers <span aria-hidden="true">→</span></a>
    </article>''')
  if not cards:
   return ''
