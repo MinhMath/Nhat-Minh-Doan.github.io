@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-12T08:28:55+00:00",
+  "generated_utc": "2026-11-13T07:57:53+00:00",
   "collection_status": "partial",
   "sources": {
     "publisher_bibliographies": {
@@ -9,8 +9,8 @@
     },
     "known_bibliographies": {
       "status": "completed_requests",
-      "papers_checked": 20,
-      "verified_records": 11
+      "papers_checked": 21,
+      "verified_records": 12
     },
     "zenodo_authors": {
       "status": "completed_requests",

@@ -4,7 +4,7 @@
 
 **Total citation records:** 27 | **Bibliography verified:** 25 | **Scholar-listed, full text pending:** 2 | **Self citations:** 13 | **Non-self citations:** 14
 
-Collection status: **partial**. Last saved discovery: 2026-11-12T08:28:55+00:00.
+Collection status: **partial**. Last saved discovery: 2026-11-13T07:57:53+00:00.
 
 | Canonical paper | Verified citations | Scholar-listed | Unverified candidates |
 |---|---:|---:|---:|
@@ -38,8 +38,8 @@ Collection status: **partial**. Last saved discovery: 2026-11-12T08:28:55+00:00.
   Reference excerpt: N. M. Doan, X. Li, and V. Nguyen, Stable-norm boundary geometry on once-punctured tori , arXiv:2605.14574v3 (https://arxiv.org/abs/2605.14574v3) (2026). arXiv
 - [Patterns in the Markov Numbers and Their Generalizations](https://arxiv.org/abs/2609.14149) — Cormac O'Sullivan; independent. Verified in arXiv PDF bibliography.
   Reference excerpt: [DLN26] Nhat Minh Doan, Xiaobin Li, and V an Nguyen. McShane- Rivin norm balls and simple-length multiplici- ties. arXiv: 2605.14574, 2026.
-- [Simple Length Multiplicity on X(n)](https://arxiv.org/abs/2611.16078) — Jonah Gaster; Dídac Martínez-Granado; Christopher-Lloyd Simon; independent. Verified in arXiv PDF bibliography.
-  Reference excerpt: [DLN26] Nhat Minh Doan, Xiaobin Li, and Van Nguyen. McShane-Rivin norm balls and simple-length multiplicities, 2026.
+- [Simple Length Multiplicity on X(n)](https://arxiv.org/abs/2611.16078) — Jonah Gaster; Dídac Martínez-Granado; Christopher-Lloyd Simon; independent. Verified by direct bibliography inspection.
+  Reference excerpt: [DLN26] Nhat Minh Doan, Xiaobin Li, and Van Nguyen. McShane-Rivin norm balls and simple-length multiplicities, 2026. 2, 3
 - [The torus with asymptotically the fewest simple closed geodesics](https://hexagonmath.org/2610.00159v1) — Phuc Thinh Dang; Trong Toan Dao; Nhat Minh Doan; shared author. Verified in HexagonMath HTML bibliography.
   Reference excerpt: N. M. Doan, X. Li, and V. Nguyen, McShane--Rivin norm balls and simple-length multiplicities, arXiv:2605.14574, version 2, 2026, https://arxiv.org/abs/2605.14574v2. arXiv
 
