@@ -149,6 +149,7 @@ button, input { font: inherit; }
 .papers-content { max-width: 1600px; margin: auto; padding-block: 25px; }
 .related-papers-heading:not([hidden]) { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 12px; }
 .related-papers-heading h2 { margin: 0; color: #17364e; font-size: 19px; }
+.showing-related-papers > summary { display: none; }
 .showing-related-papers :is(.unrelated-paper, .papers-illustration, .paper-insights) { display: none; }
 .papers-illustration { width: 100%; max-width: 700px; margin: 20px auto; }
 .papers-illustration img { display: block; width: 100%; height: auto; clip-path: inset(0.5% 0 0); }
