@@ -133,7 +133,7 @@ def featured_papers(papers):
  if not cards:
   return ''
  return f'''<section class="featured-papers" aria-labelledby="featured-heading">
-  <h2 id="featured-heading">Selected papers</h2>
+  <h2 id="featured-heading">Selected questions</h2>
   <div class="featured-grid">
    {''.join(cards)}
   </div>
